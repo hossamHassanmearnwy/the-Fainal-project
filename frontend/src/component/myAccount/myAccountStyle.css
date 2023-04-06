@@ -1,0 +1,48 @@
+.row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    
+}
+
+
+.edit-link{
+        text-decoration: none;
+        color: red;
+        margin-right: 6px;
+
+    
+}
+
+.password-link{
+    text-decoration: none;
+    color:black
+
+}
+
+.edit-link:hover {
+    color: #fed700 ;
+    transition-duration: 0.5s;
+
+}
+
+.col-12{
+
+    margin-bottom: 20px;
+    
+}
+
+
+
+.myCard{
+    height: 160px;
+}
+
+
+.emptyShippingDetails{
+    display:none;
+
+}
+
+
+
