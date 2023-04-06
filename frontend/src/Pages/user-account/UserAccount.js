@@ -44,12 +44,7 @@ export default function UserAccount() {
                     <Outlet />
                 </div>
         </div>
-
-
-
             </div>
-
-
         </>
     )
 }
