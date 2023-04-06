@@ -10,6 +10,8 @@ import AccountInformation from './component/accountInformation/accountInformatio
 import Login from "./Pages/Login/login";
 import Register from "./Pages/Register/register";
 import ForgotPassword from "./Pages/ForgotPassword/forgotPassword";
+import Fav from './Pages/Favs/favs';
+import NotFound from './Pages/NotFound/NotFound';
 //////////////////////
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
           <Route path='mywishlist' element={<MyWishList />} />
           <Route path='addressbook' element={<AddressBook />} />
           <Route path='accountinfo' element={<AccountInformation />} />
+          <Route path='Fav' element={<Fav />} />
+          <Route path='*' element={<NotFound/>} />
       
 
         </Route>
