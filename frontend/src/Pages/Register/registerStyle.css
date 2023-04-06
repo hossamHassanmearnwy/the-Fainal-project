@@ -1,0 +1,14 @@
+* {box-sizing:border-box;}
+
+
+  .register-input {
+    width:25rem;
+    padding:1rem;
+    border-radius: 50px;
+    justify-content: left;
+    border-color: orange;
+  }
+  .register-input:focus {
+    border-color: orange !important;
+    box-shadow:  inset 2px 1px 1px orange !important;
+  }
