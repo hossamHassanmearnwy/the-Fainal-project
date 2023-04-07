@@ -39,7 +39,7 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
       <thead>
         <tr style={{"color":"#aca7a7" , "fontWeight":"lighter"}}>
         <th> </th>
-          <th>Product</th>
+          <th className='text-start'>Product</th>
           <th>Quantity</th>
           <th>Price</th>
           
@@ -53,9 +53,9 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
         <td className='text-center'>
           <BsXLg className='mt-4' onClick={()=>handleRemove(item.id)} ></BsXLg>
           </td>
-          <td>
+          <td className='text-start'>
           
-            <img className='imgCart' src={item.img} alt="" width={90} height={90} />
+            <img className='imgCart ' src={item.img} alt="" width={90} height={90} />
             <span className='tit ms-4'>{item.title}</span>
             </td>
           <td>
@@ -111,7 +111,7 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
     <Table className='bg-white'>
       <thead>
         <tr>
-          <th className='fs-2 border-bottom border-warning' colSpan={3}>Cart Total</th>
+          <th className='fs-2 border-bottom border-warning text-start' colSpan={3}>Cart Total</th>
           {/* <th> </th>
           <th> </th> */}
           <th className='fs-2 border-bottom border-warning'> </th>
@@ -119,17 +119,17 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
       </thead>
       <tbody>
         <tr>
-        <td colSpan={3} className='py-3'>subTotal</td>
+        <td colSpan={3} className='py-3 text-start'>SubTotal</td>
           {/* <td colSpan={2}>Larry the Bird</td> */}
           <td className='py-3'>${price}</td>
         </tr>
         <tr>
-        <td className='py-3' colSpan={3}>Shipping</td>
+        <td className='py-3 text-start' colSpan={3}>Shipping</td>
           {/* <td colSpan={2}>Larry the Bird</td> */}
           <td className='py-3'>0</td>
         </tr>
         <tr>
-          <td className='py-3' colSpan={3}>Total</td>
+          <td className='py-3 text-start' colSpan={3}>Total</td>
           {/* <td>Larry the Bird</td> */}
           <td className='py-3'>${price}</td>
         </tr>
