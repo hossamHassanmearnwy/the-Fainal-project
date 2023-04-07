@@ -1,0 +1,27 @@
+@media only screen and (max-width: 800px) {
+    
+    .amount {
+      display: block;
+      margin: 0 auto;
+    }
+    .imgCart{
+      display: none;
+    }
+    .tit{
+      display: block;
+      margin-top: 10%;
+
+    }
+    .gBtn{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      
+    }
+    .gBtn button{
+      margin: 0 auto;
+      margin-bottom: 15px;
+      width: 100%;
+    }
+  }

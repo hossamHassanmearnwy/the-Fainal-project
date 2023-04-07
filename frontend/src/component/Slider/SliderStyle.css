@@ -1,0 +1,22 @@
+ .carousel-control-next, .carousel-control-prev {
+    display: none;
+}
+
+.carousel-indicators {
+    justify-content: flex-start !important;
+    margin-left: 60%;
+}
+.carousel-indicators button {
+    /* color: orange !important; */
+    background-color: orange !important;
+}
+
+.carousel-item .carousel-caption{
+    position: static;
+    align-self: center;
+}
+
+.carousel-item {
+    justify-content: space-between;
+    
+}
