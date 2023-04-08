@@ -21,6 +21,7 @@ import Register from "./Pages/Register/register";
 import ForgotPassword from "./Pages/ForgotPassword/forgotPassword";
 import Fav from "./Pages/Favs/favs";
 import NotFound from "./Pages/NotFound/NotFound";
+
 import Product from "./Components/product/product";
 //////////////////////
 
@@ -101,6 +102,7 @@ function App() {
           <Route path="accountinfo" element={<AccountInformation />} />
           <Route path="Fav" element={<Fav />} />
           <Route path="product" element={<Product />} />
+          <Route path="login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="/login" element={<Login />} />

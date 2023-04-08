@@ -3,7 +3,7 @@ import "./Products.css";
 
 const Product = () => {
   return (
-    <div className="card">
+    <div className="cardPro">
       <div className="imgBox">
         <img
           src="https://www.corsair.com/corsairmedia/sys_master/productcontent/CH-9300011-NA-M65_PRO_RGB_BLK_04.png"
