@@ -1,5 +1,5 @@
 import { Nav, Container, Navbar } from "react-bootstrap";
-// import Styles from './NavStyle.module.css'
+// import './NavStyle.module.css'
 
 function ProjectNav() {
   return (
@@ -10,11 +10,10 @@ function ProjectNav() {
           <span className="text-warning"> My Fire </span> 
           Electronics Store
         </Navbar.Brand>
-        <Navbar.Toggle className="bg-warning"  aria-controls="responsive-navbar-nav" />
 
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Collapse>
           <Nav className="me-auto"></Nav>
-          <Nav>
+          <Nav className='auth flex-row justify-content-center'>
             <Nav.Link className="text-dark" href="#deets">Login | </Nav.Link>
             <Nav.Link className="text-dark" href="#memes">Register</Nav.Link>
           </Nav>

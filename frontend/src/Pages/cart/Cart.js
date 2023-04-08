@@ -51,7 +51,7 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
       
         <tr>
         <td className='text-center'>
-          <BsXLg className='mt-4' onClick={()=>handleRemove(item.id)} ></BsXLg>
+          <BsXLg className='mt-4' onClick={()=>handleRemove(item.id)} role="button"></BsXLg>
           </td>
           <td className='text-start'>
           
