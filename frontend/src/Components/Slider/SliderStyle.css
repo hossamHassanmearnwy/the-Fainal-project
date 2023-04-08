@@ -1,9 +1,9 @@
  .carousel-control-next, .carousel-control-prev {
-    display: none;
+    display: none !important;
 }
 
 .carousel-indicators {
-    justify-content: flex-start !important;
+    justify-content: center !important;
     margin-left: 60%;
 }
 .carousel-indicators button {
@@ -17,6 +17,7 @@
 }
 
 .carousel-item {
+
     justify-content: space-between;
     
 }

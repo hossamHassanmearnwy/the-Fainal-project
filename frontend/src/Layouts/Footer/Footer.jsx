@@ -8,39 +8,33 @@ export default function ProjFooter() {
     <div className='text-center ' color='black' bgColor='light'>
       <Container fluid className='p-4'>
         <section className='mb-4 d-flex justify-content-center align-items-center'>
-        <a outline  floating className='m-1' href='#!' role='button'>
-          <Icon.Facebook className="fs-2 text-warning m-2"  />
-
-        </a>
+          <a outline  floating className='m-1' href='#!' role='button'>
+            <Icon.Facebook className="fs-2 text-warning m-2"  />
+          </a>
 
           <a outline floating className='m-1' href='#!' role='button'>
-            <Icon.Twitter className="fs-2 text-warning m-2"  />
-
+            <Icon.Twitter className="fs-2 text-warning m-2" />
           </a>
 
           <a outline  floating className='m-1' href='#!' role='button'>
             <Icon.Google className="fs-2 text-warning m-2" />
-
           </a>
 
           <a outline  floating className='m-1' href='#!' role='button'>
             <Icon.Instagram className="fs-2 text-warning m-2" />
-
           </a>
 
           <a outline  floating className='m-1' href='#!' role='button'>
             <Icon.Linkedin className="fs-2 text-warning m-2" />
-
           </a>
 
           <a outline color="muted" floating className='m-1' href='#!' role='button'>
             <Icon.Github className="fs-2 text-warning m-2" />
-
           </a>
         </section>
 
-        <section className='d-block'>
-          <form action=''>
+        <section className='d-flex justify-content-center'>
+          <form action='' >
             <Row className='d-flex justify-content-center'>
               <Col size="auto">
                 <p className='pt-2'>

@@ -17,8 +17,8 @@ const InternalNav = ({size, setShow}) => {
             Fire 
           </Navbar.Brand>
         <Navbar.Toggle className="bg-warning border-light text-light" aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll" className='justify-content-center col-10'>
-        <InputGroup className='col-lg-3 col-md-6 w-50'>
+        <Navbar.Collapse id="navbarScroll" className='d-flex justify-content-center col-10'>
+        <InputGroup className='col-lg-3 col-md-6 mx-5 w-50'>
       
       <Form.Control type="text" className='py-2' style={{"borderTopLeftRadius": "30px", "borderBottomLeftRadius": "30px"}}/>
       <Form.Control.Feedback>

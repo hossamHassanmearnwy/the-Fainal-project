@@ -5,6 +5,7 @@ import 'bootstrap/dist/js/bootstrap.js';
 import {  useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import './forgotPasswordStyle.css';
 import './forgotPasswordStyle.css'
 
 export default function ForgotPassword() {
@@ -37,9 +38,9 @@ export default function ForgotPassword() {
         <Container fluid>
             <Row>
                 <Col><Form className="w-100" >
-                    <h1 >Forgot Your Password?</h1>
+                    <h1 className="d-flex justify-content-center" >Forgot Your Password?</h1>
                     <Form.Group className="mb-3 " controlId="formBasicEmail">
-                        <Form.Label style={{ fontWeight: "bold" }}>Please enter your email address below to receive a password reset link.
+                        <Form.Label className="d-flex justify-content-center font-weight-bold">Please enter your email address below to receive a password reset link.
                             Email</Form.Label>
                         <div className="d-flex flex-column align-items-center m-3 ">
                             <Form.Control className="forget-input border-warning" name="userEmail" type="email" placeholder="Enter email" value={user.userEmail}
@@ -54,8 +55,8 @@ export default function ForgotPassword() {
                 </Col>
             </Row>
 
-            <row>
-                <p> Remember your password 
+            <row className="d-flex justify-content-center">
+                <p > Remember your password 
                     <a  className="text-warning text-decoration-none "  onClick={()=> navigateToLogin()} > Login </a>
                 </p>
             </row>

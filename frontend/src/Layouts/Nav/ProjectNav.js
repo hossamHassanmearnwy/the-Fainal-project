@@ -15,8 +15,8 @@ function ProjectNav() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"></Nav>
           <Nav>
-            <Nav.Link className="text-dark" href="#deets">Login | </Nav.Link>
-            <Nav.Link className="text-dark" href="#memes">Register</Nav.Link>
+            <Nav.Link className="text-dark" href="/login">Login | </Nav.Link>
+            <Nav.Link className="text-dark" href="/register">Register</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
