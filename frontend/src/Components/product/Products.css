@@ -5,7 +5,7 @@
   position: relative;
   width: 320px;
   height: 480px;
-  background: #191919;
+  background: white;
   border-radius: 20px;
   overflow: hidden;
 }
@@ -27,13 +27,13 @@
 }
 
 .card::after {
-  content: "CORSAIR";
+
   position: absolute;
   bottom: 0;
   left: 0;
   font-weight: 600;
   font-size: 6em;
-  color: rgba(0, 0, 0, 0.1);
+  color: white;
 }
 
 .card .imgBox {
@@ -45,6 +45,7 @@
   padding-top: 20px;
   z-index: 1;
 }
+
 /*
 .card .imgBox img {
     max-width: 100%;
