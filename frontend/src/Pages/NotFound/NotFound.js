@@ -7,8 +7,8 @@ function NotFound() {
      <div> <button type="button" class="btn btn-warning">home</button></div> */}
       <div className="container" class="mainbox">
         <div class="err">4</div>
-        <i class="far fa-question-circle fa-spin"></i>
-        <div class="err2">4</div>
+        <div class="err">0</div>
+        <div class="err">4</div>
         <div class="msg">
           Maybe this page moved? Got deleted? Is hiding out in quarantine? Never
           existed in the first place?
