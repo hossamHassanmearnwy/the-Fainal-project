@@ -41,16 +41,7 @@ const Productpage = () => {
         </div>
       </div>
       {/* ignore */}
-      <a href="https://youtu.be/NBIbZIegMRY" target="_blank">
-        <footer>
-          <div className="texto">
-            <span>
-              <i className="fab fa-youtube" />
-              watch on youtube
-            </span>
-          </div>
-        </footer>
-      </a>
+      <a href="https://youtu.be/NBIbZIegMRY" target="_blank"></a>
     </div>
   );
 };
