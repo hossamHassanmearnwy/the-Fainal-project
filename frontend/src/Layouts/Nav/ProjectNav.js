@@ -4,8 +4,10 @@ import { useTranslation } from 'react-i18next';
 
 function ProjectNav() {
   const [translate, i18n] = useTranslation();
+  document.body.dir = i18n.dir();
+
   return (
-    <Navbar collapseOnSelect expand="lg" bg="light" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="light" variant="dark" >
       <Container className="container-fluid">
         <Navbar.Brand className="text-muted">
           {/* Welcome to */}
