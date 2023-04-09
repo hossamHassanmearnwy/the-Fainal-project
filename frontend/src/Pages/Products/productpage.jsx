@@ -35,13 +35,13 @@ const Productpage = () => {
             </div>
           </div>
           <div className="product_buttons">
-            <button className="btn wishlist">wishlist</button>
-            <button className="btn buy">buy</button>
+            <button className="btn btn-warning wishlist">wishlist</button>
+            <button className="btn btn-success buy">buy</button>
           </div>
         </div>
       </div>
-      {/* ignore */}
-      <a href="https://youtu.be/NBIbZIegMRY" target="_blank"></a>
+
+      {/* <a href="www" ></a> */}
     </div>
   );
 };

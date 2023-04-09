@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400|Poppins:300,400,800&display=swap');
 
-* {
-	margin: 0;
-	padding: 0;
-}
-
-body {
-	font-family: 'Poppins';
-}
 
 .containerand {
 	width: 100%;
@@ -19,7 +11,7 @@ body {
 	position: relative;
 }
 
-.containerand .box {
+.containerand .boxand {
 	width: 0%;
 	height: 620px;
 	background: #fff;
@@ -27,7 +19,7 @@ body {
 	animation: openBox 1s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
 }
 
-.containerand .box .product__img {
+.containerand .boxand .product__img {
 	width: 600px;
 	position: absolute;
 	left: -150px;
@@ -37,7 +29,7 @@ body {
 	animation-delay: 1s;
 }
 
-.containerand .box .product__video {
+.containerand .boxand .product__video {
 	width: 320px;
 	height: 100px;
 	position: absolute;
@@ -45,7 +37,7 @@ body {
 	bottom: 50px;
 }
 
-.containerand .box .product__video .video {
+.containerand .boxand .product__video .video {
 	display: flex;
 	align-items: center;
 	position: absolute;
@@ -55,7 +47,7 @@ body {
 	animation-delay: 1.2s;
 }
 
-.containerand .box .product__video .video i {
+.containerand .boxand .product__video .video i {
 	width: 70px;
 	height: 70px;
 	display: flex;
@@ -71,13 +63,13 @@ body {
 	cursor: pointer;
 }
 
-.containerand .box .product__video .video i:hover {
+.containerand .boxand .product__video .video i:hover {
 	background: #f71568;
 	color: #fff;
 	box-shadow: 0 0 26px #f71568;
 }
 
-.containerand .box .product__video .video p {
+.containerand .boxand .product__video .video p {
 	margin-left: 25px;
 	font-family: 'Poppins';
 }
@@ -95,7 +87,7 @@ body {
 	animation: showDisc 1s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
 }
 
-.containerand .box .product__disc .product__disc--content {
+.containerand .boxand .product__disc .product__disc--content {
 	width: 80%;
 	height: 80%;
 	display: flex;
@@ -110,7 +102,7 @@ body {
 	width: 100%;
 }
 
-.containerand .box .product__disc .product__disc--content .disc__content--about h1 {
+.containerand .boxand .product__disc .product__disc--content .disc__content--about h1 {
 	font-size: 32px;
 	font-family: 'Poppins';
 }
@@ -124,13 +116,13 @@ body {
 	opacity: 0.5;
 }
 
-.containerand .box .product__disc .product__disc--content .disc__content--about p {
+.containerand .boxand .product__disc .product__disc--content .disc__content--about p {
 	margin-top: 35px;
 	font-size: 14px;
 	font-family: 'Poppins';
 }
 
-.containerand .box .product__disc .product__disc--content .product__view--more {
+.containerand .boxand .product__disc .product__disc--content .product__view--more {
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -138,12 +130,12 @@ body {
 	cursor: pointer;
 }
 
-.containerand .box .product__disc .product__disc--content .product__view--more:hover .view__more--block {
+.containerand .boxand .product__disc .product__disc--content .product__view--more:hover .view__more--block {
 	width: 220px;
 	height: 35px;
 }
 
-.containerand .box .product__disc .product__disc--content .product__view--more .view__more--block {
+.containerand .boxand .product__disc .product__disc--content .product__view--more .view__more--block {
 	width: 10px;
 	height: 15px;
 	position: absolute;
@@ -152,7 +144,7 @@ body {
 	transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) 320ms;
 }
 
-.containerand .box .product__disc .product__disc--content .product__view--more p {
+.containerand .boxand .product__disc .product__disc--content .product__view--more p {
 	font-size: 12px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -162,7 +154,7 @@ body {
 	font-family: 'Poppins';
 }
 
-.containerand .box .product_buttons {
+.containerand .boxand .product_buttons {
 	width: 500px;
 	height: 100px;
 	bottom: 50px;
@@ -170,7 +162,7 @@ body {
 	position: absolute;
 }
 
-.containerand .box .product_buttons .btn {
+.containerand .boxand .product_buttons .btn {
 	width: 240px;
 	height: 70%;
 	font-size: 16px;
@@ -184,7 +176,7 @@ body {
 	cursor: pointer;
 }
 
-.containerand .box .product_buttons .wishlist {
+.containerand .boxand .product_buttons .wishlist {
 	border: 2px solid #f71568;
 	background: transparent;
 	color: #f71568;
@@ -196,13 +188,13 @@ body {
 	animation-delay: 1s;
 }
 
-.containerand .box .product_buttons .wishlist:hover {
+.containerand .boxand .product_buttons .wishlist:hover {
 	background: #f71568;
 	color: #fff;
 	box-shadow: 0 0 26px #f71568;
 }
 
-.containerand .box .product_buttons .buy {
+.containerand .boxand .product_buttons .buy {
 	border: none;
 	background: #f71568;
 	color: #fff;
@@ -214,7 +206,7 @@ body {
 	animation-delay: 1s;
 }
 
-.containerand .box .product_buttons .buy:hover {
+.containerand .boxand .product_buttons .buy:hover {
 	box-shadow: 0 0 26px #f71568;
 }
 
@@ -299,36 +291,9 @@ body {
 	}
 }
 
-/*ignore*/
-footer {
-	width: 350px;
-	height: 80px;
-	background: #ffca1b;
-	position: absolute;
-	right: 0;
-	bottom: -80px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	animation: top 0.8s forwards;
-}
 
-footer span {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 12px;
-	color: #fff;
-	font-family: 'Poppins';
-}
 
-footer span i {
-	margin-right: 25px;
-	font-size: 22px;
-	color: #fff;
-	animation: icon 2s forwards;
-	opacity: 0;
-}
+
 
 @keyframes top {
 	0% {
