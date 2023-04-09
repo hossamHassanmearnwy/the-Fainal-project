@@ -23,6 +23,7 @@ import Fav from "./Pages/Favs/favs";
 import NotFound from "./Pages/NotFound/NotFound";
 
 import Product from "./Components/product/product";
+import Productpage from "./Pages/Products/productpage";
 //////////////////////
 
 function App() {
@@ -103,6 +104,7 @@ function App() {
           <Route path="Fav" element={<Fav />} />
           <Route path="product" element={<Product />} />
           <Route path="login" element={<Login />} />
+          <Route path="Productpage" element={<Productpage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="/login" element={<Login />} />
