@@ -13,14 +13,14 @@ import { useTranslation } from 'react-i18next';
 
 
 const InternalNav = ({size, setShow}) => {
-  const {translate, i18n} = useTranslation();
+  const [translate, i18n] = useTranslation();
   document.body.dir = i18n.dir();
   return (
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand href="#" className='col-2 mr-3 d-flex justify-content-start'>
-          <span className="  text-warning">My</span> 
-            Fire 
+          <span className="  text-warning">{translate("My")} </span> 
+            {translate('Fire')} 
           </Navbar.Brand>
         <Navbar.Toggle className="bg-warning border-light text-light" aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll" className='justify-content-center col-10'>
@@ -28,9 +28,11 @@ const InternalNav = ({size, setShow}) => {
       
       <Form.Control type="text" className='py-2' style={{"borderTopLeftRadius": "30px", "borderBottomLeftRadius": "30px"}}/>
       <Form.Control.Feedback >
-        Search
-      </Form.Control.Feedback>
-      <InputGroup.Text className='bg-white border border-warning text-warning py-2' style={{"borderTopRightRadius": "30px", "borderBottomRightRadius": "30px"}}>Search</InputGroup.Text>
+      Search 
+            </Form.Control.Feedback>
+      <InputGroup.Text className='bg-white border border-warning text-warning py-2 btn' 
+      style={{"borderTopRightRadius": "30px", "borderBottomRightRadius": "30px"}}>{translate('Search')}
+      </InputGroup.Text>
     </InputGroup>
 
         {/* <Button className='search' variant="outline-warning">Search</Button>

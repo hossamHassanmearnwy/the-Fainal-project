@@ -15,7 +15,7 @@ function NotFound() {
           <p>
             Let's go <a href="/Home">Home</a> and try from there.
           </p>
-        </div>
+        </div>  
       </div>
     </div>
   );

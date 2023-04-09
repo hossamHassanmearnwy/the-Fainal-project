@@ -14,6 +14,8 @@ function ProjectNav() {
           {translate('Welcome')}
           <span className="text-warning">
             {/* My Fire */}
+            {translate('My')}
+
             {translate('Fire')}
           </span>
           {translate('Store')}
@@ -23,8 +25,8 @@ function ProjectNav() {
         <Navbar.Collapse>
           <Nav className="me-auto"></Nav>
           <Nav className='auth flex-row justify-content-center'>
-            <Nav.Link className="text-dark" href="#deets">Login | </Nav.Link>
-            <Nav.Link className="text-dark" href="#memes">Register</Nav.Link>
+            <Nav.Link className="text-dark" href="#deets">{translate("Login")} | </Nav.Link>
+            <Nav.Link className="text-dark" href="#memes">{translate("Register")}</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         {i18n.language == 'ar' &&<button className="btn btn-warning" onClick={() => { i18n.changeLanguage('en') }}>EN</button>}

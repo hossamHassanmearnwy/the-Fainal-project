@@ -1,4 +1,48 @@
-{
+{ "Welcome":"مرحبا في",
+"Fire":" Fire ",
+"Cart":"عربة التسوق",
+"Product":"المنتج",
+"Quantity":"الكميّة",
+"Coupon Code":"كود القسيمة",
+"Apply Coupon":"تطبيق القسيمة ",
+"your favs":"المفضلة لديك",
+"Card Title":"عنوان البطاقة ",
+"forgot pass":"هل نسيت كلمة المرور",
+"Please enter your email address":
+"الرجاء إدخال عنوان بريدك الإلكتروني أدناه الحصول على رابط إعادة تعيين كلمة مرور. البريد الالكتروني",
+"Recover Password":"إعادة تعيين كلمة المرور الخاصة بي",
+"Remember your password ":"تذكرت كلمة المرور ",
+"Email is Required":"أدخل البريد الإلكتروني",
+"Enter Vaild Email":"أدخل بريد الإلكتروني صحيح",
+"Passwrod is Required":"أدخل كلمة المرور",
+"Enter Vaild Password":"أدخل كلمة مرور صحيحة",
+"Registered Customers":"الأعضاء المسجلين",
+"If you have an account":"إذا كان لديك حساب، سجل الدخول باستخدام عنوان بريدك الإلكتروني.",
+"Forget Password":"هل نسيت كلمة المرور " ,
+"Reset Password":"اعادة ضبط كلمة المرور",
+"New Customer":"عميل جديد",
+"Creating an account":"إنشاء حساب له فوائد عديدة: شراء أسرع، حفظ العناوين، متابعة الطلبات وأشياء أخرى.",
+"Create Account":"انشاء حساب",
+"Account Details":"بيانات الحساب",
+"My Account":"حسابي",
+"My Orders":"الطلبات",
+"My Wish List":"قائمة المفضلات",
+"Account information":"معلومات الحساب",
+"Address Book":"دليل العناوين",
+"Create New Customer Account":"إنشاء حساب عميل جديد",
+"Personal Information":"المعلومات الشخصية",
+"Date of Birth":"تاريخ الميلاد",
+"Mobile Number":"رقم الهاتف",
+"Sign-In Information":"بيانات الدخول",
+"Name Is required":"أدخل الاسم الاول",
+"LastName Is required":" أدخل اسم العائلة",
+"Password Pattern":"الحد الأدنى من الفئات المختلفة من الرموز و الأحرف هو %1 الفئات هي: حروف صغيرة, حروف كبيرة, ارقام, رموز.",
+
+
+
+
+
+
   " Example: ": " مثال: ",
   " is required.": " مطلوب.",
   "* Required Fields": "* حقول مطلوبة",
@@ -70,6 +114,8 @@
   "Gift options": "خيارات الهدايا",
   "Go to Details Page": "انتقل إلى صفحة التفاصيل",
   "Go to Home Page": "الانتقال إلى الصفحة الرئيسية",
+  "Proceed to Chekout":" الانتقال إلى الدفع",
+
   "Guest checkout is disabled.": "الشراء كزائر غير مفعلة في الوقت الحالي.",
   "HTML tags are not allowed.": "اكواد HTML غير مسموح بها.",
   "Home": "الصفحة الرئيسية",
@@ -87,13 +133,16 @@
   "Letters, numbers, spaces or underscores only please": "الحروف والأرقام والمسافات و الخط السفلي فقط",
   "Loading...": "جاري التحميل...",
   "Login": "تسجيل الدخول",
+  "Register":"إنشاء حساب",
+
   "Make Check payable to:": "تقديم شيك مستحق الدفع لـ:",
   "Medium": "متوسطة",
   "Message": "رسالة",
   "Message:": "الرسالة:",
   "Method Title": "اسم الطريقة",
   "Minimum length of this field must be equal or greater than %1 symbols. Leading and trailing spaces will be ignored.": "الحد الأدنى لطول هذا الحقل يجب أن تكون مساوية أو أكبر %1. سيتم تجاهل المسافات البادئة والزائدة.",
-  "Minimum of different classes of characters in password is %1. Classes of characters: Lower Case, Upper Case, Digits, Special Characters.": "الحد الأدنى من الفئات المختلفة من الرموز و الأحرف هو %1 الفئات هي: حروف صغيرة, حروف كبيرة, ارقام, رموز.",
+  "Minimum of different classes of characters in password is %1. Classes of characters: Lower Case, Upper Case, Digits, Special Characters.": 
+  "الحد الأدنى من الفئات المختلفة من الرموز و الأحرف هو %1 الفئات هي: حروف صغيرة, حروف كبيرة, ارقام, رموز.",
   "Month": "الشهر",
   "Months": "أشهر",
   "My Cart": "سلة التسوق",
@@ -242,6 +291,7 @@
   "To check out, please sign in with your email address.": "لتسجيل الخروج ، الرجاء تسجيل الدخول باستخدام عنوان البريد الإلكتروني الخاص بك.",
   "To:": "إلى:",
   "Total": "إجمالي",
+  "Cart Total":"إجمالي العربة",
   "Track order history": "الاطلاع على طلباتك السابقة",
   "Update": "تحديث",
   "Use Default Value": "استخدام قيمة افتراضية",
@@ -274,5 +324,15 @@
   "per page": "لكل صفحة",
   "records found": "تم العثور على سجلات",
   "selected": "مُحدد",
-  "to": "الى"
+  "to": "الى",
+  "Subscribe":"أشتراك",
+  "Sign up for our newsletter":"سجل للحصول على اخر اخبارنا",
+  "mobiles":"الهواتف المحمولة",
+  "tablets":"أجهزة لوحية",
+  "labtop":"لاب توب",
+  "watch":"ساعة ذكية ",
+  "My":" "
+
+
+
 }

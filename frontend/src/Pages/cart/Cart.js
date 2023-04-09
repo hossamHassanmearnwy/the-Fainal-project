@@ -6,11 +6,13 @@ import Button from 'react-bootstrap/Button';
 import { BsXLg } from "react-icons/bs";
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { useTranslation } from 'react-i18next';
 
 
 const Cart = ({cart, setCart, handleChange, setShow}) => {
     const [price, setPrice] = useState(0);
-
+    const [translate, i18n] = useTranslation();
+    document.body.dir = i18n.dir();
     const handlePrice = ()=>{
         let ans = 0;
         cart.map((item)=>(
@@ -34,14 +36,15 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
     
     
      <div className='container my-5'>
-      <h1 className='text-center'>Cart</h1>
+      <h1 className='text-center'>
+        {translate('Cart')}</h1>
     <Table className='my-5'>
       <thead>
         <tr style={{"color":"#aca7a7" , "fontWeight":"lighter"}}>
         <th> </th>
-          <th className='text-start'>Product</th>
-          <th>Quantity</th>
-          <th>Price</th>
+          <th className='text-start'>{translate('Product')}</th>
+          <th>{translate('Quantity')}</th>
+          <th>{translate('Price')}</th>
           
         </tr>
       </thead>
@@ -88,14 +91,17 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
       
       <Form.Control type="text" className='py-2' style={{"borderTopLeftRadius": "30px", "borderBottomLeftRadius": "30px"}}/>
       <Form.Control.Feedback>
-        Coupon Code
+        {translate('Coupon Code')}
       </Form.Control.Feedback>
-      <InputGroup.Text className='bg-dark text-light py-2' style={{"borderTopRightRadius": "30px", "borderBottomRightRadius": "30px"}}>Apply Coupon</InputGroup.Text>
+      <InputGroup.Text className='bg-dark text-light py-2'
+       style={{"borderTopRightRadius": "30px", "borderBottomRightRadius": "30px"}}>
+                {translate('Apply Coupon')}
+</InputGroup.Text>
     </InputGroup>
     </div>
     <div className='gBtn col-lg-6 col-md-12 d-flex align-items-end justify-content-end '>
-    <Button variant="dark rounded-pill py-2 px-3" onClick={()=>setShow(true)}>go to home</Button>
-    <Button className='checkout' variant="warning rounded-pill py-2 px-4 ms-2">Proceed to Chekout</Button>
+    <Button variant="dark rounded-pill py-2 px-3" onClick={()=>setShow(true)}>{translate('Go to Home Page')}</Button>
+    <Button className='checkout' variant="warning rounded-pill py-2 px-4 ms-2">{translate('Proceed to Chekout')}</Button>
     </div>
     </div>
 
@@ -111,7 +117,7 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
     <Table className='bg-white'>
       <thead>
         <tr>
-          <th className='fs-2 border-bottom border-warning text-start' colSpan={3}>Cart Total</th>
+          <th className='fs-2 border-bottom border-warning text-start' colSpan={3}>{translate('Cart Total')}</th>
           {/* <th> </th>
           <th> </th> */}
           <th className='fs-2 border-bottom border-warning'> </th>
@@ -119,17 +125,17 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
       </thead>
       <tbody>
         <tr>
-        <td colSpan={3} className='py-3 text-start'>SubTotal</td>
+        <td colSpan={3} className='py-3 text-start'>{translate('Cart Subtotal')}</td>
           {/* <td colSpan={2}>Larry the Bird</td> */}
           <td className='py-3'>${price}</td>
         </tr>
         <tr>
-        <td className='py-3 text-start' colSpan={3}>Shipping</td>
+        <td className='py-3 text-start' colSpan={3}>{translate('Shipping')}</td>
           {/* <td colSpan={2}>Larry the Bird</td> */}
           <td className='py-3'>0</td>
         </tr>
         <tr>
-          <td className='py-3 text-start' colSpan={3}>Total</td>
+          <td className='py-3 text-start' colSpan={3}>{translate('Total')}</td>
           {/* <td>Larry the Bird</td> */}
           <td className='py-3'>${price}</td>
         </tr>
