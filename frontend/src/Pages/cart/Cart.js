@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 
 const Cart = ({cart, setCart, handleChange, setShow}) => {
     const [price, setPrice] = useState(0);
-    const [translate, i18n] = useTranslation();
+    const {t, i18n} = useTranslation();
     document.body.dir = i18n.dir();
     const handlePrice = ()=>{
         let ans = 0;
@@ -37,14 +37,14 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
     
      <div className='container my-5'>
       <h1 className='text-center'>
-        {translate('Cart')}</h1>
+        {t('Cart')}</h1>
     <Table className='my-5'>
       <thead>
         <tr style={{"color":"#aca7a7" , "fontWeight":"lighter"}}>
         <th> </th>
-          <th className='text-start'>{translate('Product')}</th>
-          <th>{translate('Quantity')}</th>
-          <th>{translate('Price')}</th>
+          <th className='text-start'>{t('Product')}</th>
+          <th>{t('Quantity')}</th>
+          <th>{t('Price')}</th>
           
         </tr>
       </thead>
@@ -91,17 +91,17 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
       
       <Form.Control type="text" className='py-2' style={{"borderTopLeftRadius": "30px", "borderBottomLeftRadius": "30px"}}/>
       <Form.Control.Feedback>
-        {translate('Coupon Code')}
+        {t('Coupon Code')}
       </Form.Control.Feedback>
       <InputGroup.Text className='bg-dark text-light py-2'
        style={{"borderTopRightRadius": "30px", "borderBottomRightRadius": "30px"}}>
-                {translate('Apply Coupon')}
+                {t('Apply Coupon')}
 </InputGroup.Text>
     </InputGroup>
     </div>
     <div className='gBtn col-lg-6 col-md-12 d-flex align-items-end justify-content-end '>
-    <Button variant="dark rounded-pill py-2 px-3" onClick={()=>setShow(true)}>{translate('Go to Home Page')}</Button>
-    <Button className='checkout' variant="warning rounded-pill py-2 px-4 ms-2">{translate('Proceed to Chekout')}</Button>
+    <Button variant="dark rounded-pill py-2 px-3" onClick={()=>setShow(true)}>{t('Go to Home Page')}</Button>
+    <Button className='checkout' variant="warning rounded-pill py-2 px-4 ms-2">{t('Proceed to Chekout')}</Button>
     </div>
     </div>
 
@@ -117,7 +117,7 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
     <Table className='bg-white'>
       <thead>
         <tr>
-          <th className='fs-2 border-bottom border-warning text-start' colSpan={3}>{translate('Cart Total')}</th>
+          <th className='fs-2 border-bottom border-warning text-start' colSpan={3}>{t('Cart Total')}</th>
           {/* <th> </th>
           <th> </th> */}
           <th className='fs-2 border-bottom border-warning'> </th>
@@ -125,17 +125,17 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
       </thead>
       <tbody>
         <tr>
-        <td colSpan={3} className='py-3 text-start'>{translate('Cart Subtotal')}</td>
+        <td colSpan={3} className='py-3 text-start'>{t('Cart Subtotal')}</td>
           {/* <td colSpan={2}>Larry the Bird</td> */}
           <td className='py-3'>${price}</td>
         </tr>
         <tr>
-        <td className='py-3 text-start' colSpan={3}>{translate('Shipping')}</td>
+        <td className='py-3 text-start' colSpan={3}>{t('Shipping')}</td>
           {/* <td colSpan={2}>Larry the Bird</td> */}
           <td className='py-3'>0</td>
         </tr>
         <tr>
-          <td className='py-3 text-start' colSpan={3}>{translate('Total')}</td>
+          <td className='py-3 text-start' colSpan={3}>{t('Total')}</td>
           {/* <td>Larry the Bird</td> */}
           <td className='py-3'>${price}</td>
         </tr>

@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 import { useTranslation } from "react-i18next";
 
 export default function Fav() {
-  const [translate, i18n] = useTranslation();
+  const {t, i18n} = useTranslation();
   document.body.dir = i18n.dir();
   return (
     <div className="container">
@@ -12,7 +12,7 @@ export default function Fav() {
         {" "}
         <h3 className="hfav">
           {" "}
-          {translate('your favs')}{" "}
+          {t('your favs')}{" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -33,7 +33,7 @@ export default function Fav() {
         <Card className="col-4" id="favCard">
           <Card.Img variant="top" src="/1.jpg" className="cardImg" />
           <Card.Body>
-            <Card.Title>{translate('Card Title')}</Card.Title>
+            <Card.Title>{t('Card Title')}</Card.Title>
           </Card.Body>
           <svg
             xmlns="http://www.w3.org/2000/svg"

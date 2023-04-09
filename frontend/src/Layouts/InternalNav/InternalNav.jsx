@@ -7,20 +7,17 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import * as Icon from "react-bootstrap-icons";
 import "./InternalNav.css";
-import { useTranslation } from "react-i18next";
-
-
-
+import { Trans, useTranslation } from "react-i18next";
 
 const InternalNav = ({size, setShow}) => {
-  const {translate, i18n} = useTranslation();
+  const {t, i18n} = useTranslation();
   document.body.dir = i18n.dir();
   return (
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand href="#" className='col-2 mr-3 d-flex justify-content-start'>
-          <span className="  text-warning">My</span> 
-            Fire 
+          <span className="  text-warning">{t('My')}</span> 
+          {t('Fire')} 
           </Navbar.Brand>
         <Navbar.Toggle className="bg-warning border-light text-light" aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll" className='justify-content-center col-10'>
@@ -30,7 +27,7 @@ const InternalNav = ({size, setShow}) => {
       <Form.Control.Feedback >
         Search
       </Form.Control.Feedback>
-      <InputGroup.Text className='bg-white border border-warning text-warning py-2' style={{"borderTopRightRadius": "30px", "borderBottomRightRadius": "30px"}}>Search</InputGroup.Text>
+      <InputGroup.Text className='bg-white border border-warning text-warning py-2' style={{"borderTopRightRadius": "30px", "borderBottomRightRadius": "30px"}}>{t('Search')}</InputGroup.Text>
     </InputGroup>
 
           {/* <Button className='search' variant="outline-warning">Search</Button>

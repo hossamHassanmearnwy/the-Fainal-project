@@ -3,7 +3,7 @@ import { Nav, Container, Navbar } from "react-bootstrap";
 import { useTranslation } from 'react-i18next';
 
 function ProjectNav() {
-  const [translate, i18n] = useTranslation();
+  const {t, i18n} = useTranslation();
   document.body.dir = i18n.dir();
 
   return (
@@ -11,22 +11,22 @@ function ProjectNav() {
       <Container className="container-fluid">
         <Navbar.Brand className="text-muted">
           {/* Welcome to */}
-          {translate('Welcome')}
+          {t('Welcome')}
           <span className="text-warning">
             {/* My Fire */}
-            {translate('My')}
+            {t('My')}
 
-            {translate('Fire')}
+            {t('Fire')}
           </span>
-          {translate('Store')}
+          {t('Store')}
 
           {/* Electronics Store */}
         </Navbar.Brand>
         <Navbar.Collapse>
           <Nav className="me-auto"></Nav>
           <Nav className='auth flex-row justify-content-center'>
-            <Nav.Link className="text-dark" href="#deets">{translate("Login")} | </Nav.Link>
-            <Nav.Link className="text-dark" href="#memes">{translate("Register")}</Nav.Link>
+            <Nav.Link className="text-dark" href="#deets">{t("Login")} | </Nav.Link>
+            <Nav.Link className="text-dark" href="#memes">{t("Register")}</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         {i18n.language == 'ar' &&<button className="btn btn-warning" onClick={() => { i18n.changeLanguage('en') }}>EN</button>}

@@ -8,18 +8,18 @@ import { useTranslation } from 'react-i18next';
 
 
 export default function UserAccount() {
-    const [translate, i18n] = useTranslation();
+    const {t, i18n} = useTranslation();
   document.body.dir = i18n.dir();
     return (
         <>
             <div className="dropdown mx-5 my-5">
-                <button className="dropbtn">{translate('Account Details')}</button>
+                <button className="dropbtn">{t('Account Details')}</button>
                 <div className="dropdown-content" >
-                <a href="/useraccount/myaccount">{translate('My Account')}</a>
-                <a href="/useraccount/myorders">{translate('My Orders')}</a>
-                <a href="/useraccount/mywishlist">{translate('My Wish List')}</a>
-                <a href="/useraccount/accountinfo">{translate('Account information')}</a>
-                <a href="/useraccount/addressbook">{translate('Address Book')}</a>
+                <a href="/useraccount/myaccount">{t('My Account')}</a>
+                <a href="/useraccount/myorders">{t('My Orders')}</a>
+                <a href="/useraccount/mywishlist">{t('My Wish List')}</a>
+                <a href="/useraccount/accountinfo">{t('Account information')}</a>
+                <a href="/useraccount/addressbook">{t('Address Book')}</a>
                 
                 </div>
             </div>
@@ -31,11 +31,11 @@ export default function UserAccount() {
                     <div className='col-3 res'>
 
                 <ListGroup variant="flush">
-                        <NavLink className={'links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }}  to='/useraccount/myaccount'><ListGroup.Item className='nav'>{translate('Account Details')}</ListGroup.Item></NavLink>
-                            <NavLink className={'links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/myorders'><ListGroup.Item className='nav'>{translate('My Orders')}</ListGroup.Item></NavLink>
-                            <NavLink className={'links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/mywishlist'><ListGroup.Item className='nav'>{translate('My Wish List')}</ListGroup.Item></NavLink>
-                            <NavLink className={'links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/accountinfo'><ListGroup.Item className='nav'>{translate('Account information')}</ListGroup.Item></NavLink>
-                            <NavLink className={'links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/addressbook'><ListGroup.Item className='nav'>{translate('Address Book')}</ListGroup.Item></NavLink>
+                        <NavLink className={'links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }}  to='/useraccount/myaccount'><ListGroup.Item className='nav'>{t('Account Details')}</ListGroup.Item></NavLink>
+                            <NavLink className={'links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/myorders'><ListGroup.Item className='nav'>{t('My Orders')}</ListGroup.Item></NavLink>
+                            <NavLink className={'links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/mywishlist'><ListGroup.Item className='nav'>{t('My Wish List')}</ListGroup.Item></NavLink>
+                            <NavLink className={'links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/accountinfo'><ListGroup.Item className='nav'>{t('Account information')}</ListGroup.Item></NavLink>
+                            <NavLink className={'links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/addressbook'><ListGroup.Item className='nav'>{t('Address Book')}</ListGroup.Item></NavLink>
                 </ListGroup>
                     </div>
                     
