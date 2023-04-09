@@ -1,7 +1,10 @@
 import React from 'react';
 import '../Card/cards.css'
+import { useTranslation } from 'react-i18next';
 
 const Cards = ({item, handleClick}) => {
+  const {t, i18n} = useTranslation();
+  document.body.dir = i18n.dir();
     const {title, desc, price, img} = item;
     // console.log(item)
   return (
@@ -12,8 +15,8 @@ const Cards = ({item, handleClick}) => {
         <div className="details">
             <p>{title}</p>
             <p>{desc}</p>
-            <p>Price - {price}</p>
-            <button onClick={()=>handleClick(item)} >Add to Cart</button>
+            <p>{t('Price')} - {price}</p>
+            <button onClick={()=>handleClick(item)} >{t('Add to Cart')}</button>
         </div>
     </div>
   )
