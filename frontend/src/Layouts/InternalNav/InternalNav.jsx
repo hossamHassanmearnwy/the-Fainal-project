@@ -48,7 +48,7 @@ const InternalNav = ({size, setShow}) => {
                 <Icon.Heart className="fs-3 text-warning m-2" />
               </Nav.Link>
               <Nav.Link
-                href="#action2"
+                href="/cart"
                 className="cart"
                 onClick={() => setShow(false)}
               >

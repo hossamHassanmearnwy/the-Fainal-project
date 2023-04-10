@@ -80,14 +80,15 @@ function App() {
 {/* 
         {show ? (
           <Amazon handleClick={handleClick} />
-        ) : (
-          <Cart
+        ) : ( */}
+          {/* <Cart
             cart={cart}
             setCart={setCart}
             handleChange={handleChange}
             setShow={setShow}
-          />
-        )}
+            path='/cart'
+          /> */}
+        {/* )}
         {warning && (
           <div className="warning">Item is already added to your cart</div>
         )} */}
@@ -108,13 +109,23 @@ function App() {
           <Route path="accountinfo" element={<AccountInformation />} />
           <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="/cart" element={
+          <Cart
+            cart={cart}
+            setCart={setCart}
+            handleChange={handleChange}
+            setShow={setShow}
+          />
+        }/>
           <Route path="product" element={<Product />} />
           <Route path="Productpage" element={<Productpage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
       <Route path="*" element={<NotFound />} />
+      
       </Routes>
+      
       <ProjFooter />
     </>
   );
