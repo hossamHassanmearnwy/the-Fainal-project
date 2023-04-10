@@ -44,7 +44,7 @@ const InternalNav = ({size, setShow}) => {
               <Nav.Link href="#action1">
                 <Icon.ArrowRepeat className="fs-3 text-warning m-2" />
               </Nav.Link>
-              <Nav.Link href="#action2">
+              <Nav.Link href="/useraccount/Fav">
                 <Icon.Heart className="fs-3 text-warning m-2" />
               </Nav.Link>
               <Nav.Link
