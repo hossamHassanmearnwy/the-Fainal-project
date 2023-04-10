@@ -1,9 +1,10 @@
 import { Nav, Container, Navbar } from "react-bootstrap";
 // import './NavStyle.module.css'
 import { useTranslation } from 'react-i18next';
+import { BiUser } from 'react-icons/bi'
 
 function ProjectNav() {
-  const [translate, i18n] = useTranslation();
+  const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
 
   return (
@@ -11,24 +12,27 @@ function ProjectNav() {
       <Container className="container-fluid">
         <Navbar.Brand className="text-muted">
           {/* Welcome to */}
-          {translate('Welcome')}
+          {t('Welcome')}
           <span className="text-warning">
             {/* My Fire */}
-            {translate('Fire')}
+            {t('My')}
+
+            {t('Fire')}
           </span>
-          {translate('Store')}
+          {t('Store')}
 
           {/* Electronics Store */}
         </Navbar.Brand>
         <Navbar.Collapse>
           <Nav className="me-auto"></Nav>
           <Nav className='auth flex-row justify-content-center'>
-            <Nav.Link className="text-dark" href="#deets">Login | </Nav.Link>
-            <Nav.Link className="text-dark" href="#memes">Register</Nav.Link>
+            <Nav.Link className="text-dark" href="/useraccount"> <BiUser />  {t("My Account")}   |  </Nav.Link>
+            <Nav.Link className="text-dark" href="/login">{t("Login")} | </Nav.Link>
+            <Nav.Link className="text-dark" href="/register">{t("Register")}</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        {i18n.language == 'ar' &&<button className="btn btn-warning" onClick={() => { i18n.changeLanguage('en') }}>EN</button>}
-        {i18n.language == 'en' &&<button className="btn btn-warning" onClick={() => { i18n.changeLanguage('ar') }}>AR</button>}
+        {i18n.language == 'ar' && <button className="btn btn-warning" onClick={() => { i18n.changeLanguage('en') }}>EN</button>}
+        {i18n.language == 'en' && <button className="btn btn-warning" onClick={() => { i18n.changeLanguage('ar') }}>AR</button>}
       </Container>
     </Navbar>
   );

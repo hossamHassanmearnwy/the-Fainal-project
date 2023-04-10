@@ -1,7 +1,10 @@
 import React from "react";
 import "./Products.css";
+import { useTranslation } from "react-i18next";
 
 const Product = () => {
+  const {t, i18n} = useTranslation();
+  document.body.dir = i18n.dir();
   return (
     <div className="cardPro">
       <div className="imgBox">
@@ -17,7 +20,7 @@ const Product = () => {
           61.<small>98</small> €
         </h2>
         <a href="w" className="buy">
-          Buy Now
+          {t('Start Buying')}
         </a>
       </div>
     </div>

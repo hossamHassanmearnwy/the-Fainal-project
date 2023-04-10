@@ -2,8 +2,11 @@ import React from 'react';
 import { Button ,Row, Col,Container, Form } from 'react-bootstrap';
 import * as Icon from 'react-bootstrap-icons';
 import FooterLink from '../FooterLink/FooterLink';
+import { useTranslation } from 'react-i18next';
 
 export default function ProjFooter() {
+  const {t, i18n} = useTranslation();
+  document.body.dir = i18n.dir();
   return (
     <div className='text-center ' color='black' bgColor='light'>
       <Container fluid className='p-4'>
@@ -44,7 +47,7 @@ export default function ProjFooter() {
             <Row className='d-flex justify-content-center'>
               <Col size="auto">
                 <p className='pt-2'>
-                  <strong>Sign up for our newsletter</strong>
+                  <strong>{t('Sign up for our newsletter')}</strong>
                 </p>
               </Col>
 
@@ -54,7 +57,7 @@ export default function ProjFooter() {
 
               <Col size="auto">
                 <Button outline type='submit'  className='mb-4 btn-warning text-white'>
-                  Subscribe
+                  {t('Subscribe')}
                 </Button>
               </Col>
             </Row>
@@ -71,13 +74,13 @@ export default function ProjFooter() {
 
         <section className='d-block'>
           <Row>
-            <FooterLink title='mobiles' link1='#' link2='#' link3='#' link4='#'/>
+            <FooterLink title={t('mobiles')} link1='#' link2='#' link3='#' link4='#'/>
 
-            <FooterLink title='tablets' link1='#' link2='#' link3='#' link4='#' />
+            <FooterLink title={t('tablets')}  link1='#' link2='#' link3='#' link4='#' />
 
-            <FooterLink title='labtop' link1='#' link2='#' link3='#' link4='#' />
+            <FooterLink title={t('labtop')}  link1='#' link2='#' link3='#' link4='#' />
 
-            <FooterLink title='watch' link1='#' link2='#' link3='#' link4='#'/>
+            <FooterLink title={t('watch')}  link1='#' link2='#' link3='#' link4='#'/>
           </Row>
         </section>
       </Container>

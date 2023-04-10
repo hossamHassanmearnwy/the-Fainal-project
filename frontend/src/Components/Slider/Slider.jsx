@@ -1,6 +1,7 @@
 import { Button } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import './SliderStyle.css'
+import { useTranslation } from 'react-i18next';
 
 const slides = [
   {
@@ -26,6 +27,8 @@ const slides = [
   }
 ]
 function Slider() {
+  const {t, i18n} = useTranslation();
+  document.body.dir = i18n.dir();
   return (
     <Carousel variant="dark">
       {slides.map((slide)=>{
@@ -34,11 +37,11 @@ function Slider() {
           <Carousel.Caption>
             <h2 className='mb-4 text-start'>{slide.title}</h2>
             <p className='mb-4 text-start'>{slide.description}</p>
-            <p className='mb-0 pb-0 text-start'>from</p>
+            <p className='mb-0 pb-0 text-start'>{t('From')}</p>
             <h1 className='text-start mt-0 ms-1'>${slide.price}</h1>
             <div className='text-start'>
               <Button outline type='submit'  className='mt-4 btn-warning text-white'>
-                  Start Buying
+                  {t('Start Buying')}
                 </Button>
             </div>
             

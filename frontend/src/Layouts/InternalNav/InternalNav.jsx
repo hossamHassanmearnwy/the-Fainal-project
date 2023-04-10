@@ -1,26 +1,25 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import * as Icon from 'react-bootstrap-icons';
-import './InternalNav.css'
-import { useTranslation } from 'react-i18next';
-
-
-
+import React from "react";
+// import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import * as Icon from "react-bootstrap-icons";
+import "./InternalNav.css";
+import { Trans, useTranslation } from "react-i18next";
 
 const InternalNav = ({size, setShow}) => {
-  const {translate, i18n} = useTranslation();
+  const {t, i18n} = useTranslation();
   document.body.dir = i18n.dir();
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#" className='col-2 mr-3 d-flex justify-content-start'>
-          <span className="  text-warning">My</span> 
-            Fire 
+        <Navbar.Brand href="/home" className='col-2 mr-3 d-flex justify-content-start'>
+          <span className="  text-warning">{t('My')}</span> 
+          {t('Fire')} 
+          
+
           </Navbar.Brand>
         <Navbar.Toggle className="bg-warning border-light text-light" aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll" className='justify-content-center col-10'>
@@ -30,39 +29,38 @@ const InternalNav = ({size, setShow}) => {
       <Form.Control.Feedback >
         Search
       </Form.Control.Feedback>
-      <InputGroup.Text className='bg-white border border-warning text-warning py-2' style={{"borderTopRightRadius": "30px", "borderBottomRightRadius": "30px"}}>Search</InputGroup.Text>
+      <InputGroup.Text className='bg-white border border-warning text-warning py-2' style={{"borderTopRightRadius": "30px", "borderBottomRightRadius": "30px"}}>{t('Search')}</InputGroup.Text>
     </InputGroup>
 
-        {/* <Button className='search' variant="outline-warning">Search</Button>
+          {/* <Button className='search' variant="outline-warning">Search</Button>
       </Form> */}
 
-        <Nav
+          <Nav
             className="me-auto my-2  ml-lg-3"
-            style={{ maxHeight: '100px' }}
+            style={{ maxHeight: "100px" }}
             navbarScroll
-            >
-              <div className=' d-flex justify-content-around'>
-                <Nav.Link href="#action1">            
-                  <Icon.ArrowRepeat className="fs-3 text-warning m-2"  />
-                </Nav.Link>
-                <Nav.Link href="#action2">
-                  <Icon.Heart className="fs-3 text-warning m-2"  />
-                </Nav.Link>
-                <Nav.Link href="#action2" className="cart" onClick={()=>setShow(false)}>
-                  <Icon.Cart className="fs-3 text-warning m-2"  />
-                  <span>{size}</span>
-                </Nav.Link>
-              </div>
-            
+          >
+            <div className=" d-flex justify-content-around">
+              <Nav.Link href="#action1">
+                <Icon.ArrowRepeat className="fs-3 text-warning m-2" />
+              </Nav.Link>
+              <Nav.Link href="/useraccount/Fav">
+                <Icon.Heart className="fs-3 text-warning m-2" />
+              </Nav.Link>
+              <Nav.Link
+                href="/cart"
+                className="cart"
+                onClick={() => setShow(false)}
+              >
+                <Icon.Cart className="fs-3 text-warning m-2" />
+                <span>{size}</span>
+              </Nav.Link>
+            </div>
           </Nav>
-
         </Navbar.Collapse>
-
-        
-          
       </Container>
     </Navbar>
   );
-}
+};
 
 export default InternalNav;

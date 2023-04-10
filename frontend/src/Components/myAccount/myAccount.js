@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import { NavLink, Link } from 'react-router-dom';
 import './myAccountStyle.css'
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -10,6 +11,8 @@ import { useSelector } from 'react-redux';
 
 
 export default function MyAccount() {
+  const {t, i18n} = useTranslation();
+  document.body.dir = i18n.dir();
   const firstName = useSelector((state) => state.updateInformation.firstName)
   const lastName = useSelector((state) => state.updateInformation.lastName)
   //address
@@ -24,21 +27,21 @@ export default function MyAccount() {
 
   return <>
 
-    <h4>My Account</h4>
-    <h2>Account Information</h2><br />
+    <h4>{t('My Account')}</h4>
+    <h2>{t('Account information')}</h2><br />
     {/* 1 */}
     <div className='row'>
       <div className=' col-12 col-lg-5'>
         <Card >
-          <Card.Header >Contact Information</Card.Header>
+          <Card.Header >{t('Contact Information')}</Card.Header>
           <Card.Body className='myCard'>
             {/* <Card.Title>Special title treatment</Card.Title> */}
-            <Card.Text> Name : {firstName} {lastName} </Card.Text>
-            <Card.Text> Email : </Card.Text>
+            <Card.Text> {t('Name')} : {firstName} {lastName} </Card.Text>
+            <Card.Text> {t('Email Address')}  : </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <Link className={'edit-link'} to='/useraccount/accountinfo'>Edit </Link>
-            <Link className={'password-link'}>Change Password </Link>
+            <Link className={'edit-link'} to='/useraccount/accountinfo'>{t('Edit')} </Link>
+            <Link className={'password-link'}>{t('Edit Password')} </Link>
           </Card.Footer>
         </Card>
 
@@ -48,15 +51,15 @@ export default function MyAccount() {
       <div className='col-12 col-lg-5'>
 
         <Card >
-          <Card.Header>My Wish List</Card.Header>
+          <Card.Header>{t('My Wish List')}</Card.Header>
           <Card.Body className='myCard'>
             {/* <Card.Title>Special title treatment</Card.Title> */}
             <Card.Text>
-              You have not set any Favorite items .
+              {t('You have not set any Favorite items .')}
             </Card.Text>
           </Card.Body>
           <Card.Footer >
-            <Link className={'edit-link'} to='/useraccount/mywishlist'>Edit </Link>
+            <Link className={'edit-link'} to='/useraccount/mywishlist'>{t('Edit')} </Link>
 
           </Card.Footer>
         </Card>
@@ -64,22 +67,21 @@ export default function MyAccount() {
     </div>
 
 
-    <h2>Address Book</h2><br />
+    <h2>{t('Address Book')}</h2><br />
     {/* 3 */}
     <div className='row'>
 
       <div className='col-12 col-lg-5'>
         <Card >
-          <Card.Header>My Orders</Card.Header>
+          <Card.Header>{t('My Orders')}</Card.Header>
           <Card.Body className='myCard' >
             {/* <Card.Title>Special title treatment</Card.Title> */}
             <Card.Text>
-              You have not set any orders yet
-
+              {t('You have not set any orders yet')}
             </Card.Text>
           </Card.Body>
           <Card.Footer >
-            <Link className={'edit-link'} to='/useraccount/addressbook'>Edit orders</Link>
+            <Link className={'edit-link'} to='/useraccount/addressbook'>{t('Edit orders')}</Link>
           </Card.Footer>
         </Card>
       </div>
@@ -95,20 +97,20 @@ export default function MyAccount() {
             {/* <Card.Title>Default Shipping Address</Card.Title> */}
             <Card.Text className={(Fname === '') ? '' : "emptyShippingDetails"} >
               <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                You have not set any Shipping Address</div>
+               {t('You have not set any Shipping Address')} </div>
             </Card.Text>
             <Card.Text className={(Fname === '') ? "emptyShippingDetails" : ''}>
               {/* You have not set a default shipping address . */}
-              Name : {Fname} {Lname}<br />
-              Street : {street}<br />
-              City : {city}<br />
-              Country : {country}<br />
-              Phone Number : {phone}<br />
-              zip : {zip}
+              {t('Name')} : {Fname} {Lname}<br />
+              {t('Street')} : {street}<br />
+              {t('City')} : {city}<br />
+              {t('Country')} : {country}<br />
+              {t('Mobile Number')} : {phone}<br />
+              {t('Zip/Postal Code')} : {zip}
             </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <Link className={'edit-link'} to='/useraccount/addressbook'>Edit Address</Link>
+            <Link className={'edit-link'} to='/useraccount/addressbook'>{t('Edit Address')}</Link>
 
           </Card.Footer>
         </Card>

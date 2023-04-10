@@ -4,6 +4,7 @@ import './accountInformationStyle.css';
 import { useState, React } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import updateUserInfo from './../../Store/actions/updateInfo';
+import { useTranslation } from 'react-i18next';
 // import Button from 'react-bootstrap/Button';
 // import Form from 'react-bootstrap/Form';
 
@@ -13,7 +14,8 @@ export default function AccountInformation() {
   const firstName = useSelector((state) => state.updateInformation.firstName)
   const lastName = useSelector((state) => state.updateInformation.lastName)
   const dispatch = useDispatch()
-
+  const {t, i18n} = useTranslation();
+  document.body.dir = i18n.dir();
   const [user, setUser] = useState({
     fname: firstName,
     lname: lastName
@@ -43,39 +45,39 @@ export default function AccountInformation() {
   dispatch(updateUserInfo(user))
 
   return (<>
-    <h4>Edit Account Information</h4>
+    <h4>{t('Edit Account Information')}</h4>
 
     <div className='container'>
       <form onSubmit={(evt) => { handleSubmit(evt) }} action='/myaccount'>
         {/* first name */}
-        <label htmlFor='fname' className='label'>first name</label><br />
-        <input type="text" id="fname" name="fname" placeholder='Enter Your First Name' value={user.fname} onChange={(event) => { handleForm(event) }} /><br />
+        <label htmlFor='fname' className='label'>{t("First Name")}</label><br />
+        <input type="text" id="fname" name="fname" placeholder={t('Enter Your') + t("First Name")} value={user.fname} onChange={(event) => { handleForm(event) }} /><br />
 
         {/* last name */}
-        <label htmlFor='lname' className='label'>Last name</label><br />
-        <input type="text" id="lname" name="lname" placeholder='Enter Your Last Name' value={user.lname} onChange={(event) => { handleForm(event) }} /><br />
+        <label htmlFor='lname' className='label'>{t("Last Name")}</label><br />
+        <input type="text" id="lname" name="lname" placeholder={t('Enter Your') + t("Last Name")} value={user.lname} onChange={(event) => { handleForm(event) }} /><br />
         {/* birth date */}
-        <label htmlFor='date' className='label'>Birth Date</label><br />
-        <input type="date" id="date" name="date" placeholder='chose your birth date' />
+        <label htmlFor='date' className='label'>{t('Date of Birth')}</label><br />
+        <input type="date" id="date" name="date" placeholder={t('Enter Your') + t("Date of Birth")} />
         <br /><br />
         {/* <button className="date-btn">Select Date</button> */}
         {/* ////////////////// Password ///////////// */}
-        <h4>Edit Password</h4>
+        <h4>{t('Edit Password')}</h4>
 
         {/* Current Password */}
-        <label htmlFor='currentPass' className='label'>Current Password</label><br />
-        <input type="password" id="currentPass" name="currentPass" placeholder='Enter Current Password' onChange={(event) => { handleForm(event) }} /><br />
+        <label htmlFor='currentPass' className='label'>{t("Current Password")}</label><br />
+        <input type="password" id="currentPass" name="currentPass" placeholder={t('Enter Your') + t("Current Password")}  onChange={(event) => { handleForm(event) }} /><br />
 
         {/* New Password */}
-        <label htmlFor='newPass' className='label'>New Password</label><br />
-        <input type="password" id="newPass" name="newPass" placeholder='Enter New Password' onChange={(event) => { handleForm(event) }} /><br />
+        <label htmlFor='newPass' className='label'>{t('New Password')}</label><br />
+        <input type="password" id="newPass" name="newPass" placeholder={t('Enter Your') + t("New Password")} onChange={(event) => { handleForm(event) }} /><br />
         {/* Confirm New Password */}
-        <label htmlFor='conNewPass' className='label'>Confirm New Password</label><br />
-        <input type="password" id="conNewPass" name="conNewPass" placeholder='Confirm New Password' />
+        <label htmlFor='conNewPass' className='label'>{t('Confirm New Password')}</label><br />
+        <input type="password" id="conNewPass" name="conNewPass" placeholder={t('Enter Your') + t("Confirm New Password")} />
         {/* <button className="date-btn">Select Date</button> */}
 
         <br /><br />
-        <button className="submit" type='submit'>Save</button>
+        <button className="submit" type='submit'>{t('Save')}</button>
       </form>
       <br />
     </div>

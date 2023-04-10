@@ -23,6 +23,8 @@ import Fav from "./Pages/Favs/favs";
 import NotFound from "./Pages/NotFound/NotFound";
 
 import Product from "./Components/product/product";
+import Productpage from "./Pages/Products/productpage";
+import Home from './Pages/Home/home';
 //////////////////////
 
 function App() {
@@ -75,40 +77,56 @@ function App() {
       <div className="App container-fluid bg-white">
         <ProjectNav />
         <InternalNav size={cart.length} setShow={setShow} />
-
+{/* 
         {show ? (
           <Amazon handleClick={handleClick} />
-        ) : (
+        ) : ( */}
+          {/* <Cart
+            cart={cart}
+            setCart={setCart}
+            handleChange={handleChange}
+            setShow={setShow}
+            path='/cart'
+          /> */}
+        {/* )}
+        {warning && (
+          <div className="warning">Item is already added to your cart</div>
+        )} */}
+      </div>
+
+      <Routes>
+      {/* <Route path="/cart" element={<Cart/>}/> */}
+        {/* // Home // */}
+        <Route index element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        {/* // User account */}
+        <Route path="/useraccount" element={<UserAccount />}>
+          <Route index element={<MyAccount />} />
+          <Route path="myaccount" element={<MyAccount />} />
+          <Route path="myorders" element={<MyOrders />} />
+          <Route path="Fav" element={<Fav />} />
+          <Route path="addressbook" element={<AddressBook />} />
+          <Route path="accountinfo" element={<AccountInformation />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+        <Route path="/cart" element={
           <Cart
             cart={cart}
             setCart={setCart}
             handleChange={handleChange}
             setShow={setShow}
           />
-        )}
-        {warning && (
-          <div className="warning">Item is already added to your cart</div>
-        )}
-        <ProjFooter />
-      </div>
-
-      <Routes>
-        <Route path="/useraccount" element={<UserAccount />}>
-          <Route index element={<MyAccount />} />
-          <Route path="myaccount" element={<MyAccount />} />
-          <Route path="myorders" element={<MyOrders />} />
-          <Route path="mywishlist" element={<MyWishList />} />
-          <Route path="addressbook" element={<AddressBook />} />
-          <Route path="accountinfo" element={<AccountInformation />} />
-          <Route path="Fav" element={<Fav />} />
+        }/>
           <Route path="product" element={<Product />} />
-          <Route path="login" element={<Login />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
+          <Route path="Productpage" element={<Productpage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
+      <Route path="*" element={<NotFound />} />
+      
       </Routes>
+      
+      <ProjFooter />
     </>
   );
 }

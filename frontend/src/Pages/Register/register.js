@@ -5,8 +5,11 @@ import "bootstrap/dist/js/bootstrap.js";
 import Form from "react-bootstrap/Form";
 import "./registerStyle.css";
 import { Button, Col, Container, Dropdown, Row } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 export default function Register() {
+  const {t, i18n} = useTranslation();
+  document.body.dir = i18n.dir();
   const {
     register,
     watch,
@@ -26,7 +29,7 @@ export default function Register() {
   const onSubmit = (data) => console.log(data);
   return (
     <>
-      <h1>Create New Customer Account</h1>
+      <h1>{t('Create New Customer Account')}</h1>
 
       <Container className="my-auto">
         <Form
@@ -35,27 +38,27 @@ export default function Register() {
         >
           <Row>
             <Col className="d-flex justify-content-center flex-column align-items-center">
-              <h1>Personal Information</h1>
+              <h1>{t('Personal Information')}</h1>
               <div>
                 <Form.Label className="mt-3 font-weight-bold">
-                  First Name
+                  {t('First Name')}
                 </Form.Label>{" "}
                 <br />
                 <Form.Control
                   className="register-input "
                   {...register("Name", { required: true })}
-                  placeholder="First Name"
+                  placeholder={t('First Name')}
                 />
                 <p className="text-danger">
                   <errors>
-                    {errors.Name?.type === "required" && "Name Is required"}
+                    {errors.Name?.type === "required" && `${t('Name Is required')}`}
                   </errors>
                 </p>
               </div>
               <div>
                 <Form.Label className="mt-3 font-weight-bold">
                   {" "}
-                  Last Name
+                  {t('Last Name')}
                 </Form.Label>{" "}
                 <br />
                 <Form.Control
@@ -63,22 +66,22 @@ export default function Register() {
                   {...register("UserName", {
                     required: true,
                     minLength: 2,
-                    pattern: /^\S*$/,
+                    // pattern: /^\S*$/,
                   })}
-                  placeholder="Last Name"
+                  placeholder={t('Last Name')}
                 />
                 <p className="text-danger">
                   <errors>
                     {errors.UserName?.type === "required" &&
-                      "UserName Is required"}
-                    {errors.UserName?.type === "pattern" && "No Space Allowed"}
+                      `${t('LastName Is required')}`}
+                    {/* {errors.UserName?.type === "pattern" && "No Space Allowed"} */}
                   </errors>{" "}
                 </p>
               </div>
               <div>
                 <Form.Label className="mt-3 font-weight-bold">
                   {" "}
-                  Date of Birth
+                  {t('Date of Birth')}
                 </Form.Label>{" "}
                 <br />
                 <Form.Control
@@ -88,18 +91,20 @@ export default function Register() {
               </div>
               <div>
                 <Form.Label className="mt-3 font-weight-bold">
-                  Mobile Number
+                  {t('Mobile Number')}
                 </Form.Label>{" "}
                 <br />
                 <Form.Control
                   className="register-input"
                   {...register("MobileNumber", { required: true })}
-                  placeholder="Mobile Number"
+                  placeholder={t('Mobile Number')}
+
+
                 />
                 <p className="text-danger">
                   <errors>
-                    {errors.Name?.type === "required" &&
-                      "Mobile Number Is required"}
+                    {errors.MobileNumber?.type === "required" &&
+                      `${t('Please specify a valid mobile number')}`}
                   </errors>
                 </p>
               </div>
@@ -121,9 +126,9 @@ export default function Register() {
               </div> */}
             </Col>
             <Col className="d-flex justify-content-center flex-column align-items-center">
-              <h1>Sign-In Information</h1>
+              <h1>{t('Sign-In Information')}</h1>
               <div>
-                <Form.Label className="mt-3 font-weight-bold">Email</Form.Label>{" "}
+                <Form.Label className="mt-3 font-weight-bold">{t('Email Address')}</Form.Label>{" "}
                 <br />
                 <Form.Control
                   className="register-input border-warning "
@@ -131,18 +136,18 @@ export default function Register() {
                     required: true,
                     pattern: /^[a-zA-Z]{3,30}(@)(gmail|yahoo|outlook)(.com)$/,
                   })}
-                  placeholder="Email"
+                  placeholder={t('Email Address')}
                 />{" "}
                 <p className="text-danger">
                   <errors>
-                    {errors.Email?.type === "required" && "Email Is required"}
-                    {errors.Email?.type === "pattern" && "Enter a Vaild Email"}
+                    {errors.Email?.type === "required" && `${t('Email is Required')}`}
+                    {errors.Email?.type === "pattern" && `${t('Please enter a valid email address.')}`}
                   </errors>
                 </p>
               </div>
               <div>
                 <Form.Label className="mt-3 font-weight-bold">
-                  Password
+                  {t('Password')}
                 </Form.Label>{" "}
                 <br />
                 <Form.Control
@@ -154,20 +159,19 @@ export default function Register() {
                     pattern:
                       /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
                   })}
-                  placeholder="Password"
+                  placeholder={t('Password')}
                 />{" "}
                 <p className="text-danger">
                   <errors>
                     {errors.Password?.type === "required" &&
-                      "Password Is required"}
-                    {errors.Password?.type === "pattern" &&
-                      "Password should Have : Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:"}
-                  </errors>
+                      `${t('Passwrod is Required')}`}
+                    {errors.Password?.type === "pattern" && `${t('Password Pattern')}`
+                  }                  </errors>
                 </p>
               </div>
               <div>
                 <Form.Label className="mt-3 font-weight-bold">
-                  Confirm Password
+                  {t('Confirm Password')}
                 </Form.Label>{" "}
                 <br />
                 <Form.Control
@@ -177,18 +181,18 @@ export default function Register() {
                     required: true,
                     validate: (val) => {
                       if (watch("Password") !== val) {
-                        return "Your passwords do no match";
+                        return `${t('Please make sure your passwords match.')}`;
                       }
                     },
                   })}
-                  placeholder="Confirm Password"
+                  placeholder={t('Confirm Password')}
                 />
                 <p className="text-danger">
                   <errors>
                     {errors.ConfirmPassword?.type === "required" &&
-                      "this feild Is required"}
+                      `${t('Passwrod is Required')}`}
                     {errors.ConfirmPassword?.type === "validate" &&
-                      "Your passwords do no match"}
+                      `${t('Please make sure your passwords match.')}`}
                   </errors>{" "}
                 </p>{" "}
               </div>
@@ -197,7 +201,7 @@ export default function Register() {
                 type="submit"
                 className="register-input"
               >
-                Create Account
+                {t('Create Account')}
               </Button>
               {/* <input type="submit" /> */}
             </Col>
