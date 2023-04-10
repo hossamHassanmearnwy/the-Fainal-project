@@ -4,7 +4,7 @@
 .cardPro {
   position: relative;
   width: 320px;
-  height: 480px;
+  height: 450px;
   background: white;
   border-radius: 20px;
   overflow: hidden;
@@ -89,11 +89,11 @@
   opacity: 0;
   padding: 10px 30px;
   margin-top: 15px;
-  color: #000000;
+  color: #3b3a3a;
   text-decoration: none;
-  background: #ffce00;
+  /* background: #ffce00;
   border-radius: 30px;
-  text-transform: uppercase;
+  text-transform: uppercase; */
   letter-spacing: 1px;
   transition: 0.5s;
 }
@@ -104,6 +104,6 @@
 }
 
 .mouse {
-  height: 300px;
+  height: 200px;
   width: auto;
 }
