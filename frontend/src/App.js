@@ -24,6 +24,7 @@ import NotFound from "./Pages/NotFound/NotFound";
 
 import Product from "./Components/product/product";
 import Productpage from "./Pages/Products/productpage";
+import Home from './Pages/Home/home';
 //////////////////////
 
 function App() {
@@ -90,7 +91,6 @@ function App() {
         {warning && (
           <div className="warning">Item is already added to your cart</div>
         )}
-        <ProjFooter />
       </div>
 
       <Routes>
@@ -111,6 +111,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
       </Routes>
+      <Home/>
+      <ProjFooter />
     </>
   );
 }
