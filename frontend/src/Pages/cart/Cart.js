@@ -35,7 +35,7 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
   return (
     
     
-     <div className='container my-5'>
+      <div className='container my-5'>
       <h1 className='text-center'>
         {t('Cart')}</h1>
     <Table className='my-5'>
@@ -94,7 +94,7 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
         {t('Coupon Code')}
       </Form.Control.Feedback>
       <InputGroup.Text className='bg-dark text-light py-2'
-       style={{"borderTopRightRadius": "30px", "borderBottomRightRadius": "30px"}}>
+      style={{"borderTopRightRadius": "30px", "borderBottomRightRadius": "30px"}}>
                 {t('Apply Coupon')}
 </InputGroup.Text>
     </InputGroup>

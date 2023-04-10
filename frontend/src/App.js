@@ -94,6 +94,7 @@ function App() {
       </div>
 
       <Routes>
+      {/* <Route path="/cart" element={<Cart/>}/> */}
         {/* // Home // */}
         <Route index element={<Home />} />
         <Route path="/home" element={<Home />} />
@@ -105,15 +106,14 @@ function App() {
           <Route path="Fav" element={<Fav />} />
           <Route path="addressbook" element={<AddressBook />} />
           <Route path="accountinfo" element={<AccountInformation />} />
-         
-          <Route path="product" element={<Product />} />
-          <Route path="login" element={<Login />} />
-          <Route path="Productpage" element={<Productpage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
+          <Route path="product" element={<Product />} />
+          <Route path="Productpage" element={<Productpage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
+      <Route path="*" element={<NotFound />} />
       </Routes>
       <ProjFooter />
     </>
