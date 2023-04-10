@@ -74,7 +74,7 @@ function App() {
     <>
       {/* <Header /> */}
 
-      <div className="App container-fluid bg-white">
+      <div className="App container-fluid">
         <ProjectNav />
         <InternalNav size={cart.length} setShow={setShow} />
 {/* 
