@@ -28,9 +28,10 @@ const list = [
     desc: "6.5-inch display",
     price: 399,
     img:
-      "https://images.pexels.com/photos/14073657/pexels-photo-14073657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://www.corsair.com/corsairmedia/sys_master/productcontent/CH-9300011-NA-M65_PRO_RGB_BLK_04.png",
       amount: 1,
   },
+
 ];
 
 
