@@ -6,6 +6,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import * as Icon from "react-bootstrap-icons";
+import { BsHouseDoor } from "react-icons/bs";
 import "./InternalNav.css";
 import { Trans, useTranslation } from "react-i18next";
 
@@ -60,8 +61,9 @@ const InternalNav = ({ size, setShow }) => {
             navbarScroll
           >
             <div className=" d-flex justify-content-around">
-              <Nav.Link href="#action1">
-                <Icon.ArrowRepeat className="fs-3 text-warning m-2" />
+              <Nav.Link href="/home">
+                {/* <Icon.ArrowRepeat className="fs-3 text-warning m-2" /> */}
+                <BsHouseDoor className="fs-3 text-warning m-2" />
               </Nav.Link>
               <Nav.Link href="/useraccount/Fav">
                 <Icon.Heart className="fs-3 text-warning m-2" />
