@@ -7,6 +7,7 @@ import { BsXLg } from "react-icons/bs";
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useTranslation } from 'react-i18next';
+import Nav from "react-bootstrap/Nav";
 
 
 const Cart = ({cart, setCart, handleChange, setShow}) => {
@@ -34,7 +35,7 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
     
   return (
     
-    
+    <div className='container-fluid'>
       <div className='container my-5'>
       <h1 className='text-center'>
         {t('Cart')}</h1>
@@ -100,8 +101,10 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
     </InputGroup>
     </div>
     <div className='gBtn col-lg-6 col-md-12 d-flex align-items-end justify-content-end '>
-    <Button variant="dark rounded-pill py-2 px-3" onClick={()=>setShow(true)}>{t('Go to Home Page')}</Button>
-    <Button className='checkout' variant="warning rounded-pill py-2 px-4 ms-2">{t('Proceed to Chekout')}</Button>
+    <Nav>
+    <Nav.Link href="/home"><Button variant="dark rounded-pill py-2 px-3" onClick={()=>setShow(true)}>{t('Go to Home Page')}</Button></Nav.Link>
+    <Nav.Link href="#"><Button className='checkout' variant="warning rounded-pill py-2 px-4">{t('Proceed to Chekout')}</Button></Nav.Link>
+    </Nav>
     </div>
     </div>
 
@@ -155,7 +158,7 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
 
 
   </div>
-
+  </div>
 
     
       )

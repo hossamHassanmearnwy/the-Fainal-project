@@ -4,15 +4,12 @@ import MainSideBar from './../../Components/MainSideBar/MainSideBar';
 
 export default function Home() {
   return (<>
+
   <div className='mx-5 my-5'>
                 <div className='row ' >
                     <div className='col-3 '>
                     {/* Main Sidebar */}
                   <MainSideBar/>
-
-
-
-
 
 
 
