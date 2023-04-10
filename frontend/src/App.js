@@ -77,7 +77,7 @@ function App() {
       <div className="App container-fluid bg-white">
         <ProjectNav />
         <InternalNav size={cart.length} setShow={setShow} />
-
+{/* 
         {show ? (
           <Amazon handleClick={handleClick} />
         ) : (
@@ -90,18 +90,22 @@ function App() {
         )}
         {warning && (
           <div className="warning">Item is already added to your cart</div>
-        )}
+        )} */}
       </div>
 
       <Routes>
+        {/* // Home // */}
+        <Route index element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        {/* // User account */}
         <Route path="/useraccount" element={<UserAccount />}>
           <Route index element={<MyAccount />} />
           <Route path="myaccount" element={<MyAccount />} />
           <Route path="myorders" element={<MyOrders />} />
-          <Route path="mywishlist" element={<MyWishList />} />
+          <Route path="Fav" element={<Fav />} />
           <Route path="addressbook" element={<AddressBook />} />
           <Route path="accountinfo" element={<AccountInformation />} />
-          <Route path="Fav" element={<Fav />} />
+         
           <Route path="product" element={<Product />} />
           <Route path="login" element={<Login />} />
           <Route path="Productpage" element={<Productpage />} />
@@ -111,7 +115,6 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
       </Routes>
-      <Home/>
       <ProjFooter />
     </>
   );
