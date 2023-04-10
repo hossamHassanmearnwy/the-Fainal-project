@@ -15,9 +15,11 @@ const InternalNav = ({size, setShow}) => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#" className='col-2 mr-3 d-flex justify-content-start'>
+        <Navbar.Brand href="/home" className='col-2 mr-3 d-flex justify-content-start'>
           <span className="  text-warning">{t('My')}</span> 
           {t('Fire')} 
+          
+
           </Navbar.Brand>
         <Navbar.Toggle className="bg-warning border-light text-light" aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll" className='justify-content-center col-10'>
