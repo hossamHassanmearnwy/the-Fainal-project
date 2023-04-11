@@ -41,21 +41,6 @@ function App() {
     console.log(`Saved ${cart.length} items to localstorage`);
   }, [cart]);
 
-  const handleClick = (item) => {
-    let isPresent = false;
-    cart.forEach((product) => {
-      if (item.id === product.id) isPresent = true;
-      // console.log(product)
-    });
-    if (isPresent) {
-      setWarning(true);
-      setTimeout(() => {
-        setWarning(false);
-      }, 2000);
-      return;
-    }
-    setCart([...cart, item]);
-  };
 
   const handleChange = (item, d) => {
     let ind = -1;
@@ -70,6 +55,9 @@ function App() {
     setCart([...tempArr]);
   };
 
+
+
+
   return (
     <>
       {/* <Header /> */}
@@ -77,22 +65,7 @@ function App() {
       <div className="App container-fluid">
         <ProjectNav />
         <InternalNav size={cart.length} setShow={setShow} />
-{/* 
-        {show ? (
-          <Amazon handleClick={handleClick} />
-        ) : ( */}
-          {/* <Cart
-            cart={cart}
-            setCart={setCart}
-            handleChange={handleChange}
-            setShow={setShow}
-            path='/cart'
-          /> */}
-        {/* )}
-        {warning && (
-          <div className="warning">Item is already added to your cart</div>
-        )} */}
-      </div>
+        
 
       <Routes>
       {/* <Route path="/cart" element={<Cart/>}/> */}
@@ -127,6 +100,7 @@ function App() {
       </Routes>
       
       <ProjFooter />
+      </div>
     </>
   );
 }
