@@ -9,7 +9,7 @@ import SummaryProd from './../summary/summaryProd';
 const Amazon = ({handleClick}) => {
   return (
     <>
-    <Slider />
+
     <div className='container'>
     <Sec header='Featured Product'/>
     <section className='py-5 border-top'>
