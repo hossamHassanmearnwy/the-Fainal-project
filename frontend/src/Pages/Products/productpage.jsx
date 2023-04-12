@@ -3,7 +3,7 @@ import "./productpage.css";
 
 const Productpage = () => {
   return (
-    <div>
+    <div dir="ltr">
       <div className="containerand">
         <div className="boxand">
           <div className="product__img">

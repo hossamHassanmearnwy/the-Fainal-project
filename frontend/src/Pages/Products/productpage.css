@@ -7,21 +7,21 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: #f6f6f6;
+	background: yellowgreen;
 	position: relative;
 }
 
 .containerand .boxand {
 	width: 0%;
 	height: 620px;
-	background: #fff;
+	background: yellowgreen;
 	position: absolute;
 	animation: openBox 1s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
 }
 
 .containerand .boxand .product__img {
 	width: 600px;
-	position: absolute;
+	/* position: absolute; */
 	left: -150px;
 	top: 50px;
 	opacity: 0;
@@ -32,7 +32,7 @@
 .containerand .boxand .product__video {
 	width: 320px;
 	height: 100px;
-	position: absolute;
+	/* position: absolute; */
 	left: 50px;
 	bottom: 50px;
 }
@@ -40,7 +40,7 @@
 .containerand .boxand .product__video .video {
 	display: flex;
 	align-items: center;
-	position: absolute;
+	/* position: absolute; */
 	bottom: 0px;
 	opacity: 0;
 	animation: upVideo 1s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
@@ -190,14 +190,14 @@
 
 .containerand .boxand .product_buttons .wishlist:hover {
 	background: #f71568;
-	color: #fff;
+	color: #ffca1b;
 	box-shadow: 0 0 26px #f71568;
 }
 
 .containerand .boxand .product_buttons .buy {
 	border: none;
 	background: #f71568;
-	color: #fff;
+	color: #ffca1b;
 	position: absolute;
 	right: 0;
 	bottom: 0;

@@ -1,5 +1,6 @@
 import React from "react";
 // import Button from "react-bootstrap/Button";
+
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -8,6 +9,7 @@ import Navbar from "react-bootstrap/Navbar";
 import * as Icon from "react-bootstrap-icons";
 import { BsHouseDoor } from "react-icons/bs";
 import "./InternalNav.css";
+import { NavLink, Link } from "react-router-dom";
 import { Trans, useTranslation } from "react-i18next";
 
 const InternalNav = ({ size, setShow }) => {
@@ -16,13 +18,10 @@ const InternalNav = ({ size, setShow }) => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand
-          href="/home"
-          className="col-2 mr-3 d-flex justify-content-start"
-        >
+        <Link to="/home" className="col-2 mr-3 d-flex justify-content-start">
           <span className="  text-warning">{t("My")}</span>
           {t("Fire")}
-        </Navbar.Brand>
+        </Link>
         <Navbar.Toggle
           className="bg-warning border-light text-light"
           aria-controls="navbarScroll"
@@ -61,21 +60,17 @@ const InternalNav = ({ size, setShow }) => {
             navbarScroll
           >
             <div className=" d-flex justify-content-around">
-              <Nav.Link href="/home">
+              <Link to="/home">
                 {/* <Icon.ArrowRepeat className="fs-3 text-warning m-2" /> */}
                 <BsHouseDoor className="fs-3 text-warning m-2" />
-              </Nav.Link>
-              <Nav.Link href="/useraccount/Fav">
+              </Link>
+              <Link to="/useraccount/Fav">
                 <Icon.Heart className="fs-3 text-warning m-2" />
-              </Nav.Link>
-              <Nav.Link
-                href="/cart"
-                className="cart"
-                onClick={() => setShow(false)}
-              >
+              </Link>
+              <Link to="/cart" className="cart" onClick={() => setShow(false)}>
                 <Icon.Cart className="fs-3 text-warning m-2" />
                 <span>{size}</span>
-              </Nav.Link>
+              </Link>
             </div>
           </Nav>
         </Navbar.Collapse>
