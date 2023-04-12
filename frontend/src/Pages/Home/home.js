@@ -5,6 +5,7 @@ import Slider from './../../Components/Slider/Slider';
 import Cart from "../../Pages/cart/Cart";
 
 export default function Home() {
+   const [warning, setWarning] = useState(false);
  
   return (<>
 
@@ -24,6 +25,11 @@ export default function Home() {
   
  
     <Amazon />
+    
+    {warning && (
+      <div className="warning">Item is already added to your cart</div>
+    )}
+
   
   
   </>
