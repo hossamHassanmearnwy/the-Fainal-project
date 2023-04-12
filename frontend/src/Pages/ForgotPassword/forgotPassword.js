@@ -40,7 +40,7 @@ export default function ForgotPassword() {
         <Container fluid>
             <Row>
                 <Col><Form className="w-100" >
-                    <h1 >{t('forgot pass')}?</h1>
+                    <h1 >{t('forgot pass')}</h1>
                     <Form.Group className="mb-3 " controlId="formBasicEmail">
                         <Form.Label style={{ fontWeight: "bold" }}>{t('Please enter your email address')}</Form.Label>
                         <div className="d-flex flex-column align-items-center m-3 ">
