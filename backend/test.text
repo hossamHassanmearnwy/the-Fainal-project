@@ -51,3 +51,34 @@ patch{
     "updatedAt": "2023-04-13T23:27:48.526Z",
     "__v": 0
 }
+
+
+categories get{
+  "results": 0,
+    "page": 1,
+    "data": []
+}
+
+copouns  post{
+        "name": "first",
+    "amount": 4,
+    "ceria": 2,
+    "_id": "64389340b731811af5948b7b",
+    "createdAt": "2023-04-13T23:41:52.464Z",
+    "updatedAt": "2023-04-13T23:41:52.464Z",
+    "__v": 0
+}
+
+
+
+
+ get {
+     "_id": "6435dda1d41d243028604b12",
+        "name": "first",
+        "amount": 4,
+        "ceria": 2,
+        "descrep": "test",
+        "createdAt": "2023-04-11T22:22:25.414Z",
+        "updatedAt": "2023-04-11T22:22:25.414Z",
+        "__v": 0
+}
