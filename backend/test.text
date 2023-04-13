@@ -1,4 +1,13 @@
-products => get{
+products => post{
+
+
+
+    
+}
+
+
+
+get{
 
 
 
@@ -16,3 +25,17 @@ products => get{
         "__v": 0
     }
 
+patch{
+    
+    "_id": "6435e6b8884458bcb12b8627",
+    "Brand": "test update4t6",
+    "Color": "red",
+    "OnSale": true,
+    "PriceonSale": 500,
+    "Storage": "rer",
+    "Details": "test detsils",
+    "Images": [],
+    "createdAt": "2023-04-11T23:01:12.219Z",
+    "updatedAt": "2023-04-13T23:27:48.526Z",
+    "__v": 0
+}
