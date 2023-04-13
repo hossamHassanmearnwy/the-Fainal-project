@@ -3,6 +3,18 @@ products => post{
 
 
     
+    "Brand": "post update4t6",
+    "Color": "black",
+    "OnSale": true,
+    "PriceonSale": 500,
+    "Storage": "rer",
+    "Details": "test detsils",
+    "Images": [],
+    "_id": "64389082b731811af5948b77",
+    "createdAt": "2023-04-13T23:30:10.751Z",
+    "updatedAt": "2023-04-13T23:30:10.751Z",
+    "__v": 0
+
 }
 
 
