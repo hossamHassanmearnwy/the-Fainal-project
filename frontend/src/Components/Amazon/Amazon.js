@@ -6,7 +6,7 @@ import Slider from '../Slider/Slider';
 import Sec from './../styleSec/style';
 import SummaryProd from './../summary/summaryProd';
 
-const Amazon = ({handleClick}) => {
+const Amazon = ({handleClick, handleFav}) => {
   return (
     <>
 
@@ -16,7 +16,7 @@ const Amazon = ({handleClick}) => {
     <div className='row'>
         {
             list.map((item)=>(
-                <Cards item={item} key={item.id} handleClick={handleClick} />
+                <Cards item={item} key={item.id} handleClick={handleClick} handleFav={handleFav} />
             ))
         }
         </div>
@@ -24,7 +24,7 @@ const Amazon = ({handleClick}) => {
         <div className='row'>
         {
             list.map((item)=>(
-                <Cards item={item} key={item.id} handleClick={handleClick} />
+                <Cards item={item} key={item.id} handleClick={handleClick} handleFav={handleFav} />
             ))
         }
         </div>

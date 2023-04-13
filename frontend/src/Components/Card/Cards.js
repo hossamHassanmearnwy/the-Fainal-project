@@ -3,9 +3,34 @@ import '../Card/cards.css';
 import { BsFillCartFill } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
+import { useSelector, useDispatch } from 'react-redux';
+import { addFavorirts ,removeFavorirts} from './../../Store/actions/addFav';
 
-const Cards = ({item, handleClick}) => {
+const Cards = ({item, handleClick,}) => {
   const {t, i18n} = useTranslation();
+  const favorites = useSelector((state) => state.favorites.fav);
+  const dispatch = useDispatch();
+
+  function handleAddFav(item) {
+    dispatch(addFavorirts(item));
+  }
+  const handleRemoveFav = (item) => {
+    dispatch(removeFavorirts(item));
+  };
+
+  function handleFav(item) {
+    if (
+      favorites.find((prd) => {
+        return prd.id === item.id;
+      })
+    ) {
+      handleRemoveFav(item.id);
+    } else {
+      handleAddFav(item);
+    }
+  }
+
+
   document.body.dir = i18n.dir();
     const {title, desc, price, img} = item;
     // console.log(item)
@@ -38,13 +63,27 @@ const Cards = ({item, handleClick}) => {
       </h5>
       <div className='col-lg-6 col-sm-12 mt-4' >
       <span className= 'p-3 circle bg-warning'  style={{borderRadius:"50%"}} onClick={()=>handleClick(item)} role='button'>
-      <BsFillCartFill className='text-white fs-4' role='button'> </BsFillCartFill>
+      <BsFillCartFill className='text-white fs-4' role='button'   > </BsFillCartFill>
       </span>
       </div>
       </div>
       <div className='mt-4'>
 
-      <p className='buy border-top'><FaRegHeart className='me-3 fs-4 text-danger'></FaRegHeart>{t('add to wishlist')}</p>
+      <p className='buy border-top'><FaRegHeart className='me-3 fs-4 text-danger'
+       style={{
+        top: "15px",
+        right: "25px",
+        cursor: "pointer",
+        color: favorites.find((prd) => {
+          return item.id === prd.id;
+        })
+          ? "red"
+          : "",
+      }}
+      onClick={() => {
+        handleFav(item);
+      }}
+      ></FaRegHeart>{t('add to wishlist')}</p>
 
       </div>
       </div>

@@ -2,12 +2,29 @@ import React from "react";
 import "./favs.css";
 import Card from "react-bootstrap/Card";
 import { useTranslation } from "react-i18next";
-
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFavorirts } from "../../Store/actions/addFav";
 export default function Fav() {
+
+  let favorites = useSelector((state) => state.favorites.fav);
+  const dispatch = useDispatch();
+
+  const handleRemoveFav = (el) => {
+    dispatch(removeFavorirts(el));
+  };
+
   const {t, i18n} = useTranslation();
   document.body.dir = i18n.dir();
   return (
     <div className="container">
+
+
+    
+
+{favorites.map((el) => {
+        return (
+          <div key={el.id}>
+         
       <div>
         {" "}
         <h3 className="hfav">
@@ -43,6 +60,9 @@ export default function Fav() {
             className="myHeart"
             class="bi bi-heart-fill"
             viewBox="0 0 16 16"
+            onClick={() => {
+              handleRemoveFav(el.id);
+            }}
           >
             <path
               fill-rule="evenodd"
@@ -50,7 +70,11 @@ export default function Fav() {
             />
           </svg>
         </Card>
-      </div>
+       </div> 
+          </div>
+        );
+      })}
+
     </div>
   );
 }
