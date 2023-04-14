@@ -1,6 +1,5 @@
 
 
-
 const Initial_state = {
     Fname: '',
     Lname: '',
@@ -18,7 +17,6 @@ const Initial_state = {
 
 
 export default function editAddressReducer(state = Initial_state, action) {
-
 
     switch (action.type) {
         case 'EDIT_ADDRESS':

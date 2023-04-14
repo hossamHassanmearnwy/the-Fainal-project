@@ -8,9 +8,21 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useTranslation } from 'react-i18next';
 import Nav from "react-bootstrap/Nav";
+import Checkout from './../Checkout/Checkout';
 
 
 const Cart = ({cart, setCart, handleChange, setShow}) => {
+  //////////////////////
+  let [check, setCheck] = useState(
+    JSON.parse(localStorage.getItem("checkout")) || [] // local storge to get cart
+  );
+
+  useEffect(() => {
+    localStorage.setItem("checkout", JSON.stringify(check)); // local storge to save cart in it
+
+    console.log(`Saved ${check.length} items to localstorage`);
+  }, [cart]);
+  /////////////////////
     const [price, setPrice] = useState(0);
     const {t, i18n} = useTranslation();
     document.body.dir = i18n.dir();
@@ -103,7 +115,7 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
     <div className='gBtn col-lg-6 col-md-12 d-flex align-items-end justify-content-end '>
     <Nav>
     <Nav.Link href="/home"><Button variant="dark rounded-pill py-2 px-3" onClick={()=>setShow(true)}>{t('Go to Home Page')}</Button></Nav.Link>
-    <Nav.Link href="#"><Button className='checkout' variant="warning rounded-pill py-2 px-4">{t('Proceed to Chekout')}</Button></Nav.Link>
+              <Nav.Link href="/checkout"><Button className='checkout' variant="warning rounded-pill py-2 px-4">{t('Proceed to Chekout')}</Button></Nav.Link>
     </Nav>
     </div>
     </div>
@@ -156,8 +168,13 @@ const Cart = ({cart, setCart, handleChange, setShow}) => {
 
 
 
-
   </div>
+
+
+
+
+
+
   </div>
 
     

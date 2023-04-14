@@ -4,6 +4,8 @@ import MainSideBar from './../../Components/MainSideBar/MainSideBar';
 import Slider from './../../Components/Slider/Slider';
 import Cart from "../../Pages/cart/Cart";
 
+import Checkout from './../Checkout/Checkout';
+
 export default function Home() {
   const [show, setShow] = useState(true);
   // const [cart , setCart] = useState([]);
@@ -56,7 +58,7 @@ export default function Home() {
 
   
   </div>
-   <div className='col-9'>
+  <div className='col-9'>
                     <Slider />
                 </div>
   </div>
@@ -73,6 +75,17 @@ export default function Home() {
       path='/cart'
     /> 
   )}
+  {/* {show ? (
+    <Amazon handleClick={handleClick} />
+  ) : ( 
+      <Checkout
+      cart={cart}
+      setCart={setCart}
+      handleChange={handleChange}
+      setShow={setShow}
+      path='/checkout'
+    /> 
+  )} */}
   {warning && (
     <div className="warning">Item is already added to your cart</div>
   )}

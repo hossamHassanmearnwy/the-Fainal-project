@@ -25,6 +25,7 @@ import NotFound from "./Pages/NotFound/NotFound";
 import Product from "./Components/product/product";
 import Productpage from "./Pages/Products/productpage";
 import Home from './Pages/Home/home';
+import Checkout from "./Pages/Checkout/Checkout";
 //////////////////////
 
 function App() {
@@ -96,6 +97,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
       <Route path="*" element={<NotFound />} />
+          <Route path="/checkout" element={<Checkout />}/>
       
       </Routes>
       

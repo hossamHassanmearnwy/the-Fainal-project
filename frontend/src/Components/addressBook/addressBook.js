@@ -77,7 +77,7 @@ export default function AddressBook() {
       <div>
 
       </div>
-      <form onSubmit={(evt) => { handleSubmit(evt) }} >
+      <form onSubmit={(evt) => { handleSubmit(evt) }} action='/myaccount' >
         {/* first name */}
         <label htmlFor='fname' className='label'>{t("First Name")}</label><br />
         <input type="text" id="fname" name="fname" placeholder={t('Enter Your') + t("First Name")} value={user.fname} onChange={(event) => { handleForm(event) }} /><br />
