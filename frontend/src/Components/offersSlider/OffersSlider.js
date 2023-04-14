@@ -11,10 +11,13 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import offersList from './../../offersData';
 import { Icon, Badge } from "rsuite";
 import { BsCartCheckFill  } from "react-icons/bs";
+import { useTranslation } from 'react-i18next';
 
 
 
 export default function OffersSlider() {
+    const {t, i18n} = useTranslation();
+    document.body.dir = i18n.dir();
     const settings = {
         dots: true,
         infinite: true,
@@ -36,7 +39,7 @@ export default function OffersSlider() {
                                 <Card  className='offerCard'>
                                     <div class="badge-overlay">
                                         {/* <!-- Change Badge Position, Color, Text here--> */}
-                                        <span class="top-left badge orange">SALE</span>
+                                        <span class="top-left badge orange">{t('Sale')}</span>
                                     </div>
                                     
                                     <Card.Img variant="top" src={item.img} className='slide-img'/>
@@ -48,11 +51,11 @@ export default function OffersSlider() {
                                         </Card.Text>
                                     </Card.Body>
                                     <ListGroup className="list-group-flush">
-                                        <ListGroup.Item>Brand : {item.brand}</ListGroup.Item>
-                                        <ListGroup.Item>Price : {item.price}</ListGroup.Item>
+                                        <ListGroup.Item>{t('Brand')} : {item.brand}</ListGroup.Item>
+                                        <ListGroup.Item>{t('Price')} : {item.price}</ListGroup.Item>
                                     </ListGroup>
                                     <Card.Body>
-                                        <Card.Link href="cart"><BsCartCheckFill className='cartIcon' /> Add To Cart</Card.Link>
+                                        <Card.Link href="cart"><BsCartCheckFill className='cartIcon' /> {t('Add to Cart')}</Card.Link>
                                         
                                     </Card.Body>
                                 </Card>
