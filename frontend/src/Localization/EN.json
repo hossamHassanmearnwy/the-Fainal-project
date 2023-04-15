@@ -72,6 +72,32 @@
     "Wishlist":"Wishlist",
     "Buy":"Buy",
 
+    "Gram":"Gram",
+    "Kilogram":"Kilogram",
+    "kg":"kg",
+    "g":"g",
+    "cm":"cm",
+    "m":"m",
+    "Centimeter":"Centimeter",
+    "meter":"meter",
+    "Ampere":"Ampere",
+    "A":"A",
+    "Volt":"Volt",
+    "V":"V",
+    "Watt":"Watt",
+    "W":"w",
+    "Gigabyte":"Gigabyte",
+    "Giga":"Giga",
+    "GB":"GB",
+    "Megabyte":"Megabyte",
+    "Mega":"Mega",
+    "MB":"MB",
+    "Terabyte":"Terabyte",
+    "Tera":"Tera",
+    "TB":"TB",
+
+
+
 
 
   " Example: ": " Example: ",
