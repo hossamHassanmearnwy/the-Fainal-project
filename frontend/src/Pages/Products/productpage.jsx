@@ -1,9 +1,12 @@
 import React from "react";
 import "./productpage.css";
+import { useTranslation } from "react-i18next";
 
 const Productpage = () => {
+  const {t, i18n} = useTranslation();
+  document.body.dir = i18n.dir();
   return (
-    <div>
+    <div dir="ltr">
       <div className="containerand">
         <div className="boxand">
           <div className="product__img">
@@ -12,7 +15,9 @@ const Productpage = () => {
           <div className="product__video">
             <div className="video">
               <i className="fas fa-play" />
-              <p>watch a review</p>
+              <p>
+                {t('watch a review')}
+                  </p>
             </div>
           </div>
           <div className="product__disc">
@@ -35,8 +40,8 @@ const Productpage = () => {
             </div>
           </div>
           <div className="product_buttons">
-            <button className="btn btn-warning wishlist">wishlist</button>
-            <button className="btn btn-success buy">buy</button>
+            <button className="btn btn-warning wishlist">{t('add to wishlist')}</button>
+            <button className="btn btn-success buy">{t('Buy')}</button>
           </div>
         </div>
       </div>
