@@ -82,3 +82,71 @@ copouns  post{
         "updatedAt": "2023-04-11T22:22:25.414Z",
         "__v": 0
 }
+offers post{
+        "title": "first",
+    "amount": 4,
+    "ceria": 2,
+    "_id": "6438943db731811af5948b81",
+    "createdAt": "2023-04-13T23:46:05.231Z",
+    "updatedAt": "2023-04-13T23:46:05.231Z",
+    "__v": 0
+}
+get{
+   "_id": "6438943db731811af5948b81",
+    "title": "first",
+    "amount": 4,
+    "ceria": 2,
+    "createdAt": "2023-04-13T23:46:05.231Z",
+    "updatedAt": "2023-04-13T23:46:05.231Z",
+    "__v": 0
+}
+get by id {
+     "_id": "6438943db731811af5948b81",
+    "title": "first",
+    "amount": 4,
+    "ceria": 2,
+    "createdAt": "2023-04-13T23:46:05.231Z",
+    "updatedAt": "2023-04-13T23:46:05.231Z",
+    "__v": 0
+}
+delete{
+    "acknowledged": true,
+    "deletedCount": 1
+}
+cart{
+
+    erorr{
+        "You Must Be Authentication"
+    }
+   
+}
+user{
+register{
+    
+    "firstName": "ahmed",
+    "lastName": "magdy",
+    "email": "ahmed@gmail.com",
+    "password": "$2b$10$ygBvLABcfr5QBjwOfTKkj.HionqfB28CbQ.JR6aK1zvb.TWylPKjq",
+    "isAdmin": false,
+    "isActive": true,
+    "_id": "643adbf5e5188f4dd7d9c646",
+    "createdAt": "2023-04-15T17:16:37.484Z",
+    "updatedAt": "2023-04-15T17:16:37.484Z",
+    "__v": 0
+
+}
+error register{
+    "E11000 duplicate key error collection: group5.users index: email_1 dup key: { email: \"ahmed@gmail.com\" }"
+}
+update{
+    {
+    "status": "success",
+    "newData": {
+        "firstName": "aaaa",
+        "lastName": "ahmed",
+        "email": "ahmedmagdy@gmail.com",
+        "password": "$2b$10$Jx.pSqRaoxDcR1EBCAtaN.j7J.d4Dwr8UysQ0epOrI1tgtAIY1bWu"
+    }
+}
+}
+}
