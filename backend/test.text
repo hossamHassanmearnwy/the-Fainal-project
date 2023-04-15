@@ -136,7 +136,8 @@ register{
 
 }
 error register{
-    "E11000 duplicate key error collection: group5.users index: email_1 dup key: { email: \"ahmed@gmail.com\" }"
+    "User validation failed: email: User Email required"
+    "E11000 duplicate key error collection: group5.users index: email_1 dup key: { email: \"ahmedmagdy@gmail.com\" }"
 }
 update{
     {
@@ -147,6 +148,19 @@ update{
         "email": "ahmedmagdy@gmail.com",
         "password": "$2b$10$Jx.pSqRaoxDcR1EBCAtaN.j7J.d4Dwr8UysQ0epOrI1tgtAIY1bWu"
     }
+}
+}
+
+
+
+login {
+token
+
+
+}
+error{
+{
+    "message": "invalid email or password"
 }
 }
 }
