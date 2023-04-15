@@ -15,19 +15,30 @@ const ProdutsSchema = mongoose.Schema({
         ref: "categories"
     },
 
-    ItemName: {
+    ItemNameEn: {
         type: String,
-        // required:true
+        required:true
+    },
+    ItemNameAr: {
+        type: String,
+        required:true
     },
     Price: {
         type: Number,
-        // required:true
+        required:true
     },
-    Brand: {
+    BrandEn: {
         type: String,
-        // required:true
+        required:true
     },
-    Color: {
+    BrandAr: {
+        type: String,
+        required:true
+    },
+    ColorEn: {
+        type: String
+    },
+    ColorAr: {
         type: String
     },
     OnSale: {
@@ -35,16 +46,24 @@ const ProdutsSchema = mongoose.Schema({
     },
     PriceonSale: {
         type: Number
-    }
-    ,
+    },
     Storage: {
         type: String
-    }
-    , Details: {
+    }, 
+    
+    DetailsEn: {
         type: String
     },
-    Description: {
+    DetailsAr: {
         type: String
+    },
+    DescriptionEn: {
+        type: String,
+        required:true
+    },
+    DescriptionAr: {
+        type: String,
+        required:true
     },
     Images: [{
         type: String
@@ -59,22 +78,40 @@ const ProdutsSchema = mongoose.Schema({
     Connector: {
         type: String
     },
-    Compatibility: {
+    CompatibilityAr: {
         type: String
     },
-    workWith: {
+    CompatibilityEn: {
         type: String
     },
-    laptopCompartment: {
+    workWithAr: {
         type: String
     },
-    Material: {
+    workWithEn: {
         type: String
     },
-    powerSource: {
+    laptopCompartmentAr: {
         type: String
     },
-    Series: {
+    laptopCompartmentEn: {
+        type: String
+    },
+    MaterialAr: {
+        type: String
+    },
+    MaterialEn: {
+        type: String
+    },
+    powerSourceAr: {
+        type: String
+    },
+    powerSourceEn: {
+        type: String
+    },
+    SeriesEn: {
+        type: String
+    },
+    SeriesAr: {
         type: String
     },
     Weight: {
@@ -86,31 +123,49 @@ const ProdutsSchema = mongoose.Schema({
     Wattage: {
         type: String
     },
-    wutputWattage: {
+    outputWattage: {
         type: String
     },
-    Connector: {
+    ConnectorAr: {
         type: String
     },
-    Type: {
+    ConnectorEn: {
         type: String
     },
-    CompatibleDevices: {
+    TypeEn: {
         type: String
     },
-    SpecialFeature: {
+    TypeAr: {
         type: String
     },
-    connectivityTechnology: {
+    CompatibleDevicesAr: {
         type: String
     },
-    compatibleDevices: {
+    CompatibleDevicesEn: {
         type: String
     },
-    compatiblePhoneModels: {
+    SpecialFeatureEn: {
         type: String
     },
-    specialFeature: {
+    SpecialFeatureAr: {
+        type: String
+    },
+    connectivityTechnologyEn: {
+        type: String
+    },
+    connectivityTechnologyAr: {
+        type: String
+    },
+    compatiblePhoneModelsEn: {
+        type: String
+    },
+    compatiblePhoneModelsAr: {
+        type: String
+    },
+    specialFeatureEn: {
+        type: String
+    },
+    specialFeatureAr: {
         type: String
     },
     inputVoltage: {
@@ -128,10 +183,10 @@ const ProdutsSchema = mongoose.Schema({
     itemHardness: {
         type: String
     },
-    productDimensions: {
+    finishTypeEn: {
         type: String
     },
-    finishType: {
+    finishTypeAr: {
         type: String
     },
     unitCount: {
@@ -155,10 +210,10 @@ const ProdutsSchema = mongoose.Schema({
     foldedSize: {
         type: String
     },
-    compatiblePhoneModels: {
+    brandMaterialTypeEn: {
         type: String
     },
-    brandMaterialType: {
+    brandMaterialTypeAr: {
         type: String
     },
     memoryRam: {
@@ -170,7 +225,10 @@ const ProdutsSchema = mongoose.Schema({
     Network: {
         type: String
     },
-    Processor: {
+    ProcessorEn: {
+        type: String
+    },
+    ProcessorAr: {
         type: String
     },
     Battery: {
@@ -183,9 +241,6 @@ const ProdutsSchema = mongoose.Schema({
         type: String
     },
     batteryAverageLifeStandby: {
-        type: String
-    },
-    Dimensions: {
         type: String
     },
     areBatteriesIncluded: {
@@ -209,8 +264,6 @@ const ProdutsSchema = mongoose.Schema({
     includedComponents: {
         type: String
     }
-
-
 
 }, { timestamps: true }) //timestamps add createdAt updatedAt
 

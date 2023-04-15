@@ -2,18 +2,33 @@ const mongoose =require("mongoose")
 const{createCopouns}=require("../Controllers/copouns")
 const copounsSchema=mongoose.Schema(
     {
-        name:{
-            
+        nameEn:{
             type:String,
-        minLength:4,
+            minLength:4,
+            required:true
+        },
 
-        },amount:{
-            type:Number
-        },ceria:{
-            type:Number
-        },descrep:{
+        nameAr:{
             type:String,
+            minLength:4,
+            required:true
+        },
 
+        amount:{
+            type:Number
+        },
+
+        crateria:{
+            type:Number
+        },
+        
+        descreptionEn:{
+            type:String,
+            required:true,
+        },
+        descreptionAr:{
+            type:String,
+            required:true,
         }
 
     },{ timestamps: true }

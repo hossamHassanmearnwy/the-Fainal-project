@@ -3,26 +3,39 @@ const mongoose = require('mongoose');
 const offersSchema = mongoose.Schema({
 
 
-    title: {
+    nameEn: {
         type: 'string',
         minLength: 5,
         maxLength: 100,
         unique: true,
-        // required: true,
+        required: true,
+        trim: true
+    },
+    nameAr: {
+        type: 'string',
+        minLength: 5,
+        maxLength: 100,
+        unique: true,
+        required: true,
         trim: true
     },
     amount: {
         type: 'number',
         // required: true
     },
-    ceria: {
+    crateria: {
         type: 'number',
         // required: true
     },
-    description: {
+    descriptionEn: {
         type: 'string',
         trim: true,
-        // required: true
+        required: true
+    },
+    descriptionAr: {
+        type: 'string',
+        trim: true,
+        required: true
     }
 
 }, { timestamps: true })

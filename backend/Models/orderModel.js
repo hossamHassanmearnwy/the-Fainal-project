@@ -11,15 +11,27 @@ const orderSchema = mongoose.Schema({
         ref: "User",
         // required: true,
     },
-    shippingAddress:{
+    shippingAddressEn:{
         type:String,
         required:true
     },
-    city:{
+    shippingAddressEn:{
+        type:String,
+        required:true
+    },
+    cityEn:{
         type:String,
         required: true
     },
-    country:{
+    cityAr:{
+        type:String,
+        required: true
+    },
+    countryEn:{
+        type:String,
+        required: true
+    },
+    countryAr:{
         type:String,
         required: true
     },
@@ -27,24 +39,26 @@ const orderSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    status:{
+    statusEn:{
         type: String,
         required: true,
         enum: ["Pending", "Inprogress", "Done"],
         default:"Pending"
     },
+    statusAr:{
+        type: String,
+        required: true,
+        enum: ["قيد الإنتظار", "قيد التقدم", "تم بنجاح"],
+        default:"قيد الإنتظار"
+    },
     totalPrice:{
         type:Number,
         required: true
     },
-    
-    
     cartId:{
         type: mongoose.SchemaTypes.ObjectId,
         ref:'Cart'
-    }
-
-    
+    }  
 
 }, { timestamps: true })
 
