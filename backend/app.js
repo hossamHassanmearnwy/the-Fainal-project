@@ -14,7 +14,6 @@ require("dotenv").config();
 console.log(`process.env`);
 const dbConnection = require("./DB/connection");
 dbConnection();
-
 app.get("/", (req, res) => res.send("Hello team 5!"));
 app.listen(port, () => console.log(`app listening on port ${port}!`));
 

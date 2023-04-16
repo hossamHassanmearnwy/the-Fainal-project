@@ -1,146 +1,112 @@
-products => post{
+product 
 
+get {
 
-
-    
-    "Brand": "post update4t6",
-    "Color": "black",
-    "OnSale": true,
-    "PriceonSale": 500,
-    "Storage": "rer",
-    "Details": "test detsils",
+ "ItemNameEn": "mobile",
+    "ItemNameAr": "هاتف",
+    "Price": 100,
+    "BrandEn": "samsung"
+    "BrandAr": "سامسونج",
+    "DescriptionEn": "samsung mobile",
+    "DescriptionAr": "هاتف سامسونج",
     "Images": [],
-    "_id": "64389082b731811af5948b77",
-    "createdAt": "2023-04-13T23:30:10.751Z",
-    "updatedAt": "2023-04-13T23:30:10.751Z",
+    "_id": "643c2e794e768d424288644a",
+    "createdAt": "2023-04-16T17:20:57.116Z",
+    "updatedAt": "2023-04-16T17:20:57.116Z",
     "__v": 0
 
-}
-
-
-
-get{
-
-
-
-
-        "_id": "6435e6b8884458bcb12b8627",
-        "Brand": "test update4t6",
-        "Color": "blue",
-        "OnSale": true,
-        "PriceonSale": 500,
-        "Storage": "rer",
-        "Details": "test detsils",
-        "Images": [],
-        "createdAt": "2023-04-11T23:01:12.219Z",
-        "updatedAt": "2023-04-11T23:26:42.698Z",
-        "__v": 0
-    }
-
-patch{
-    
-    "_id": "6435e6b8884458bcb12b8627",
-    "Brand": "test update4t6",
-    "Color": "red",
-    "OnSale": true,
-    "PriceonSale": 500,
-    "Storage": "rer",
-    "Details": "test detsils",
-    "Images": [],
-    "createdAt": "2023-04-11T23:01:12.219Z",
-    "updatedAt": "2023-04-13T23:27:48.526Z",
-    "__v": 0
-}
-
-
-categories get{
-  "results": 0,
-    "page": 1,
-    "data": []
-}
-
-copouns  post{
-        "name": "first",
-    "amount": 4,
-    "ceria": 2,
-    "_id": "64389340b731811af5948b7b",
-    "createdAt": "2023-04-13T23:41:52.464Z",
-    "updatedAt": "2023-04-13T23:41:52.464Z",
-    "__v": 0
-}
-
-
-
-
- get {
-     "_id": "6435dda1d41d243028604b12",
-        "name": "first",
-        "amount": 4,
-        "ceria": 2,
-        "descrep": "test",
-        "createdAt": "2023-04-11T22:22:25.414Z",
-        "updatedAt": "2023-04-11T22:22:25.414Z",
-        "__v": 0
-}
-offers post{
-        "title": "first",
-    "amount": 4,
-    "ceria": 2,
-    "_id": "6438943db731811af5948b81",
-    "createdAt": "2023-04-13T23:46:05.231Z",
-    "updatedAt": "2023-04-13T23:46:05.231Z",
-    "__v": 0
-}
-get{
-   "_id": "6438943db731811af5948b81",
-    "title": "first",
-    "amount": 4,
-    "ceria": 2,
-    "createdAt": "2023-04-13T23:46:05.231Z",
-    "updatedAt": "2023-04-13T23:46:05.231Z",
-    "__v": 0
 }
 get by id {
-     "_id": "6438943db731811af5948b81",
-    "title": "first",
-    "amount": 4,
-    "ceria": 2,
-    "createdAt": "2023-04-13T23:46:05.231Z",
-    "updatedAt": "2023-04-13T23:46:05.231Z",
+        "_id": "643c2f904e768d4242886455",
+    "ItemNameEn": "mobile",
+    "ItemNameAr": "هاتف",
+    "Price": 100,
+    "BrandAr": "سامسونج",
+    "DescriptionEn": "samsung mobile",
+    "DescriptionAr": "هاتف سامسونج",
+    "Images": [],
+    "createdAt": "2023-04-16T17:25:36.602Z",
+    "updatedAt": "2023-04-16T17:25:36.602Z",
     "__v": 0
 }
-delete{
+up date by id {
+        "acknowledged": true,
+    "modifiedCount": 1,
+    "upsertedId": null,
+    "upsertedCount": 0,
+    "matchedCount": 1
+}
+delete by id{
+ "acknowledged": true,
+    "deletedCount": 1
+}////////////////////////////////////////////////////////////////////////////////
+
+Offers{
+
+    "You Must Be Authentication"
+}
+
+offers post{
+    {
+    "nameEn": "motherDay",
+    "nameAr": "عيد الام",
+    "descriptionEn": "offers of mother day",
+    "descriptionAr": "عرض عيد الام",
+    "_id": "643c36fe7b323af32e7b0a54",
+    "createdAt": "2023-04-16T17:57:18.555Z",
+    "updatedAt": "2023-04-16T17:57:18.555Z",
+    "__v": 0
+}
+}
+offers get{
+     {
+        "_id": "643c36fe7b323af32e7b0a54",
+        "nameEn": "motherDay",
+        "nameAr": "عيد الام",
+        "descriptionEn": "offers of mother day",
+        "descriptionAr": "عرض عيد الام",
+        "createdAt": "2023-04-16T17:57:18.555Z",
+        "updatedAt": "2023-04-16T17:57:18.555Z",
+        "__v": 0
+    }
+}
+offers up date{
+      "acknowledged": true,
+    "modifiedCount": 1,
+    "upsertedId": null,
+    "upsertedCount": 0,
+    "matchedCount": 1
+}
+offers delete{
     "acknowledged": true,
     "deletedCount": 1
 }
-cart{
 
-    erorr{
-        "You Must Be Authentication"
-    }
-   
+user register
+
+post user error{
+"E11000 duplicate key error collection: group5.users index: firstName_1 dup key: { firstName: \"ahmed\" }"
+ 
 }
-user{
-register{
-    
-    "firstName": "ahmed",
-    "lastName": "magdy",
-    "email": "ahmed@gmail.com",
-    "password": "$2b$10$ygBvLABcfr5QBjwOfTKkj.HionqfB28CbQ.JR6aK1zvb.TWylPKjq",
+
+post user{
+        "firstName": "amr",
+    "lastName": "amr",
+    "email": "ahmedd@gmail.com",
+    "password": "$2b$10$S6I0aINTLQmtWjEcdkWTluAU7ergwhbjsENFe5w9vdGwmPdYgEhYi",
     "isAdmin": false,
     "isActive": true,
-    "_id": "643adbf5e5188f4dd7d9c646",
-    "createdAt": "2023-04-15T17:16:37.484Z",
-    "updatedAt": "2023-04-15T17:16:37.484Z",
+    "_id": "643c321f2ba91b287d217e45",
+    "createdAt": "2023-04-16T17:36:31.215Z",
+    "updatedAt": "2023-04-16T17:36:31.215Z",
     "__v": 0
-
 }
-error register{
+get user{
     "User validation failed: email: User Email required"
     "E11000 duplicate key error collection: group5.users index: email_1 dup key: { email: \"ahmedmagdy@gmail.com\" }"
 }
-update{
-    {
+update user
+    
     "status": "success",
     "newData": {
         "firstName": "aaaa",
@@ -148,19 +114,29 @@ update{
         "email": "ahmedmagdy@gmail.com",
         "password": "$2b$10$Jx.pSqRaoxDcR1EBCAtaN.j7J.d4Dwr8UysQ0epOrI1tgtAIY1bWu"
     }
-}
-}
 
 
-
-login {
-token
+    order {
 
 
-}
-error{
-{
-    "message": "invalid email or password"
-}
-}
-}
+        order get {
+            "not Admin"
+        }
+        post{
+                "shippingAddressEn": "alex",
+    "shippingAddressAr": "الاسكندرية",
+    "cityEn": "alexandria",
+    "cityAr": "الاسكندريه",
+    "countryEn": "egypt",
+    "countryAr": "مصر",
+    "phone": "011112555555",
+    "statusEn": "Pending",
+    "statusAr": "قيد الإنتظار",
+    "totalPrice": 5551155,
+    "_id": "643c3a2510dca5430872bac0",
+    "products": [],
+    "createdAt": "2023-04-16T18:10:45.846Z",
+    "updatedAt": "2023-04-16T18:10:45.846Z",
+    "__v": 0
+        }
+    }
