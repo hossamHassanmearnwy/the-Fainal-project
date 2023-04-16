@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-
-
 const reviewsSchema = mongoose.Schema({
     comment:{
         type: 'string',
@@ -8,11 +6,11 @@ const reviewsSchema = mongoose.Schema({
         trim:true
     },
 
-    // products:{
-    //     type: mongoose.SchemaType.ObjectId,
-    //     ref:"Product",
-    //     required: true
-    // }
+    products:{
+        type: mongoose.SchemaTypes.ObjectId,
+        ref:"Product",
+        required: true
+    }
 }, {timestamps: true});
 
 

@@ -2,7 +2,14 @@ const mongoose = require('mongoose');
 
 
 const categorieSchema = mongoose.Schema({
-    catName:{
+    catNameEn:{
+        type:String,
+        required:[true, 'Category required'],
+        unique:[true, 'Category must be unique'],
+        minLength:5,
+        maxLength:20,
+    },
+    catNameAr:{
         type:String,
         required:[true, 'Category required'],
         unique:[true, 'Category must be unique'],
@@ -10,16 +17,17 @@ const categorieSchema = mongoose.Schema({
         maxLength:20,
     },
     // A and B => shopping.com/a-and-b
-    slug:{
+    slugEn:{
+        type:String,
+        lowercase: true,
+    },
+    slugAr:{
         type:String,
         lowercase: true,
     },
     image:{
         type:String,
     }
- 
-
-
 }, {timestamps: true});
 
 
