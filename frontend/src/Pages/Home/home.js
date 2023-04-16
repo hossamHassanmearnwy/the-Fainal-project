@@ -4,6 +4,7 @@ import MainSideBar from './../../Components/MainSideBar/MainSideBar';
 import Slider from './../../Components/Slider/Slider';
 import Cart from "../../Pages/cart/Cart";
 import OffersSlider from "../../Components/offersSlider/OffersSlider";
+import offersList from "../../offersData";
 
 export default function Home() {
   //  const [warning, setWarning] = useState(false);
@@ -72,8 +73,15 @@ export default function Home() {
       setShow={setShow}
       path='/cart'
     />  */}
-    <Amazon />
-    <OffersSlider/>
+    <Amazon handleClick={handleClick} />
+
+      {
+        
+          <OffersSlider handleClick={handleClick} />
+        
+      }
+
+    {/* <OffersSlider/> */}
 
     
     {warning && (

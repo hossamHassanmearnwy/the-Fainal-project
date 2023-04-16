@@ -14,7 +14,7 @@ import { BsCartCheckFill  } from "react-icons/bs";
 
 
 
-export default function OffersSlider() {
+export default function OffersSlider({ handleClick }) {
     const settings = {
         dots: true,
         infinite: true,
@@ -52,7 +52,7 @@ export default function OffersSlider() {
                                         <ListGroup.Item>Price : {item.price}</ListGroup.Item>
                                     </ListGroup>
                                     <Card.Body>
-                                        <Card.Link href="cart"><BsCartCheckFill className='cartIcon' /> Add To Cart</Card.Link>
+                                        <Card.Link onClick={() => handleClick(item)}><BsCartCheckFill className='cartIcon' /> Add To Cart</Card.Link>
                                         
                                     </Card.Body>
                                 </Card>
