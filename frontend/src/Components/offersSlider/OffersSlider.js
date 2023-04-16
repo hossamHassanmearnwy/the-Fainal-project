@@ -14,7 +14,7 @@ import { BsCartCheckFill  } from "react-icons/bs";
 
 
 
-export default function OffersSlider({ handleClick }) {
+export default function OffersSlider({handleClick}) {
     const settings = {
         dots: true,
         infinite: true,

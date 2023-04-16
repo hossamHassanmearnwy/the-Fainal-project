@@ -77,7 +77,7 @@ export default function Home() {
 
       {
         
-          <OffersSlider handleClick={handleClick} />
+      <OffersSlider handleClick={handleClick} />
         
       }
 
