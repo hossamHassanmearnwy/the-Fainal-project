@@ -13,59 +13,8 @@ import offersList from "./../../offersData";
 import { BsCartCheckFill } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
 
-<<<<<<< HEAD
-export default function OffersSlider({handleClick}) {
-    const settings = {
-        dots: true,
-        infinite: true,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        autoplay: true,
-        speed: 3000,
-        autoplaySpeed: 3000,
-        cssEase: "linear"
-    };
-    return (<>
-        <div className='container '>
-            <Sec header='Deals of The Day' />
-            <hr />
-                <Slider {...settings}>
-                    
-                        {offersList.map((item)=>(
-                        <div className='col-3'>
-                                <Card  className='offerCard'>
-                                    <div class="badge-overlay">
-                                        {/* <!-- Change Badge Position, Color, Text here--> */}
-                                        <span class="top-left badge orange">SALE</span>
-                                    </div>
-                                    
-                                    <Card.Img variant="top" src={item.img} className='slide-img'/>
-                                    <Card.Body>
-                                        <Card.Title>{item.title}</Card.Title>
-                                    {/* <Badge content="NEW"></Badge> */}
-                                        <Card.Text>
-                                        {item.desc}
-                                        </Card.Text>
-                                    </Card.Body>
-                                    <ListGroup className="list-group-flush">
-                                        <ListGroup.Item>Brand : {item.brand}</ListGroup.Item>
-                                        <ListGroup.Item>Price : {item.price}</ListGroup.Item>
-                                    </ListGroup>
-                                    <Card.Body>
-                                        <Card.Link onClick={() => handleClick(item)}><BsCartCheckFill className='cartIcon' /> Add To Cart</Card.Link>
-                                        
-                                    </Card.Body>
-                                </Card>
-                            
-                            </div>
-                        ))}
-                    </Slider>
-                
-        </div>
-=======
-export default function OffersSlider() {
-  const { t, i18n } = useTranslation();
-  document.body.dir = i18n.dir();
+
+export default function OffersSlider({ handleClick }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -74,47 +23,45 @@ export default function OffersSlider() {
     autoplay: true,
     speed: 3000,
     autoplaySpeed: 3000,
-    cssEase: "linear",
+    cssEase: "linear"
   };
-  return (
-    <>
-      <div className="container ">
-        <Sec header="Deals of The Day" />
-        <hr />
-        <Slider {...settings}>
-          {offersList.map((item) => (
-            <div className="col-3">
-              <Card className="offerCard">
-                <div class="badge-overlay">
-                  {/* <!-- Change Badge Position, Color, Text here--> */}
-                  <span class="top-left badge orange">{t("Sale")}</span>
-                </div>
+  return (<>
+    <div className='container '>
+      <Sec header='Deals of The Day' />
+      <hr />
+      <Slider {...settings}>
 
-                <Card.Img variant="top" src={item.img} className="slide-img" />
-                <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
-                  {/* <Badge content="NEW"></Badge> */}
-                  <Card.Text>{item.desc}</Card.Text>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                  <ListGroup.Item>
-                    {t("Brand")} : {item.brand}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    {t("Price")} : {item.price}
-                  </ListGroup.Item>
-                </ListGroup>
-                <Card.Body>
-                  <Card.Link href="cart">
-                    <BsCartCheckFill className="cartIcon" /> {t("Add to Cart")}
-                  </Card.Link>
-                </Card.Body>
-              </Card>
-            </div>
-          ))}
-        </Slider>
-      </div>
->>>>>>> ef45d6932628af1efe29561fc38e31da415183f8
-    </>
+        {offersList.map((item) => (
+          <div className='col-3'>
+            <Card className='offerCard'>
+              <div class="badge-overlay">
+                {/* <!-- Change Badge Position, Color, Text here--> */}
+                <span class="top-left badge orange">SALE</span>
+              </div>
+
+              <Card.Img variant="top" src={item.img} className='slide-img' />
+              <Card.Body>
+                <Card.Title>{item.title}</Card.Title>
+                {/* <Badge content="NEW"></Badge> */}
+                <Card.Text>
+                  {item.desc}
+                </Card.Text>
+              </Card.Body>
+              <ListGroup className="list-group-flush">
+                <ListGroup.Item>Brand : {item.brand}</ListGroup.Item>
+                <ListGroup.Item>Price : {item.price}</ListGroup.Item>
+              </ListGroup>
+              <Card.Body>
+                <Card.Link onClick={() => handleClick(item)}><BsCartCheckFill className='cartIcon' /> Add To Cart</Card.Link>
+
+              </Card.Body>
+            </Card>
+
+          </div>
+        ))}
+      </Slider>
+
+    </div>
+  </>
   );
 }
