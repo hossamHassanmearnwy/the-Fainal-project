@@ -45,11 +45,11 @@ export default function OffersSlider({ handleClick }) {
     settings.slidesToShow = 5;}
     
   return (<>
-    <div>
-      <h2>Width: {windowSize}</h2>
+//     <div>
+//       <h2>Width: {windowSize}</h2>
 
-      <h2>Height: {windowSize}</h2>
-    </div>
+//       <h2>Height: {windowSize}</h2>
+//     </div>
     <div className='container ' >
       <Sec header='Deals of The Day' />
       <hr />
