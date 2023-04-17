@@ -32,26 +32,24 @@ export default function OffersSlider({ handleClick }) {
     };
     window.addEventListener('resize', handleWindowResize);
   }, []);
-  
-  switch (windowSize){
-        case 1000:
-        settings.slidesToShow=3;
-        break;
-        case 800:
-        settings.slidesToShow =2;
-        break;
-        case 600:
-        case 500:
-        settings.slidesToShow=1;
-        break;
-      }
+
+  if(windowSize<600 || windowSize==600){
+    settings.slidesToShow = 1;
+  }if(windowSize>600 || windowSize==700){
+    settings.slidesToShow = 2;
+  }if(windowSize>700 || windowSize==900){
+    settings.slidesToShow = 3;
+  }if(windowSize>900 || windowSize==1100){
+    settings.slidesToShow = 4;
+  }if( windowSize > 1100){
+    settings.slidesToShow = 5;}
     
   return (<>
-    {/* <div>
+    <div>
       <h2>Width: {windowSize}</h2>
 
       <h2>Height: {windowSize}</h2>
-    </div> */}
+    </div>
     <div className='container ' >
       <Sec header='Deals of The Day' />
       <hr />
