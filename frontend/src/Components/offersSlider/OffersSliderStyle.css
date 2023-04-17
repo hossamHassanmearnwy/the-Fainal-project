@@ -19,6 +19,9 @@
 .cartIcon:hover{
     color : #fa7901
 }
+.addToCart{
+    text-decoration: none;
+}
 
 
 
@@ -95,3 +98,20 @@
 }
 
 
+/* //////////////////////////////////////// */
+
+.price{
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+}
+.oldPrice{
+    color:gray;
+    text-decoration: line-through;
+}
+
+.saleValue{
+    color: green;
+    font-weight: bold;
+    font-size: 18px;
+}

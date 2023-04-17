@@ -22,23 +22,21 @@ export default function MainSideBar() {
         {/* <div>MainSideBar</div> */}
         
 
-        <Accordion className='allll'>
+        <Accordion className='all' defaultActiveKey="0" flush>
 
-            
+            <Accordion.Item eventKey="0">
                 <Accordion.Header><GiHamburgerMenu /> <div className='catTitle'>{t('All Categories')}</div></Accordion.Header>
                 <Accordion.Body>
                     <ListGroup variant="flush" >
-                    <NavLink className={'links'} to='#'><ListGroup.Item className='mainNav'><FaMobileAlt /> {t('Mobiles & Tablets')}</ListGroup.Item>
-                
-                            </NavLink>
-                    <NavLink className={'links'} to='/'><ListGroup.Item className='mainNav'><BiMobileAlt/>{t('Accessories')}</ListGroup.Item></NavLink>
-                    <NavLink className={'links'} to='/'><ListGroup.Item className='mainNav'> <CgGames/>{t('Gaming')}</ListGroup.Item></NavLink>
-                    <NavLink className={'links'} to='/'><ListGroup.Item className='mainNav'><HiOutlineDesktopComputer />{t('Computers')}</ListGroup.Item></NavLink>
-                        <NavLink className={'links'} to='/'><ListGroup.Item className='mainNav'>{t('Power Supply')}</ListGroup.Item></NavLink>
-                        <NavLink className={'links'}  to='/'><ListGroup.Item className='mainNav'>{t('Offers')}</ListGroup.Item></NavLink>
+                    <NavLink className={'text-decoration-none'} to='#'><ListGroup.Item className='mainNav'><FaMobileAlt /> {t('Mobiles & Tablets')}</ListGroup.Item></NavLink>
+                    <NavLink className={'text-decoration-none'} to='/'><ListGroup.Item className='mainNav'><BiMobileAlt/>{t('Accessories')}</ListGroup.Item></NavLink>
+                    <NavLink className={'text-decoration-none'} to='/'><ListGroup.Item className='mainNav'> <CgGames/>{t('Gaming')}</ListGroup.Item></NavLink>
+                    <NavLink className={'text-decoration-none'} to='/'><ListGroup.Item className='mainNav'><HiOutlineDesktopComputer />{t('Computers')}</ListGroup.Item></NavLink>
+                    <NavLink className={'text-decoration-none'} to='/'><ListGroup.Item className='mainNav'>{t('Power Supply')}</ListGroup.Item></NavLink>
+                    <NavLink className={'text-decoration-none'}  to='/'><ListGroup.Item className='mainNav'>{t('Offers')}</ListGroup.Item></NavLink>
                     </ListGroup>
                 </Accordion.Body>
-          
+          </Accordion.Item>
         </Accordion>
 
       
