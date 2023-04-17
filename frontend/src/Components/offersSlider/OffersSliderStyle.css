@@ -14,13 +14,13 @@
 .cartIcon{
     width: 30px;
     height: 30px;
-    text-decoration:none ;
-}
-.cartIcon:hover{
-    color : #fa7901
+    
 }
 .addToCart{
-    text-decoration: none;
+    color:gray;
+}
+.addToCart:hover{
+    color: #ffc107;
 }
 
 
@@ -28,7 +28,7 @@
 
 
 
-
+/* ///////////////////////////// */
 
 .badge-overlay {
     position: absolute;
@@ -56,7 +56,7 @@
     text-align: center;
     line-height: normal;
     text-transform: uppercase;
-    background: #ed1b24;
+    
 }
 
 .badge::before,

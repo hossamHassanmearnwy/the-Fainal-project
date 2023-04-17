@@ -90,7 +90,7 @@ export default function OffersSlider({ handleClick }) {
                 <ListGroup.Item ><span className="saleValue"> {item.saleValue}</span>  <span className="oldPrice"> {item.oldPrice} EGP</span></ListGroup.Item>
               </ListGroup>
               <Card.Body>
-                <Card.Link onClick={() => handleClick(item)} className='text-decoration-none'><BsCartCheckFill  /> Add To Cart</Card.Link>
+                <Card.Link onClick={() => handleClick(item)} className='text-decoration-none addToCart'><BsCartCheckFill className="cartIcon"/> Add To Cart</Card.Link>
 
               </Card.Body>
             </Card>
