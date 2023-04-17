@@ -1,16 +1,13 @@
 
 
-.links{
-    text-decoration: none;
-
-
-    
-    
-    
-}
-
 .nav{
     height: 50px;
+}
+.nav:hover{
+    color:#e8bc10;
+    background-color:  #f3dea033;
+    
+
 }
 
 

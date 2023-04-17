@@ -14,7 +14,7 @@ export default function UserAccount() {
         <>
             <div className="dropdown mx-5 my-5">
                 <button className="dropbtn">{t('Account Details')}</button>
-                <div className="dropdown-content" >
+                <div className="dropdown-content " >
                 <a href="/useraccount/myaccount">{t('My Account')}</a>
                 <a href="/useraccount/myorders">{t('My Orders')}</a>
                 <a href="/useraccount/mywishlist">{t('My Wish List')}</a>
@@ -28,14 +28,14 @@ export default function UserAccount() {
                 
                 <div className='row ' >
 
-                    <div className='col-3 res'>
+                    <div className='col-3 res' >
 
-                <ListGroup variant="flush">
-                        <NavLink className={'links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }}  to='/useraccount/myaccount'><ListGroup.Item className='nav'>{t('Account Details')}</ListGroup.Item></NavLink>
-                            <NavLink className={'links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/myorders'><ListGroup.Item className='nav'>{t('My Orders')}</ListGroup.Item></NavLink>
-                            <NavLink className={'links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/Fav'><ListGroup.Item className='nav'>{t('My Wish List')}</ListGroup.Item></NavLink>
-                            <NavLink className={'links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/accountinfo'><ListGroup.Item className='nav'>{t('Account information')}</ListGroup.Item></NavLink>
-                            <NavLink className={'links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/addressbook'><ListGroup.Item className='nav'>{t('Address Book')}</ListGroup.Item></NavLink>
+                <ListGroup variant="flush" >
+                            <NavLink className={'text-decoration-none links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/myaccount'><ListGroup.Item className={'nav'} >{t('Account Details')}</ListGroup.Item></NavLink>
+                            <NavLink className={'text-decoration-none links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/myorders'><ListGroup.Item className='nav'>{t('My Orders')}</ListGroup.Item></NavLink>
+                            <NavLink className={'text-decoration-none links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/Fav'><ListGroup.Item className='nav'>{t('My Wish List')}</ListGroup.Item></NavLink>
+                            <NavLink className={'text-decoration-none links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/accountinfo'><ListGroup.Item className='nav'>{t('Account information')}</ListGroup.Item></NavLink>
+                            <NavLink className={'text-decoration-none links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/addressbook'><ListGroup.Item className='nav'>{t('Address Book')}</ListGroup.Item></NavLink>
                 </ListGroup>
                     </div>
                     

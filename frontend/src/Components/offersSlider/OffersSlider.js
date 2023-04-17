@@ -43,6 +43,21 @@ export default function OffersSlider({ handleClick }) {
     settings.slidesToShow = 4;
   }if( windowSize > 1100){
     settings.slidesToShow = 5;}
+ 
+
+
+  // switch (windowSize){
+  //   case 500 :
+  //       settings.slidesToShow=1;
+  //       break;
+        // case 800:
+        // settings.slidesToShow =2;
+        // break;
+        // // case 600:
+        // case 500:
+        // settings.slidesToShow=1;
+        // break;
+      // }
     
   return (<>
 //     <div>
@@ -57,11 +72,11 @@ export default function OffersSlider({ handleClick }) {
         {offersList.map((item) => (
           <div className='col-3'>
             <Card className='offerCard'>
+
               <div class="badge-overlay">
                 {/* <!-- Change Badge Position, Color, Text here--> */}
                 <span class="top-left badge orange">SALE</span>
               </div>
-
               <Card.Img variant="top" src={item.img} className='slide-img' />
               <Card.Body>
                 <Card.Title>{item.title}</Card.Title>
@@ -71,10 +86,11 @@ export default function OffersSlider({ handleClick }) {
               </Card.Body>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item>Brand : {item.brand}</ListGroup.Item>
-                <ListGroup.Item>Price : {item.price}</ListGroup.Item>
+                <ListGroup.Item className="price">Price : {item.priceOnSale} EGP</ListGroup.Item>
+                <ListGroup.Item ><span className="saleValue"> {item.saleValue}</span>  <span className="oldPrice"> {item.oldPrice} EGP</span></ListGroup.Item>
               </ListGroup>
               <Card.Body>
-                <Card.Link onClick={() => handleClick(item)}><BsCartCheckFill className='cartIcon' /> Add To Cart</Card.Link>
+                <Card.Link onClick={() => handleClick(item)} className='text-decoration-none'><BsCartCheckFill  /> Add To Cart</Card.Link>
 
               </Card.Body>
             </Card>
