@@ -89,11 +89,7 @@ export default function Home() {
     />  */}
     <Amazon handleClick={handleClick} />
 
-      {
-        
-      <OffersSlider handleClick={handleClick} />
-        
-      }
+      
 
     {/* <OffersSlider/> */}
 
