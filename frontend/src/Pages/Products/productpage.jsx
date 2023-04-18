@@ -60,8 +60,9 @@ const Productpage = () => {
         </div>
       </div>
       <div>
-     {/**/ }
-      </div>
+        Products :  {Products.map((prd) => (
+          <div className="key">{prd.ItemNameEn}</div>
+        ))}      </div>
 
       {/* <a href="www" ></a> */}
     </div>
