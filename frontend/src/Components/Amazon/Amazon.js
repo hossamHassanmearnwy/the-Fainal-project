@@ -5,6 +5,7 @@ import Cards from '../Card/Cards';
 import Slider from '../Slider/Slider';
 import Sec from './../styleSec/style';
 import SummaryProd from './../summary/summaryProd';
+import BestSec from './../besrSellers/BestSec';
 
 const Amazon = ({handleClick}) => {
   return (
@@ -24,14 +25,14 @@ const Amazon = ({handleClick}) => {
         <div className='row'>
         {
             list.map((item)=>(
-                <Cards item={item} key={item.id} handleClick={handleClick} />
+                <Cards item={item} key={item.id} handleClick={handleClick}  />
             ))
         }
         </div>
     </section>
 
 
-
+    <BestSec />
     <SummaryProd />
     </div>
 

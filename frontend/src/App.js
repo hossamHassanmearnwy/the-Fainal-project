@@ -25,8 +25,11 @@ import NotFound from "./Pages/NotFound/NotFound";
 import Product from "./Components/product/product";
 import Productpage from "./Pages/Products/productpage";
 import Home from './Pages/Home/home';
+
+import ProductDetail from './Pages/productDetail/ProductDetail';
+
 import Checkout from './Pages/Checkout/Checkout';
-//////////////////////
+
 
 function App() {
   const [show, setShow] = useState(true);
@@ -34,7 +37,6 @@ function App() {
   let [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart")) || [] // local storge to get cart
   );
-  const [warning, setWarning] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart)); // local storge to save cart in it
@@ -93,7 +95,7 @@ function App() {
           />
         }/>
           <Route path="product" element={<Product />} />
-          <Route path="Productpage" element={<Productpage />} />
+          <Route path="/details/:id" element={<ProductDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />

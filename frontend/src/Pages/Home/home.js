@@ -3,8 +3,12 @@ import Amazon from '../../Components/Amazon/Amazon'
 import MainSideBar from './../../Components/MainSideBar/MainSideBar';
 import Slider from './../../Components/Slider/Slider';
 import Cart from "../../Pages/cart/Cart";
+
+import ProductDetail from '../../Pages/productDetail/ProductDetail';
+
 import OffersSlider from "../../Components/offersSlider/OffersSlider";
 import offersList from "../../offersData";
+
 
 export default function Home() {
   //  const [warning, setWarning] = useState(false);
@@ -36,6 +40,7 @@ export default function Home() {
     }
     setCart([...cart, item]);
   };
+
 
   const handleChange = (item, d) => {
     let ind = -1;
@@ -72,6 +77,15 @@ export default function Home() {
       handleChange={handleChange}
       setShow={setShow}
       path='/cart'
+
+    /> 
+  )}
+  {warning && (
+    <div className="warning">Item is already added to your cart</div>
+  )}
+
+  
+
     />  */}
     <Amazon handleClick={handleClick} />
 
@@ -88,7 +102,9 @@ export default function Home() {
       <div className="warning">Item is already added to your cart</div>
     )}
 
+
   
+
   
   </>
   )
