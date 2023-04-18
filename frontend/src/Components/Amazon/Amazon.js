@@ -6,6 +6,8 @@ import Slider from '../Slider/Slider';
 import Sec from './../styleSec/style';
 import SummaryProd from './../summary/summaryProd';
 import BestSec from './../besrSellers/BestSec';
+import OffersSlider from "../../Components/offersSlider/OffersSlider";
+import offersList from "../../offersData";
 
 const Amazon = ({handleClick}) => {
   return (
@@ -33,6 +35,12 @@ const Amazon = ({handleClick}) => {
 
 
     <BestSec />
+
+    {
+        
+        <OffersSlider handleClick={handleClick} />
+          
+        }
     <SummaryProd />
     </div>
 
