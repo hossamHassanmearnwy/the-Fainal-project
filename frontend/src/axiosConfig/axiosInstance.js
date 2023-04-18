@@ -3,15 +3,9 @@ const axiosInestance = axios.create({
   baseURL: "http://localhost:3001",
 });
 
-/*header
-{
-    method: "GET",
-    url: "http://localhost:3001/",
-    headers: {
-      "Content-Type": "application/json"
-    }
-  }
+/*header*/
 
+/*
 //function
 function App() {
   Axios().then(res => {

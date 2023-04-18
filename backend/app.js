@@ -1,6 +1,12 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+// app.use(express.json());
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 var ProductsRoutes = require("./Routes/products");
 var OffersRoutes = require("./Routes/offers");
 var ReviewsRoutes = require("./Routes/reviews");
@@ -15,10 +21,6 @@ console.log(`process.env`);
 const dbConnection = require("./DB/connection");
 dbConnection();
 
-app.get("/", (req, res) => res.send("Hello team 5!"));
-app.listen(port, () => console.log(`app listening on port ${port}!`));
-
-app.use(express.json());
 app.use("/Products", ProductsRoutes);
 app.use("/Offers", OffersRoutes);
 app.use("/Reviews", ReviewsRoutes);
@@ -27,3 +29,6 @@ app.use("/orders", ordersRoutes);
 app.use("/users", userRouters);
 app.use("/cart", cartRouts);
 app.use("/copouns", copounsRoutes);
+
+/**error exite  */
+app.listen(port, () => console.log(`app listening on port ${port}!`));
