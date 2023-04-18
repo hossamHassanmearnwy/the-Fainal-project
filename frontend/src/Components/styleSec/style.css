@@ -2,3 +2,10 @@
 {
     border-top: 1px solid lightgray;
 }
+
+
+.bestc:hover{
+    box-shadow: 1px 1px 20px 4px lightgray;
+    transition: .5;
+    transform: scale(1.03);
+}

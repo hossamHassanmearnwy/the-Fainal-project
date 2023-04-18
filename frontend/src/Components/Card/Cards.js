@@ -1,10 +1,12 @@
 import React from 'react';
 import '../Card/cards.css';
+import { Link } from 'react-router-dom';
 import { BsFillCartFill } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
+import Button from 'react-bootstrap/Button';
 
 const Cards = ({item, handleClick}) => {
-    const {title, desc, price, img} = item;
+    const {title, desc, price, img, id} = item;
     // console.log(item)
   return (
 
@@ -35,14 +37,21 @@ const Cards = ({item, handleClick}) => {
       Price - {price}
       </h5>
       <div className='col-lg-6 col-sm-12 mt-4' >
-      <span className= 'p-3 circle bg-warning'  style={{borderRadius:"50%"}} onClick={()=>handleClick(item)} role='button'>
-      <BsFillCartFill className='text-white fs-4' role='button'> </BsFillCartFill>
-      </span>
-      </div>
-      </div>
-      <div className='mt-4'>
 
-      <p className='buy border-top'><FaRegHeart className='me-3 fs-4 text-danger'></FaRegHeart>  add to wishlist</p>
+       <Link to={`/details/${id}`}>
+      <Button className='me-5 text-white' variant="warning">Details</Button></Link> 
+
+
+
+      {/* <span className= 'p-3 circle bg-warning'  style={{borderRadius:"50%"}} onClick={()=>handleClick(item)} role='button'>
+      <BsFillCartFill className='text-warning fs-4' role='button'> </BsFillCartFill>
+  </span> */}
+      </div>
+      </div>
+      <div className='mt-4 d-flex'>
+
+      <span className='buy border-top px-5'><FaRegHeart className='me-2 fs-3 text-danger' role='button'></FaRegHeart> </span>
+      <span className='buy border-top px-5'><BsFillCartFill className='me-2 fs-3 text-warning'  onClick={()=>handleClick(item)} role='button'></BsFillCartFill> </span>
 
       </div>
       </div>
