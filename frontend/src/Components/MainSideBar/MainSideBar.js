@@ -11,31 +11,32 @@ import { HiOutlineDesktopComputer } from 'react-icons/hi'
 import { FaMobileAlt } from 'react-icons/fa'
 import { CgGames } from 'react-icons/cg'
 import { BiMobileAlt } from 'react-icons/bi'
+import { useTranslation } from 'react-i18next';
 ///////
 
 
 export default function MainSideBar() {
+    const {t, i18n} = useTranslation();
+    document.body.dir = i18n.dir();
     return (<>
         {/* <div>MainSideBar</div> */}
         
 
-        <Accordion className='allll'>
+        <Accordion className='all' defaultActiveKey="0" flush>
 
-            
-                <Accordion.Header><GiHamburgerMenu /> <div className='catTitle'>All Categories</div></Accordion.Header>
+            <Accordion.Item eventKey="0">
+                <Accordion.Header><GiHamburgerMenu /> <div className='catTitle'>{t('All Categories')}</div></Accordion.Header>
                 <Accordion.Body>
                     <ListGroup variant="flush" >
-                    <NavLink className={'links'} to='#'><ListGroup.Item className='mainNav'><FaMobileAlt /> {(' Mobiles & Tablets')}</ListGroup.Item>
-                
-                            </NavLink>
-                    <NavLink className={'links'} to='/'><ListGroup.Item className='mainNav'><BiMobileAlt/>{(' Accessories')}</ListGroup.Item></NavLink>
-                    <NavLink className={'links'} to='/'><ListGroup.Item className='mainNav'> <CgGames/>{(' Gaming')}</ListGroup.Item></NavLink>
-                    <NavLink className={'links'} to='/'><ListGroup.Item className='mainNav'><HiOutlineDesktopComputer />{(' Computers')}</ListGroup.Item></NavLink>
-                        <NavLink className={'links'} to='/'><ListGroup.Item className='mainNav'>{('Power Supply')}</ListGroup.Item></NavLink>
-                        <NavLink className={'links'}  to='/'><ListGroup.Item className='mainNav'>{('Offers')}</ListGroup.Item></NavLink>
+                    <NavLink className={'text-decoration-none'} to='#'><ListGroup.Item className='mainNav'><FaMobileAlt /> {t('Mobiles & Tablets')}</ListGroup.Item></NavLink>
+                    <NavLink className={'text-decoration-none'} to='/'><ListGroup.Item className='mainNav'><BiMobileAlt/> {t('Accessories')}</ListGroup.Item></NavLink>
+                    <NavLink className={'text-decoration-none'} to='/'><ListGroup.Item className='mainNav'> <CgGames/> {t('Gaming')}</ListGroup.Item></NavLink>
+                    <NavLink className={'text-decoration-none'} to='/'><ListGroup.Item className='mainNav'><HiOutlineDesktopComputer /> {t('Computers')}</ListGroup.Item></NavLink>
+                    <NavLink className={'text-decoration-none'} to='/'><ListGroup.Item className='mainNav'>{t('Power Supply')}</ListGroup.Item></NavLink>
+                    <NavLink className={'text-decoration-none'}  to='/'><ListGroup.Item className='mainNav'>{t('Offers')}</ListGroup.Item></NavLink>
                     </ListGroup>
                 </Accordion.Body>
-          
+          </Accordion.Item>
         </Accordion>
 
       

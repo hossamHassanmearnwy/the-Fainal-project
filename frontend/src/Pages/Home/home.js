@@ -3,9 +3,15 @@ import Amazon from '../../Components/Amazon/Amazon'
 import MainSideBar from './../../Components/MainSideBar/MainSideBar';
 import Slider from './../../Components/Slider/Slider';
 import Cart from "../../Pages/cart/Cart";
+
 import ProductDetail from '../../Pages/productDetail/ProductDetail';
 
+import OffersSlider from "../../Components/offersSlider/OffersSlider";
+import offersList from "../../offersData";
+
+
 export default function Home() {
+  //  const [warning, setWarning] = useState(false);
   const [show, setShow] = useState(true);
   // const [cart , setCart] = useState([]);
   let [cart, setCart] = useState(
@@ -48,6 +54,7 @@ export default function Home() {
     if (tempArr[ind].amount === 0) tempArr[ind].amount = 1;
     setCart([...tempArr]);
   };
+ 
   return (<>
 
   <div className='mx-5 my-5'>
@@ -64,15 +71,13 @@ export default function Home() {
   </div>
   </div>
   
-  {show ? (
-    <Amazon handleClick={handleClick} />
-  ) : ( 
-      <Cart
+    {/* <Cart
       cart={cart}
       setCart={setCart}
       handleChange={handleChange}
       setShow={setShow}
       path='/cart'
+
     /> 
   )}
   {warning && (
@@ -80,6 +85,24 @@ export default function Home() {
   )}
 
   
+
+    />  */}
+    <Amazon handleClick={handleClick} />
+
+      {
+        
+      <OffersSlider handleClick={handleClick} />
+        
+      }
+
+    {/* <OffersSlider/> */}
+
+    
+    {warning && (
+      <div className="warning">Item is already added to your cart</div>
+    )}
+
+
   
 
   
