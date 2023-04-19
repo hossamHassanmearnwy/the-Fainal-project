@@ -7,9 +7,23 @@ import { BsXLg } from "react-icons/bs";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useTranslation } from "react-i18next";
-import Nav from "react-bootstrap/Nav";
+import Nav from "react-bootstrap/Nav"; 
+import cartaxios from "./../../axiosConfig/axiosInstance";
 
-const Cart = ({ cart, setCart, handleChange, setShow }) => {
+
+const Cart = ({ cart, setCart, handleChange, setShow }) => { 
+  const [cartProducts, setcartProducts] = useState([]);
+  useEffect(() => {
+    cartaxios
+      .get("/cart")
+      .then((res) => {
+        console.log(res.data);
+        setcartProducts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [setcartProducts]);
   const [price, setPrice] = useState(0);
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();

@@ -9,9 +9,23 @@ import ListGroup from "react-bootstrap/ListGroup";
 import offersList from "./../../offersData";
 import { BsCartCheckFill } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
+import productsaxios from "./../../axiosConfig/axiosInstance";
+
 
 
 export default function OffersSlider({ handleClick }) {
+  const [Products, setProducts] = useState([]);
+  useEffect(() => {
+    productsaxios
+      .get("/Products")
+      .then((res) => {
+        console.log(res.data);
+        setProducts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [setProducts]);
   const settings={
     dots: true,
     infinite: true,

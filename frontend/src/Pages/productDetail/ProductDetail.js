@@ -9,17 +9,31 @@ import Cart from "../../Pages/cart/Cart";
 
 import { useParams } from "react-router-dom";
 import list from '../../data';
+import productsDetailsaxios from "./../../axiosConfig/axiosInstance";
+
 
 
 export default function ProductDetail() {
+  const [ProductDetail, setProductDetail] = useState([]);
+  useEffect(() => {
+    productsDetailsaxios
+      .get("/Products/${id}") //id
+      .then((res) => {
+        console.log(res.data);
+        setProductDetail(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [setProductDetail]);
 
-  
+
 
   const [product, setProduct] = useState({});
-   const { id } = useParams();
-  
+  const { id } = useParams();
 
-   const [show, setShow] = useState(true);
+
+  const [show, setShow] = useState(true);
   // const [cart , setCart] = useState([]);
   let [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart")) || [] // local storge to get cart
@@ -49,7 +63,7 @@ export default function ProductDetail() {
 
 
 
-  
+
 
   const handleClick = (item) => {
     let isPresent = false;
@@ -88,78 +102,78 @@ export default function ProductDetail() {
 
 
 
-  
+
 
   return (
 
-   <>
-   {show ? (
+    <>
+      {show ? (
 
-    <div className ='container py-3 my-5'>
-    <div className = 'row'>
-    <div className='col-lg-6 col-sm-12 p-3' style={{marginBottom: "-20%"}}>
-    <img src={product.img} alt="#" className='fluid' height='50%'/>
-    </div>
-    <div className='col-lg-6 col-sm-12 p-3' style={{color: "grey"}}>
-    <p className='mb-2 text-start'>category name</p>
-    <h2 className='textdark text-start'>{product.title}</h2>
-    <StarRating />
-    <p className='mb-2 text-start'>Availability:<span className='text-warning'> 26 in stock</span> </p>
-    <hr />
+        <div className='container py-3 my-5'>
+          <div className='row'>
+            <div className='col-lg-6 col-sm-12 p-3' style={{ marginBottom: "-20%" }}>
+              <img src={product.img} alt="#" className='fluid' height='50%' />
+            </div>
+            <div className='col-lg-6 col-sm-12 p-3' style={{ color: "grey" }}>
+              <p className='mb-2 text-start'>category name</p>
+              <h2 className='textdark text-start'>{product.title}</h2>
+              <StarRating />
+              <p className='mb-2 text-start'>Availability:<span className='text-warning'> 26 in stock</span> </p>
+              <hr />
 
-    <p className='my-3 text-lowercase text-start'><FaRegHeart className='me-1 fs-4 text-danger'></FaRegHeart>  add to wishlist</p>
+              <p className='my-3 text-lowercase text-start'><FaRegHeart className='me-1 fs-4 text-danger'></FaRegHeart>  add to wishlist</p>
 
-    <ul className='feat my-3 text-start'>
-    <li>4.5 inch HD Touch Screen (1280 x 720)</li>
-    <li>Android 4.4 KitKat OS</li>
-    <li>1.4 GHz Quad Core™ Processor</li>
-    <li>20 MP Electro and 28 megapixel CMOS rear camera</li>
-    </ul>
+              <ul className='feat my-3 text-start'>
+                <li>4.5 inch HD Touch Screen (1280 x 720)</li>
+                <li>Android 4.4 KitKat OS</li>
+                <li>1.4 GHz Quad Core™ Processor</li>
+                <li>20 MP Electro and 28 megapixel CMOS rear camera</li>
+              </ul>
 
-    <p className='mb-3 text-start'>{product.desc}</p>
+              <p className='mb-3 text-start'>{product.desc}</p>
 
-    <h2 className='text-dark me-2 mb-2 text-start'>$1,999.00 <span className='text-decoration-line-through text-secondary fs-5'>$2,299.00</span></h2>
+              <h2 className='text-dark me-2 mb-2 text-start'>$1,999.00 <span className='text-decoration-line-through text-secondary fs-5'>$2,299.00</span></h2>
 
-    <hr/>
-
-
-
-  <div className='row'>
-
-  <Form.Select className='col-lg-6 col-sm-12 bg-none border border-warning text-warning w-25 mt-5'>
-  <option>Color</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-</Form.Select>
+              <hr />
 
 
 
+              <div className='row'>
 
-    <Button variant="warning" className='col-lg-6 col-sm-12 text-white text-capitalize rounded-pill fw-bold mt-5 w-50' onClick={()=>handleClick(product)}>
-     <BsFillCartFill className='text-white fs-4 me-2'></BsFillCartFill>add to cart </Button>
-    
+                <Form.Select className='col-lg-6 col-sm-12 bg-none border border-warning text-warning w-25 mt-5'>
+                  <option>Color</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </Form.Select>
 
-    </div>
 
-    </div>
-    </div>
-    </div>
 
-    
-      
-    ) : ( 
+
+                <Button variant="warning" className='col-lg-6 col-sm-12 text-white text-capitalize rounded-pill fw-bold mt-5 w-50' onClick={() => handleClick(product)}>
+                  <BsFillCartFill className='text-white fs-4 me-2'></BsFillCartFill>add to cart </Button>
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+      ) : (
         <Cart
-        cart={cart}
-        setCart={setCart}
-        handleChange={handleChange}
-        setShow={setShow}
-        path='/cart'
-      /> 
-    )}
-    {warning && (
-      <div className="warning">Item is already added to your cart</div>
-    )}
+          cart={cart}
+          setCart={setCart}
+          handleChange={handleChange}
+          setShow={setShow}
+          path='/cart'
+        />
+      )}
+      {warning && (
+        <div className="warning">Item is already added to your cart</div>
+      )}
 
     </>
 

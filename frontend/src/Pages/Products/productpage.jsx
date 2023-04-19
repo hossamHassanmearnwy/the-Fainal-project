@@ -17,6 +17,7 @@ const Productpage = () => {
         console.log(err);
       });
   }, [setProducts]);
+  
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
   return (

@@ -2,6 +2,9 @@ import { Button } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import './SliderStyle.css'
 import { useTranslation } from 'react-i18next';
+import productsaxios from "./../../axiosConfig/axiosInstance";
+import { useEffect, useState } from 'react';
+
 
 const slides = [
   {
@@ -27,6 +30,19 @@ const slides = [
   }
 ]
 function Slider() {
+  const [Products, setProducts] = useState([]);
+  useEffect(() => {
+    productsaxios
+      .get("/Products")
+      .then((res) => {
+        console.log(res.data);
+        setProducts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [setProducts]);
+
   const {t, i18n} = useTranslation();
   document.body.dir = i18n.dir();
   return (
