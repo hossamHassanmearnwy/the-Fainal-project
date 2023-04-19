@@ -28,7 +28,7 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
   useEffect(() => {
     handlePrice();
   });
-
+  
   return (
     <div className="container-fluid">
       <div className="container my-5">
@@ -126,12 +126,13 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
                   {t("Go to Home Page")}
                 </Button>
               </Nav.Link>
-              <Nav.Link href="#">
+{/* ////////////////////////////////////////////////////////////////////////////////////////// */}
+              <Nav.Link href="/checkout">
                 <Button
                   className="checkout"
                   variant="warning rounded-pill py-2 px-4"
                 >
-                  {t("Proceed to Chekout")}
+                  {t("Proceed to Checkout")}
                 </Button>
               </Nav.Link>
             </Nav>
@@ -148,7 +149,7 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
                     className="fs-2 border-bottom border-warning text-start"
                     colSpan={3}
                   >
-                    {t("Cart Total")}
+                    {("Cart Total")}
                   </th>
                   {/* <th> </th>
           <th> </th> */}
@@ -158,21 +159,21 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
               <tbody>
                 <tr>
                   <td colSpan={3} className="py-3 text-start">
-                    {t("Cart Subtotal")}
+                    {("Cart Subtotal")}
                   </td>
                   {/* <td colSpan={2}>Larry the Bird</td> */}
                   <td className="py-3">${price}</td>
                 </tr>
                 <tr>
                   <td className="py-3 text-start" colSpan={3}>
-                    {t("Shipping")}
+                    {("Shipping")}
                   </td>
                   {/* <td colSpan={2}>Larry the Bird</td> */}
                   <td className="py-3">0</td>
                 </tr>
                 <tr>
                   <td className="py-3 text-start" colSpan={3}>
-                    {t("Total")}
+                    {("Total")}
                   </td>
                   {/* <td>Larry the Bird</td> */}
                   <td className="py-3">${price}</td>
