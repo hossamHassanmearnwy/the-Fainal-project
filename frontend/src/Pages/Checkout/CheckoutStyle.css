@@ -1,4 +1,44 @@
-.col-4{
-    border: 1px solid red;
-    height: 100%;
+
+.checkoutCard{
+    width: 30%;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    /* height: 400px; */
+        height: 100%;
+    border-radius: 10px;
+
+}
+
+.sectionTitle{
+    width: 100%;
+    height:70px;
+    padding-top: 20px;
+    border-bottom:1px solid lightgray;
+}
+.shipContent{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top:10px ;
+}
+.zzz{
+    padding-top: 20px;
+    text-align: center;
+    justify-content: center;
+}
+.tableData{
+    border: 1px solid lightgray;
+}
+.aaaa{
+    height:500px;
+    overflow: auto;
+    width: 100%;
+    /* border: 8px solid yellow; */
+    padding: 3%;
+}
+
+.discInput{
+    border-radius: 30px;
+    margin: 15px;
+    
 }
