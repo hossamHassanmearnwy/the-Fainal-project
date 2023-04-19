@@ -27,8 +27,8 @@ import Productpage from "./Pages/Products/productpage";
 import Home from './Pages/Home/home';
 
 import ProductDetail from './Pages/productDetail/ProductDetail';
-
 import Checkout from './Pages/Checkout/Checkout';
+import CategoryPage from "./Pages/categories/CategoryPage";
 
 
 function App() {
@@ -96,6 +96,7 @@ function App() {
         }/>
           <Route path="product" element={<Product />} />
           <Route path="/details/:id" element={<ProductDetail />} />
+          <Route path="/cat" element={<CategoryPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
