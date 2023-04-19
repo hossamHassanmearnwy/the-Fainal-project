@@ -4,9 +4,14 @@ import Card from 'react-bootstrap/Card';
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import Cart from './../cart/Cart';
+import Table from "react-bootstrap/Table";
+import  Accordion  from 'react-bootstrap/Accordion';
+///////////////////////////////////////
 
 
-export default function Checkout() {
+
+export default function Checkout(handleChange ) {
   const Fname = useSelector((state) => state.editShippingAddress.Fname)
   const Lname = useSelector((state) => state.editShippingAddress.Lname)
   const phone = useSelector((state) => state.editShippingAddress.phoneNumber)
@@ -15,101 +20,324 @@ export default function Checkout() {
   const country = useSelector((state) => state.editShippingAddress.country)
   const zip = useSelector((state) => state.editShippingAddress.zip)
   const name = "fatma"
+
+  ////////////////////////////////
+  
   return (
     <>
-      <div>Chechout</div>
+      
       <div className='row'>
-        <div className=' col-12 col-lg-4'>
-          <Card >
-            <Card.Header className='cardHeader' >SHIPPING ADDRESS</Card.Header>
-            <Card.Body className='myCard'>
-              {/* <Card.Title>Default Shipping Address</Card.Title> */}
-              {/* <Card.Text className={(Fname === '') ? '' : "emptyShippingDetails"} >
-                        
-                      </Card.Text> */}
-              <Card.Text>
-                {/* You have not set a default shipping address . */}
-                {('Name')} : {Fname} {Lname}<br />
-                {('Street')} : {street}<br />
-                {('City')} : {city}<br />
-                {('Country')} : {country}<br />
-                {('Mobile Number')} : {phone}<br />
-                {('Zip/Postal Code')} : {zip}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <Link className={'edit-link'} to='/useraccount/addressbook'>{('Edit Address')}</Link>
+        <div className=' checkoutCard'>
+          <div className='sectionTitle'>SHIPPING ADDRESS</div>
+          <Card.Text className='shipContent'>
+            {('Name')} : {Fname} {Lname}<br />
+            {('Street')} : {street}<br />
+            {('City')} : {city}<br />
+            {('Country')} : {country}<br />
+            {('Mobile Number')} : {phone}<br />
+            {('Zip/Postal Code')} : {zip}
+          </Card.Text>
+          
+{/* ////////////////////////////////////////// */}
+</div>
+        <div className=' checkoutCard'>
+          <div className='sectionTitle'>SHIPPING METHODS</div>
+</div>
 
-            </Card.Footer>
-          </Card>
+{/* ////////////////////////////////////////// */}
+        <div className=' checkoutCard'>
+          <div className='sectionTitle'>ORDER SUMMARY</div>
+          <Accordion defaultActiveKey="0" flush>
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>Accordion Item #1</Accordion.Header>
+              <Accordion.Body >
+                <div className='aaaa'>
+                  <Table>
+                    <thead>
+                      <tr style={{ color: "#aca7a7", fontWeight: "lighter" }}>
+                        <th className="text-start">{("Product")}</th>
+                        <th>{("Title")}</th>
+                        <th>{("Price")}</th>
+                      </tr>
+                    </thead>
+                    <br/>
+                    <tbody>
+                      <tr>
+                      <td className="text-start tableData">
+                        <img
+                          className="imgCart "
+                          src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
+                          alt=""
+                          width={90}
+                          height={90}
+                        />
+                      </td>
+                      <td className="tableData">
+                        <span >title title title</span>
+                      </td>
+                      <td className="tableData">
+                        <p className="my-4">999.9 EGP</p>
+                      </td>
+                      </tr>
+                      <tr>
+                      <td className="text-start tableData">
+                        <img
+                          className="imgCart "
+                          src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
+                          alt=""
+                          width={90}
+                          height={90}
+                        />
+                      </td>
+                      <td className="tableData">
+                        <span >title title title</span>
+                      </td>
+                      <td className="tableData">
+                        <p className="my-4">999.9 EGP</p>
+                      </td>
+                      </tr>
+                      <tr>
+                      <td className="text-start tableData">
+                        <img
+                          className="imgCart "
+                          src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
+                          alt=""
+                          width={90}
+                          height={90}
+                        />
+                      </td>
+                      <td className="tableData">
+                        <span >title title title</span>
+                      </td>
+                      <td className="tableData">
+                        <p className="my-4">999.9 EGP</p>
+                      </td>
+                      </tr>
+                      <tr>
+                      <td className="text-start tableData">
+                        <img
+                          className="imgCart "
+                          src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
+                          alt=""
+                          width={90}
+                          height={90}
+                        />
+                      </td>
+                      <td className="tableData">
+                        <span >title title title</span>
+                      </td>
+                      <td className="tableData">
+                        <p className="my-4">999.9 EGP</p>
+                      </td>
+                      </tr>
+                      <tr>
+                      <td className="text-start tableData">
+                        <img
+                          className="imgCart "
+                          src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
+                          alt=""
+                          width={90}
+                          height={90}
+                        />
+                      </td>
+                      <td className="tableData">
+                        <span >title title title</span>
+                      </td>
+                      <td className="tableData">
+                        <p className="my-4">999.9 EGP</p>
+                      </td>
+                      </tr>
+                      <tr>
+                      <td className="text-start tableData">
+                        <img
+                          className="imgCart "
+                          src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
+                          alt=""
+                          width={90}
+                          height={90}
+                        />
+                      </td>
+                      <td className="tableData">
+                        <span >title title title</span>
+                      </td>
+                      <td className="tableData">
+                        <p className="my-4">999.9 EGP</p>
+                      </td>
+                      </tr>
+                      <tr>
+                      <td className="text-start tableData">
+                        <img
+                          className="imgCart "
+                          src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
+                          alt=""
+                          width={90}
+                          height={90}
+                        />
+                      </td>
+                      <td className="tableData">
+                        <span >title title title</span>
+                      </td>
+                      <td className="tableData">
+                        <p className="my-4">999.9 EGP</p>
+                      </td>
+                      </tr>
+                      <tr>
+                      <td className="text-start tableData">
+                        <img
+                          className="imgCart "
+                          src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
+                          alt=""
+                          width={90}
+                          height={90}
+                        />
+                      </td>
+                      <td className="tableData">
+                        <span >title title title</span>
+                      </td>
+                      <td className="tableData">
+                        <p className="my-4">999.9 EGP</p>
+                      </td>
+                      </tr>
+                      <tr>
+                      <td className="text-start tableData">
+                        <img
+                          className="imgCart "
+                          src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
+                          alt=""
+                          width={90}
+                          height={90}
+                        />
+                      </td>
+                      <td className="tableData">
+                        <span >title title title</span>
+                      </td>
+                      <td className="tableData">
+                        <p className="my-4">999.9 EGP</p>
+                      </td>
+                      </tr>
+                      <tr>
+                      <td className="text-start tableData">
+                        <img
+                          className="imgCart "
+                          src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
+                          alt=""
+                          width={90}
+                          height={90}
+                        />
+                      </td>
+                      <td className="tableData">
+                        <span >title title title</span>
+                      </td>
+                      <td className="tableData">
+                        <p className="my-4">999.9 EGP</p>
+                      </td>
+                      </tr>
+                      <tr>
+                      <td className="text-start tableData">
+                        <img
+                          className="imgCart "
+                          src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
+                          alt=""
+                          width={90}
+                          height={90}
+                        />
+                      </td>
+                      <td className="tableData">
+                        <span >title title title</span>
+                      </td>
+                      <td className="tableData">
+                        <p className="my-4">999.9 EGP</p>
+                      </td>
+                      </tr>
+                      <tr>
+                      <td className="text-start tableData">
+                        <img
+                          className="imgCart "
+                          src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
+                          alt=""
+                          width={90}
+                          height={90}
+                        />
+                      </td>
+                      <td className="tableData">
+                        <span >title title title</span>
+                      </td>
+                      <td className="tableData">
+                        <p className="my-4">999.9 EGP</p>
+                      </td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </div>
+                
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+          <hr/>
+            <h3>Cart Total</h3>
+            <Table>
+              {/* <thead>
+                <tr style={{ color: "#aca7a7", fontWeight: "lighter" }}>
+                  <th className="text-start">{("Product")}</th>
+                  <th>{("Title")}</th>
+                  <th>{("Price")}</th>
+                </tr>
+              </thead> */}
+              <tr>
+                <td className="text-start tableData">
+                <h4>CART SUBTOTALl</h4>
+                </td>
+                
+                <td className="tableData">
+                  <p className="my-4">999.9 EGP</p>
+                </td>
+              </tr>
+              <tr>
+                <td className="text-start tableData">
+                  <h4>SHIPPING</h4>
+                </td>
+                
+                <td className="tableData">
+                  <p className="my-4">999.9 EGP</p>
+                </td>
+              </tr>
+              <tr>
+                <td className="text-start tableData">
+                <h4> ORDER TOTAL</h4>
+                </td>
+                <td className="tableData">
+                  <p className="my-4">999.9 EGP</p>
+                </td>
+              </tr>
+            </Table>
+          <br/>
+          <tr>
+            <td>
+          <div className="input-group mb-3">
+            <input type="text" className="form-control discInput" placeholder="Enter Discount Code"  />
+            
+          </div>
+          </td>
+          <td>
+            <div className="input-group-append">
+            <button className="btn btn-outline-secondary discInput" type="button">Apply Discount</button>
+
+            </div>
 
 
-        </div>
+            </td>
 
-        <div className=' col-12 col-lg-4'>
-          <Card >
-            <Card.Header className='cardHeader'>SHIPPING METHODS</Card.Header>
-            <Card.Body className='myCard'>
-              {/* <Card.Title>Default Shipping Address</Card.Title> */}
-              <Card.Text className={(Fname === '') ? '' : "emptyShippingDetails"} >
+          </tr>
 
-              </Card.Text>
-              <Card.Text className={(Fname === '') ? "emptyShippingDetails" : ''}>
-                {/* You have not set a default shipping address . */}
-                {('Name')} : {Fname} {Lname}<br />
-                {('Street')} : {street}<br />
-                {('City')} : {city}<br />
-                {('Country')} : {country}<br />
-                {('Mobile Number')} : {phone}<br />
-                {('Zip/Postal Code')} : {zip}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              {/* <Link className={'edit-link'} to='/useraccount/addressbook'>{('Edit Address')}</Link> */}
-
-            </Card.Footer>
-          </Card>
-        </div>
-
-        <div className=' col-12 col-lg-4'>
-          <Card >
-            <Card.Header className='cardHeader '>ORDER SUMMARY </Card.Header>
-            <Card.Body className='myCard'>
-              {/* <Card.Title>Default Shipping Address</Card.Title> */}
-              <Card.Text >
-
-              </Card.Text>
-              <Card.Text>
-                {/* You have not set a default shipping address . */}
-                {/* {cart?.map((item) => (
-                  <img src={item.img} alt="" width={90} height={90} />
-
-
-                ))} */}
-
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              {/* <Link className={'edit-link'} to='/useraccount/addressbook'>{('Edit Address')}</Link> */}
-
-            </Card.Footer>
-          </Card>
-        </div>
+          
 
 
 
-
-
-
+      
+</div>
 
 
       </div>
-    {/* <div className='row'>
-        <div className='col-4'>dddddddddddddddddddd</div>
-        <div className='col-4'></div>
-        <div className='col-4'></div>
-    </div>
-     */}
     
     
     
