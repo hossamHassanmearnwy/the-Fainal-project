@@ -51,7 +51,7 @@ export default function Checkout(handleChange ) {
             <Accordion.Item eventKey="0">
               <Accordion.Header>Accordion Item #1</Accordion.Header>
               <Accordion.Body >
-                <div className='aaaa'>
+                <div className='orderSummary'>
                   <Table>
                     <thead>
                       <tr style={{ color: "#aca7a7", fontWeight: "lighter" }}>
@@ -66,25 +66,26 @@ export default function Checkout(handleChange ) {
                       <td className="text-start tableData">
                         <img
                           className="imgCart "
-                          src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
+                            src='https://m.media-amazon.com/images/I/81AuwSoF9yL.__AC_SY300_SX300_QL70_ML2_.jpg'
                           alt=""
                           width={90}
                           height={90}
                         />
                       </td>
-                      <td className="tableData">
-                        <span >title title title</span>
+                      
+                        <td className="tableData  ">
+                          <span >title title title</span>
                       </td>
                       <td className="tableData">
-                        <p className="my-4">999.9 EGP</p>
+                        <p className="my-4 checkoutPrice">999.9 EGP</p>
                       </td>
                       </tr>
                       <tr>
                       <td className="text-start tableData">
                         <img
                           className="imgCart "
-                          src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
-                          alt=""
+                            src='https://m.media-amazon.com/images/I/81Gphn97m9L._AC_SX679_.jpg'                          
+                            alt=""
                           width={90}
                           height={90}
                         />
@@ -93,15 +94,15 @@ export default function Checkout(handleChange ) {
                         <span >title title title</span>
                       </td>
                       <td className="tableData">
-                        <p className="my-4">999.9 EGP</p>
+                          <p className="my-4 checkoutPrice">999.9 EGP</p>
                       </td>
                       </tr>
                       <tr>
                       <td className="text-start tableData">
                         <img
                           className="imgCart "
-                          src='https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
-                          alt=""
+                            src='https://m.media-amazon.com/images/I/611jbF+FbbL._AC_SX679_.jpg'              
+                            alt=""
                           width={90}
                           height={90}
                         />
@@ -110,7 +111,7 @@ export default function Checkout(handleChange ) {
                         <span >title title title</span>
                       </td>
                       <td className="tableData">
-                        <p className="my-4">999.9 EGP</p>
+                          <p className="my-4 checkoutPrice">999.9 EGP</p>
                       </td>
                       </tr>
                       
