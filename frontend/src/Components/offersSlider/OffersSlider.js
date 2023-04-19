@@ -100,7 +100,7 @@ export default function OffersSlider({ handleClick }) {
               </Card.Body>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item>Brand : {item.brand}</ListGroup.Item>
-                <ListGroup.Item className="price">Price : {item.priceOnSale} EGP</ListGroup.Item>
+                <ListGroup.Item  ><span className="price">Price : {item.priceOnSale} EGP</span></ListGroup.Item>
                 <ListGroup.Item ><span className="saleValue"> {item.saleValue}</span>  <span className="oldPrice"> {item.oldPrice} EGP</span></ListGroup.Item>
               </ListGroup>
               <Card.Body>
