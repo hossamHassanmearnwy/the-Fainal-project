@@ -61,9 +61,10 @@ const Productpage = () => {
         </div>
       </div>
       <div>
-        Products :  {Products.map((prd) => (
+        {/* Products :  {Products.map((prd) => (
           <div className="key">{prd.ItemNameEn}</div>
-        ))}      </div>
+        ))}    */}
+           </div>
 
       {/* <a href="www" ></a> */}
     </div>

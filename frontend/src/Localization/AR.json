@@ -65,7 +65,7 @@
 "Featured Product":" منتجات مميزة ",
 "Onsale Product":" عروض ",
 "Top Rated Product":"الأعلى مبيعا",
-"Brand":"الماركة",
+"Brand":"علامة تجارية",
 "Sale":"عروض",
 "watch a review":"المراجعات",
 "Buy":"الشراء",
@@ -93,6 +93,14 @@
     "Terabyte":"تيرا بايت",
     "Tera":"تيرا",
     "TB":"TB",
+    "EGP":"ج",
+    "Deals of The Day":"عروض اليوم",
+    "category name":"اسم الفئة",
+    "Color":"اللون",
+    "BestSeller Product":"الأفضل مبيعا",
+    "Top 10":"أفضل 10",
+    "Computers & Labtops":"كبيوتر & لابتوب",
+
 
 
   " Example: ": " مثال: ",
@@ -114,7 +122,7 @@
   "Assign": "إسناد",
   "Attention": "تنبيه",
   "Attention: Captcha is case sensitive.": "انتباه: كلمة التحقق حساسة لحالة الأحرف.",
-  "Availability": "التوفر",
+  "Availability": "متوفر",
   "Back": "رجوع",
   "Billing Address": "عنوان الفاتورة",
   "Browse to find or drag image here": "استعرض للبحث أو اسحب الصورة هنا",

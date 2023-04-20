@@ -10,10 +10,13 @@ import Cart from "../../Pages/cart/Cart";
 import { useParams } from "react-router-dom";
 import list from '../../data';
 import productsDetailsaxios from "./../../axiosConfig/axiosInstance";
+import { useTranslation } from 'react-i18next';
 
 
 
 export default function ProductDetail() {
+  const {t, i18n} = useTranslation();
+  document.body.dir = i18n.dir();
   const [ProductDetail, setProductDetail] = useState([]);
   useEffect(() => {
     productsDetailsaxios
@@ -115,13 +118,13 @@ export default function ProductDetail() {
               <img src={product.img} alt="#" className='fluid' height='50%' />
             </div>
             <div className='col-lg-6 col-sm-12 p-3' style={{ color: "grey" }}>
-              <p className='mb-2 text-start'>category name</p>
+              <p className='mb-2 text-start'>{t('category name')}</p>
               <h2 className='textdark text-start'>{product.title}</h2>
               <StarRating />
-              <p className='mb-2 text-start'>Availability:<span className='text-warning'> 26 in stock</span> </p>
+              <p className='mb-2 text-start'>{t('Availability')}:<span className='text-warning'> 26 in stock</span> </p>
               <hr />
 
-              <p className='my-3 text-lowercase text-start'><FaRegHeart className='me-1 fs-4 text-danger'></FaRegHeart>  add to wishlist</p>
+              <p className='my-3 text-lowercase text-start'><FaRegHeart className='me-1 fs-4 text-danger'></FaRegHeart>{t('add to wishlist')}  </p>
 
               <ul className='feat my-3 text-start'>
                 <li>4.5 inch HD Touch Screen (1280 x 720)</li>
@@ -141,7 +144,7 @@ export default function ProductDetail() {
               <div className='row'>
 
                 <Form.Select className='col-lg-6 col-sm-12 bg-none border border-warning text-warning w-25 mt-5'>
-                  <option>Color</option>
+                  <option>{t('Color')}</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
                   <option value="3">Three</option>
@@ -151,7 +154,7 @@ export default function ProductDetail() {
 
 
                 <Button variant="warning" className='col-lg-6 col-sm-12 text-white text-capitalize rounded-pill fw-bold mt-5 w-50' onClick={() => handleClick(product)}>
-                  <BsFillCartFill className='text-white fs-4 me-2'></BsFillCartFill>add to cart </Button>
+                  <BsFillCartFill className='text-white fs-4 me-2'></BsFillCartFill>{t('Add to Cart')} </Button>
 
 
               </div>

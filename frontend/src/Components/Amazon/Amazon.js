@@ -8,13 +8,16 @@ import SummaryProd from './../summary/summaryProd';
 import BestSec from './../besrSellers/BestSec';
 import OffersSlider from "../../Components/offersSlider/OffersSlider";
 import offersList from "../../offersData";
+import { useTranslation } from 'react-i18next';
 
 const Amazon = ({handleClick}) => {
+    const {t, i18n} = useTranslation();
+    document.body.dir = i18n.dir();
   return (
     <>
 
     <div className='container'>
-    <Sec header='Featured Product'/>
+    <Sec header={t('Featured Product')}/>
     <section className='py-5 border-top'>
     <div className='row'>
         {

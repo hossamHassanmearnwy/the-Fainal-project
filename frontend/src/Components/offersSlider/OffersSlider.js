@@ -14,6 +14,8 @@ import productsaxios from "./../../axiosConfig/axiosInstance";
 
 
 export default function OffersSlider({ handleClick }) {
+  const {t, i18n} = useTranslation();
+  document.body.dir = i18n.dir();
   const [Products, setProducts] = useState([]);
   useEffect(() => {
     productsaxios
@@ -80,7 +82,7 @@ export default function OffersSlider({ handleClick }) {
 //       <h2>Height: {windowSize}</h2>
   //     </div> */}
     <div className='container ' >
-      <Sec header='Deals of The Day' />
+      <Sec header={t('Deals of The Day')} />
       <hr />
       <Slider {...settings}>
         {offersList.map((item) => (
@@ -89,7 +91,7 @@ export default function OffersSlider({ handleClick }) {
 
               <div class="badge-overlay">
                 {/* <!-- Change Badge Position, Color, Text here--> */}
-                <span class="top-left badge orange">SALE</span>
+                <span class="top-left badge orange">{t('Sale')}</span>
               </div>
               <Card.Img variant="top" src={item.img} className='slide-img' />
               <Card.Body>
@@ -99,12 +101,12 @@ export default function OffersSlider({ handleClick }) {
                 </Card.Text>
               </Card.Body>
               <ListGroup className="list-group-flush">
-                <ListGroup.Item>Brand : {item.brand}</ListGroup.Item>
-                <ListGroup.Item  ><span className="price">Price : {item.priceOnSale} EGP</span></ListGroup.Item>
-                <ListGroup.Item ><span className="saleValue"> {item.saleValue}</span>  <span className="oldPrice"> {item.oldPrice} EGP</span></ListGroup.Item>
+                <ListGroup.Item>{t('Brand')} : {item.brand}</ListGroup.Item>
+                <ListGroup.Item  ><span className="price">{t('Price')} : {item.priceOnSale} {t('EGP')}</span></ListGroup.Item>
+                <ListGroup.Item ><span className="saleValue"> {item.saleValue}</span>  <span className="oldPrice"> {item.oldPrice} {t('EGP')}</span></ListGroup.Item>
               </ListGroup>
               <Card.Body>
-                <Card.Link onClick={() => handleClick(item)} className='text-decoration-none addToCart'><BsCartCheckFill className="cartIcon"/> Add To Cart</Card.Link>
+                <Card.Link onClick={() => handleClick(item)} className='text-decoration-none addToCart'><BsCartCheckFill className="cartIcon"/>{t('Add to Cart')}</Card.Link>
 
               </Card.Body>
             </Card>
