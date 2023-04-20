@@ -9,6 +9,7 @@ import Card from 'react-bootstrap/Card';
 import { useSelector, useDispatch } from 'react-redux';
 import removeFav from '../../Store/actions/remove';
 import Cards from '../../Components/Card/Cards';
+import FavCards from '../../Components/favcard/FavCards';
 
 
 
@@ -19,32 +20,21 @@ const Favourites = ({handleClick}) => {
     let FavList = useSelector((state)=>state.add.Fav);  // recieving fav list from the reducer
     var [Fav, setFav] = useState(FavList)
 
-    const dispatch = useDispatch();    // useDispatch return function that calls my actions
+       // useDispatch return function that calls my actions
 
-    const remove=(item)=>{      // remove from fav
-
-        var index = Fav.indexOf(item);
-        console.log(item);
-        // console.log(index);
-        if (index !== -1) {
-            Fav.splice(index, 1);
-        }
-        setFav([...Fav]);
-        console.log(Fav);
-        dispatch(removeFav(Fav));
-    }
+    
 
     return (
         <div>
 
-            <h3>favourites:  { FavList.length } </h3>
+        <h3 className='bg-warning text-capitalize text-center my-5 py-2 text-white'>the wishlist</h3>
             <div className='container'>
         <div className='row'>
 
         
                 {
                     Fav.map((item)=>(
-                        <Cards item={item} key={item.id} handleClick={handleClick} />
+                        <FavCards item={item} key={item.id} handleClick={handleClick} />
                     ))
                 }
 
