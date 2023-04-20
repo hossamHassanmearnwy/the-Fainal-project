@@ -29,6 +29,7 @@ import Home from './Pages/Home/home';
 import ProductDetail from './Pages/productDetail/ProductDetail';
 import Checkout from './Pages/Checkout/Checkout';
 import CategoryPage from "./Pages/categories/CategoryPage";
+import Favourites from "./Pages/favorite/fav";
 
 
 function App() {
@@ -81,6 +82,7 @@ function App() {
           <Route path="myaccount" element={<MyAccount />} />
           <Route path="myorders" element={<MyOrders />} />
           <Route path="Fav" element={<Fav />} />
+          
           <Route path="addressbook" element={<AddressBook />} />
           <Route path="accountinfo" element={<AccountInformation />} />
           <Route path="*" element={<NotFound />} />
@@ -94,6 +96,7 @@ function App() {
             path='/cart'
           />
         }/>
+          <Route path="/fav" element={<Favourites />} />
           <Route path="product" element={<Product />} />
           <Route path="/details/:id" element={<ProductDetail />} />
           <Route path="/cat" element={<CategoryPage />} />
