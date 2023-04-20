@@ -1,11 +1,14 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import '../Card/cards.css';
 import { Link } from 'react-router-dom';
 import { BsFillCartFill } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import Button from 'react-bootstrap/Button';
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from 'react-redux';
+import removeFav from '../../Store/actions/remove';
+import favAdd from '../../Store/actions/add';
 
 
 
@@ -16,6 +19,46 @@ const Cards = ({ item, handleClick }) => {
   document.body.dir = i18n.dir();
   const {title, desc, price, img, id} = item;
   // console.log(item)
+
+
+  var [Fav, setFav] = useState([])
+
+    let FavList = useSelector((state)=>state.add.Fav); // recieving fav list from the reducer
+
+
+    const dispatch = useDispatch();   // useDispatch return function that calls my actions
+
+
+
+
+
+
+    const addFav=(e,item)=>{
+      if( e.target.className !== "bi bi-heart-fill text-danger fs-3"){  // add to fav
+
+          e.target.className ="bi bi-heart-fill text-danger fs-3";
+          Fav.push(item);
+          console.log(item);
+          console.log(Fav);
+          setFav([...Fav]);
+          console.log(Fav);
+          dispatch(favAdd(Fav));
+      }
+      else { // remove from fav  //  else if ( FavList[i]==movie )
+          e.target.className ="bi bi-heart text-danger fs-3"
+
+          var index = Fav.indexOf(item);
+          if (index !== -1) {
+              Fav.splice(index, 1);
+          }
+          setFav([...Fav]);
+          console.log(Fav);
+          dispatch(removeFav(Fav));
+      }
+      
+  }
+
+
 
   return (
 
@@ -44,7 +87,8 @@ const Cards = ({ item, handleClick }) => {
       </div>
       <div className='mt-4 d-flex'>
 
-      <span className='buy border-top px-5'><FaRegHeart className='me-2 fs-3 text-danger' role='button'></FaRegHeart></span>
+      {/* <span className='buy border-top px-5'><FaRegHeart className='me-2 fs-3 text-danger' role='button'></FaRegHeart></span> */}
+      <span className='buy border-top px-5'><i className="bi bi-heart text-danger fs-3" onClick={(e)=>{ addFav(e,item) } }></i></span>
       <span className='buy border-top px-5'><BsFillCartFill className='me-2 fs-3 text-warning'  onClick={()=>handleClick(item)} role='button'>{" "}</BsFillCartFill> </span>
 
 

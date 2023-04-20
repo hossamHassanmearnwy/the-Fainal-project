@@ -64,7 +64,7 @@ const InternalNav = ({ size, setShow }) => {
                 {/* <Icon.ArrowRepeat className="fs-3 text-warning m-2" /> */}
                 <BsHouseDoor className="fs-3 text-warning m-2" />
               </Link>
-              <Link to="/useraccount/Fav">
+              <Link to="/fav">
                 <Icon.Heart className="fs-3 text-warning m-2" />
               </Link>
               <Link to="/cart" className="cart" onClick={() => setShow(false)}>
