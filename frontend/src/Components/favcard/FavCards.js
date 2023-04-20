@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import '../Card/cards.css';
+import '../favcard/favcards.css';
 import { Link } from 'react-router-dom';
 import { BsFillCartFill } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
@@ -14,53 +14,37 @@ import favAdd from '../../Store/actions/add';
 
 
 
-const Cards = ({ item, handleClick }) => {
+const FavCards = ({ item, handleClick }) => {
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
   const {title, desc, price, img, id} = item;
   // console.log(item)
 
 
-  var [Fav, setFav] = useState([])
-
-    let FavList = useSelector((state)=>state.add.Fav); // recieving fav list from the reducer
 
 
-    const dispatch = useDispatch();   // useDispatch return function that calls my actions
+    let FavList = useSelector((state)=>state.add.Fav);  // recieving fav list from the reducer
+    var [Fav, setFav] = useState(FavList)
 
+    const dispatch = useDispatch();    // useDispatch return function that calls my actions
 
+    const remove=(item)=>{      // remove from fav
 
-
-
-
-    const addFav=(e,item)=>{
-      if( e.target.className !== "bi bi-heart-fill text-danger fs-3"){  // add to fav
-
-          e.target.className ="bi bi-heart-fill text-danger fs-3";
-          Fav.push(item);
-          console.log(item);
-          console.log(Fav);
-          setFav([...Fav]);
-          console.log(Fav);
-          dispatch(favAdd(Fav));
-      }
-      else { // remove from fav  //  else if ( FavList[i]==movie )
-          e.target.className ="bi bi-heart text-danger fs-3"
-
-          var index = Fav.indexOf(item);
-          if (index !== -1) {
-              Fav.splice(index, 1);
-          }
-          setFav([...Fav]);
-          console.log(Fav);
-          dispatch(removeFav(Fav));
-      }
-      
-  }
+        var index = Fav.indexOf(item);
+        console.log(item);
+        // console.log(index);
+        if (index !== -1) {
+            Fav.splice(index, 1);
+        }
+        setFav([...Fav]);
+        console.log(Fav);
+        dispatch(removeFav(Fav));
+    }
 
 
 
   return (
+  
 
     <div className="cardPro my-3 border border-warning">
 
@@ -88,15 +72,16 @@ const Cards = ({ item, handleClick }) => {
       <div className='mt-4 d-flex'>
 
       {/* <span className='buy border-top px-5'><FaRegHeart className='me-2 fs-3 text-danger' role='button'></FaRegHeart></span> */}
-      <span className='buy border-top px-5'><i className="bi bi-heart text-danger fs-3" onClick={(e)=>{ addFav(e,item) } } role='button'></i></span>
-      <span className='buy border-top px-5'><BsFillCartFill className='me-2 fs-3 text-warning'  onClick={()=>handleClick(item)} role='button'>{" "}</BsFillCartFill> </span>
+      <span className='buy border-top px-5'><i className="bi bi-trash3-fill text-success fs-4" onClick={()=>{ remove(item) } } role='button'></i></span>
+      <span className='buy border-top px-5'><BsFillCartFill className='me-2 fs-3 text-warning pt-1'  onClick={()=>handleClick(item)} role='button'>{" "}</BsFillCartFill> </span>
 
 
     
     </div>
     </div>
   </div>
+ 
   );
 };
 
-export default Cards
+export default FavCards

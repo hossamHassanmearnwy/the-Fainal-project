@@ -1,0 +1,168 @@
+/* section{
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+
+} */
+
+
+
+
+
+
+/* .cards{
+    width: 250px;
+    padding: 20px;
+}
+.cards:hover{
+    box-shadow: 0 10px 10px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+
+}
+.image_box img{
+    width: 150px;
+    height: 200px;
+}
+.details p:nth-child(1){
+    font-weight: bold;
+}
+.details p:nth-child(2){
+    color: grey;
+    font-size: 0.8rem;
+}
+.details p:nth-child(3){
+    font-weight: bold;
+    color: grey;
+} */
+
+
+
+
+
+
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap");
+
+
+.cardPro {
+  position: relative;
+  width: 330px;
+  height: 450px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.cardPro::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: #ffce00;
+  transform: skewY(345deg);
+  transition: 0.5s;
+}
+
+.cardPro:hover::before {
+  top: -70%;
+  transform: skewY(350deg);
+}
+
+.cardPro::after {
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-weight: 600;
+  font-size: 6em;
+  color: white;
+}
+
+.cardPro .imgBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  z-index: 1;
+}
+
+/*
+.card .imgBox img {
+    max-width: 100%;
+    
+    transition: .5s;
+}
+
+.card:hover .imgBox img {
+    max-width: 50%;
+      
+}
+*/
+.cardPro .contentBox {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+}
+
+/* .cardPro .contentBox h3 {
+  font-size: 18px;
+  color: #000;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}*/
+
+
+
+.cardPro .contentBox .buy {
+  position: relative;
+  top: 100px;
+  opacity: 0;
+  padding: 10px 30px;
+  margin-top: 15px;
+  color: grey;
+  text-decoration: none;
+  background: none;
+  border-radius: 0%;
+  /* background: #ffce00;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px; */
+  transition: 0.5s;
+  display: flex;
+}
+
+.cardPro:hover .contentBox .buy {
+  top: 0;
+  opacity: 1;
+}
+
+.mouse {
+  height: 200px;
+  width: auto;
+}   
+
+
+
+
+
+/* .details button{
+    padding: 5px 10px;
+    border: none;
+    font-weight: bold;
+    background-color: skyblue;
+    outline: none;
+    border-radius: 2px;
+} */
