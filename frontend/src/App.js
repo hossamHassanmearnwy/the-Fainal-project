@@ -58,7 +58,17 @@ function App() {
     setCart([...tempArr]);
   };
 
+/////////////////////////////////
+  let [check, setCheck] = useState(
+    JSON.parse(localStorage.getItem("checkout")) || [] // local storge to get cart
+  );
 
+  useEffect(() => {
+    localStorage.setItem("checkout", JSON.stringify(check)); // local storge to save cart in it
+
+    console.log(`Saved ${check.length} items to localstorage`);
+  }, [check]);
+  ////////////////////////////////
 
 
   return (
@@ -101,7 +111,9 @@ function App() {
         <Route path="/forgotpassword" element={<ForgotPassword />} />
       <Route path="*" element={<NotFound />} />
       <Route path="/checkout" element={
-        <Checkout/>}/>
+        <Checkout
+        check={check}
+        setCheck={setCheck}/>}/>
       
       </Routes>
       

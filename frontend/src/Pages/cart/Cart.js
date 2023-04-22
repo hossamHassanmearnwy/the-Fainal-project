@@ -11,7 +11,7 @@ import Nav from "react-bootstrap/Nav";
 import cartaxios from "./../../axiosConfig/axiosInstance";
 
 
-const Cart = ({ cart, setCart, handleChange, setShow }) => { 
+const Cart = ({ cart, setCart, handleChange, setShow ,setCheck}) => { 
   const [cartProducts, setcartProducts] = useState([]);
   useEffect(() => {
     cartaxios
@@ -42,6 +42,7 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
   useEffect(() => {
     handlePrice();
   });
+  ///////////////////////////
   
   return (
     <div className="container-fluid">
@@ -145,8 +146,10 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
                 <Button
                   className="checkout"
                   variant="warning rounded-pill py-2 px-4"
+                  onClick={setCheck}
                 >
                   {t("Proceed to Checkout")}
+                
                 </Button>
               </Nav.Link>
             </Nav>
