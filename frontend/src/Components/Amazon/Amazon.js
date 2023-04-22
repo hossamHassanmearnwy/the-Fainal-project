@@ -22,7 +22,8 @@ const Amazon = ({handleClick}) => {
     <div className='row'>
         {
             list.map((item)=>(
-                <Cards item={item} key={item.id} handleClick={handleClick} />
+                <Cards item={item} key={item.id} handleClick={handleClick} 
+                 />
             ))
         }
         </div>
@@ -30,7 +31,8 @@ const Amazon = ({handleClick}) => {
         <div className='row'>
         {
             list.map((item)=>(
-                <Cards item={item} key={item.id} handleClick={handleClick}  />
+                <Cards item={item} key={item.id} handleClick={handleClick} 
+                 />
             ))
         }
         </div>

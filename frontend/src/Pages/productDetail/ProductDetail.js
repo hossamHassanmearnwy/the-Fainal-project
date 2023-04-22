@@ -11,6 +11,10 @@ import { useParams } from "react-router-dom";
 import list from '../../data';
 import productsDetailsaxios from "./../../axiosConfig/axiosInstance";
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import removeFav from '../../Store/actions/remove';
+import favAdd from '../../Store/actions/add';
+
 
 
 
@@ -34,6 +38,12 @@ export default function ProductDetail() {
 
   const [product, setProduct] = useState({});
   const { id } = useParams();
+  var [Fav, setFav] = useState([])
+
+  let FavList = useSelector((state)=>state.add.Fav); // recieving fav list from the reducer
+
+
+  const dispatch = useDispatch();   // useDispatch return function that calls my actions
 
 
   const [show, setShow] = useState(true);
@@ -104,6 +114,46 @@ export default function ProductDetail() {
 
 
 
+ 
+
+
+
+
+
+
+  const addFav=(e,item)=>{
+    if( e.target.className !== "bi bi-heart-fill text-danger fs-4 me-1"){  // add to fav
+
+        e.target.className ="bi bi-heart-fill text-danger fs-4 me-1";
+        Fav.push(item);
+        console.log(item);
+        console.log(Fav);
+        setFav([...Fav]);
+        console.log(Fav);
+        dispatch(favAdd(Fav));
+    }
+    else { // remove from fav  //  else if ( FavList[i]==movie )
+        e.target.className ="bi bi-heart text-danger fs-4 me-1"
+
+        var index = Fav.indexOf(item);
+        if (index !== -1) {
+            Fav.splice(index, 1);
+        }
+        setFav([...Fav]);
+        console.log(Fav);
+        dispatch(removeFav(Fav));
+    }
+    
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -124,7 +174,7 @@ export default function ProductDetail() {
               <p className='mb-2 text-start'>{t('Availability')}:<span className='text-warning'> 26 in stock</span> </p>
               <hr />
 
-              <p className='my-3 text-lowercase text-start'><FaRegHeart className='me-1 fs-4 text-danger'></FaRegHeart>{t('add to wishlist')}  </p>
+              <p className='my-3 text-lowercase text-start'><i className="bi bi-heart text-danger fs-4 me-1" onClick={(e)=>{ addFav(e,product) } } role='button'></i>{t('add to wishlist')}  </p>
 
               <ul className='feat my-3 text-start'>
                 <li>4.5 inch HD Touch Screen (1280 x 720)</li>
