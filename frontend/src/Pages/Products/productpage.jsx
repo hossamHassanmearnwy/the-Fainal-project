@@ -8,7 +8,7 @@ const Productpage = () => {
   const [Products, setProducts] = useState([]);
   useEffect(() => {
     productsaxios
-      .get("/Products")
+      .get("/Offers")
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);
@@ -17,7 +17,7 @@ const Productpage = () => {
         console.log(err);
       });
   }, [setProducts]);
-  
+
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
   return (
@@ -61,10 +61,10 @@ const Productpage = () => {
         </div>
       </div>
       <div>
-        {/* Products :  {Products.map((prd) => (
+        {Products.map((prd) => (
           <div className="key">{prd.ItemNameEn}</div>
-        ))}    */}
-           </div>
+        ))}
+      </div>
 
       {/* <a href="www" ></a> */}
     </div>
