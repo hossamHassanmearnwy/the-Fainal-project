@@ -34,10 +34,10 @@ function ProjectNav() {
               {t("Login")} |{" "}
             </Link>
             <Link className="text-dark" to="/register">
-              {t("Register")} | {" "}
+              {t("Register")} |{" "}
             </Link>
-            <Link className="text-dark" to="/Productpage">
-              {t('Products')}
+            <Link className="text-dark" to="/product">
+              {t("Products")}
             </Link>
           </Nav>
         </Navbar.Collapse>

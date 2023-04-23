@@ -24,13 +24,12 @@ import NotFound from "./Pages/NotFound/NotFound";
 
 import Product from "./Components/product/product";
 import Productpage from "./Pages/Products/productpage";
-import Home from './Pages/Home/home';
+import Home from "./Pages/Home/home";
 
-import ProductDetail from './Pages/productDetail/ProductDetail';
-import Checkout from './Pages/Checkout/Checkout';
+import ProductDetail from "./Pages/productDetail/ProductDetail";
+import Checkout from "./Pages/Checkout/Checkout";
 import CategoryPage from "./Pages/categories/CategoryPage";
 import Favourites from "./Pages/favorite/fav";
-
 
 function App() {
   const [show, setShow] = useState(true);
@@ -45,7 +44,6 @@ function App() {
     console.log(`Saved ${cart.length} items to localstorage`);
   }, [cart]);
 
-  
   const handleChange = (item, d) => {
     let ind = -1;
     cart.forEach((data, index) => {
@@ -59,9 +57,6 @@ function App() {
     setCart([...tempArr]);
   };
 
-
-
-
   return (
     <>
       {/* <Header /> */}
@@ -69,47 +64,47 @@ function App() {
       <div className="App container-fluid">
         <ProjectNav />
         <InternalNav size={cart.length} setShow={setShow} />
-        
 
-      <Routes>
-      {/* <Route path="/cart" element={<Cart/>}/> */}
-        {/* // Home // */}
-        <Route index element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        {/* // User account */}
-        <Route path="/useraccount" element={<UserAccount />}>
-          <Route index element={<MyAccount />} />
-          <Route path="myaccount" element={<MyAccount />} />
-          <Route path="myorders" element={<MyOrders />} />
-          <Route path="Fav" element={<Fav />} />
-          
-          <Route path="addressbook" element={<AddressBook />} />
-          <Route path="accountinfo" element={<AccountInformation />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-        <Route path="/cart" element={
-          <Cart
-            cart={cart}
-            setCart={setCart}
-            handleChange={handleChange}
-            setShow={setShow}
-            path='/cart'
+        <Routes>
+          {/* <Route path="/cart" element={<Cart/>}/> */}
+          {/* // Home // */}
+          <Route index element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          {/* // User account */}
+          <Route path="/useraccount" element={<UserAccount />}>
+            <Route index element={<MyAccount />} />
+            <Route path="myaccount" element={<MyAccount />} />
+            <Route path="myorders" element={<MyOrders />} />
+            <Route path="Fav" element={<Fav />} />
+
+            <Route path="addressbook" element={<AddressBook />} />
+            <Route path="accountinfo" element={<AccountInformation />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+          <Route
+            path="/cart"
+            element={
+              <Cart
+                cart={cart}
+                setCart={setCart}
+                handleChange={handleChange}
+                setShow={setShow}
+                path="/cart"
+              />
+            }
           />
-        }/>
           <Route path="/fav" element={<Favourites />} />
-          <Route path="product" element={<Product />} />
+          <Route path="product" element={<Productpage />} />
           <Route path="/details/:id" element={<ProductDetail />} />
           <Route path="/cat" element={<CategoryPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgotpassword" element={<ForgotPassword />} />
-      <Route path="*" element={<NotFound />} />
-      <Route path="/checkout" element={
-        <Checkout/>}/>
-      
-      </Routes>
-      
-      <ProjFooter />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Routes>
+
+        <ProjFooter />
       </div>
     </>
   );
