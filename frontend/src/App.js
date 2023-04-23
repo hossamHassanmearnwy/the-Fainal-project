@@ -126,7 +126,7 @@ function App() {
               />
             }
           />
-          <Route path="/fav" element={<Favourites />} />
+          <Route path="/fav" element={<Favourites handleClick={handleClick} />} />
           <Route path="product" element={<Productpage />} />
 
           <Route path="/details/:id" element={<ProductDetail />} />
