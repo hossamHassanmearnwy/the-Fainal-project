@@ -47,67 +47,95 @@ export default function BestSec() {
         <section className='py-4 border-top'>
         <Tab.Content>
                             <Tab.Pane eventKey="first">
-                            <div className='d-flex direction-row'>
+                            <div className='row'>
+                            
                             {
                                 list.map((best)=>(
+                                    <div className='col-lg-4 col-md-6 col-sm-12'>
                                     <Sum best={best} key={best.id} />
+                                    </div>
                                 ))
                             }
                             </div>
-                            <div className='d-flex direction-row'>
+                            <div className='row'>
+                            
                             {
                                 list.map((best)=>(
+                                    <div className='col-lg-4 col-md-6 col-sm-12'>
                                     <Sum best={best} key={best.id} />
+                                    </div>
                                 ))
                             }
+                            
                             </div>
                             </Tab.Pane>
                             <Tab.Pane eventKey="second">
-                                <div className='d-flex direction-row'>
-                                    {
-                                        list.map((best) => (
-                                            <Sum best={best} key={best.id} />
-                                        ))
-                                    }
-                                </div> 
-                                <div className='d-flex direction-row'>
+                            <div className='row'>
+                            
                             {
                                 list.map((best)=>(
+                                    <div className='col-lg-4 col-md-6 col-sm-12'>
                                     <Sum best={best} key={best.id} />
+                                    </div>
                                 ))
                             }
+                            </div>
+                            <div className='row'>
+                            
+                            {
+                                list.map((best)=>(
+                                    <div className='col-lg-4 col-md-6 col-sm-12'>
+                                    <Sum best={best} key={best.id} />
+                                    </div>
+                                ))
+                            }
+                            
                             </div>
                             </Tab.Pane>
                             <Tab.Pane eventKey="third">
-                                <div className='d-flex direction-row'>
-                                    {
-                                        list.map((best) => (
-                                            <Sum best={best} key={best.id} />
-                                        ))
-                                    }
-                                </div> 
-                                <div className='d-flex direction-row'>
+                            <div className='row'>
+                            
                             {
                                 list.map((best)=>(
+                                    <div className='col-lg-4 col-md-6 col-sm-12'>
                                     <Sum best={best} key={best.id} />
+                                    </div>
                                 ))
                             }
                             </div>
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="fourth">
-                                <div className='d-flex direction-row'>
-                                    {
-                                        list.map((best) => (
-                                            <Sum best={best} key={best.id} />
-                                        ))
-                                    }
-                                </div> 
-                                <div className='d-flex direction-row'>
+                            <div className='row'>
+                            
                             {
                                 list.map((best)=>(
+                                    <div className='col-lg-4 col-md-6 col-sm-12'>
                                     <Sum best={best} key={best.id} />
+                                    </div>
                                 ))
                             }
+                            
+                            </div>
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="fourth">
+                            <div className='row'>
+                            
+                            {
+                                list.map((best)=>(
+                                    <div className='col-lg-4 col-md-6 col-sm-12'>
+                                    <Sum best={best} key={best.id} />
+                                    </div>
+                                ))
+                            }
+                            </div>
+                            <div className='row'>
+                            
+                            {
+                                list.map((best)=>(
+                                    <div className='col-lg-4 col-md-6 col-sm-12'>
+                                    <Sum best={best} key={best.id} />
+                                    </div>
+                                ))
+                            }
+                            
                             </div>
                             </Tab.Pane>
                         </Tab.Content>
