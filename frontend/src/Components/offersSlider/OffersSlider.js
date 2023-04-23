@@ -106,7 +106,7 @@ export default function OffersSlider({ handleClick }) {
                 <ListGroup.Item ><span className="saleValue"> {item.saleValue}</span>  <span className="oldPrice"> {item.oldPrice} {t('EGP')}</span></ListGroup.Item>
               </ListGroup>
               <Card.Body>
-                <Card.Link onClick={() => handleClick(item)} className='text-decoration-none addToCart'><BsCartCheckFill className="cartIcon"/>{t('Add to Cart')}</Card.Link>
+                <Card.Link  className='text-decoration-none addToCart' onClick={() => handleClick(item)}><BsCartCheckFill className="cartIcon"/>{t('Add to Cart')}</Card.Link>
 
               </Card.Body>
             </Card>

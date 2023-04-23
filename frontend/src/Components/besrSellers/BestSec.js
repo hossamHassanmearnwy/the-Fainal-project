@@ -8,7 +8,7 @@ import Tab from 'react-bootstrap/Tab';
 import { useTranslation } from 'react-i18next';
 
 
-export default function BestSec() {
+export default function BestSec({handleClick}) {
     const {t, i18n} = useTranslation();
     document.body.dir = i18n.dir();
 
@@ -52,7 +52,7 @@ export default function BestSec() {
                             {
                                 list.map((best)=>(
                                     <div className='col-lg-4 col-md-6 col-sm-12'>
-                                    <Sum best={best} key={best.id} />
+                                    <Sum best={best} key={best.id} handleClick={handleClick}/>
                                     </div>
                                 ))
                             }
@@ -62,7 +62,7 @@ export default function BestSec() {
                             {
                                 list.map((best)=>(
                                     <div className='col-lg-4 col-md-6 col-sm-12'>
-                                    <Sum best={best} key={best.id} />
+                                    <Sum best={best} key={best.id} handleClick={handleClick}/>
                                     </div>
                                 ))
                             }
@@ -75,7 +75,7 @@ export default function BestSec() {
                             {
                                 list.map((best)=>(
                                     <div className='col-lg-4 col-md-6 col-sm-12'>
-                                    <Sum best={best} key={best.id} />
+                                    <Sum best={best} key={best.id} handleClick={handleClick}/>
                                     </div>
                                 ))
                             }
@@ -85,7 +85,7 @@ export default function BestSec() {
                             {
                                 list.map((best)=>(
                                     <div className='col-lg-4 col-md-6 col-sm-12'>
-                                    <Sum best={best} key={best.id} />
+                                    <Sum best={best} key={best.id} handleClick={handleClick}/>
                                     </div>
                                 ))
                             }
@@ -98,7 +98,7 @@ export default function BestSec() {
                             {
                                 list.map((best)=>(
                                     <div className='col-lg-4 col-md-6 col-sm-12'>
-                                    <Sum best={best} key={best.id} />
+                                    <Sum best={best} key={best.id} handleClick={handleClick}/>
                                     </div>
                                 ))
                             }
@@ -108,7 +108,7 @@ export default function BestSec() {
                             {
                                 list.map((best)=>(
                                     <div className='col-lg-4 col-md-6 col-sm-12'>
-                                    <Sum best={best} key={best.id} />
+                                    <Sum best={best} key={best.id} handleClick={handleClick}/>
                                     </div>
                                 ))
                             }
@@ -121,7 +121,7 @@ export default function BestSec() {
                             {
                                 list.map((best)=>(
                                     <div className='col-lg-4 col-md-6 col-sm-12'>
-                                    <Sum best={best} key={best.id} />
+                                    <Sum best={best} key={best.id} handleClick={handleClick}/>
                                     </div>
                                 ))
                             }
@@ -131,7 +131,7 @@ export default function BestSec() {
                             {
                                 list.map((best)=>(
                                     <div className='col-lg-4 col-md-6 col-sm-12'>
-                                    <Sum best={best} key={best.id} />
+                                    <Sum best={best} key={best.id} handleClick={handleClick}/>
                                     </div>
                                 ))
                             }

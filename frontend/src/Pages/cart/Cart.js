@@ -107,34 +107,13 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
           ))}
         </Table>
 
-        <div className="row my-5 pt-3 d-flex justify-content-center align-items-center">
-          <div className="inp col-lg-6 col-md-12" dir="ltr">
-            <InputGroup className="mb-4">
-              <Form.Control
-                type="text"
-                className="py-2"
-                style={{
-                  borderTopLeftRadius: "30px",
-                  borderBottomLeftRadius: "30px",
-                }}
-              />
-              <Form.Control.Feedback>{t("Coupon Code")}</Form.Control.Feedback>
-              <InputGroup.Text
-                className="bg-dark text-light py-2"
-                style={{
-                  borderTopRightRadius: "30px",
-                  borderBottomRightRadius: "30px",
-                }}
-              >
-                {t("Apply Coupon")}
-              </InputGroup.Text>
-            </InputGroup>
-          </div>
-          <div className="gBtn col-lg-6 col-md-12 d-flex align-items-end justify-content-end ">
-            <Nav>
+        <div className="row my-5 pt-3 d-flex justify-content-center align-items-start">
+        <div className="gBtn col-lg-6 col-md-12 d-flex align-items-center justify-content-center ">
+            <Nav className='row'>
               <Nav.Link href="/home">
                 <Button
                   variant="dark rounded-pill py-2 px-3"
+                  className="col-lg-6 col-sm-12"
                   onClick={() => setShow(true)}
                 >
                   {t("Go to Home Page")}
@@ -143,7 +122,7 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
 {/* ////////////////////////////////////////////////////////////////////////////////////////// */}
               <Nav.Link href="/checkout">
                 <Button
-                  className="checkout"
+                  className="col-lg-6 col-sm-12 checkout"
                   variant="warning rounded-pill py-2 px-4"
                 >
                   {t("Proceed to Checkout")}
@@ -151,52 +130,55 @@ const Cart = ({ cart, setCart, handleChange, setShow }) => {
               </Nav.Link>
             </Nav>
           </div>
+          <div className="inp col-lg-6 col-md-12" dir="ltr">
+          
+          <Table className="thecart">
+            <thead>
+              <tr>
+                <th
+                  className="fs-2 border-bottom border-warning text-start"
+                  colSpan={3}
+                >
+                  {("Cart Total")}
+                </th>
+                {/* <th> </th>
+        <th> </th> */}
+                <th className="fs-2 border-bottom border-warning"> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colSpan={3} className="py-3 text-start">
+                  {("Cart Subtotal")}
+                </td>
+                {/* <td colSpan={2}>Larry the Bird</td> */}
+                <td className="py-3">${price}</td>
+              </tr>
+              <tr>
+                <td className="py-3 text-start" colSpan={3}>
+                  {("Shipping")}
+                </td>
+                {/* <td colSpan={2}>Larry the Bird</td> */}
+                <td className="py-3">0</td>
+              </tr>
+              <tr>
+                <td className="py-3 text-start" colSpan={3}>
+                  {("Total")}
+                </td>
+                {/* <td>Larry the Bird</td> */}
+                <td className="py-3">${price}</td>
+              </tr>
+            </tbody>
+          </Table>
         </div>
 
-        <div className="row mt-4">
-          <div className="col-lg-6"></div>
-          <div className="col-lg-6">
-            <Table className="bg-white">
-              <thead>
-                <tr>
-                  <th
-                    className="fs-2 border-bottom border-warning text-start"
-                    colSpan={3}
-                  >
-                    {("Cart Total")}
-                  </th>
-                  {/* <th> </th>
-          <th> </th> */}
-                  <th className="fs-2 border-bottom border-warning"> </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td colSpan={3} className="py-3 text-start">
-                    {("Cart Subtotal")}
-                  </td>
-                  {/* <td colSpan={2}>Larry the Bird</td> */}
-                  <td className="py-3">${price}</td>
-                </tr>
-                <tr>
-                  <td className="py-3 text-start" colSpan={3}>
-                    {("Shipping")}
-                  </td>
-                  {/* <td colSpan={2}>Larry the Bird</td> */}
-                  <td className="py-3">0</td>
-                </tr>
-                <tr>
-                  <td className="py-3 text-start" colSpan={3}>
-                    {("Total")}
-                  </td>
-                  {/* <td>Larry the Bird</td> */}
-                  <td className="py-3">${price}</td>
-                </tr>
-              </tbody>
-            </Table>
+
+          
           </div>
+          
         </div>
-      </div>
+
+
     </div>
   );
 };
