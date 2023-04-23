@@ -7,6 +7,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
 });
+app.use(express.json());
 var ProductsRoutes = require("./Routes/products");
 var OffersRoutes = require("./Routes/offers");
 var ReviewsRoutes = require("./Routes/reviews");

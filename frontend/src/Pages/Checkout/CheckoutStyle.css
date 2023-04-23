@@ -23,14 +23,13 @@
 }
 
 .tableData{
-    border: 1px solid lightgray;
+     border: 1px solid lightgray;
     
 }
 .orderSummary{
     height:500px;
     overflow: auto;
     width: 100%;
-    /* border: 8px solid yellow; */
     padding: 3%;
 }
 

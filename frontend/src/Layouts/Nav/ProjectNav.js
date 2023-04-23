@@ -34,14 +34,14 @@ function ProjectNav() {
               {t("Login")} |{" "}
             </Link>
             <Link className="text-dark" to="/register">
-              {t("Register")} | {" "}
+              {t("Register")} |{" "}
             </Link>
-            <Link className="text-dark" to="/Productpage">
-              {t('Products')}
+            <Link className="text-dark" to="/product">
+              {t("Products")}
             </Link>
           </Nav>
         </Navbar.Collapse>
-        {i18n.language == "ar" && (
+        {i18n.language === "ar" && (
           <button
             className="btn btn-warning"
             onClick={() => {
@@ -51,7 +51,7 @@ function ProjectNav() {
             EN
           </button>
         )}
-        {i18n.language == "en" && (
+        {i18n.language === "en" && (
           <button
             className="btn btn-warning"
             onClick={() => {
