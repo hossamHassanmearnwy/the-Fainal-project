@@ -9,10 +9,21 @@ import BestSec from './../besrSellers/BestSec';
 import OffersSlider from "../../Components/offersSlider/OffersSlider";
 import offersList from "../../offersData";
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 const Amazon = ({handleClick}) => {
     const {t, i18n} = useTranslation();
     document.body.dir = i18n.dir();
+
+    const products = useSelector(state => state.search.products);
+    const searchTerm = useSelector(state => state.search.searchTerm);
+  
+    const filteredProducts = products.filter(item => {
+      return item.title.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+  
+
+  
   return (
     <>
 
@@ -21,16 +32,18 @@ const Amazon = ({handleClick}) => {
     <section className='py-5 border-top'>
     <div className='row'>
         {
-            list.map((item)=>(
-                <Cards item={item} key={item.id} handleClick={handleClick} />
+            filteredProducts.map((item)=>(
+                <Cards item={item} key={item.id} handleClick={handleClick} 
+                 />
             ))
         }
         </div>
         
         <div className='row'>
         {
-            list.map((item)=>(
-                <Cards item={item} key={item.id} handleClick={handleClick}  />
+            filteredProducts.map((item)=>(
+                <Cards item={item} key={item.id} handleClick={handleClick} 
+                 />
             ))
         }
         </div>

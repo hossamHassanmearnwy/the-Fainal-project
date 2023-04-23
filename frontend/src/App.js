@@ -57,6 +57,19 @@ function App() {
     setCart([...tempArr]);
   };
 
+/////////////////////////////////
+  let [check, setCheck] = useState(
+    JSON.parse(localStorage.getItem("checkout")) || [] // local storge to get cart
+  );
+
+  useEffect(() => {
+    localStorage.setItem("checkout", JSON.stringify(check)); // local storge to save cart in it
+
+    console.log(`Saved ${check.length} items to localstorage`);
+  }, [check]);
+  ////////////////////////////////
+
+
   return (
     <>
       {/* <Header /> */}
@@ -97,14 +110,16 @@ function App() {
           <Route path="product" element={<Productpage />} />
           <Route path="/details/:id" element={<ProductDetail />} />
           <Route path="/cat" element={<CategoryPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forgotpassword" element={<ForgotPassword />} />
-          <Route path="*" element={<NotFound />} />
-          <Route path="/checkout" element={<Checkout />} />
-        </Routes>
-
-        <ProjFooter />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
+      <Route path="*" element={<NotFound />} />
+      <Route path="/checkout" element={
+        <Checkout/>}/>
+      
+      </Routes>
+      
+      <ProjFooter />
       </div>
     </>
   );
