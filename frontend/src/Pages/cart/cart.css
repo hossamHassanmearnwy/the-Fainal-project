@@ -1,4 +1,4 @@
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 990px) {
     
     .amount {
       display: block;
@@ -14,14 +14,18 @@
     }
     .gBtn{
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items:center;
+      justify-content: flex-end;
       flex-direction: column;
+      height: fit-content;
       
     }
     .gBtn button{
       margin: 0 auto;
-      margin-bottom: 15px;
-      width: 100%;
+      margin-bottom: 12px;
+
+    }
+    .thecart{
+      margin-top: 20%;
     }
   }

@@ -2,11 +2,7 @@ import React from 'react';
 import list from '../../data';
 import '../Amazon/amazon.css';
 import Cards from '../Card/Cards';
-import Slider from '../Slider/Slider';
 import Sec from './../styleSec/style';
-import SummaryProd from './../summary/summaryProd';
-import BestSec from './../besrSellers/BestSec';
-import OffersSlider from "../../Components/offersSlider/OffersSlider";
 import offersList from "../../offersData";
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -50,14 +46,7 @@ const Amazon = ({handleClick}) => {
     </section>
 
 
-    <BestSec />
-
-    {
-        
-        <OffersSlider handleClick={handleClick} />
-          
-        }
-    <SummaryProd />
+    
     </div>
 
     

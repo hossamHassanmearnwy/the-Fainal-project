@@ -8,9 +8,13 @@ import ProductDetail from '../../Pages/productDetail/ProductDetail';
 
 import OffersSlider from "../../Components/offersSlider/OffersSlider";
 import offersList from "../../offersData";
+import BestSec from "../../Components/besrSellers/BestSec";
+import SummaryProd from "../../Components/summary/summaryProd";
 
 
-export default function Home() {
+
+
+export default function Home({handleClick}) {
   //  const [warning, setWarning] = useState(false);
   const [show, setShow] = useState(true);
   // const [cart , setCart] = useState([]);
@@ -19,27 +23,22 @@ export default function Home() {
   );
   const [warning, setWarning] = useState(false);
 
+
+
+
+
+  
+
+
+
+
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart)); // local storge to save cart in it
 
     console.log(`Saved ${cart.length} items to localstorage`);
   }, [cart]);
 
-  const handleClick = (item) => {
-    let isPresent = false;
-    cart.forEach((product) => {
-      if (item.id === product.id) isPresent = true;
-      // console.log(product)
-    });
-    if (isPresent) {
-      setWarning(true);
-      setTimeout(() => {
-        setWarning(false);
-      }, 2000);
-      return;
-    }
-    setCart([...cart, item]);
-  };
+
 
 
   const handleChange = (item, d) => {
@@ -71,33 +70,43 @@ export default function Home() {
   </div>
   </div>
   
-    {/* <Cart
-      cart={cart}
-      setCart={setCart}
-      handleChange={handleChange}
-      setShow={setShow}
-      path='/cart'
 
-    /> 
-  )}
+    
+  <div className='container'>
+  
+
+  <Amazon  handleClick={handleClick}/>
+
+
+  
+
+
+  <BestSec handleClick={handleClick}/>
+
+    
+      
+  <OffersSlider handleClick={handleClick} />
+        
+      
+
+  <SummaryProd />
+
+
+  
   {warning && (
     <div className="warning">Item is already added to your cart</div>
   )}
 
-  
 
-    />  */}
-    <Amazon handleClick={handleClick} />
+
+
+
+
+
+  </div>
 
       
-
-    {/* <OffersSlider/> */}
-
     
-    {warning && (
-      <div className="warning">Item is already added to your cart</div>
-    )}
-
 
   
 
