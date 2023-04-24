@@ -9,7 +9,7 @@ const userSchema=mongoose.Schema({
         required: true,
         minLength: 3,
         maxLength: 20,
-        unique: true
+        // unique: true
     },
     lastName:{
         type:String,
@@ -44,6 +44,14 @@ const userSchema=mongoose.Schema({
     phoneNumber:{
         type:String,
         length:11
+    },
+    Date:{
+        type:Date,
+        default:Date.now
+    },
+    Gender:{
+        type:String,
+        // enum:['Male','Female'],
     }
 
     },{timestamps:true}

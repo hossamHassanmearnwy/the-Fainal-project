@@ -1,13 +1,16 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-// app.use(express.json());
+var cors = require('cors')
+
+app.use(express.json());
+app.use(cors())
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Origin', '*');
   next();
 });
-app.use(express.json());
+// app.use(express.json());
 var ProductsRoutes = require("./Routes/products");
 var OffersRoutes = require("./Routes/offers");
 var ReviewsRoutes = require("./Routes/reviews");
