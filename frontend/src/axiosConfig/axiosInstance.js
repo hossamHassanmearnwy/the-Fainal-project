@@ -4,12 +4,7 @@ const axiosInestance = axios.create({
   headers: {
     "Content-Type": "application/json",
     'accept' : 'application/json',
-<<<<<<< Updated upstream
-=======
 
-  
-
->>>>>>> Stashed changes
   },
   
 });

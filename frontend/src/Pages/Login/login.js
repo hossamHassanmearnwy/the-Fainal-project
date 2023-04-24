@@ -9,7 +9,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import Register from "../Register/register";
 import ForgotPassword from "../ForgotPassword/forgotPassword";
 import { useTranslation } from "react-i18next";
-import useraxios from "./../../axiosConfig/axiosInstance";
+import useraxios from "../../axiosConfig/axiosInstance";
 
 
 export default function Login() {
@@ -32,6 +32,7 @@ export default function Login() {
   const [error, setError] = useState({
     errEmail: "",
     errPass: "",
+    err: "",
   });
   const handelinput = (e) => {
     var reqEmail = /^[a-zA-Z]{3,30}(@)(gmail|yahoo|outlook)(.com)$/;
@@ -60,16 +61,8 @@ export default function Login() {
     }
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const response = await useraxios.post("/users/login", {
-  //     email: user.userEmail,
-  //     password: user.userPass,
-  //   });
-  //   console.log(response.data); //token 
-  //   localStorage.setItem("token", response.data);
-  //   console.log("Login successful");
-  // };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -85,7 +78,11 @@ export default function Login() {
       console.log("Login successful");
     } catch (error) {
       console.error("Error logging in:", error);
-      alert("Invalid Email Address Or Password")
+     
+      setError({
+        ...error,
+        err:"Invilad Email Or Password"}); // set error state to display error message
+
 
     }
   };
@@ -116,6 +113,9 @@ export default function Login() {
                   }}
                 />
                 <p className="text-danger ">{error.errEmail}</p>
+                {/* <Paragraph text="Invilad Email Or Password" /> */}
+                <p className="text-danger ">{error.err}</p>
+
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label className=" font-weight-bold">{t('Password')}</Form.Label>
@@ -134,6 +134,7 @@ export default function Login() {
               <Button variant="warning" type="submit" className="login-input text-white">
                 {t('Login')}
               </Button>
+
               <p className="mt-3">
                 {t('Forget Password')}
                 <a className="text-warning text-decoration-none " onClick={() => navigateForgotPassword()}> {t('Reset Password')} </a>
