@@ -6,6 +6,7 @@
     /* height: 400px; */
         height: 100%;
     border-radius: 10px;
+    /* display: flex; */
 
 }
 
@@ -23,11 +24,11 @@
 }
 
 .tableData{
-     border: 1px solid lightgray;
+    border: 1px solid lightgray;
     
 }
 .orderSummary{
-    height:500px;
+    height:400px;
     overflow: auto;
     width: 100%;
     padding: 3%;
@@ -36,10 +37,37 @@
 .discInput{
     border-radius: 30px;
     margin: 15px;
+    background-color: #fed700;
     
+}
+.discInput:hover{
+    background-color: orange;
+    transition-duration: 1s;
 }
 .checkoutPrice{
     color: red;
     font-weight: bold;
 }
+.popupForm{
 
+    margin-left: 60px;
+    width: 100%;
+}
+
+
+.newAddress{
+    display: none;
+}
+.newAddressBtn{
+    width: 150px;
+        height: 50px;
+        border-radius: 30px;
+        border: none;
+        background-color: #fed700;
+}
+
+.newAddressBtn:hover{
+    background-color: orange;
+    /* animation-delay: 1; */
+    transition-duration: 1s;
+}

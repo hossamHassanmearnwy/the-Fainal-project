@@ -97,6 +97,36 @@ function App() {
         <ProjectNav />
         <InternalNav size={cart.length} setShow={setShow} />
 
+<<<<<<< HEAD
+      <Routes>
+      {/* <Route path="/cart" element={<Cart/>}/> */}
+        {/* // Home // */}
+        <Route index element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        {/* // User account */}
+        <Route path="/useraccount" element={<UserAccount />}>
+          <Route index element={<MyAccount />} />
+          <Route path="myaccount" element={<MyAccount />} />
+          <Route path="myorders" element={<MyOrders />} />
+          <Route path="fav" element={<Favourites />} />
+          {/* <Route path="Fav" element={<Fav />} /> */}
+          
+          <Route path="addressbook" element={<AddressBook />} />
+          <Route path="accountinfo" element={<AccountInformation />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+        <Route path="/cart" element={
+          <Cart
+            cart={cart}
+            setCart={setCart}
+            handleChange={handleChange}
+            setShow={setShow}
+            path='/cart'
+          />
+        }/>
+          <Route path="/fav" element={<Favourites />} />
+          <Route path="product" element={<Productpage />} />
+=======
 
         <Routes>
           {/* <Route path="/cart" element={<Cart/>}/> */}
@@ -129,6 +159,7 @@ function App() {
           <Route path="/fav" element={<Favourites handleClick={handleClick} />} />
           <Route path="product" element={<Productpage />} />
 
+>>>>>>> 6429e83c30776be9a3593b9c776f7ab0871424fc
           <Route path="/details/:id" element={<ProductDetail />} />
           <Route path="/product" element={<Productpage />} />
           <Route path="/cat" element={<CategoryPage />} />
