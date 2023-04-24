@@ -91,7 +91,8 @@ function App() {
           <Route index element={<MyAccount />} />
           <Route path="myaccount" element={<MyAccount />} />
           <Route path="myorders" element={<MyOrders />} />
-          <Route path="Fav" element={<Fav />} />
+          <Route path="fav" element={<Favourites />} />
+          {/* <Route path="Fav" element={<Fav />} /> */}
           
           <Route path="addressbook" element={<AddressBook />} />
           <Route path="accountinfo" element={<AccountInformation />} />
@@ -107,7 +108,7 @@ function App() {
           />
         }/>
           <Route path="/fav" element={<Favourites />} />
-          <Route path="product" element={<Product />} />
+          <Route path="product" element={<Productpage />} />
           <Route path="/details/:id" element={<ProductDetail />} />
           <Route path="/cat" element={<CategoryPage />} />
         <Route path="/login" element={<Login />} />
