@@ -75,7 +75,7 @@ const Cards = ({ item, handleClick }) => {
       <div className='col-lg-6 col-sm-12 mt-4' >
 
        <Link to={`/details/${id}`}>
-      <Button className='me-5 text-white' variant="warning">{t('See Details')}</Button></Link> 
+      <Button className='me-5 text-white' variant="warning">{t('Details')}</Button></Link> 
 
       </div>
       </div>

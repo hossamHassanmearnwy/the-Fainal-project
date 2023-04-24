@@ -8,7 +8,7 @@ const BestCard = ({best, handleClick}) => {
   return (
 
 
-    <div className='col-lg-4 col-md-6 col-sm-12 bestc p-3 mb-3 ms-1 border-end'>
+    <div className='bestc p-3 mb-3 ms-1 border-end'>
     <div className="d-flex direction-row">
     <div className="col-lg-4 me-3" style={{width:"85px" , height:"100px"}}>
     <img src={img} alt="#" style={{width:"100%" , height:"100%"}}/>

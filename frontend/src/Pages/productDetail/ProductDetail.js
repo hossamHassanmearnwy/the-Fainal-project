@@ -164,10 +164,10 @@ export default function ProductDetail() {
 
         <div className='container py-3 my-5'>
           <div className='row'>
-            <div className='col-lg-6 col-sm-12 p-3' style={{ marginBottom: "-20%" }}>
+            <div className='sec1 col-lg-6 col-sm-12 p-3' style={{ marginBottom: "-20%" }}>
               <img src={product.img} alt="#" className='fluid' height='50%' />
             </div>
-            <div className='col-lg-6 col-sm-12 p-3' style={{ color: "grey" }}>
+            <div className='sec2 col-lg-6 col-sm-12 p-3' style={{ color: "grey"}} >
               <p className='mb-2 text-start'>{t('category name')}</p>
               <h2 className='textdark text-start'>{product.title}</h2>
               <StarRating />
