@@ -24,16 +24,16 @@ import NotFound from "./Pages/NotFound/NotFound";
 
 import Product from "./Components/product/product";
 import Productpage from "./Pages/Products/productpage";
-import Home from "./Pages/Home/home";
+import Home from './Pages/Home/home';
 
-import ProductDetail from "./Pages/productDetail/ProductDetail";
-import Checkout from "./Pages/Checkout/Checkout";
+import ProductDetail from './Pages/productDetail/ProductDetail';
+import Checkout from './Pages/Checkout/Checkout';
 import CategoryPage from "./Pages/categories/CategoryPage";
 import Favourites from "./Pages/favorite/fav";
 
+
 function App() {
   const [show, setShow] = useState(true);
-  const [warning, setWarning] = useState(false);
   // const [cart , setCart] = useState([]);
   let [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart")) || [] // local storge to get cart
@@ -44,23 +44,8 @@ function App() {
 
     console.log(`Saved ${cart.length} items to localstorage`);
   }, [cart]);
-  
-    const handleClick = (item) => {
-    let isPresent = false;
-    cart.forEach((product) => {
-      if (item.id === product.id) isPresent = true;
-      // console.log(product)
-    });
-    if (isPresent) {
-      setWarning(true);
-      setTimeout(() => {
-        setWarning(false);
-      }, 2000);
-      return;
-    }
-    setCart([...cart, item]);
-  };
 
+  
   const handleChange = (item, d) => {
     let ind = -1;
     cart.forEach((data, index) => {
@@ -79,14 +64,12 @@ function App() {
     JSON.parse(localStorage.getItem("checkout")) || [] // local storge to get cart
   );
 
-
   useEffect(() => {
     localStorage.setItem("checkout", JSON.stringify(check)); // local storge to save cart in it
 
     console.log(`Saved ${check.length} items to localstorage`);
   }, [check]);
-
-
+  ////////////////////////////////
 
 
   return (
@@ -96,8 +79,8 @@ function App() {
       <div className="App container-fluid">
         <ProjectNav />
         <InternalNav size={cart.length} setShow={setShow} />
+        
 
-<<<<<<< HEAD
       <Routes>
       {/* <Route path="/cart" element={<Cart/>}/> */}
         {/* // Home // */}
@@ -126,49 +109,16 @@ function App() {
         }/>
           <Route path="/fav" element={<Favourites />} />
           <Route path="product" element={<Productpage />} />
-=======
-
-        <Routes>
-          {/* <Route path="/cart" element={<Cart/>}/> */}
-          {/* // Home // */}
-          <Route index element={<Home handleClick={handleClick}/>} />
-          <Route path="/home" element={<Home handleClick={handleClick} />} />
-          {/* // User account */}
-          <Route path="/useraccount" element={<UserAccount />}>
-            <Route index element={<MyAccount />} />
-            <Route path="myaccount" element={<MyAccount />} />
-            <Route path="myorders" element={<MyOrders />} />
-            <Route path="Fav" element={<Fav />} />
-
-            <Route path="addressbook" element={<AddressBook />} />
-            <Route path="accountinfo" element={<AccountInformation />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-          <Route
-            path="/cart"
-            element={
-              <Cart
-                cart={cart}
-                setCart={setCart}
-                handleChange={handleChange}
-                setShow={setShow}
-                path="/cart"
-              />
-            }
-          />
-          <Route path="/fav" element={<Favourites handleClick={handleClick} />} />
-          <Route path="product" element={<Productpage />} />
-
->>>>>>> 6429e83c30776be9a3593b9c776f7ab0871424fc
           <Route path="/details/:id" element={<ProductDetail />} />
-          <Route path="/product" element={<Productpage />} />
           <Route path="/cat" element={<CategoryPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
       <Route path="*" element={<NotFound />} />
       <Route path="/checkout" element={
-        <Checkout/>}/>
+        <Checkout
+        check={check}
+        setCheck={setCheck}/>}/>
       
       </Routes>
       
