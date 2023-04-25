@@ -18,7 +18,7 @@ import favAdd from '../../Store/actions/add';
 
 
 
-export default function ProductDetail() {
+export default function ProductDetail({handleClick,handleChange}) {
   const {t, i18n} = useTranslation();
   document.body.dir = i18n.dir();
   const [ProductDetail, setProductDetail] = useState([]);
@@ -71,42 +71,6 @@ export default function ProductDetail() {
     return <p>Loading...</p>;
   }
 
-
-
-
-
-
-
-
-  const handleClick = (item) => {
-    let isPresent = false;
-    cart.forEach((product) => {
-      if (item.id === product.id) isPresent = true;
-      // console.log(product)
-    });
-    if (isPresent) {
-      setWarning(true);
-      setTimeout(() => {
-        setWarning(false);
-      }, 2000);
-      return;
-    }
-    setCart([...cart, item]);
-  };
-
-
-  const handleChange = (item, d) => {
-    let ind = -1;
-    cart.forEach((data, index) => {
-      if (data.id === item.id) ind = index;
-    });
-    const tempArr = cart;
-
-    tempArr[ind].amount += d;
-
-    if (tempArr[ind].amount === 0) tempArr[ind].amount = 1;
-    setCart([...tempArr]);
-  };
 
 
 
