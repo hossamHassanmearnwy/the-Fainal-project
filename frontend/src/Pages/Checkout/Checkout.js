@@ -9,15 +9,23 @@ import Accordion from 'react-bootstrap/Accordion';
 import { useEffect, React, useState, createElement } from 'react';
 import cartaxios from "./../../axiosConfig/axiosInstance";
 ///////////////////////////////////////
-// import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
 
 
-export default function Checkout() {
+export default function Checkout(cart) {
+  let [check, setCheck] = useState(
+    JSON.parse(localStorage.getItem("cart")) || [] // local storge to get cart
+  );
 
+  useEffect(() => {
+    localStorage.setItem("checkout", JSON.stringify(check)); // local storge to save cart in it
+    console.log(`Saved ${check.length} items to localStorage from check`);
+  }, [cart]);
+  ///////////////////////////////////////////
+  //Default address
   const Fname = useSelector((state) => state.editShippingAddress.Fname)
   const Lname = useSelector((state) => state.editShippingAddress.Lname)
   const phone = useSelector((state) => state.editShippingAddress.phoneNumber)
@@ -25,24 +33,27 @@ export default function Checkout() {
   const city = useSelector((state) => state.editShippingAddress.city)
   const country = useSelector((state) => state.editShippingAddress.country)
   const zip = useSelector((state) => state.editShippingAddress.zip)
+
+  // New address
+  const newFname = useSelector((state) => state.editNewAddress.newFname)
+  const newLname = useSelector((state) => state.editNewAddress.newLname)
+  const newPhone = useSelector((state) => state.editNewAddress.newPhone)
+  const newStreet = useSelector((state) => state.editNewAddress.newStreet)
+  const newCity = useSelector((state) => state.editNewAddress.newCity)
+  const newCountry = useSelector((state) => state.editNewAddress.newCountry)
+  const newZip = useSelector((state) => state.editNewAddress.newZip)
   const name = "fatma"
   ////////////////////////////////////
-
-
-  ////////////////////////////////
-  const [user, setUser] = useState({
-    fname: '',
-    lname: '',
-    phone: '',
-    street: '',
-    city: '',
-    country: '',
-    zip: ''
+  const [newAddress, setNewAddress] = useState({
+    newFname: '',
+    newLname: '',
+    newPhone: '',
+    newStreet: '',
+    newCity: '',
+    newCountry: '',
+    newZip: ''
   })
 
-  const testFunnn = () => {
-    console.log('xcccx')
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -50,32 +61,32 @@ export default function Checkout() {
 
   const handleForm = (ev) => {
     switch (ev.target.name) {
-      case "fname":
-        setUser({ ...user, fname: ev.target.value });
+      case "newFname":
+        setNewAddress({ ...newAddress, newFname: ev.target.value });
         break;
 
-      case "lname":
-        setUser({ ...user, lname: ev.target.value });
+      case "newLname":
+        setNewAddress({ ...newAddress, newLname: ev.target.value });
         break;
 
-      case "phone":
-        setUser({ ...user, phone: ev.target.value });
+      case "newPhone":
+        setNewAddress({ ...newAddress, newPhone: ev.target.value });
         break;
 
-      case "street":
-        setUser({ ...user, street: ev.target.value });
+      case "newStreet":
+        setNewAddress({ ...newAddress, newStreet: ev.target.value });
         break;
 
-      case "city":
-        setUser({ ...user, city: ev.target.value });
+      case "newCity":
+        setNewAddress({ ...newAddress, newCity: ev.target.value });
         break;
 
-      case "country":
-        setUser({ ...user, country: ev.target.value });
+      case "newCountry":
+        setNewAddress({ ...newAddress, newCountry: ev.target.value });
         break;
 
-      case "zip":
-        setUser({ ...user, zip: ev.target.value });
+      case "newZip":
+        setNewAddress({ ...newAddress, newZip: ev.target.value });
         break;
       // default:
       //   return
@@ -96,12 +107,12 @@ export default function Checkout() {
         <input name="plan" className="radio" type="radio" />
         <span className="plan-details">
           <Card.Text className=''>
-            {('Name')} : {Fname} {Lname}<br />
-            {('Street')} : {street}<br />
-            {('City')} : {city}<br />
-            {('Country')} : {country}<br />
-            {('Mobile Number')} : {phone}<br />
-            {('Zip/Postal Code')} : {zip}
+            {('Name')} : {newFname} {newLname}<br />
+            {('Street')} : {newStreet}<br />
+            {('City')} : {newCity}<br />
+            {('Country')} : {newCountry}<br />
+            {('Mobile Number')} : {newPhone}<br />
+            {('Zip/Postal Code')} : {newZip}
           </Card.Text>
         </span>
       </label>
@@ -113,14 +124,17 @@ export default function Checkout() {
       <div className='row'>
         <div className=' checkoutCard'>
           <div className='sectionTitle'>SHIPPING ADDRESS</div>
+          {/* <button className="" type='button' onClick={addNewAddress}>{('Save Address')}</button> */}
+          {check.title + "hhhhhhhhhhhhhhhhhhhhhhhhhhh"}<br />
+          {check.length + "hhhhhhhhhhhhhhhhhhhhhhhhhhh"}
           <br />
           <div className="grid">
             <label className="card">
               <input name="plan" className="radio" type="radio" checked />
-
               <span className="plan-details">
                 <Card.Text className=''>
                   {('Name')} : {Fname} {Lname}<br />
+
                   {('Street')} : {street}<br />
                   {('City')} : {city}<br />
                   {('Country')} : {country}<br />
@@ -130,7 +144,7 @@ export default function Checkout() {
               </span>
             </label>
             <br /><br />
-          {showNewAddress}
+            {showNewAddress}
 
           </div>
           <br /><br />
@@ -144,10 +158,10 @@ export default function Checkout() {
 
 
 
-
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>SHIPPING ADDRESS</Modal.Title>
+
             </Modal.Header>
             <Modal.Body>
               <Form>
@@ -155,14 +169,14 @@ export default function Checkout() {
                   <form onSubmit={(evt) => { handleSubmit(evt) }} >
                     {/* first name */}
                     <label htmlFor='fname' className='label'>{("First Name")}</label><br />
-                    <input type="text" id="fname" name="fname" placeholder={('Enter Your') + ("First Name")} value={user.fname} onChange={(event) => { handleForm(event) }} /><br />
+                    <input type="text" id="fname" name="newFname" placeholder={('Enter Your') + ("First Name")} value={newAddress.newFname} onChange={(event) => { handleForm(event) }} /><br />
 
                     {/* last name */}
                     <label htmlFor='lname' className='label'>{("Last Name")}</label><br />
-                    <input type="text" id="lname" name="lname" placeholder={('Enter Your') + ("Last Name")} value={user.lname} onChange={(event) => { handleForm(event) }} /><br />
+                    <input type="text" id="lname" name="newLname" placeholder={('Enter Your') + ("Last Name")} value={newAddress.newLname} onChange={(event) => { handleForm(event) }} /><br />
                     {/* phone number */}
                     <label htmlFor='phone' className='label'>{("Mobile Number")}</label><br />
-                    <input type="number" id="phone" name="phone" placeholder={('Enter Your') + ("Mobile Number")} value={user.phone} onChange={(event) => { handleForm(event) }} />
+                    <input type="number" id="phone" name="newPhone" placeholder={('Enter Your') + ("Mobile Number")} value={newAddress.newPhone} onChange={(event) => { handleForm(event) }} />
 
                     <br />
                     <br />
@@ -171,25 +185,24 @@ export default function Checkout() {
                     <h2>{('Address')}</h2>
                     {/* Street */}
                     <label htmlFor='street' className='label'>{('Street Address')}</label><br />
-                    <input type="text" id="street" name="street" placeholder={('Enter Your') + ("Street Address")} value={user.street} onChange={(event) => { handleForm(event) }} /><br />
+                    <input type="text" id="street" name="newStreet" placeholder={('Enter Your') + ("Street Address")} value={newAddress.newStreet} onChange={(event) => { handleForm(event) }} /><br />
                     {/* City */}
                     <label htmlFor='city' className='label'>{('City')}</label><br />
-                    <input type="text" id="city" name="city" placeholder={('Enter Your') + ("City")} autoComplete="address-level2" value={user.city} onChange={(event) => { handleForm(event) }} /><br />
+                    <input type="text" id="city" name="newCity" placeholder={('Enter Your') + ("City")} autoComplete="address-level2" value={newAddress.newCity} onChange={(event) => { handleForm(event) }} /><br />
                     {/* Country */}
                     <label htmlFor='country' className='label'>{('Country')}</label><br />
-                    <select id="country" name="country" autoComplete='country' placeholder={('Enter Your') + ("Country")} value={user.country} onChange={(event) => { handleForm(event) }} >
+                    <select id="country" name="newCountry" autoComplete='country' placeholder={('Enter Your') + ("Country")} value={newAddress.newCountry} onChange={(event) => { handleForm(event) }} >
                       <option></option>
                       <option >{('Egypt')}</option>
 
                     </select><br />
                     {/* ZIP */}
                     <label htmlFor='zip' className='label'>{('Zip/Postal Code')} </label><br />
-                    <input type="text" id="zip" name="zip" autoComplete="postal-code" value={user.zip} onChange={(event) => { handleForm(event) }} /><br />
+                    <input type="text" id="zip" name="newZip" autoComplete="postal-code" value={newAddress.newZip} onChange={(event) => { handleForm(event) }} /><br />
                     <br />
                     <button className="submit" type='submit' onClick={addNewAddress}>{('Save Address')}</button>
                   </form>
                 </div>
-
               </Form>
             </Modal.Body>
             <Modal.Footer>
@@ -258,8 +271,8 @@ export default function Checkout() {
           <div className='sectionTitle'>ORDER SUMMARY</div>
           <Accordion defaultActiveKey="0" flush>
             <Accordion.Item eventKey="0">
-              <Accordion.Header> ITEMS IN CART</Accordion.Header>
-              {/* <Accordion.Header>{check.length}  ITEMS IN CART</Accordion.Header> */}
+              {/* <Accordion.Header> ITEMS IN CART</Accordion.Header> */}
+              <Accordion.Header>{check.length}  ITEMS IN CART</Accordion.Header>
               <Accordion.Body >
                 <div className='orderSummary'>
                   <Table >
@@ -272,16 +285,30 @@ export default function Checkout() {
                     </thead>
                     <br />
                     {/* {check?.map((item)=>( */}
+                    {check?.map((item) => (
+                      <tbody >
+                        <tr>
+                          <td className="text-start tableData">
+                            <img
+                              className="imgCart "
+                              src={item.img}
+                              alt=""
+                              width={90}
+                              height={90}
+                            />
+                          </td>
 
-
-                    <tbody >
-
-
-                      <tr>
+                          <td className="tableData  ">
+                            <span >{item.title}</span>
+                          </td>
+                          <td className="tableData">
+                            <p className="my-4 checkoutPrice">{item.priceOnSale} EGP</p>
+                          </td>
+                        </tr>
+                        {/* <tr>
                         <td className="text-start tableData">
                           <img
                             className="imgCart "
-                            // src={item.img}
                             src='https://m.media-amazon.com/images/I/81AuwSoF9yL.__AC_SY300_SX300_QL70_ML2_.jpg'
                             alt=""
                             width={90}
@@ -295,31 +322,13 @@ export default function Checkout() {
                         <td className="tableData">
                           <p className="my-4 checkoutPrice">999.9 EGP</p>
                         </td>
-                      </tr>
-                      <tr>
-                        <td className="text-start tableData">
-                          <img
-                            className="imgCart "
-                            // src={item.img}
-                            src='https://m.media-amazon.com/images/I/81AuwSoF9yL.__AC_SY300_SX300_QL70_ML2_.jpg'
-                            alt=""
-                            width={90}
-                            height={90}
-                          />
-                        </td>
-
-                        <td className="tableData  ">
-                          <span >Title title title</span>
-                        </td>
-                        <td className="tableData">
-                          <p className="my-4 checkoutPrice">999.9 EGP</p>
-                        </td>
-                      </tr>
+                      </tr> */}
 
 
 
 
-                    </tbody>
+                      </tbody>
+                    ))}
                     {/* ))} */}
                   </Table>
                 </div>
@@ -330,13 +339,6 @@ export default function Checkout() {
           <hr />
           <h3>Cart Total</h3>
           <Table>
-            {/* <thead>
-                <tr style={{ color: "#aca7a7", fontWeight: "lighter" }}>
-                  <th className="text-start">{("Product")}</th>
-                  <th>{("Title")}</th>
-                  <th>{("Price")}</th>
-                </tr>
-              </thead> */}
             <tr>
               <td className="text-start tableData">
                 <h4>CART SUBTOTALl</h4>
