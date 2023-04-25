@@ -1,10 +1,12 @@
 <div class="side-nav-content">
     <ul class="nav-list" [ngClass]="{'nav-list-open': sideNavStatus}">
-        <li class="nav-list-item" *ngFor="let item of list">
+        <li class="nav-list-item" *ngFor="let item of list" routerLinkActive="active bg-warning rounded-3">
+            <a routerLink="{{item.link}}" class="text-decoration-none text-white">
             <i class="{{item.icon}} me-3"></i>
             <span>
-                <a href="#">{{item.name}}</a>
+                {{item.name}}
             </span>
+        </a>
         </li>
 
         
