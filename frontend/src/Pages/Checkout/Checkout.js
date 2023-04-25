@@ -125,8 +125,7 @@ export default function Checkout(cart) {
         <div className=' checkoutCard'>
           <div className='sectionTitle'>SHIPPING ADDRESS</div>
           {/* <button className="" type='button' onClick={addNewAddress}>{('Save Address')}</button> */}
-          {check.title + "hhhhhhhhhhhhhhhhhhhhhhhhhhh"}<br />
-          {check.length + "hhhhhhhhhhhhhhhhhhhhhhhhhhh"}
+          
           <br />
           <div className="grid">
             <label className="card">
@@ -272,7 +271,7 @@ export default function Checkout(cart) {
           <Accordion defaultActiveKey="0" flush>
             <Accordion.Item eventKey="0">
               {/* <Accordion.Header> ITEMS IN CART</Accordion.Header> */}
-              <Accordion.Header>{check.length}  ITEMS IN CART</Accordion.Header>
+              <Accordion.Header>( {check.length } )  ITEMS IN CART</Accordion.Header>
               <Accordion.Body >
                 <div className='orderSummary'>
                   <Table >
@@ -284,7 +283,7 @@ export default function Checkout(cart) {
                       </tr>
                     </thead>
                     <br />
-                    {/* {check?.map((item)=>( */}
+                    
                     {check?.map((item) => (
                       <tbody >
                         <tr>
@@ -302,34 +301,12 @@ export default function Checkout(cart) {
                             <span >{item.title}</span>
                           </td>
                           <td className="tableData">
-                            <p className="my-4 checkoutPrice">{item.priceOnSale} EGP</p>
+                            <p className="my-4 checkoutPrice">{item.price} EGP</p>
                           </td>
                         </tr>
-                        {/* <tr>
-                        <td className="text-start tableData">
-                          <img
-                            className="imgCart "
-                            src='https://m.media-amazon.com/images/I/81AuwSoF9yL.__AC_SY300_SX300_QL70_ML2_.jpg'
-                            alt=""
-                            width={90}
-                            height={90}
-                          />
-                        </td>
-
-                        <td className="tableData  ">
-                          <span >Title title title</span>
-                        </td>
-                        <td className="tableData">
-                          <p className="my-4 checkoutPrice">999.9 EGP</p>
-                        </td>
-                      </tr> */}
-
-
-
-
                       </tbody>
                     ))}
-                    {/* ))} */}
+                    
                   </Table>
                 </div>
 
