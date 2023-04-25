@@ -34,6 +34,7 @@ import Favourites from "./Pages/favorite/fav";
 
 function App() {
   const [show, setShow] = useState(true);
+  const [warning, setWarning] = useState(false);
   // const [cart , setCart] = useState([]);
   let [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart")) || [] // local storge to get cart
@@ -42,6 +43,26 @@ function App() {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart)); // local storge to save cart in it
   }, [cart]);
+
+
+
+
+  const handleClick = (item) => {
+    let isPresent = false;
+    cart.forEach((product) => {
+      if (item.id === product.id) isPresent = true;
+      // console.log(product)
+    });
+    if (isPresent) {
+      setWarning(true);
+      setTimeout(() => {
+        setWarning(false);
+      }, 2000);
+      return;
+    }
+    setCart([...cart, item]);
+  };
+
 
 
   const handleChange = (item, d) => {
@@ -80,8 +101,8 @@ function App() {
         <Routes>
           {/* <Route path="/cart" element={<Cart/>}/> */}
           {/* // Home // */}
-          <Route index element={<Home />} />
-          <Route path="/home" element={<Home />} />
+          <Route index element={<Home handleClick={handleClick}/>} />
+          <Route path="/home" element={<Home handleClick={handleClick}/>} />
           {/* // User account */}
           <Route path="/useraccount" element={<UserAccount />}>
             <Route index element={<MyAccount />} />
@@ -103,7 +124,7 @@ function App() {
               path='/cart'
             />
           } />
-          <Route path="/fav" element={<Favourites />} />
+          <Route path="/fav" element={<Favourites handleClick={handleClick} />} />
           <Route path="product" element={<Productpage />} />
           <Route path="/details/:id" element={<ProductDetail />} />
           <Route path="/cat" element={<CategoryPage />} />
