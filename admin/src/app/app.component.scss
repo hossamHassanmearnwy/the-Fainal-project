@@ -1,0 +1,35 @@
+app-header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 4rem;
+    z-index: 2;
+}
+main{
+    position: absolute;
+    top: 4rem;
+    width: 100%;
+    z-index: 1;
+}
+app-side-nav{
+    position: absolute;
+    left: 0;
+    width: 60px;
+    height: calc(100vh - 4rem);
+    overflow-x: hidden;
+    white-space: nowrap;
+    transition: width 250ms ease-in;
+}
+.app-side-nav-open{
+    width: 250px;
+}
+.display-area{
+    position: absolute;
+    left: 60px;
+    height: calc(100% - 60px);
+    transition: left 250ms ease-in, width 250ms ease-in;
+}
+.display-area-shrink{
+    width: calc(100% - 250px);
+    left: 250px;
+}

@@ -14,13 +14,6 @@ export default function Register() {
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
 
-  // const [users, setUsers] = useState([]);
-  // const [password, setpassword] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [lastName, setlastName] = useState('');
-  // const [firstName, setfirstName] = useState('');
-
-
   const {
     register,
     watch,
@@ -38,55 +31,9 @@ export default function Register() {
       Date: "",
     },
   });
-  const [formData, setFormData] = useState({});
-  // const onSubmit = (data) => {
-  //   setFormData((data)); 
-  // useEffect(() => {
-  //   const postData = async () => {
-  //     const options = {
-  //       method: 'POST',
-  //       url: 'http://localhost:3001/users/register',
-  //       headers: {'Content-Type': 'application/json'},
-  //       data: {
-  //         firstName: 'qwe',
-  //         lastName: 'xqwex',
-  //         email: 'yuyuyu@gmail.com',
-  //         password: '$2b$10$S6I0aINTLQmtWjEcdkWTluAU7ergwhbjsENFe5w9vdGwmPdYgEhYi',
-  //         isAdmin: false,
-  //         isActive: true
-  //       }
-  //     };
-  //     console.log("test");
+  // const [formData, setFormData] = useState({});
+  const [error, setError] = useState()
 
-  //     axios.request(options).then(function (response) {
-  //       console.log(response.data);
-  //       console.log("Done");
-  //     }).catch(function (error) {
-  //       console.error(error);
-  //     });
-
-
-
-  //   };
-  // })
-
-  // };
-
-  // try {
-  //   const response = await useraxios.post('/users/register', formData);
-  //   console.log(response.data);
-  // } catch (error) {
-  //   console.error(error);
-  // }
-  //       useraxios.post('/users/register')
-  // .then((response) => {
-  //   console.log((response.data));
-  //   setFormData(response.data)
-  // })
-  // .catch((error) => {
-  //   console.log(error);
-  // });
-  // }, [setFormData]);
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -95,6 +42,8 @@ export default function Register() {
       console.log('Data posted successfully');
     } catch (error) {
       console.error('Error posting data:', error);
+      setError("This Email is already Registered"); 
+      
     }
   };
 
@@ -279,6 +228,8 @@ export default function Register() {
                   </errors>{" "}
                 </p>{" "}
               </div>
+              <p className="text-danger ">{error}</p>
+
               <Button
                 variant="warning"
                 type="submit"

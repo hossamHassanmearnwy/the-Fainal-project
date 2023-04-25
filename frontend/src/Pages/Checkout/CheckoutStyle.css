@@ -71,3 +71,141 @@
     /* animation-delay: 1; */
     transition-duration: 1s;
 }
+
+
+
+/* ///////////////////////// */
+:root {
+    --card-line-height: 1.2em;
+    --card-padding: 1em;
+    --card-radius: 0.5em;
+    --color-green: #558309;
+    --color-gray: #e2ebf6;
+    --color-dark-gray: #c4d1e1;
+    --radio-border-width: 2px;
+    --radio-size: 1.5em;
+}
+
+
+
+
+.card {
+    background-color: #fff;
+    border-radius: var(--card-radius);
+    position: relative;
+
+
+}
+
+.card:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.radio {
+    font-size: inherit;
+    margin: 0;
+    position: absolute;
+    right: calc(var(--card-padding) + var(--radio-border-width));
+    top: calc(var(--card-padding) + var(--radio-border-width));
+}
+
+@supports(-webkit-appearance: none) or (-moz-appearance: none) {
+    .radio {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: #fff;
+        border: var(--radio-border-width) solid var(--color-gray);
+        border-radius: 50%;
+        cursor: pointer;
+        height: var(--radio-size);
+        outline: none;
+        transition:
+            /* background 0.2s ease-out, */
+            border-color 0.2s ease-out;
+        width: var(--radio-size);
+
+    }
+    .radio::after {
+        border: 5px solid #fff;
+        border-top: 0;
+        border-left: 0;
+        content: '';
+        display: block;
+        height: 1.3rem;
+        left: 28%;
+        position: absolute;
+        top: 47%;
+        transform:
+            rotate(45deg) translate(-50%, -50%);
+        width: 0.675rem;
+    }
+
+    .radio:checked {
+        background-color: rgb(52, 52, 52);
+        /* background: var(--color-green); */
+        border-color:rgb(52, 52, 52);
+    
+    }
+
+    .card:hover .radio {
+        border-color: var(--color-dark-gray);
+
+    }
+    .card:checked {
+        border-color: rgb(52, 52, 52);
+    }
+}
+
+.plan-details {
+    border: var(--radio-border-width) solid var(--color-gray);
+    border-radius: var(--card-radius);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding: var(--card-padding);
+    transition: border-color 0.2s ease-out;
+}
+
+.card:hover .plan-details {
+    border-color: var(--color-dark-gray);
+}
+
+.radio:checked~.plan-details {
+    border-color: rgb(52, 52, 52);
+}
+
+.radio:focus~.plan-details {
+    box-shadow: 0 0 0 2px var(--color-dark-gray);
+}
+
+.radio:disabled~.plan-details {
+    color: var(--color-dark-gray);
+    cursor: default;
+}
+
+.radio:disabled~.plan-details .plan-type {
+    color: var(--color-dark-gray);
+}
+
+.card:hover .radio:disabled~.plan-details {
+    border-color: var(--color-gray);
+    box-shadow: none;
+}
+
+.card:hover .radio:disabled {
+    border-color: var(--color-gray);
+}
+
+
+
+.hidden-visually {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
