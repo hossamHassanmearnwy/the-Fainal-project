@@ -7,11 +7,12 @@ import { BsXLg } from "react-icons/bs";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useTranslation } from "react-i18next";
-import Nav from "react-bootstrap/Nav"; 
+import Nav from "react-bootstrap/Nav";
 import cartaxios from "./../../axiosConfig/axiosInstance";
+import { Link } from 'react-router-dom';
 
 
-const Cart = ({ cart, setCart, handleChange, setShow ,setCheck}) => { 
+const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
   const [cartProducts, setcartProducts] = useState([]);
   useEffect(() => {
     cartaxios
@@ -43,7 +44,7 @@ const Cart = ({ cart, setCart, handleChange, setShow ,setCheck}) => {
     handlePrice();
   });
   ///////////////////////////
-  
+
   return (
     <div className="container-fluid">
       <div className="container my-5">
@@ -109,7 +110,7 @@ const Cart = ({ cart, setCart, handleChange, setShow ,setCheck}) => {
         </Table>
 
         <div className="row my-5 pt-3 d-flex justify-content-center align-items-start">
-        <div className="gBtn col-lg-6 col-md-12 d-flex align-items-center justify-content-center ">
+          <div className="gBtn col-lg-6 col-md-12 d-flex align-items-center justify-content-center ">
             <Nav className='row'>
               <Nav.Link href="/home">
                 <Button
@@ -120,66 +121,66 @@ const Cart = ({ cart, setCart, handleChange, setShow ,setCheck}) => {
                   {t("Go to Home Page")}
                 </Button>
               </Nav.Link>
-{/* ////////////////////////////////////////////////////////////////////////////////////////// */}
-              <Nav.Link href="/checkout">
+              {/* ////////////////////////////////////////////////////////////////////////////////////////// */}
+              <Link to="/checkout">
                 <Button
                   className="col-lg-6 col-sm-12 checkout"
                   variant="warning rounded-pill py-2 px-4"
                   onClick={setCheck}
                 >
                   {t("Proceed to Checkout")}
-                
+
                 </Button>
-              </Nav.Link>
+              </Link>
             </Nav>
           </div>
           <div className="inp col-lg-6 col-md-12" dir="ltr">
-          
-          <Table className="thecart">
-            <thead>
-              <tr>
-                <th
-                  className="fs-2 border-bottom border-warning text-start"
-                  colSpan={3}
-                >
-                  {("Cart Total")}
-                </th>
-                {/* <th> </th>
+
+            <Table className="thecart">
+              <thead>
+                <tr>
+                  <th
+                    className="fs-2 border-bottom border-warning text-start"
+                    colSpan={3}
+                  >
+                    {("Cart Total")}
+                  </th>
+                  {/* <th> </th>
         <th> </th> */}
-                <th className="fs-2 border-bottom border-warning"> </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colSpan={3} className="py-3 text-start">
-                  {("Cart Subtotal")}
-                </td>
-                {/* <td colSpan={2}>Larry the Bird</td> */}
-                <td className="py-3">${price}</td>
-              </tr>
-              <tr>
-                <td className="py-3 text-start" colSpan={3}>
-                  {("Shipping")}
-                </td>
-                {/* <td colSpan={2}>Larry the Bird</td> */}
-                <td className="py-3">0</td>
-              </tr>
-              <tr>
-                <td className="py-3 text-start" colSpan={3}>
-                  {("Total")}
-                </td>
-                {/* <td>Larry the Bird</td> */}
-                <td className="py-3">${price}</td>
-              </tr>
-            </tbody>
-          </Table>
-        </div>
-
-
-          
+                  <th className="fs-2 border-bottom border-warning"> </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colSpan={3} className="py-3 text-start">
+                    {("Cart Subtotal")}
+                  </td>
+                  {/* <td colSpan={2}>Larry the Bird</td> */}
+                  <td className="py-3">${price}</td>
+                </tr>
+                <tr>
+                  <td className="py-3 text-start" colSpan={3}>
+                    {("Shipping")}
+                  </td>
+                  {/* <td colSpan={2}>Larry the Bird</td> */}
+                  <td className="py-3">0</td>
+                </tr>
+                <tr>
+                  <td className="py-3 text-start" colSpan={3}>
+                    {("Total")}
+                  </td>
+                  {/* <td>Larry the Bird</td> */}
+                  <td className="py-3">${price}</td>
+                </tr>
+              </tbody>
+            </Table>
           </div>
-          
+
+
+
         </div>
+
+      </div>
 
 
     </div>
