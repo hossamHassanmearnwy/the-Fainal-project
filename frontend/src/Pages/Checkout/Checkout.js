@@ -17,7 +17,7 @@ import Modal from 'react-bootstrap/Modal';
 
 
 export default function Checkout() {
-
+//Default address
   const Fname = useSelector((state) => state.editShippingAddress.Fname)
   const Lname = useSelector((state) => state.editShippingAddress.Lname)
   const phone = useSelector((state) => state.editShippingAddress.phoneNumber)
@@ -25,24 +25,27 @@ export default function Checkout() {
   const city = useSelector((state) => state.editShippingAddress.city)
   const country = useSelector((state) => state.editShippingAddress.country)
   const zip = useSelector((state) => state.editShippingAddress.zip)
+
+  // New address
+  const newFname = useSelector((state) => state.editNewAddress.newFname)
+  const newLname = useSelector((state) => state.editNewAddress.newLname)
+  const newPhone = useSelector((state) => state.editNewAddress.newPhone)
+  const newStreet = useSelector((state) => state.editNewAddress.newStreet)
+  const newCity = useSelector((state) => state.editNewAddress.newCity)
+  const newCountry = useSelector((state) => state.editNewAddress.newCountry)
+  const newZip = useSelector((state) => state.editNewAddress.newZip)
   const name = "fatma"
   ////////////////////////////////////
-
-
-  ////////////////////////////////
-  const [user, setUser] = useState({
-    fname: '',
-    lname: '',
-    phone: '',
-    street: '',
-    city: '',
-    country: '',
-    zip: ''
+  const [newAddress, setNewAddress] = useState({
+    newFname: '',
+    newLname: '',
+    newPhone: '',
+    newStreet: '',
+    newCity: '',
+    newCountry: '',
+    newZip: ''
   })
 
-  const testFunnn = () => {
-    console.log('xcccx')
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -50,32 +53,32 @@ export default function Checkout() {
 
   const handleForm = (ev) => {
     switch (ev.target.name) {
-      case "fname":
-        setUser({ ...user, fname: ev.target.value });
+      case "newFname":
+        setNewAddress({ ...newAddress, newFname: ev.target.value });
         break;
 
-      case "lname":
-        setUser({ ...user, lname: ev.target.value });
+      case "newLname":
+        setNewAddress({ ...newAddress, newLname: ev.target.value });
         break;
 
-      case "phone":
-        setUser({ ...user, phone: ev.target.value });
+      case "newPhone":
+        setNewAddress({ ...newAddress, newPhone: ev.target.value });
         break;
 
-      case "street":
-        setUser({ ...user, street: ev.target.value });
+      case "newStreet":
+        setNewAddress({ ...newAddress, newStreet: ev.target.value });
         break;
 
-      case "city":
-        setUser({ ...user, city: ev.target.value });
+      case "newCity":
+        setNewAddress({ ...newAddress, newCity: ev.target.value });
         break;
 
-      case "country":
-        setUser({ ...user, country: ev.target.value });
+      case "newCountry":
+        setNewAddress({ ...newAddress, newCountry: ev.target.value });
         break;
 
-      case "zip":
-        setUser({ ...user, zip: ev.target.value });
+      case "newZip":
+        setNewAddress({ ...newAddress, newZip: ev.target.value });
         break;
       // default:
       //   return
@@ -96,12 +99,12 @@ export default function Checkout() {
         <input name="plan" className="radio" type="radio" />
         <span className="plan-details">
           <Card.Text className=''>
-            {('Name')} : {Fname} {Lname}<br />
-            {('Street')} : {street}<br />
-            {('City')} : {city}<br />
-            {('Country')} : {country}<br />
-            {('Mobile Number')} : {phone}<br />
-            {('Zip/Postal Code')} : {zip}
+            {('Name')} : {newFname} {newLname}<br />
+            {('Street')} : {newStreet}<br />
+            {('City')} : {newCity}<br />
+            {('Country')} : {newCountry}<br />
+            {('Mobile Number')} : {newPhone}<br />
+            {('Zip/Postal Code')} : {newZip}
           </Card.Text>
         </span>
       </label>
@@ -117,7 +120,6 @@ export default function Checkout() {
           <div className="grid">
             <label className="card">
               <input name="plan" className="radio" type="radio" checked />
-
               <span className="plan-details">
                 <Card.Text className=''>
                   {('Name')} : {Fname} {Lname}<br />
@@ -155,14 +157,14 @@ export default function Checkout() {
                   <form onSubmit={(evt) => { handleSubmit(evt) }} >
                     {/* first name */}
                     <label htmlFor='fname' className='label'>{("First Name")}</label><br />
-                    <input type="text" id="fname" name="fname" placeholder={('Enter Your') + ("First Name")} value={user.fname} onChange={(event) => { handleForm(event) }} /><br />
+                    <input type="text" id="fname" name="newFname" placeholder={('Enter Your') + ("First Name")} value={newAddress.newFname} onChange={(event) => { handleForm(event) }} /><br />
 
                     {/* last name */}
                     <label htmlFor='lname' className='label'>{("Last Name")}</label><br />
-                    <input type="text" id="lname" name="lname" placeholder={('Enter Your') + ("Last Name")} value={user.lname} onChange={(event) => { handleForm(event) }} /><br />
+                    <input type="text" id="lname" name="newLname" placeholder={('Enter Your') + ("Last Name")} value={newAddress.newLname} onChange={(event) => { handleForm(event) }} /><br />
                     {/* phone number */}
                     <label htmlFor='phone' className='label'>{("Mobile Number")}</label><br />
-                    <input type="number" id="phone" name="phone" placeholder={('Enter Your') + ("Mobile Number")} value={user.phone} onChange={(event) => { handleForm(event) }} />
+                    <input type="number" id="phone" name="newPhone" placeholder={('Enter Your') + ("Mobile Number")} value={newAddress.newPhone} onChange={(event) => { handleForm(event) }} />
 
                     <br />
                     <br />
@@ -171,25 +173,24 @@ export default function Checkout() {
                     <h2>{('Address')}</h2>
                     {/* Street */}
                     <label htmlFor='street' className='label'>{('Street Address')}</label><br />
-                    <input type="text" id="street" name="street" placeholder={('Enter Your') + ("Street Address")} value={user.street} onChange={(event) => { handleForm(event) }} /><br />
+                    <input type="text" id="street" name="newStreet" placeholder={('Enter Your') + ("Street Address")} value={newAddress.newStreet} onChange={(event) => { handleForm(event) }} /><br />
                     {/* City */}
                     <label htmlFor='city' className='label'>{('City')}</label><br />
-                    <input type="text" id="city" name="city" placeholder={('Enter Your') + ("City")} autoComplete="address-level2" value={user.city} onChange={(event) => { handleForm(event) }} /><br />
+                    <input type="text" id="city" name="newCity" placeholder={('Enter Your') + ("City")} autoComplete="address-level2" value={newAddress.newCity} onChange={(event) => { handleForm(event) }} /><br />
                     {/* Country */}
                     <label htmlFor='country' className='label'>{('Country')}</label><br />
-                    <select id="country" name="country" autoComplete='country' placeholder={('Enter Your') + ("Country")} value={user.country} onChange={(event) => { handleForm(event) }} >
+                    <select id="country" name="newCountry" autoComplete='country' placeholder={('Enter Your') + ("Country")} value={newAddress.newCountry} onChange={(event) => { handleForm(event) }} >
                       <option></option>
                       <option >{('Egypt')}</option>
 
                     </select><br />
                     {/* ZIP */}
                     <label htmlFor='zip' className='label'>{('Zip/Postal Code')} </label><br />
-                    <input type="text" id="zip" name="zip" autoComplete="postal-code" value={user.zip} onChange={(event) => { handleForm(event) }} /><br />
+                    <input type="text" id="zip" name="newZip" autoComplete="postal-code" value={newAddress.newZip} onChange={(event) => { handleForm(event) }} /><br />
                     <br />
                     <button className="submit" type='submit' onClick={addNewAddress}>{('Save Address')}</button>
                   </form>
                 </div>
-
               </Form>
             </Modal.Body>
             <Modal.Footer>
