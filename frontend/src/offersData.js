@@ -6,7 +6,7 @@ const offersList = [
         title: "iPhone 12 Pro",
         brand: "Apple",
         desc: "6.1-inch display",
-        priceOnSale: 999,
+        price: 999,
         oldPrice:2000,
         saleValue:15+"%",
 
@@ -19,7 +19,7 @@ const offersList = [
         title: "iPhone 12",
         brand: "Apple",
         desc: "5.4-inch mini display",
-        priceOnSale: 999,
+        price: 999,
         oldPrice: 2000,
         saleValue: 15+ "%",
         img:
@@ -31,7 +31,7 @@ const offersList = [
         title: "Galaxy S",
         brand: "Samsung",
         desc: "6.5-inch display",
-        priceOnSale: 999,
+        price: 999,
         oldPrice: 2000,
         saleValue: 15 + "%",
         img:
@@ -43,7 +43,7 @@ const offersList = [
         title: "iPhone 12",
         brand: "Apple",
         desc: "5.4-inch mini display",
-        priceOnSale: 999,
+        price: 999,
         oldPrice: 2000,
         saleValue: 15 + "%",
         img:
@@ -55,7 +55,7 @@ const offersList = [
         title: "Galaxy S",
         brand: "Samsung",
         desc: "6.5-inch display",
-        priceOnSale: 999,
+        price: 999,
         oldPrice: 2000,
         saleValue: 15 + "%",
         img:
@@ -67,7 +67,7 @@ const offersList = [
         title: "iPhone 12 Pro",
         brand: "Apple",
         desc: "6.1-inch display",
-        priceOnSale: 999,
+        price: 999,
         oldPrice: 2000,
         saleValue: 15 + "%",
         img:
@@ -79,7 +79,7 @@ const offersList = [
         title: "iPhone 12",
         brand: "Apple",
         desc: "5.4-inch mini display",
-        priceOnSale: 999,
+        price: 999,
         oldPrice: 2000,
         saleValue: 15 + "%",
         img:

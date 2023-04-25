@@ -103,7 +103,7 @@ const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
                   </div>
                 </td>
                 <td>
-                  <p className="my-4">{item.priceOnSale}</p>
+                  <p className="my-4">{item.price}</p>
                 </td>
               </tr>
             </tbody>
