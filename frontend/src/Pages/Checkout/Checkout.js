@@ -9,15 +9,23 @@ import Accordion from 'react-bootstrap/Accordion';
 import { useEffect, React, useState, createElement } from 'react';
 import cartaxios from "./../../axiosConfig/axiosInstance";
 ///////////////////////////////////////
-// import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
 
 
-export default function Checkout() {
-//Default address
+export default function Checkout(cart) {
+  let [check, setCheck] = useState(
+    JSON.parse(localStorage.getItem("cart")) || [] // local storge to get cart
+  );
+
+  useEffect(() => {
+    localStorage.setItem("checkout", JSON.stringify(check)); // local storge to save cart in it
+    console.log(`Saved ${check.length} items to localStorage from check`);
+  }, [cart]);
+  ///////////////////////////////////////////
+  //Default address
   const Fname = useSelector((state) => state.editShippingAddress.Fname)
   const Lname = useSelector((state) => state.editShippingAddress.Lname)
   const phone = useSelector((state) => state.editShippingAddress.phoneNumber)
@@ -116,6 +124,9 @@ export default function Checkout() {
       <div className='row'>
         <div className=' checkoutCard'>
           <div className='sectionTitle'>SHIPPING ADDRESS</div>
+          {/* <button className="" type='button' onClick={addNewAddress}>{('Save Address')}</button> */}
+          {check.title + "hhhhhhhhhhhhhhhhhhhhhhhhhhh"}<br />
+          {check.length + "hhhhhhhhhhhhhhhhhhhhhhhhhhh"}
           <br />
           <div className="grid">
             <label className="card">
@@ -123,6 +134,7 @@ export default function Checkout() {
               <span className="plan-details">
                 <Card.Text className=''>
                   {('Name')} : {Fname} {Lname}<br />
+
                   {('Street')} : {street}<br />
                   {('City')} : {city}<br />
                   {('Country')} : {country}<br />
@@ -132,7 +144,7 @@ export default function Checkout() {
               </span>
             </label>
             <br /><br />
-          {showNewAddress}
+            {showNewAddress}
 
           </div>
           <br /><br />
@@ -146,10 +158,10 @@ export default function Checkout() {
 
 
 
-
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>SHIPPING ADDRESS</Modal.Title>
+
             </Modal.Header>
             <Modal.Body>
               <Form>
@@ -259,8 +271,8 @@ export default function Checkout() {
           <div className='sectionTitle'>ORDER SUMMARY</div>
           <Accordion defaultActiveKey="0" flush>
             <Accordion.Item eventKey="0">
-              <Accordion.Header> ITEMS IN CART</Accordion.Header>
-              {/* <Accordion.Header>{check.length}  ITEMS IN CART</Accordion.Header> */}
+              {/* <Accordion.Header> ITEMS IN CART</Accordion.Header> */}
+              <Accordion.Header>{check.length}  ITEMS IN CART</Accordion.Header>
               <Accordion.Body >
                 <div className='orderSummary'>
                   <Table >
@@ -273,16 +285,30 @@ export default function Checkout() {
                     </thead>
                     <br />
                     {/* {check?.map((item)=>( */}
+                    {check?.map((item) => (
+                      <tbody >
+                        <tr>
+                          <td className="text-start tableData">
+                            <img
+                              className="imgCart "
+                              src={item.img}
+                              alt=""
+                              width={90}
+                              height={90}
+                            />
+                          </td>
 
-
-                    <tbody >
-
-
-                      <tr>
+                          <td className="tableData  ">
+                            <span >{item.title}</span>
+                          </td>
+                          <td className="tableData">
+                            <p className="my-4 checkoutPrice">{item.priceOnSale} EGP</p>
+                          </td>
+                        </tr>
+                        {/* <tr>
                         <td className="text-start tableData">
                           <img
                             className="imgCart "
-                            // src={item.img}
                             src='https://m.media-amazon.com/images/I/81AuwSoF9yL.__AC_SY300_SX300_QL70_ML2_.jpg'
                             alt=""
                             width={90}
@@ -296,31 +322,13 @@ export default function Checkout() {
                         <td className="tableData">
                           <p className="my-4 checkoutPrice">999.9 EGP</p>
                         </td>
-                      </tr>
-                      <tr>
-                        <td className="text-start tableData">
-                          <img
-                            className="imgCart "
-                            // src={item.img}
-                            src='https://m.media-amazon.com/images/I/81AuwSoF9yL.__AC_SY300_SX300_QL70_ML2_.jpg'
-                            alt=""
-                            width={90}
-                            height={90}
-                          />
-                        </td>
-
-                        <td className="tableData  ">
-                          <span >Title title title</span>
-                        </td>
-                        <td className="tableData">
-                          <p className="my-4 checkoutPrice">999.9 EGP</p>
-                        </td>
-                      </tr>
+                      </tr> */}
 
 
 
 
-                    </tbody>
+                      </tbody>
+                    ))}
                     {/* ))} */}
                   </Table>
                 </div>
@@ -331,13 +339,6 @@ export default function Checkout() {
           <hr />
           <h3>Cart Total</h3>
           <Table>
-            {/* <thead>
-                <tr style={{ color: "#aca7a7", fontWeight: "lighter" }}>
-                  <th className="text-start">{("Product")}</th>
-                  <th>{("Title")}</th>
-                  <th>{("Price")}</th>
-                </tr>
-              </thead> */}
             <tr>
               <td className="text-start tableData">
                 <h4>CART SUBTOTALl</h4>

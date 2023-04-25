@@ -25,6 +25,7 @@ const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
         console.log(err);
       });
   }, [setcartProducts]);
+
   const [price, setPrice] = useState(0);
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
@@ -102,7 +103,7 @@ const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
                   </div>
                 </td>
                 <td>
-                  <p className="my-4">{item.price}</p>
+                  <p className="my-4">{item.priceOnSale}</p>
                 </td>
               </tr>
             </tbody>
