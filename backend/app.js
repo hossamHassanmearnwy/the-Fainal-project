@@ -35,4 +35,11 @@ app.use("/cart", cartRouts);
 app.use("/copouns", copounsRoutes);
 
 /**error exite  */
+app.use("*", (req, res) => {
+  res.status(404).end("not found");
+});
+
+app.use((err, req, res, next) => {
+  res.status(500).json({ message: err.message });
+});
 app.listen(port, () => console.log(`app listening on port ${port}!`));
