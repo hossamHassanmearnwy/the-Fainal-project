@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from "react";
-import Amazon from '../../Components/Amazon/Amazon'
-import MainSideBar from './../../Components/MainSideBar/MainSideBar';
-import Slider from './../../Components/Slider/Slider';
+import Amazon from "../../Components/Amazon/Amazon";
+import MainSideBar from "./../../Components/MainSideBar/MainSideBar";
+import Slider from "./../../Components/Slider/Slider";
 import Cart from "../../Pages/cart/Cart";
 
-import ProductDetail from '../../Pages/productDetail/ProductDetail';
+import ProductDetail from "../../Pages/productDetail/ProductDetail";
 
 import OffersSlider from "../../Components/offersSlider/OffersSlider";
 import offersList from "../../offersData";
 import BestSec from "../../Components/besrSellers/BestSec";
 import SummaryProd from "../../Components/summary/summaryProd";
 
-
-
-
-export default function Home({handleClick}) {
+export default function Home({ handleClick }) {
   //  const [warning, setWarning] = useState(false);
   const [show, setShow] = useState(true);
   // const [cart , setCart] = useState([]);
@@ -23,23 +20,11 @@ export default function Home({handleClick}) {
   );
   const [warning, setWarning] = useState(false);
 
-
-
-
-
-  
-
-
-
-
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart)); // local storge to save cart in it
 
     console.log(`Saved ${cart.length} items to localstorage`);
   }, [cart]);
-
-
-
 
   const handleChange = (item, d) => {
     let ind = -1;
@@ -53,64 +38,34 @@ export default function Home({handleClick}) {
     if (tempArr[ind].amount === 0) tempArr[ind].amount = 1;
     setCart([...tempArr]);
   };
- 
-  return (<>
 
-  <div className='mx-5 my-5'>
-                <div className='row ' >
-                    <div className='col-3 '>
-                    {/* Main Sidebar */}
-                  <MainSideBar/>
+  return (
+    <>
+      <div className="mx-5 my-5">
+        <div className="row ">
+          <div className="col-3 ">
+            {/* Main Sidebar */}
+            <MainSideBar />
+          </div>
+          <div className="col-9">
+            <Slider />
+          </div>
+        </div>
+      </div>
 
-  
-  </div>
-   <div className='col-9'>
-                    <Slider />
-                </div>
-  </div>
-  </div>
-  
+      <div className="container">
+        <Amazon handleClick={handleClick} />
 
-    
-  <div className='container'>
-  
+        <BestSec handleClick={handleClick} />
 
-  <Amazon  handleClick={handleClick}/>
+        <OffersSlider handleClick={handleClick} />
 
+        <SummaryProd />
 
-  
-
-
-  <BestSec handleClick={handleClick}/>
-
-    
-      
-  <OffersSlider handleClick={handleClick} />
-        
-      
-
-  <SummaryProd />
-
-
-  
-  {warning && (
-    <div className="warning">Item is already added to your cart</div>
-  )}
-
-
-
-
-
-
-
-  </div>
-
-      
-    
-
-  
-
-  
-  </>
-  )
+        {warning && (
+          <div className="warning">Item is already added to your cart</div>
+        )}
+      </div>
+    </>
+  );
 }

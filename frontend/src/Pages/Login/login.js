@@ -9,10 +9,15 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import Register from "../Register/register";
 import ForgotPassword from "../ForgotPassword/forgotPassword";
 import { useTranslation } from "react-i18next";
+import useraxios from "../../axiosConfig/axiosInstance";
+
 
 export default function Login() {
+
   const {t, i18n} = useTranslation();
   document.body.dir = i18n.dir();
+
+
   const navigate = useNavigate();
   const navigateForgotPassword = () => {
     navigate("/forgotpassword");
@@ -27,6 +32,7 @@ export default function Login() {
   const [error, setError] = useState({
     errEmail: "",
     errPass: "",
+    err: "",
   });
   const handelinput = (e) => {
     var reqEmail = /^[a-zA-Z]{3,30}(@)(gmail|yahoo|outlook)(.com)$/;
@@ -54,13 +60,39 @@ export default function Login() {
         break;
     }
   };
+
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await useraxios.post("/users/login", {
+        email: user.userEmail,
+        password: user.userPass,
+      });
+      console.log(response.data); // token
+  
+      // Store the token in local storage
+      localStorage.setItem("token", response.data);
+  
+      console.log("Login successful");
+    } catch (error) {
+      console.error("Error logging in:", error);
+     
+      setError({
+        ...error,
+        err:"Invilad Email Or Password"}); // set error state to display error message
+
+
+    }
+  };
   return (
     <>
       <Container className="my-auto">
         <Row>
           <Col>
             {" "}
-            <Form className="d-flex justify-content-center flex-column align-items-center w-100">
+            <Form className="d-flex justify-content-center flex-column align-items-center w-100" onSubmit={handleSubmit}>
               <h1>{t('Registered Customers')}</h1>
               <p>{t('If you have an account')}</p>
               <Form.Group className="mb-3 " controlId="formBasicEmail">
@@ -81,6 +113,9 @@ export default function Login() {
                   }}
                 />
                 <p className="text-danger ">{error.errEmail}</p>
+                {/* <Paragraph text="Invilad Email Or Password" /> */}
+                <p className="text-danger ">{error.err}</p>
+
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label className=" font-weight-bold">{t('Password')}</Form.Label>
@@ -97,8 +132,9 @@ export default function Login() {
                 <p className="text-danger">{error.errPass}</p>
               </Form.Group>
               <Button variant="warning" type="submit" className="login-input text-white">
-                {t('Submit')}
+                {t('Login')}
               </Button>
+
               <p className="mt-3">
                 {t('Forget Password')}
                 <a className="text-warning text-decoration-none " onClick={() => navigateForgotPassword()}> {t('Reset Password')} </a>

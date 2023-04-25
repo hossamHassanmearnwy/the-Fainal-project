@@ -14,8 +14,8 @@ router.patch("/update/:id", userController.updateUser);
 //login
 router.post("/login", userController.login);
 
-//get all users
-router.get("/",isAdmin, userController.getAllUsers);
+//get all users   ,isAdmin
+router.get("/", userController.getAllUsers);
 
 //get user by id
 router.get("/:id",auth, userController.getUserById);

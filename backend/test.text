@@ -141,3 +141,28 @@ update user
         }
     }
     //////////////////////
+
+
+    on load///////////
+    register
+    home
+    cart 
+    product 
+    prouduct Details
+    wish list
+    not found
+    header
+    Slider
+    order
+    rating
+
+///////////////////////on event//////
+
+
+  on event  
+register submit
+login
+add to wish list
+add to cart
+add rate 
+log out 

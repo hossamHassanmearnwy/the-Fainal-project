@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 async function createUser(req, res, next) {
   try {
     var newUser = await userModel.create(req.body);
+    console.log(req.body);
     res.status(200).json(newUser);
     if (newUser.password) {
       var salt = await bcrypt.genSalt(10);

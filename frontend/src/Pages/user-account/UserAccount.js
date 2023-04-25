@@ -33,7 +33,7 @@ export default function UserAccount() {
                 <ListGroup variant="flush" >
                             <NavLink className={'text-decoration-none links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/myaccount'><ListGroup.Item className={'nav'} >{t('Account Details')}</ListGroup.Item></NavLink>
                             <NavLink className={'text-decoration-none links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/myorders'><ListGroup.Item className='nav'>{t('My Orders')}</ListGroup.Item></NavLink>
-                            <NavLink className={'text-decoration-none links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/Fav'><ListGroup.Item className='nav'>{t('My Wish List')}</ListGroup.Item></NavLink>
+                            <NavLink className={'text-decoration-none links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/fav'><ListGroup.Item className='nav'>{t('My Wish List')}</ListGroup.Item></NavLink>
                             <NavLink className={'text-decoration-none links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/accountinfo'><ListGroup.Item className='nav'>{t('Account information')}</ListGroup.Item></NavLink>
                             <NavLink className={'text-decoration-none links'} style={({ isActive }) => { if (isActive) { return { borderLeft: '3px solid #fed700' } } }} to='/useraccount/addressbook'><ListGroup.Item className='nav'>{t('Address Book')}</ListGroup.Item></NavLink>
                 </ListGroup>

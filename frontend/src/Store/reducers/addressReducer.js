@@ -1,6 +1,4 @@
 
-
-
 const Initial_state = {
     Fname: '',
     Lname: '',
@@ -13,10 +11,6 @@ const Initial_state = {
 }
 
 
-
-
-
-
 export default function editAddressReducer(state = Initial_state, action) {
 
 
@@ -25,7 +19,7 @@ export default function editAddressReducer(state = Initial_state, action) {
             return {
                 ...state, Fname: action.payload.fname, Lname: action.payload.lname,
                 phoneNumber: action.payload.phone, street: action.payload.street, city: action.payload.city, country: action.payload.country, zip: action.payload.zip
-            }
+            };
         default:
             return state
     }

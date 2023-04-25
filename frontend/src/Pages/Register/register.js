@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
@@ -6,10 +7,13 @@ import Form from "react-bootstrap/Form";
 import "./registerStyle.css";
 import { Button, Col, Container, Dropdown, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import useraxios from "./../../axiosConfig/axiosInstance";
+import axios from "axios";
 
 export default function Register() {
-  const {t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
+
   const {
     register,
     watch,
@@ -17,16 +21,35 @@ export default function Register() {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      Name: "",
-      UserName: "",
-      MobileNumber: "",
-      Email: "",
-      Password: "",
+      firstName: "",
+      lastName: "",
+      phoneNumber: "",
+      email: "",
+      password: "",
       ConfirmPassword: "",
       Gender: "",
+      Date: "",
     },
   });
-  const onSubmit = (data) => console.log(data);
+  // const [formData, setFormData] = useState({});
+  const [error, setError] = useState()
+
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    try {
+      await useraxios.post('/users/register', data);
+      console.log('Data posted successfully');
+    } catch (error) {
+      console.error('Error posting data:', error);
+      setError("This Email is already Registered"); 
+      
+    }
+  };
+
+
+
+
   return (
     <>
       <h1>{t('Create New Customer Account')}</h1>
@@ -46,12 +69,12 @@ export default function Register() {
                 <br />
                 <Form.Control
                   className="register-input "
-                  {...register("Name", { required: true })}
+                  {...register("firstName", { required: true })}
                   placeholder={t('First Name')}
                 />
                 <p className="text-danger">
                   <errors>
-                    {errors.Name?.type === "required" && `${t('Name Is required')}`}
+                    {errors.firstName?.type === "required" && `${t('Name Is required')}`}
                   </errors>
                 </p>
               </div>
@@ -63,7 +86,7 @@ export default function Register() {
                 <br />
                 <Form.Control
                   className=" register-input"
-                  {...register("UserName", {
+                  {...register("lastName", {
                     required: true,
                     minLength: 2,
                     // pattern: /^\S*$/,
@@ -72,7 +95,7 @@ export default function Register() {
                 />
                 <p className="text-danger">
                   <errors>
-                    {errors.UserName?.type === "required" &&
+                    {errors.lastName?.type === "required" &&
                       `${t('LastName Is required')}`}
                     {/* {errors.UserName?.type === "pattern" && "No Space Allowed"} */}
                   </errors>{" "}
@@ -96,16 +119,25 @@ export default function Register() {
                 <br />
                 <Form.Control
                   className="register-input"
-                  {...register("MobileNumber", { required: true })}
+                  {...register("phoneNumber", {
+                    required: true, pattern: /^01[0125][0-9]{8}$/,
+                  },
+
+                  )}
                   placeholder={t('Mobile Number')}
+
+
 
 
                 />
                 <p className="text-danger">
                   <errors>
-                    {errors.MobileNumber?.type === "required" &&
+                    {errors.phoneNumber?.type === "required" &&
                       `${t('Please specify a valid mobile number')}`}
+                    {errors.phoneNumber?.type === "pattern" && `${t('Please specify a valid mobile number')}`}
+
                   </errors>
+
                 </p>
               </div>
               {/* <div>
@@ -132,16 +164,16 @@ export default function Register() {
                 <br />
                 <Form.Control
                   className="register-input border-warning "
-                  {...register("Email", {
+                  {...register("email", {
                     required: true,
-                    pattern: /^[a-zA-Z]{3,30}(@)(gmail|yahoo|outlook)(.com)$/,
+                    pattern: /^[a-zA-Z0-9]{3,}(@)(gmail|yahoo|outlook)(.com)$/,
                   })}
                   placeholder={t('Email Address')}
                 />{" "}
                 <p className="text-danger">
                   <errors>
-                    {errors.Email?.type === "required" && `${t('Email is Required')}`}
-                    {errors.Email?.type === "pattern" && `${t('Please enter a valid email address.')}`}
+                    {errors.email?.type === "required" && `${t('Email is Required')}`}
+                    {errors.email?.type === "pattern" && `${t('Please enter a valid email address.')}`}
                   </errors>
                 </p>
               </div>
@@ -153,7 +185,7 @@ export default function Register() {
                 <Form.Control
                   className="register-input"
                   type={"password"}
-                  {...register("Password", {
+                  {...register("password", {
                     required: true,
                     minLength: 2,
                     pattern:
@@ -163,10 +195,10 @@ export default function Register() {
                 />{" "}
                 <p className="text-danger">
                   <errors>
-                    {errors.Password?.type === "required" &&
+                    {errors.password?.type === "required" &&
                       `${t('Passwrod is Required')}`}
-                    {errors.Password?.type === "pattern" && `${t('Password Pattern')}`
-                  }                  </errors>
+                    {errors.password?.type === "pattern" && `${t('Password Pattern')}`
+                    }                  </errors>
                 </p>
               </div>
               <div>
@@ -180,7 +212,7 @@ export default function Register() {
                   {...register("ConfirmPassword", {
                     required: true,
                     validate: (val) => {
-                      if (watch("Password") !== val) {
+                      if (watch("password") !== val) {
                         return `${t('Please make sure your passwords match.')}`;
                       }
                     },
@@ -196,6 +228,8 @@ export default function Register() {
                   </errors>{" "}
                 </p>{" "}
               </div>
+              <p className="text-danger ">{error}</p>
+
               <Button
                 variant="warning"
                 type="submit"
@@ -211,3 +245,6 @@ export default function Register() {
     </>
   );
 }
+
+////////
+
