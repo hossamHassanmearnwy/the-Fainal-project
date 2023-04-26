@@ -29,7 +29,35 @@
       "item": 230,
       "id": 3
     }
-    
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "date": "June 26, 2021",
+      "user": "monaa",
+      "paid": "Yes",
+      "status": "New",
+      "item": 2,
+      "total": 200
+    },
+    {
+      "id": 2,
+      "date": "May 15, 2021",
+      "user": "ahmed mohsen",
+      "paid": "No",
+      "status": "Pending",
+      "item": 1,
+      "total": 300
+    },
+    {
+      "id": 3,
+      "date": "August 27, 2020",
+      "user": "mai reda",
+      "paid": "Yes",
+      "status": "Finished",
+      "item": 5,
+      "total": 900
+    }
   ],
   "profile": {
     "name": "typicode"

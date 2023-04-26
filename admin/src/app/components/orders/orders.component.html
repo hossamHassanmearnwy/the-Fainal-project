@@ -1,1 +1,39 @@
-<p>orders works!</p>
+<button class="btn btn-warning mb-4" [routerLink]="['/addOrder']">Add Order</button>
+
+<nav class="navbar">
+    <input type="text" class="form-control" name="catName" id="catName" [(ngModel)]="searchTerm" (ngModelChange)="Search()" placeholder="Enter User Name">
+</nav>
+
+<table class="table">
+    <thead class="table-light">
+        <tr>
+            <th scope="col" (click)="sort('id')">ID &nbsp;<i class="fa fa-sort text-black-50"></i></th>
+            <th scope="col" (click)="sort('catName')">Date &nbsp;<i class="fa fa-sort text-black-50"></i></th>
+            <th scope="col">User</th>
+            <th scope="col">Paid</th>
+            <th scope="col">Status</th>
+            <th scope="col">Item</th>
+            <th scope="col">Total</th>
+            <th scope="col">Action</th>
+          </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor =" let order of ListOfOrder | orderBy: key: reverse | paginate: {itemsPerPage:5, currentPage:p}; let i = index">
+        <tr>
+            <th scope="row">{{order.id}}</th>
+            <td>{{order.date}}</td>
+            <td>{{order.user}}</td>
+            <td><span class="px-2 py-1 bg-success-subtle rounded-3">{{order.paid}}</span></td>
+            <td><span class="px-2 py-1 bg-danger-subtle rounded-3">{{order.status}}</span></td>
+            <td>{{order.item}}</td>
+            <td>$ {{order.total}}</td>
+            <td><i class="fa-solid fa-pen-to-square me-3 fs-4 text-success" (click)="update(order.id)" role="button"></i> <i class="fa-solid fa-trash fs-4 text-danger" (click)="delete(order.id)" role="button"></i></td>
+        
+          </tr>
+        </ng-container>
+    </tbody>
+    <tfoot>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </tfoot>
+  </table>
+
