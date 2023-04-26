@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, InputGroup, Row } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import Button from "react-bootstrap/Button";
@@ -10,12 +10,17 @@ import Register from "../Register/register";
 import ForgotPassword from "../ForgotPassword/forgotPassword";
 import { useTranslation } from "react-i18next";
 import useraxios from "../../axiosConfig/axiosInstance";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+
+
 
 
 export default function Login() {
 
-  const {t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
+  const [showPassword, setShowPassword] = useState(false);
+
 
 
   const navigate = useNavigate();
@@ -44,8 +49,8 @@ export default function Login() {
           errEmail:
             e.target.value === 0 ? `${t('Email is Required')}`
               : !reqEmail.test(e.target.value)
-              ? `${t('Enter Vaild Email')}`
-              : "",
+                ? `${t('Enter Vaild Email')}`
+                : "",
         });
         break;
       case "userPass":
@@ -53,7 +58,7 @@ export default function Login() {
         setError({
           ...error,
           errPass: e.target.value === 0 ? `${t("Passwrod is Required")}`
-          : e.target.value.length < 8 ? `${t("Enter Vaild Password")}` : "",
+            : e.target.value.length < 8 ? `${t("Enter Vaild Password")}` : "",
         });
         break;
       default:
@@ -71,17 +76,21 @@ export default function Login() {
         password: user.userPass,
       });
       console.log(response.data); // token
-  
+
       // Store the token in local storage
       localStorage.setItem("token", response.data);
-  
+
       console.log("Login successful");
+      navigate("/");
+
+
     } catch (error) {
       console.error("Error logging in:", error);
-     
+
       setError({
         ...error,
-        err:"Invilad Email Or Password"}); // set error state to display error message
+        err: t('Invilad Email Or Password')
+      }); // set error state to display error message
 
 
     }
@@ -117,7 +126,7 @@ export default function Login() {
                 <p className="text-danger ">{error.err}</p>
 
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              {/* <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label className=" font-weight-bold">{t('Password')}</Form.Label>
                 <Form.Control
                   className="login-input border-warning"
@@ -129,6 +138,25 @@ export default function Login() {
                     handelinput(event);
                   }}
                 />
+                <p className="text-danger">{error.errPass}</p>
+              </Form.Group> */}
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label className="font-weight-bold">{t('Password')}</Form.Label>
+                <InputGroup>
+                  <Form.Control
+                    className="login-input border-warning"
+                    name="userPass"
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder={t('Password')}
+                    value={user.userPass}
+                    onChange={(event) => {
+                      handelinput(event);
+                    }}
+                  />
+                    <Button variant="outline-secondary" onClick={() => setShowPassword(!showPassword)}>
+                      {showPassword ? <FaEyeSlash/> : <FaEye/>}
+                    </Button>
+                </InputGroup>
                 <p className="text-danger">{error.errPass}</p>
               </Form.Group>
               <Button variant="warning" type="submit" className="login-input text-white">

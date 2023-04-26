@@ -5,14 +5,19 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import Form from "react-bootstrap/Form";
 import "./registerStyle.css";
-import { Button, Col, Container, Dropdown, Row } from "react-bootstrap";
+import { Button, Col, Container, Dropdown, Row, InputGroup } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import useraxios from "./../../axiosConfig/axiosInstance";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
+  const [showPassword, setShowPassword] = useState(false);
+
 
   const {
     register,
@@ -34,16 +39,19 @@ export default function Register() {
   // const [formData, setFormData] = useState({});
   const [error, setError] = useState()
 
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     console.log(data);
     try {
       await useraxios.post('/users/register', data);
       console.log('Data posted successfully');
+      navigate("/login");
+
     } catch (error) {
       console.error('Error posting data:', error);
-      setError("This Email is already Registered"); 
-      
+      setError(t("This Email is already Registered"));
+
     }
   };
 
@@ -166,7 +174,7 @@ export default function Register() {
                   className="register-input border-warning "
                   {...register("email", {
                     required: true,
-                    pattern: /^[a-zA-Z0-9]{3,}(@)(gmail|yahoo|outlook)(.com)$/,
+                    pattern: /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*@([a-zA-Z0-9]+([.-]?[a-zA-Z0-9]+)*\.[a-zA-Z]{2,})$/,
                   })}
                   placeholder={t('Email Address')}
                 />{" "}
@@ -177,7 +185,7 @@ export default function Register() {
                   </errors>
                 </p>
               </div>
-              <div>
+              {/* <div>
                 <Form.Label className="mt-3 font-weight-bold">
                   {t('Password')}
                 </Form.Label>{" "}
@@ -200,25 +208,61 @@ export default function Register() {
                     {errors.password?.type === "pattern" && `${t('Password Pattern')}`
                     }                  </errors>
                 </p>
+              </div> */}
+              <div>
+                <Form.Label className="mt-3 font-weight-bold">
+                  {t('Password')}
+                </Form.Label>{" "}
+                <br />
+                <InputGroup>
+                  <Form.Control
+                    className="register-input"
+                    type={showPassword ? 'text' : 'password'}
+                    {...register("password", {
+                      required: true,
+                      minLength: 8,
+                      pattern:
+                        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
+                    })}
+                    placeholder={t('Password')}
+                  />
+                  <Button variant="outline-secondary" onClick={() => setShowPassword(!showPassword)}>
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </Button>
+                </InputGroup>
+                <p className="text-danger">
+                  {errors.password?.type === "required" &&
+                    `${t('Password is Required')}`}
+                  {errors.password?.type === "minLength" &&
+                    `${t('Password must have at least 8 characters')}`}
+                  {errors.password?.type === "pattern" &&
+                    `${t('Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character')}`}
+                </p>
               </div>
               <div>
                 <Form.Label className="mt-3 font-weight-bold">
                   {t('Confirm Password')}
                 </Form.Label>{" "}
                 <br />
-                <Form.Control
-                  className="register-input"
-                  type={"password"}
-                  {...register("ConfirmPassword", {
-                    required: true,
-                    validate: (val) => {
-                      if (watch("password") !== val) {
-                        return `${t('Please make sure your passwords match.')}`;
-                      }
-                    },
-                  })}
-                  placeholder={t('Confirm Password')}
-                />
+                <InputGroup>
+
+                  <Form.Control
+                    className="register-input"
+                    type={showPassword ? 'text' : 'password'}
+                    {...register("ConfirmPassword", {
+                      required: true,
+                      validate: (val) => {
+                        if (watch("password") !== val) {
+                          return `${t('Please make sure your passwords match.')}`;
+                        }
+                      },
+                    })}
+                    placeholder={t('Confirm Password')}
+                  />
+                  <Button variant="outline-secondary" onClick={() => setShowPassword(!showPassword)}>
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </Button>
+                </InputGroup>
                 <p className="text-danger">
                   <errors>
                     {errors.ConfirmPassword?.type === "required" &&

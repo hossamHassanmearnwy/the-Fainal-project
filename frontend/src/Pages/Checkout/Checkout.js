@@ -16,9 +16,19 @@ import Modal from 'react-bootstrap/Modal';
 
 
 export default function Checkout(cart) {
+  const [price, setPrice] = useState(0);
+  useEffect(() => {
+    handlePrice();
+  });
+  
   let [check, setCheck] = useState(
     JSON.parse(localStorage.getItem("cart")) || [] // local storge to get cart
-  );
+    );
+    const handlePrice = () => {
+      let pri = 0;
+      check?.map((item) => (pri += item.amount * item.price));
+      setPrice(pri);
+    };
 
   useEffect(() => {
     localStorage.setItem("checkout", JSON.stringify(check)); // local storge to save cart in it
@@ -322,7 +332,7 @@ export default function Checkout(cart) {
               </td>
 
               <td className="tableData">
-                <p className="my-4">999.9 EGP</p>
+                <p className="my-4">{price} EGP</p>
               </td>
             </tr>
             <tr>
@@ -331,7 +341,7 @@ export default function Checkout(cart) {
               </td>
 
               <td className="tableData">
-                <p className="my-4">999.9 EGP</p>
+                <p className="my-4">0 EGP</p>
               </td>
             </tr>
             <tr>
@@ -339,7 +349,7 @@ export default function Checkout(cart) {
                 <h4> ORDER TOTAL</h4>
               </td>
               <td className="tableData checkoutPrice">
-                <p className="my-4">999.9 EGP</p>
+                <p className="my-4">{price} EGP</p>
               </td>
             </tr>
           </Table>

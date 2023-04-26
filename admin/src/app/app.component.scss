@@ -26,7 +26,7 @@ app-side-nav{
 .display-area{
     position: absolute;
     left: 60px;
-    height: calc(100% - 60px);
+    width: calc(100% - 60px);
     transition: left 250ms ease-in, width 250ms ease-in;
 }
 .display-area-shrink{
