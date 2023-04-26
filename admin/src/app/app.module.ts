@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
@@ -11,7 +11,11 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { UsersComponent } from './components/users/users.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
-
+import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { UpdateCategoryComponent } from './components/update-category/update-category.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { RouterModule, UrlSegment } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,10 +27,18 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     UsersComponent,
     DashboardComponent,
     NotfoundComponent,
+    AddCategoryComponent,
+    UpdateCategoryComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    Ng2SearchPipeModule,
+    RouterModule.forRoot([
+          ]),
   ],
   providers: [],
   bootstrap: [AppComponent]

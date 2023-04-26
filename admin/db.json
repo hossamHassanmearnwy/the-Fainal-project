@@ -1,0 +1,36 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "catName": "Mobile",
+      "item": 200
+    },
+    {
+      "id": 2,
+      "catName": "Tablets",
+      "item": 150
+    },
+    {
+      "catName": "Power Supply",
+      "item": 230,
+      "id": 3
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
