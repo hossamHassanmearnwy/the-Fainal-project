@@ -1,7 +1,7 @@
 
 <div class="container d-flex flex-column align-items-center">
     <div class="w-75 p-3 shadow-lg rounded-3 border border-warning mt-5">
-    <form #produtForm="ngForm" (ngSubmit)="addCat()">
+    <form #categoryForm="ngForm" (ngSubmit)="addCat()">
         <div class="mb-3">
           <label for="catName" class="form-label">Category Name</label>
       
@@ -10,7 +10,7 @@
       
           <div class="alert alert-danger" [hidden]="catNameInput.valid || catNameInput.untouched">
       
-            <small *ngIf="catNameInput.errors?.['pattern']">Product name must be at least 3 letters.</small>
+            <small *ngIf="catNameInput.errors?.['required']">Order Date is required</small>
           </div>
         </div>
       
@@ -23,7 +23,7 @@
       
       
       
-        <button type="submit" class="btn btn-outline-warning" role="button" [disabled]="produtForm.invalid">Submit</button>
+        <button type="submit" class="btn btn-outline-warning" role="button" [disabled]="categoryForm.invalid">Submit</button>
       </form>
       
       
