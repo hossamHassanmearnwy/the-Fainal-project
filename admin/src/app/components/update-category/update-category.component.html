@@ -1,0 +1,29 @@
+
+<div class="container d-flex flex-column align-items-center">
+    <div class="w-75 p-3 shadow-lg rounded-3 border border-warning mt-5">
+        <form #catForm="ngForm">
+            <div class="mb-3">
+              <label for="catName" class="form-label">Category Name</label>
+          
+              <input type="text" class="form-control" name="catName" id="catName" [(ngModel)]="cat.catName" required >
+          
+            </div>
+          
+          
+            <div class="mb-3">
+              <label for="catItem" class="form-label">Items</label>
+              <input type="number" class="form-control" name="catItem" id="catItem" [(ngModel)]="cat.item" required>
+            </div>
+          
+          
+            <button type="submit" class="btn btn-outline-warning" (click)="update()">Update</button>
+          </form>
+
+    </div>
+</div>
+
+
+
+
+
+
