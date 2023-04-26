@@ -11,6 +11,7 @@ import useraxios from "./../../axiosConfig/axiosInstance";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const { t, i18n } = useTranslation();
@@ -38,12 +39,15 @@ export default function Register() {
   // const [formData, setFormData] = useState({});
   const [error, setError] = useState()
 
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     console.log(data);
     try {
       await useraxios.post('/users/register', data);
       console.log('Data posted successfully');
+      navigate("/login");
+
     } catch (error) {
       console.error('Error posting data:', error);
       setError(t("This Email is already Registered"));
@@ -170,7 +174,7 @@ export default function Register() {
                   className="register-input border-warning "
                   {...register("email", {
                     required: true,
-                    pattern: /^[a-zA-Z0-9]{3,}(@)(gmail|yahoo|outlook)(.com)$/,
+                    pattern: /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*@([a-zA-Z0-9]+([.-]?[a-zA-Z0-9]+)*\.[a-zA-Z]{2,})$/,
                   })}
                   placeholder={t('Email Address')}
                 />{" "}

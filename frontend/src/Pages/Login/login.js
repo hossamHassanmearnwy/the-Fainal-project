@@ -81,6 +81,9 @@ export default function Login() {
       localStorage.setItem("token", response.data);
 
       console.log("Login successful");
+      navigate("/");
+
+
     } catch (error) {
       console.error("Error logging in:", error);
 
