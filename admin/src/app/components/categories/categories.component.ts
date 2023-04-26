@@ -11,7 +11,8 @@ import { CategoriesService } from 'src/app/services/categories.service';
 })
 export class CategoriesComponent implements OnInit{
   ListOfCat:ICategory[]=[];
-  searchTerm: string = ''
+  searchTerm: string = '';
+  p: number =1;
   cat:ICategory= {} as ICategory;
   constructor(private catAPI: CategoriesService, private router:Router){
 
@@ -51,7 +52,12 @@ export class CategoriesComponent implements OnInit{
       );
     });
    }
-
+ key: string ='id';
+ reverse: boolean = false;
+ sort(key: string){
+  this.key = key;
+  this.reverse = !this.reverse;
+ }
 
 
 }
