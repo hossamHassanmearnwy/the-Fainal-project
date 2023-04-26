@@ -15,7 +15,8 @@ import { AddCategoryComponent } from './components/add-category/add-category.com
 import { UpdateCategoryComponent } from './components/update-category/update-category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { RouterModule, UrlSegment } from '@angular/router';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,8 +38,8 @@ import { RouterModule, UrlSegment } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    RouterModule.forRoot([
-          ]),
+    Ng2OrderModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

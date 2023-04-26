@@ -7,15 +7,15 @@
 <table class="table">
     <thead class="table-light">
         <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
+            <th scope="col" (click)="sort('id')">ID &nbsp;<i class="fa fa-sort text-black-50"></i></th>
+            <th scope="col" (click)="sort('catName')">Name &nbsp;<i class="fa fa-sort text-black-50"></i></th>
             <th scope="col">Item</th>
             <th scope="col">Visability</th>
             <th scope="col">Action</th>
           </tr>
     </thead>
     <tbody>
-        <ng-container *ngFor =" let cat of ListOfCat; let i = index">
+        <ng-container *ngFor =" let cat of ListOfCat | orderBy: key: reverse | paginate: {itemsPerPage:5, currentPage:p}; let i = index">
         <tr>
             <th scope="row">{{cat.id}}</th>
             <td>{{cat.catName}}</td>
@@ -27,6 +27,6 @@
         </ng-container>
     </tbody>
     <tfoot>
-      ...
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </tfoot>
   </table>
