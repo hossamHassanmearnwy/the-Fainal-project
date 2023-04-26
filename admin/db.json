@@ -28,6 +28,21 @@
       "catName": "Power Supply",
       "item": 230,
       "id": 3
+    },
+    {
+      "catName": "Computers",
+      "item": 400,
+      "id": 4
+    },
+    {
+      "catName": "Labtop",
+      "item": 500,
+      "id": 5
+    },
+    {
+      "catName": "Gaming",
+      "item": 300,
+      "id": 6
     }
   ],
   "orders": [
