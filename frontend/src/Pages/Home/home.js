@@ -10,9 +10,23 @@ import OffersSlider from "../../Components/offersSlider/OffersSlider";
 import offersList from "../../offersData";
 import BestSec from "../../Components/besrSellers/BestSec";
 import SummaryProd from "../../Components/summary/summaryProd";
+import productsaxios from "./../../axiosConfig/axiosInstance";
 
 export default function Home({ handleClick }) {
   //  const [warning, setWarning] = useState(false);
+
+  const [Products, setProducts] = useState([]);
+  useEffect(() => {
+    productsaxios
+      .get("/Offers")
+      .then((res) => {
+        console.log(res.data);
+        setProducts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   const [show, setShow] = useState(true);
   // const [cart , setCart] = useState([]);
   let [cart, setCart] = useState(
@@ -45,20 +59,20 @@ export default function Home({ handleClick }) {
         <div className="row ">
           <div className="col-3 ">
             {/* Main Sidebar */}
-            <MainSideBar />
+            <MainSideBar DatatoComponent={Products} />
           </div>
           <div className="col-9">
-            <Slider />
+            <Slider DatatoComponent={Products} />
           </div>
         </div>
       </div>
 
       <div className="container">
-        <Amazon handleClick={handleClick} />
+        <Amazon handleClick={handleClick} DatatoComponent={Products}/>
 
-        <BestSec handleClick={handleClick} />
+        <BestSec handleClick={handleClick} DatatoComponent={Products} />
 
-        <OffersSlider handleClick={handleClick} />
+        <OffersSlider handleClick={handleClick} DatatoComponent={Products} />
 
         <SummaryProd />
 
