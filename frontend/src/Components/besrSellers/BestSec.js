@@ -18,7 +18,7 @@ export default function BestSec({ handleClick }) {
 
   return (
     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-      <Sec header={t("BestSeller Product")} />
+      <Sec header={t("Popular Product")} />
       <Row
         className="col-lg-7 mb-0"
         style={{ position: "relative", left: "43%", top: "110px" }}
