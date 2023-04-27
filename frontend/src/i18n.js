@@ -18,7 +18,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: localStorage.setItem("lang", "en"),
+    // lng: localStorage.setItem("lang", "en"), 
 
     interpolation: {
       escapeValue: false 
