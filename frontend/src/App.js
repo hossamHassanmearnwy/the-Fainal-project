@@ -30,6 +30,10 @@ import ProductDetail from './Pages/productDetail/ProductDetail';
 import Checkout from './Pages/Checkout/Checkout';
 import CategoryPage from "./Pages/categories/CategoryPage";
 import Favourites from "./Pages/favorite/fav";
+import Mobiles from "./Pages/mobiles/mobiles";
+import Accessories from './Pages/accessories/accessories';
+import Supply from './Pages/supply/supply';
+import Computers from './Pages/computers/computers';
 
 
 function App() {
@@ -109,6 +113,7 @@ function App() {
             <Route path="myaccount" element={<MyAccount />} />
             <Route path="myorders" element={<MyOrders />} />
             <Route path="fav" element={<Favourites />} />
+
             {/* <Route path="Fav" element={<Fav />} /> */}
 
             <Route path="addressbook" element={<AddressBook />} />
@@ -128,7 +133,11 @@ function App() {
           <Route path="product" element={<Productpage />} />
 
           <Route path="/details/:id" element={<ProductDetail handleClick={handleClick} />} />
-          
+
+          <Route path="Mobiles" element={<Mobiles />} />
+          <Route path="computers" element={<Computers />} />
+          <Route path="supply" element={<Supply />} />
+          <Route path="accessories" element={<Accessories/>} />
 
           <Route path="/cat" element={<CategoryPage />} />
           <Route path="/login" element={<Login />} />
