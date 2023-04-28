@@ -35,8 +35,8 @@ function gettAllByReview(id) {
   return ProductsModel.find({ review: { _id: id } });
 }
 
-function deleteProductById(id) {
-  return ProductsModel.deleteOne({ _id: id });
+function deleteProductById(id, product) {
+  return ProductsModel.updateOne({ _id: id }, product);
 }
 module.exports = {
   createProduct,

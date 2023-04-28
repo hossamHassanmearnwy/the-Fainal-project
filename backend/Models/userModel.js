@@ -44,6 +44,10 @@ const userSchema=mongoose.Schema({
     phoneNumber:{
         type:String,
         length:11
+    },
+    isDeleted:{
+        type:Boolean,
+        default: false
     }
 
     },{timestamps:true}

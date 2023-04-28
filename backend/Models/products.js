@@ -263,6 +263,10 @@ const ProdutsSchema = mongoose.Schema({
     },
     includedComponents: {
         type: String
+    },
+    isDeleted:{
+        type:Boolean,
+        default: false
     }
 
 }, { timestamps: true }) //timestamps add createdAt updatedAt
