@@ -1,27 +1,36 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse, } from '@angular/common/http';
+import { map, Observable, throwError,  } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
 import { IOrder } from '../models/iorder';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderServiceService {
+
+  baseUri: string = 'http://localhost:3001/orders';
+  headers = new HttpHeaders().set('Content-Type', 'application/json');
+
   private httpOptions={};
 
   constructor(private httpClient: HttpClient) {   
 this.httpOptions={
-  headers:new HttpHeaders(
-    {
-      'Content-Type':'application/json'
-    }
-  )
+  // headers:new HttpHeaders(
+  //   {
+  //     'Content-Type':'application/json'
+  //   }
+  // )
 };
 
 }
 
 getAllOrders():Observable<IOrder[]>{
+  // return this.httpClient.get<IOrder[]>(`${this.baseUri}`);
   return this.httpClient.get<IOrder[]>(`http://localhost:3000/orders`);
+
+
 }
 
 
@@ -31,6 +40,7 @@ getOrderByID(oid:number):Observable<IOrder>{
 
   addNewOrder(order:IOrder):Observable<IOrder>{
     return this.httpClient.post<IOrder>(`http://localhost:3000/orders`,JSON.stringify(order),this.httpOptions)
+
   }
 
   deleteOrder(oid:number):Observable<IOrder>{
@@ -46,6 +56,26 @@ getOrderByID(oid:number):Observable<IOrder>{
       map(()=>order)
     )
   }
+
+
+
+
+  // Error handling
+  errorMgmt(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // Get client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Get server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(() => {
+      return errorMessage;
+    });
+  }
+
 
 }
 
