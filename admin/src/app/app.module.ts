@@ -19,6 +19,11 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AddOrderComponent } from './components/add-order/add-order.component';
 import { UpdateOrderComponent } from './components/update-order/update-order.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
+import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { UserAuthheGuard } from './Guard/user-authh.guard';
+import { UserAuthService } from './services/user-auth.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +39,8 @@ import { UpdateOrderComponent } from './components/update-order/update-order.com
     UpdateCategoryComponent,
     AddOrderComponent,
     UpdateOrderComponent,
+    UserLoginComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -44,8 +51,21 @@ import { UpdateOrderComponent } from './components/update-order/update-order.com
     Ng2SearchPipeModule,
     Ng2OrderModule,
     NgxPaginationModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('access_token');
+        }
+      }
+    })
+    
   ],
-  providers: [],
+  providers: [
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService,
+    UserAuthheGuard,
+    UserAuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
