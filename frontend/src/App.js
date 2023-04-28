@@ -30,14 +30,11 @@ import ProductDetail from './Pages/productDetail/ProductDetail';
 import Checkout from './Pages/Checkout/Checkout';
 import CategoryPage from "./Pages/categories/CategoryPage";
 import Favourites from "./Pages/favorite/fav";
-<<<<<<< Updated upstream
 import Mobiles from "./Pages/mobiles/mobiles";
 import Accessories from './Pages/accessories/accessories';
 import Supply from './Pages/supply/supply';
 import Computers from './Pages/computers/computers';
-=======
 import Protected from "./protectedRoutes";
->>>>>>> Stashed changes
 
 
 function App() {
@@ -112,15 +109,14 @@ function App() {
           <Route index element={<Home handleClick={handleClick} />} />
           <Route path="/home" element={<Home handleClick={handleClick} />} />
           {/* // User account */}
-<<<<<<< Updated upstream
           <Route path="/useraccount" element={<UserAccount />}>
             <Route index element={<MyAccount />} />
             <Route path="myaccount" element={<MyAccount />} />
             <Route path="myorders" element={<MyOrders />} />
             <Route path="fav" element={<Favourites />} />
+            </Route>
 
             {/* <Route path="Fav" element={<Fav />} /> */}
-=======
             <Route path="/useraccount" element={ <Protected ><UserAccount /> </Protected> }> 
               <Route index element={<MyAccount />} />
               <Route path="myaccount" element={<MyAccount />} />
@@ -149,19 +145,16 @@ function App() {
 
             <Route path="/fav" element={<Protected > <Favourites handleClick={handleClick} /> </Protected>} />
 
->>>>>>> Stashed changes
 
           <Route path="product" element={<Productpage />} />
 
           <Route path="/details/:id" element={<ProductDetail handleClick={handleClick} />} />
 
-<<<<<<< Updated upstream
           <Route path="Mobiles" element={<Mobiles />} />
           <Route path="computers" element={<Computers />} />
           <Route path="supply" element={<Supply />} />
           <Route path="accessories" element={<Accessories/>} />
-=======
->>>>>>> Stashed changes
+
 
           <Route path="/cat" element={<CategoryPage />} />
           <Route path="/login" element={<Login />} />
