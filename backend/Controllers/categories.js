@@ -67,7 +67,7 @@ exports.updateCategory = async(req , res) => {
         if(!category){
                 res.status(404 ).json({msg: `no category for this id ${id}`})
         }
-        res.status(200 ).json({data:category})
+        res.status(200 ).json("category updated succefully")
 };
 
 
