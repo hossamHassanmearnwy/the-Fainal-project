@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.css";
@@ -9,8 +8,6 @@ import { Button, Col, Container, Dropdown, Row, InputGroup } from "react-bootstr
 import { useTranslation } from "react-i18next";
 import useraxios from "./../../axiosConfig/axiosInstance";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function Register() {
@@ -36,6 +33,15 @@ export default function Register() {
       Date: "",
     },
   });
+  const firstName = watch("firstName");
+  const lastName = watch("lastName");
+  const phoneNumber = watch("phoneNumber");
+  const email = watch("email");
+  const password = watch("password");
+  const ConfirmPassword = watch("ConfirmPassword");
+  const Gender = watch("Gender");
+  const Date = watch("Date"); 
+
   // const [formData, setFormData] = useState({});
   const [error, setError] = useState()
 
@@ -54,6 +60,9 @@ export default function Register() {
 
     }
   };
+  useEffect(() => {
+    watch(); // trigger watch to update errors object
+  }, [watch]);
 
 
 
@@ -78,11 +87,15 @@ export default function Register() {
                 <Form.Control
                   className="register-input "
                   {...register("firstName", { required: true })}
-                  placeholder={t('First Name')}
+                  placeholder={t('First Name')
+                   }
                 />
                 <p className="text-danger">
                   <errors>
                     {errors.firstName?.type === "required" && `${t('Name Is required')}`}
+                    {/* {firstName && firstName.length ==` ` && (
+        <p className="text-danger">{t('Name Is required')} </p>
+      )} */}
                   </errors>
                 </p>
               </div>
@@ -174,7 +187,8 @@ export default function Register() {
                   className="register-input border-warning "
                   {...register("email", {
                     required: true,
-                    pattern: /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*@([a-zA-Z0-9]+([.-]?[a-zA-Z0-9]+)*\.[a-zA-Z]{2,})$/,
+                    pattern: /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*@([a-zA-Z0-9]+([.-]?[a-zA-Z0-9]+)*\.[a-zA-Z]{2,})$/
+                    ,
                   })}
                   placeholder={t('Email Address')}
                 />{" "}

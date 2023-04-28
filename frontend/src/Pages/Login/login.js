@@ -82,7 +82,7 @@ export default function Login() {
 
       console.log("Login successful");
       navigate("/");
-
+      // window.location.reload()
 
     } catch (error) {
       console.error("Error logging in:", error);
