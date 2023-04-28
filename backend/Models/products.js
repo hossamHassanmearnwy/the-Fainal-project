@@ -267,7 +267,15 @@ const ProdutsSchema = mongoose.Schema({
     isDeleted:{
         type:Boolean,
         default: false
-    }
+    }, 
+    ratings:[{
+        star: Number,
+        postedBy:{
+            type: mongoose.SchemaTypes.ObjectId,
+            ref:"User"
+        }
+
+    }]
 
 }, { timestamps: true }) //timestamps add createdAt updatedAt
 

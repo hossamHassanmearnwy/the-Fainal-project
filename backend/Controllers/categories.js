@@ -48,9 +48,9 @@ exports.getCategory = expressAsyncHandler(async(req , res) => {
 
 
 exports.createCategory = expressAsyncHandler(async(req , res) => {
-        var catName = req.body.catName;
+        // var catName = req.body.catName;
         var catBody = req.body
-        const category = await catModel.create({catBody});
+        const category = await catModel.create(catBody);
         res.status(201).json({data:category})
 });
 
@@ -60,15 +60,15 @@ exports.createCategory = expressAsyncHandler(async(req , res) => {
 // @access: private
 
 
-exports.updateCategory = expressAsyncHandler(async(req , res) => {
+exports.updateCategory = async(req , res) => {
         var {id} = req.params;
-        var {catName , slug} = req.body;
-        const category = await catModel.findOneAndUpdate({_id:id},{catName, slug:slugify(slug)},{new:true});
+        var catBody = req.body;
+        const category = await catModel.findByIdAndUpdate(id,catBody);
         if(!category){
                 res.status(404 ).json({msg: `no category for this id ${id}`})
         }
         res.status(200 ).json({data:category})
-});
+};
 
 
 // @desc: delete specific category
