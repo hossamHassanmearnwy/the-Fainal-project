@@ -27,71 +27,38 @@
     <br />
 
     <br />
-    <!-- <table class="table mt-3">
-    <thead>
-        <tr class="bg-dark text-light">
-            <th scope="col">Product</th>
-            <th scope="col">Category</th>
-            <th scope="col">Stock</th>
-            <th scope="col">Price</th>
-            <th scope="col">Options</th>
-            <th> </th>
-            <th> </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr
-        *ngFor="let pro of allProductsArray;">
-        
-        
-            <td class="row">
-                <img  [src]="pro.Images"class="col-2" height="90px" />
-                <div class="col-7">
-                    <h5 >{{ pro.itemName }}</h5>
-                    
-                </div>
-            
-            </td>
-            <td>
-                <P>{{pro.quantity}}</P>
-            </td>
-            <td>Out Of Stock</td>
-            <td>{{pro.Price}} EGP</td>
-            <td><button class="editBtn">Edit</button> <button class="deleteBtn" (click)="deleteProduct(pro)">Delete</button></td>
-            
-        
-        </tr>
-        
-    </tbody>
-</table>
-<div class=" paginate">
-    <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
-
-    </pagination-controls>
-
-</div> -->
-
+    
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Product</th>
+                <th scope="col" >#</th>
+                <th scope="col" colspan="2" >Product</th>
                 <th scope="col">Category</th>
                 <th scope="col">Stock</th>
                 <th scope="col">Price</th>
-                <th scope="col">Options</th>
+                <th scope="col"  colspan="2">Options</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let pro of allProductsArray;" class="">
-                <td ><img src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" 
-                    height="70px" width="100px"   />
-                    <p >{{pro.itemName}}</p>
+            <tr *ngFor="let pro of allProductsArray; let i = index" >
+                
+                <!-- <td ><img src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"  -->
+                    <td>{{i+1}}</td>
+                    <td class="">
+                            <img class="" src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                            height="100px" width="100px"/>
+                            
+                        </td>
+                        <td>
+                    <p style="width: 200px;">{{pro.itemName}}</p>
+
                 </td>
-                <td>{{pro.catId.id}}</td>
+                
+                <td >{{pro.catId.id}}</td>
                 <td>Otto</td>
                 <td>{{pro.Price}} EGP</td>
-                <td><button class="editBtn">Edit</button> 
-                    <button class="deleteBtn"(click)="deleteProduct(pro)">Delete</button></td>
+                <td><button class="editBtn ">Edit</button></td>
+                <td><button class="deleteBtn " (click)="deleteProduct(pro)">Delete</button></td>
 
 
             </tr>
