@@ -1,5 +1,6 @@
 export interface ICategory {
-    id:number;
+    _id:string;
     catName:string;
-    item: number;
+    item?: number;
+    data?:any;
 }

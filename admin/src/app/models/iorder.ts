@@ -1,9 +1,11 @@
 export interface IOrder {
-    id:number;
-    date:string;
-    user:string;
-    paid:string;
-    status:string;
-    item: number;
-    total: number;
+    _id?:number;
+    shippingAddressEn:string;
+    phone:string;
+    userId:string;
+    paid?:string;
+    statusEn:string;
+    quantity: number;
+    totalPrice: number;
+    data?: any;
 }

@@ -10,13 +10,17 @@ import { ICategory } from 'src/app/models/icategory';
 })
 export class AddCategoryComponent implements OnInit {
   cat:ICategory= {} as ICategory;
+  ListOfCat:ICategory[]=[];
   constructor(private catAPI : CategoriesService, private router:Router){
 
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.catAPI.getAllCat().subscribe(response =>{
+      this.ListOfCat = (response as any).data;
+      console.log(response);
+      
+  })
   }
-
 
   addCat(){
   
@@ -25,6 +29,7 @@ export class AddCategoryComponent implements OnInit {
     this.catAPI.addNewCat(this.cat).subscribe({
       next:(newCat)=>{
         console.log(newCat);
+        alert("category added successfully")
         this.router.navigate(['/category']);
   
       },
