@@ -1,6 +1,7 @@
 { 
     "Welcome":"Welcome To  ",
     "Fire":" Fire ",
+    "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character":"Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character",
     "Cart":"Cart",
     "ORDER TOTAL":"Order Total",
     "Product":"Product",
@@ -37,6 +38,8 @@
     "Personal Information":"Personal Information",
     "Date of Birth":"Date of Birth ",
     "Mobile Number":"Mobile Number",
+
+    "Mobile Number is required":"Mobile Number is required",
     "Sign-In Information":"Sign-In Information",
     "Name Is required" :"First Name Is required",
     "LastName Is required" :"Last Name Is required",

@@ -8,6 +8,10 @@
 "your favs":"المفضلة لديك",
 "Card Title":"عنوان البطاقة ",
 "Title":"الاسم",
+"Mobile Number is required":"أدخل رقم الهاتف ",
+
+"Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character":
+"يجب أن تحتوي كلمة المرور على حرف واحد كبير وحرف صغير ورقم واحد وحرف خاص واحد على الأقل",
 "forgot pass":"هل نسيت كلمة المرور",
 "Please enter your email address":
 "الرجاء إدخال عنوان بريدك الإلكتروني أدناه الحصول على رابط إعادة تعيين كلمة مرور. البريد الالكتروني",

@@ -40,7 +40,7 @@ export default function Register() {
   const password = watch("password");
   const ConfirmPassword = watch("ConfirmPassword");
   const Gender = watch("Gender");
-  const Date = watch("Date"); 
+  const Date = watch("Date");
 
   // const [formData, setFormData] = useState({});
   const [error, setError] = useState()
@@ -64,6 +64,13 @@ export default function Register() {
     watch(); // trigger watch to update errors object
   }, [watch]);
 
+  // useEffect(() => {
+  //   console.log(watch("email")); // logs the value of the email field whenever it changes
+  //   console.log(errors.email); // logs the error object for the email field whenever it changes
+  // }, [watch, errors.email]);
+  useEffect(() => {
+    console.log(errors); // log errors whenever the errors object changes
+  }, [errors]);
 
 
 
@@ -88,11 +95,13 @@ export default function Register() {
                   className="register-input "
                   {...register("firstName", { required: true })}
                   placeholder={t('First Name')
-                   }
+                  }
                 />
                 <p className="text-danger">
                   <errors>
-                    {errors.firstName?.type === "required" && `${t('Name Is required')}`}
+                    {/* {errors.firstName?.type === "required" && `${t('Name Is required')}`} */}
+                    {!errors.firstName && !firstName && <span>{t('Name Is required')} *</span>}
+
                     {/* {firstName && firstName.length ==` ` && (
         <p className="text-danger">{t('Name Is required')} </p>
       )} */}
@@ -116,8 +125,10 @@ export default function Register() {
                 />
                 <p className="text-danger">
                   <errors>
-                    {errors.lastName?.type === "required" &&
-                      `${t('LastName Is required')}`}
+                    {/* {errors.lastName?.type === "required" &&
+                      `${t('LastName Is required')}`} */}
+                    {!errors.lastName && !lastName && <span>{t('LastName Is required')} *</span>}
+
                     {/* {errors.UserName?.type === "pattern" && "No Space Allowed"} */}
                   </errors>{" "}
                 </p>
@@ -152,10 +163,13 @@ export default function Register() {
 
                 />
                 <p className="text-danger">
+
                   <errors>
                     {errors.phoneNumber?.type === "required" &&
                       `${t('Please specify a valid mobile number')}`}
                     {errors.phoneNumber?.type === "pattern" && `${t('Please specify a valid mobile number')}`}
+                    {!errors.phoneNumber && !phoneNumber && <span>{t('Mobile Number is required')} *</span>}
+
 
                   </errors>
 
@@ -187,7 +201,7 @@ export default function Register() {
                   className="register-input border-warning "
                   {...register("email", {
                     required: true,
-                    pattern: /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*@([a-zA-Z0-9]+([.-]?[a-zA-Z0-9]+)*\.[a-zA-Z]{2,})$/
+                    pattern: /^[a-zA-Z0-9._%+-]+@(gmail|yahoo|outlook)\.(com)$/
                     ,
                   })}
                   placeholder={t('Email Address')}
@@ -196,6 +210,13 @@ export default function Register() {
                   <errors>
                     {errors.email?.type === "required" && `${t('Email is Required')}`}
                     {errors.email?.type === "pattern" && `${t('Please enter a valid email address.')}`}
+                    {/* {watch("email") && !errors.email && !errors.email?.type && <span>Email looks good!</span>} */}
+                    {!errors.email && email && !email.match(/^[a-zA-Z0-9._%+-]+@(gmail|yahoo|outlook)\.(com)$/) && <span>{t('Please enter a valid email address.')}</span>
+                    }
+                    {!errors.email && !email && <span>{t('Email is Required')} *</span>}
+
+                    {/* {!errors.email && email && !email.length <1 && <span>{t('Email is Required')}</span>} */}
+
                   </errors>
                 </p>
               </div>
@@ -245,12 +266,16 @@ export default function Register() {
                   </Button>
                 </InputGroup>
                 <p className="text-danger">
-                  {errors.password?.type === "required" &&
+                  {/* {errors.password?.type === "required" &&
                     `${t('Password is Required')}`}
                   {errors.password?.type === "minLength" &&
                     `${t('Password must have at least 8 characters')}`}
                   {errors.password?.type === "pattern" &&
-                    `${t('Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character')}`}
+                    `${t('Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character')}`} */}
+                  {!errors.password && password && !password.match(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/) &&
+                    <span>{t('Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character')} </span>
+                  }
+                  {!errors.password && !password && <span>{t('Passwrod is Required')} *</span>}
                 </p>
               </div>
               <div>
@@ -283,6 +308,12 @@ export default function Register() {
                       `${t('Passwrod is Required')}`}
                     {errors.ConfirmPassword?.type === "validate" &&
                       `${t('Please make sure your passwords match.')}`}
+               {!errors.ConfirmPassword && !ConfirmPassword && <span>{t('Passwrod is Required')} *</span>}
+
+               {!errors.ConfirmPassword && ConfirmPassword && !ConfirmPassword.match(password) &&
+                    <span> {t('Please make sure your passwords match.')} </span>
+                  }
+
                   </errors>{" "}
                 </p>{" "}
               </div>
