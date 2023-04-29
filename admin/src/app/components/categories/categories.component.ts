@@ -20,15 +20,18 @@ export class CategoriesComponent implements OnInit{
 
 
   ngOnInit(): void {
-  this.catAPI.getAllCat().subscribe(data =>{
-    this.ListOfCat=data;
+  this.catAPI.getAllCat().subscribe(response =>{
+    this.ListOfCat = (response as any).data;
+    console.log(response);
+    
   })
-  this.catAPI.getCatByID(3).subscribe(data =>{
-  console.log(data)
-  })
+
+  // this.catAPI.getCatByID(3).subscribe(data =>{
+  // console.log(data)
+  //})
   }
 
-  delete(val: number){
+  delete(val: string){
     var delBtn = confirm(" Do you want to delete ?");
     if ( delBtn == true ) {
       this.catAPI.deleteCat(val).subscribe((data) => {

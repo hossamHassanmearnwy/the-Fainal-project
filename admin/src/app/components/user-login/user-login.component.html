@@ -1,0 +1,21 @@
+<div class="row mt-5 pt-5">
+    <div class="col-md-4 offset-md-4">
+        <h4>Login</h4>
+        <hr>
+        <form [formGroup]="loginForm" #userForm="ngForm">
+            <div class="mb-3">
+                <label class="form-label">Email address</label>
+                <input class="form-control" [ngClass]="{ 'is-invalid': loginForm.get('email')?.invalid && loginForm.get('email')?.touched }" type="email" formControlName="email" required>
+                <span class="form-text invalid-feedback" *ngIf="loginForm.get('email')?.errors?.['required']">Email address is required.</span>
+                <span class="form-text invalid-feedback" *ngIf="loginForm.get('email')?.errors?.['email']">Input must be a valid email address.</span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input class="form-control" [ngClass]="{ 'is-invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched }" type="password" formControlName="password" required>
+                <span class="form-text invalid-feedback" *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</span>
+            </div>            
+       <button class="btn btn-warning col-12" (click)="userLogin()" [disabled]="userForm.invalid">Login</button>
+  <!-- <button class="btn btn-danger col-12" (click)="userLogout()" [disabled]="!user">Logout</button> -->
+        </form>
+    </div>
+</div>

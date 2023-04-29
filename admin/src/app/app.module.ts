@@ -17,7 +17,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+<<<<<<< HEAD
 import { AddProductComponent } from './components/add-product/add-product.component';
+=======
+import { AddOrderComponent } from './components/add-order/add-order.component';
+import { UpdateOrderComponent } from './components/update-order/update-order.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
+import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { UserAuthheGuard } from './Guard/user-authh.guard';
+import { UserAuthService } from './services/user-auth.service'
+
+>>>>>>> de3b129795692037319e963993db31b17499d51d
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +41,14 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     NotfoundComponent,
     AddCategoryComponent,
     UpdateCategoryComponent,
+<<<<<<< HEAD
     AddProductComponent,
+=======
+    AddOrderComponent,
+    UpdateOrderComponent,
+    UserLoginComponent,
+
+>>>>>>> de3b129795692037319e963993db31b17499d51d
   ],
   imports: [
     BrowserModule,
@@ -42,8 +59,21 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     Ng2SearchPipeModule,
     Ng2OrderModule,
     NgxPaginationModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('access_token');
+        }
+      }
+    })
+    
   ],
-  providers: [],
+  providers: [
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService,
+    UserAuthheGuard,
+    UserAuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
