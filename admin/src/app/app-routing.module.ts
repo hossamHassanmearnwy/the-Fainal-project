@@ -8,6 +8,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { UpdateCategoryComponent } from './components/update-category/update-category.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 const routes: Routes = [
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:'user',component:UsersComponent},
   {path:'category',component:CategoriesComponent},
   {path:'addCat',component:AddCategoryComponent},
+  {path:'addProduct',component:AddProductComponent},
   {path:'updateCat/:id',component:UpdateCategoryComponent},
 
 
