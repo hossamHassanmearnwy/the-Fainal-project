@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserAuthService {
   private isUserLoggedSubject:BehaviorSubject<boolean>;
+  private tokenExpiration!: Date;
   private isLoggedInValue = false;
   private isAdminValue = false;
   // private apiUrl = 'http://localhost:3001/login'; 
@@ -101,7 +102,18 @@ get UserState():boolean{
   return (localStorage.getItem('token'))?true:false;
 }
 
+setTokenExpiration(expiration: Date) {
+  this.tokenExpiration = expiration;
+}
 
+getTokenExpiration(): Date {
+  return this.tokenExpiration;
+}
 
+isTokenExpired(): boolean {
+  const now = new Date();
+  const expiration = this.getTokenExpiration();
+  return now >= expiration;
+}
 }
 
