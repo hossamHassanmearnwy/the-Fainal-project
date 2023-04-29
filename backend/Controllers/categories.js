@@ -15,7 +15,15 @@ exports.getCategories = expressAsyncHandler(async(req , res) => {
         const limit = req.query.limit * 1 || 4;
         const skip = (page - 1)* limit;
         const categories = await catModel.find({}).skip(skip).limit(limit);
-        res.status(200 ).json({results: categories.length,page, data: categories})
+        var receivedCategories = categories.filter((category)=>{
+                return (!category.isDeleted)
+        })
+        if(receivedCategories.length >0){
+        res.status(200 ).json({results: receivedCategories.length,page, data: receivedCategories})
+        }else{
+                res.json({msg: "No categories found"})
+        }
+        
 });
 
 
@@ -27,7 +35,7 @@ exports.getCategories = expressAsyncHandler(async(req , res) => {
 exports.getCategory = expressAsyncHandler(async(req , res) => {
         var {id} = req.params;
         const category = await catModel.findById(id);
-        if(!category){
+        if(category.isDeleted){
                 res.status(404 ).json({msg: `no category for this id ${id}`})
         }
         res.status(200 ).json({data:category})
@@ -40,8 +48,9 @@ exports.getCategory = expressAsyncHandler(async(req , res) => {
 
 
 exports.createCategory = expressAsyncHandler(async(req , res) => {
-        var catName = req.body.catName;
-        const category = await catModel.create({catName, slug:slugify(catName)});
+        // var catName = req.body.catName;
+        var catBody = req.body
+        const category = await catModel.create(catBody);
         res.status(201).json({data:category})
 });
 
@@ -51,15 +60,15 @@ exports.createCategory = expressAsyncHandler(async(req , res) => {
 // @access: private
 
 
-exports.updateCategory = expressAsyncHandler(async(req , res) => {
+exports.updateCategory = async(req , res) => {
         var {id} = req.params;
-        var {catName , slug} = req.body;
-        const category = await catModel.findOneAndUpdate({_id:id},{catName, slug:slugify(slug)},{new:true});
+        var catBody = req.body;
+        const category = await catModel.findByIdAndUpdate(id,catBody);
         if(!category){
                 res.status(404 ).json({msg: `no category for this id ${id}`})
         }
-        res.status(200 ).json({data:category})
-});
+        res.status(200 ).json("category updated succefully")
+};
 
 
 // @desc: delete specific category
@@ -69,10 +78,14 @@ exports.updateCategory = expressAsyncHandler(async(req , res) => {
 
 exports.deleteCategory = expressAsyncHandler(async(req , res) => {
         var {id} = req.params;
-        const category = await catModel.findByIdAndDelete(id);
-        if(!category){
+        catBody = req.body
+        catBody.isDeleted= true;
+        const category = await catModel.findByIdAndUpdate(id,catBody);
+        // category.isDeleted= true;
+        if(!category || category.isDeleted){
                 res.status(404 ).json({msg: `no category for this id ${id}`})
         }
         res.status(200).json({msg: "this category is deleted successfully"})
+        res.status(200).json(category)
 });
 // module.exports={createCategory};

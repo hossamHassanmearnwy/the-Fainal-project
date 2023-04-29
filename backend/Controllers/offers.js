@@ -16,8 +16,8 @@ function updateOffer(id, offer){
     return offersModel.updateOne({_id:id}, offer);
 }
 
-function deleteOffer(id){
-    return offersModel.deleteOne({_id:id})
+function deleteOffer(id,offer){
+    return offersModel.findByIdAndUpdate(id, offer)
 
 };
 module.exports= {getAllOffers, getOfferById, createOffer, updateOffer , deleteOffer}

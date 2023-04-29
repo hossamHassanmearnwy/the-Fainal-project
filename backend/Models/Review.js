@@ -9,8 +9,12 @@ const reviewsSchema = mongoose.Schema({
     products:{
         type: mongoose.SchemaTypes.ObjectId,
         ref:"Product",
-        required: true
-    }
+        // required: true
+    },
+    isDeleted:{
+        type:Boolean,
+        default: false
+    }   
 }, {timestamps: true});
 
 

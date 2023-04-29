@@ -36,6 +36,10 @@ const offersSchema = mongoose.Schema({
         type: 'string',
         trim: true,
         required: true
+    },
+    isDeleted:{
+        type:Boolean,
+        default: false
     }
 
 }, { timestamps: true })

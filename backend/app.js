@@ -20,7 +20,9 @@ const ordersRoutes = require("./Routes/orders");
 const userRouters = require("./Routes/user");
 const cartRouts = require("./Routes/cart");
 const copounsRoutes = require("./Routes/copouns");
+const wishlistRoutes = require("./Routes/wishlist");
 const paymentRoutes = require("./Routes/payment");
+
 const port = process.env.PORT || 3001;
 require("dotenv").config();
 console.log(`process.env`);
@@ -35,7 +37,9 @@ app.use("/orders", ordersRoutes);
 app.use("/users", userRouters);
 app.use("/cart", cartRouts);
 app.use("/copouns", copounsRoutes);
+app.use("/wishlist", wishlistRoutes)
 app.use("/payment", paymentRoutes);
+
 
 /**error exite  */
 app.use("*", (req, res) => {

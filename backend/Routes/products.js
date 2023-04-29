@@ -8,7 +8,13 @@ const ProductsModel = require("../Models/products")
 router.get("/", async (req, res, next) => {
     try {
         var Products = await getAll()
-        res.status(200).json(Products)
+        var listedProducts =Products.filter((product) => {
+            return (!product.isDeleted);
+        })
+        if (listedProducts.length === 0 ){
+            res.send("No Products")
+        }
+        res.status(200).json(listedProducts)
     } catch (err) {
         res.json({ message: err.message })
     }
@@ -30,8 +36,12 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
     var { id } = req.params
     try {
-        var Products = await gettAllById(id)
-        res.status(200).json(Products)
+        var Product = await gettAllById(id)
+        if(!Product.isDeleted){
+            res.status(200).json(Product)
+        }else{
+            res.send("no product found")
+        }
     } catch (err) {
         res.json({ message: err.message })
     }
@@ -52,6 +62,7 @@ router.get("/Categories/:id", async (req, res, next) => {
     var { id } = req.params
     try {
         var Products = await gettAllByCat(id)
+        
         res.status(200).json(Products)
     } catch (err) {
         res.json({ message: err.message })
@@ -96,8 +107,14 @@ router.patch("/:id", async (req, res, next) => {
 //delete
 router.delete("/:id", async (req, res, next) => {
     var id = req.params.id
+    var product = req.body;
+    product.isDeleted = true
     try {
-        var deleteProduct = await deleteProductById(id)
+        var deleteProduct = await deleteProductById(id, product)
+        // deleteProduct.isDeleted = true;
+        if(!deleteProduct || deleteProduct.isDeleted){
+            res.status(404 ).json({msg: `no product for this id ${id}`})
+        }
         res.status(200).json(deleteProduct)
     } catch (err) {
         res.json({ message: err.message })
