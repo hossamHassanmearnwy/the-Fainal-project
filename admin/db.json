@@ -1,0 +1,85 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "catName": "Mobile",
+      "item": 200
+    },
+    {
+      "id": 2,
+      "catName": "Tablets",
+      "item": 150
+    },
+    {
+      "catName": "Power Supply",
+      "item": 230,
+      "id": 3
+    },
+    {
+      "catName": "Computers",
+      "item": 400,
+      "id": 4
+    },
+    {
+      "catName": "Labtop",
+      "item": 500,
+      "id": 5
+    },
+    {
+      "catName": "Gaming",
+      "item": 300,
+      "id": 6
+    },
+    {
+      "catName": "defjn",
+      "item": 33,
+      "id": 7
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "date": "June 26, 2021",
+      "user": "monaa",
+      "paid": "Yes",
+      "status": "New",
+      "item": 2,
+      "total": 200
+    },
+    {
+      "id": 2,
+      "date": "May 15, 2021",
+      "user": "ahmed mohsen",
+      "paid": "No",
+      "status": "Pending",
+      "item": 1,
+      "total": 300
+    },
+    {
+      "id": 3,
+      "date": "August 27, 2020",
+      "user": "mai reda",
+      "paid": "Yes",
+      "status": "Finished",
+      "item": 5,
+      "total": 900
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

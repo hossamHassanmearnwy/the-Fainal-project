@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import Form from "react-bootstrap/Form";
 import "./registerStyle.css";
-import { Button, Col, Container, Dropdown, Row } from "react-bootstrap";
+import { Button, Col, Container, Dropdown, Row, InputGroup } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import useraxios from "./../../axiosConfig/axiosInstance";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
-  const {t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
+  const [showPassword, setShowPassword] = useState(false);
+
+
   const {
     register,
     watch,
@@ -17,16 +23,57 @@ export default function Register() {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      Name: "",
-      UserName: "",
-      MobileNumber: "",
-      Email: "",
-      Password: "",
+      firstName: "",
+      lastName: "",
+      phoneNumber: "",
+      email: "",
+      password: "",
       ConfirmPassword: "",
       Gender: "",
+      Date: "",
     },
   });
-  const onSubmit = (data) => console.log(data);
+  const firstName = watch("firstName");
+  const lastName = watch("lastName");
+  const phoneNumber = watch("phoneNumber");
+  const email = watch("email");
+  const password = watch("password");
+  const ConfirmPassword = watch("ConfirmPassword");
+  const Gender = watch("Gender");
+  const Date = watch("Date");
+
+  // const [formData, setFormData] = useState({});
+  const [error, setError] = useState()
+
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    try {
+      await useraxios.post('/users/register', data);
+      console.log('Data posted successfully');
+      navigate("/login");
+
+    } catch (error) {
+      console.error('Error posting data:', error);
+      setError(t("This Email is already Registered"));
+
+    }
+  };
+  useEffect(() => {
+    watch(); // trigger watch to update errors object
+  }, [watch]);
+
+  // useEffect(() => {
+  //   console.log(watch("email")); // logs the value of the email field whenever it changes
+  //   console.log(errors.email); // logs the error object for the email field whenever it changes
+  // }, [watch, errors.email]);
+  useEffect(() => {
+    console.log(errors); // log errors whenever the errors object changes
+  }, [errors]);
+
+
+
   return (
     <>
       <h1>{t('Create New Customer Account')}</h1>
@@ -46,12 +93,18 @@ export default function Register() {
                 <br />
                 <Form.Control
                   className="register-input "
-                  {...register("Name", { required: true })}
-                  placeholder={t('First Name')}
+                  {...register("firstName", { required: true })}
+                  placeholder={t('First Name')
+                  }
                 />
                 <p className="text-danger">
                   <errors>
-                    {errors.Name?.type === "required" && `${t('Name Is required')}`}
+                    {/* {errors.firstName?.type === "required" && `${t('Name Is required')}`} */}
+                    {!errors.firstName && !firstName && <span>{t('Name Is required')} *</span>}
+
+                    {/* {firstName && firstName.length ==` ` && (
+        <p className="text-danger">{t('Name Is required')} </p>
+      )} */}
                   </errors>
                 </p>
               </div>
@@ -63,7 +116,7 @@ export default function Register() {
                 <br />
                 <Form.Control
                   className=" register-input"
-                  {...register("UserName", {
+                  {...register("lastName", {
                     required: true,
                     minLength: 2,
                     // pattern: /^\S*$/,
@@ -72,8 +125,10 @@ export default function Register() {
                 />
                 <p className="text-danger">
                   <errors>
-                    {errors.UserName?.type === "required" &&
-                      `${t('LastName Is required')}`}
+                    {/* {errors.lastName?.type === "required" &&
+                      `${t('LastName Is required')}`} */}
+                    {!errors.lastName && !lastName && <span>{t('LastName Is required')} *</span>}
+
                     {/* {errors.UserName?.type === "pattern" && "No Space Allowed"} */}
                   </errors>{" "}
                 </p>
@@ -96,16 +151,28 @@ export default function Register() {
                 <br />
                 <Form.Control
                   className="register-input"
-                  {...register("MobileNumber", { required: true })}
+                  {...register("phoneNumber", {
+                    required: true, pattern: /^01[0125][0-9]{8}$/,
+                  },
+
+                  )}
                   placeholder={t('Mobile Number')}
+
+
 
 
                 />
                 <p className="text-danger">
+
                   <errors>
-                    {errors.MobileNumber?.type === "required" &&
+                    {errors.phoneNumber?.type === "required" &&
                       `${t('Please specify a valid mobile number')}`}
+                    {errors.phoneNumber?.type === "pattern" && `${t('Please specify a valid mobile number')}`}
+                    {!errors.phoneNumber && !phoneNumber && <span>{t('Mobile Number is required')} *</span>}
+
+
                   </errors>
+
                 </p>
               </div>
               {/* <div>
@@ -132,20 +199,28 @@ export default function Register() {
                 <br />
                 <Form.Control
                   className="register-input border-warning "
-                  {...register("Email", {
+                  {...register("email", {
                     required: true,
-                    pattern: /^[a-zA-Z]{3,30}(@)(gmail|yahoo|outlook)(.com)$/,
+                    pattern: /^[a-zA-Z0-9._%+-]+@(gmail|yahoo|outlook)\.(com)$/
+                    ,
                   })}
                   placeholder={t('Email Address')}
                 />{" "}
                 <p className="text-danger">
                   <errors>
-                    {errors.Email?.type === "required" && `${t('Email is Required')}`}
-                    {errors.Email?.type === "pattern" && `${t('Please enter a valid email address.')}`}
+                    {errors.email?.type === "required" && `${t('Email is Required')}`}
+                    {errors.email?.type === "pattern" && `${t('Please enter a valid email address.')}`}
+                    {/* {watch("email") && !errors.email && !errors.email?.type && <span>Email looks good!</span>} */}
+                    {!errors.email && email && !email.match(/^[a-zA-Z0-9._%+-]+@(gmail|yahoo|outlook)\.(com)$/) && <span>{t('Please enter a valid email address.')}</span>
+                    }
+                    {!errors.email && !email && <span>{t('Email is Required')} *</span>}
+
+                    {/* {!errors.email && email && !email.length <1 && <span>{t('Email is Required')}</span>} */}
+
                   </errors>
                 </p>
               </div>
-              <div>
+              {/* <div>
                 <Form.Label className="mt-3 font-weight-bold">
                   {t('Password')}
                 </Form.Label>{" "}
@@ -153,7 +228,7 @@ export default function Register() {
                 <Form.Control
                   className="register-input"
                   type={"password"}
-                  {...register("Password", {
+                  {...register("password", {
                     required: true,
                     minLength: 2,
                     pattern:
@@ -163,10 +238,44 @@ export default function Register() {
                 />{" "}
                 <p className="text-danger">
                   <errors>
-                    {errors.Password?.type === "required" &&
+                    {errors.password?.type === "required" &&
                       `${t('Passwrod is Required')}`}
-                    {errors.Password?.type === "pattern" && `${t('Password Pattern')}`
-                  }                  </errors>
+                    {errors.password?.type === "pattern" && `${t('Password Pattern')}`
+                    }                  </errors>
+                </p>
+              </div> */}
+              <div>
+                <Form.Label className="mt-3 font-weight-bold">
+                  {t('Password')}
+                </Form.Label>{" "}
+                <br />
+                <InputGroup>
+                  <Form.Control
+                    className="register-input"
+                    type={showPassword ? 'text' : 'password'}
+                    {...register("password", {
+                      required: true,
+                      minLength: 8,
+                      pattern:
+                        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
+                    })}
+                    placeholder={t('Password')}
+                  />
+                  <Button variant="outline-secondary" onClick={() => setShowPassword(!showPassword)}>
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </Button>
+                </InputGroup>
+                <p className="text-danger">
+                  {/* {errors.password?.type === "required" &&
+                    `${t('Password is Required')}`}
+                  {errors.password?.type === "minLength" &&
+                    `${t('Password must have at least 8 characters')}`}
+                  {errors.password?.type === "pattern" &&
+                    `${t('Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character')}`} */}
+                  {!errors.password && password && !password.match(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/) &&
+                    <span>{t('Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character')} </span>
+                  }
+                  {!errors.password && !password && <span>{t('Passwrod is Required')} *</span>}
                 </p>
               </div>
               <div>
@@ -174,28 +283,42 @@ export default function Register() {
                   {t('Confirm Password')}
                 </Form.Label>{" "}
                 <br />
-                <Form.Control
-                  className="register-input"
-                  type={"password"}
-                  {...register("ConfirmPassword", {
-                    required: true,
-                    validate: (val) => {
-                      if (watch("Password") !== val) {
-                        return `${t('Please make sure your passwords match.')}`;
-                      }
-                    },
-                  })}
-                  placeholder={t('Confirm Password')}
-                />
+                <InputGroup>
+
+                  <Form.Control
+                    className="register-input"
+                    type={showPassword ? 'text' : 'password'}
+                    {...register("ConfirmPassword", {
+                      required: true,
+                      validate: (val) => {
+                        if (watch("password") !== val) {
+                          return `${t('Please make sure your passwords match.')}`;
+                        }
+                      },
+                    })}
+                    placeholder={t('Confirm Password')}
+                  />
+                  <Button variant="outline-secondary" onClick={() => setShowPassword(!showPassword)}>
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </Button>
+                </InputGroup>
                 <p className="text-danger">
                   <errors>
                     {errors.ConfirmPassword?.type === "required" &&
                       `${t('Passwrod is Required')}`}
                     {errors.ConfirmPassword?.type === "validate" &&
                       `${t('Please make sure your passwords match.')}`}
+               {!errors.ConfirmPassword && !ConfirmPassword && <span>{t('Passwrod is Required')} *</span>}
+
+               {!errors.ConfirmPassword && ConfirmPassword && !ConfirmPassword.match(password) &&
+                    <span> {t('Please make sure your passwords match.')} </span>
+                  }
+
                   </errors>{" "}
                 </p>{" "}
               </div>
+              <p className="text-danger ">{error}</p>
+
               <Button
                 variant="warning"
                 type="submit"
@@ -211,3 +334,6 @@ export default function Register() {
     </>
   );
 }
+
+////////
+

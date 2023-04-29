@@ -24,7 +24,7 @@ const Cards = ({ item, handleClick }) => {
   var [Fav, setFav] = useState([])
 
     let FavList = useSelector((state)=>state.add.Fav); // recieving fav list from the reducer
-
+     
 
     const dispatch = useDispatch();   // useDispatch return function that calls my actions
 
@@ -41,7 +41,6 @@ const Cards = ({ item, handleClick }) => {
           console.log(item);
           console.log(Fav);
           setFav([...Fav]);
-          console.log(Fav);
           dispatch(favAdd(Fav));
       }
       else { // remove from fav  //  else if ( FavList[i]==movie )
@@ -76,13 +75,8 @@ const Cards = ({ item, handleClick }) => {
       <div className='col-lg-6 col-sm-12 mt-4' >
 
        <Link to={`/details/${id}`}>
-      <Button className='me-5 text-white' variant="warning">{t('See Details')}</Button></Link> 
+      <Button className='me-5 text-white' variant="warning">{t('Details')}</Button></Link> 
 
-
-
-      {/* <span className= 'p-3 circle bg-warning'  style={{borderRadius:"50%"}} onClick={()=>handleClick(item)} role='button'>
-      <BsFillCartFill className='text-warning fs-4' role='button'> </BsFillCartFill>
-  </span> */}
       </div>
       </div>
       <div className='mt-4 d-flex'>

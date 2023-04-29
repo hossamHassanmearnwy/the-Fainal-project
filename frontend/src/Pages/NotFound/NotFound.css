@@ -4,9 +4,15 @@
   margin: auto;
   height: 600px;
   width: 600px;
-  position: relative;
-}
+  display: flex;
+  text-align: center;
+  justify-content: center;
 
+}
+.my{
+  display: flex;
+  justify-content: center;
+}
 .err {
   color: orange;
   font-family: 'Nunito Sans', sans-serif;
@@ -16,22 +22,9 @@
   top: 8%;
 }
 
-.far {
-  position: absolute;
-  font-size: 8.5rem;
-  left: 42%;
-  top: 15%;
-  color: #ffffff;
-}
 
-.err2 {
-  color: orange;
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 11rem;
-  position: absolute;
-  left: 68%;
-  top: 8%;
-}
+
+
 
 .msg {
   text-align: center;

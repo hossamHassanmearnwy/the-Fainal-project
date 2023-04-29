@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaStar } from 'react-icons/fa';
 
 const StarRating = () => {
+    const {t, i18n} = useTranslation();
+    document.body.dir = i18n.dir();
     const [rating, setRating] = useState(0);
 
     const handleRatingClick = (newRating) => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import Button from "react-bootstrap/Button";
 
 import Container from "react-bootstrap/Container";
@@ -11,10 +11,38 @@ import { BsHouseDoor } from "react-icons/bs";
 import "./InternalNav.css";
 import { NavLink, Link } from "react-router-dom";
 import { Trans, useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from 'react-redux';
+
+import list from "../../data";
+import updateSearchTerm, { fetchProductsSuccess } from "../../Store/actions/search";
+
+
 
 const InternalNav = ({ size, setShow }) => {
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
+
+
+
+ const searchTerm = useSelector(state => state.search.searchTerm);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  function fetchProducts() {
+    dispatch(fetchProductsSuccess(list)); // Dispatch the array of products from your API file
+  }
+
+  function handleInputChange(event) {
+    dispatch(updateSearchTerm(event.target.value));
+  }
+
+
+
+
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -38,6 +66,8 @@ const InternalNav = ({ size, setShow }) => {
                 borderTopLeftRadius: "30px",
                 borderBottomLeftRadius: "30px",
               }}
+              value={searchTerm}
+              onChange={handleInputChange}
             />
             <Form.Control.Feedback>Search</Form.Control.Feedback>
             <InputGroup.Text

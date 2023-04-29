@@ -1,17 +1,33 @@
 import React, { useState, useEffect } from "react";
-import Amazon from '../../Components/Amazon/Amazon'
-import MainSideBar from './../../Components/MainSideBar/MainSideBar';
-import Slider from './../../Components/Slider/Slider';
+import Amazon from "../../Components/Amazon/Amazon";
+import MainSideBar from "./../../Components/MainSideBar/MainSideBar";
+import Slider from "./../../Components/Slider/Slider";
 import Cart from "../../Pages/cart/Cart";
 
-import ProductDetail from '../../Pages/productDetail/ProductDetail';
+import ProductDetail from "../../Pages/productDetail/ProductDetail";
 
 import OffersSlider from "../../Components/offersSlider/OffersSlider";
 import offersList from "../../offersData";
+import BestSec from "../../Components/besrSellers/BestSec";
+import SummaryProd from "../../Components/summary/summaryProd";
+import productsaxios from "./../../axiosConfig/axiosInstance";
 
-
-export default function Home() {
+export default function Home({ handleClick }) {
+ 
   //  const [warning, setWarning] = useState(false);
+
+  const [Products, setProducts] = useState([]);
+  useEffect(() => {
+    productsaxios
+      .get("/Offers")
+      .then((res) => {
+        console.log(res.data);
+        setProducts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   const [show, setShow] = useState(true);
   // const [cart , setCart] = useState([]);
   let [cart, setCart] = useState(
@@ -25,23 +41,6 @@ export default function Home() {
     console.log(`Saved ${cart.length} items to localstorage`);
   }, [cart]);
 
-  const handleClick = (item) => {
-    let isPresent = false;
-    cart.forEach((product) => {
-      if (item.id === product.id) isPresent = true;
-      // console.log(product)
-    });
-    if (isPresent) {
-      setWarning(true);
-      setTimeout(() => {
-        setWarning(false);
-      }, 2000);
-      return;
-    }
-    setCart([...cart, item]);
-  };
-
-
   const handleChange = (item, d) => {
     let ind = -1;
     cart.forEach((data, index) => {
@@ -54,54 +53,34 @@ export default function Home() {
     if (tempArr[ind].amount === 0) tempArr[ind].amount = 1;
     setCart([...tempArr]);
   };
- 
-  return (<>
 
-  <div className='mx-5 my-5'>
-                <div className='row ' >
-                    <div className='col-3 '>
-                    {/* Main Sidebar */}
-                  <MainSideBar/>
+  return (
+    <>
+      <div className="mx-5 my-5">
+        <div className="row ">
+          <div className="col-3 ">
+            {/* Main Sidebar */}
+            <MainSideBar DatatoComponent={Products} />
+          </div>
+          <div className="col-9">
+            <Slider DatatoComponent={Products} />
+          </div>
+        </div>
+      </div>
 
-  
-  </div>
-   <div className='col-9'>
-                    <Slider />
-                </div>
-  </div>
-  </div>
-  
-    {/* <Cart
-      cart={cart}
-      setCart={setCart}
-      handleChange={handleChange}
-      setShow={setShow}
-      path='/cart'
+      <div className="container">
+        <Amazon handleClick={handleClick} DatatoComponent={Products}/>
 
-    /> 
-  )}
-  {warning && (
-    <div className="warning">Item is already added to your cart</div>
-  )}
+        <BestSec handleClick={handleClick} DatatoComponent={Products} />
 
-  
+        <OffersSlider handleClick={handleClick} DatatoComponent={Products} />
 
-    />  */}
-    <Amazon handleClick={handleClick} />
+        <SummaryProd />
 
-      
-
-    {/* <OffersSlider/> */}
-
-    
-    {warning && (
-      <div className="warning">Item is already added to your cart</div>
-    )}
-
-
-  
-
-  
-  </>
-  )
+        {warning && (
+          <div className="warning">Item is already added to your cart</div>
+        )}
+      </div>
+    </>
+  );
 }

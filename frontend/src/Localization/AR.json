@@ -7,6 +7,11 @@
 "Apply Coupon":"تطبيق القسيمة ",
 "your favs":"المفضلة لديك",
 "Card Title":"عنوان البطاقة ",
+"Title":"الاسم",
+"Mobile Number is required":"أدخل رقم الهاتف ",
+
+"Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character":
+"يجب أن تحتوي كلمة المرور على حرف واحد كبير وحرف صغير ورقم واحد وحرف خاص واحد على الأقل",
 "forgot pass":"هل نسيت كلمة المرور",
 "Please enter your email address":
 "الرجاء إدخال عنوان بريدك الإلكتروني أدناه الحصول على رابط إعادة تعيين كلمة مرور. البريد الالكتروني",
@@ -100,6 +105,13 @@
     "BestSeller Product":"الأفضل مبيعا",
     "Top 10":"أفضل 10",
     "Computers & Labtops":"كبيوتر & لابتوب",
+    "the wishlist":"قائمة الامنيات",
+    "Range":"النطاق/المدى",
+    "Model Year":"سنة الصنع",
+    "Invilad Email Or Password":"البريد الإلكتروني أو كلمة السر خاطئة",
+    "This Email is already Registered":"البريد الإلكتروني مستخدم بالفعل",
+    "Logout":"تسجيل الخروج",
+
 
 
 
@@ -163,7 +175,7 @@
   "Export": "استخراج",
   "Field ": "حقل ",
   "File you are trying to upload exceeds maximum file size limit.": "الملف الذي تحاول تحميل يتجاوز الحجم الأقصى المسموح به للملف.",
-  "Filters": "تصفيات",
+  "Filter": "تصفية",
   "Final Price": "السعر النهائي",
   "First Name": " الإسم الأول",
   "Forgot Your Password?": "هل نسيت كلمة المرور؟",
@@ -307,12 +319,12 @@
   "Review & Payments": "مراجعة ودفع",
   "SKU": "رمز المنتج",
   "Save": "حفظ",
-  "Save Address": "حفظ عنوان",
+  "Save Address": "حفظ العنوان",
   "Save for later use.": "حفظ لاستخدامها في وقت لاحق.",
   "Save in address book": "حفظ في دفتر العناوين",
   "Search": "بحث",
   "Search entire store here...": "ابحث فى المتجر بالكامل هنا...",
-  "See Details": "عرض التفاصيل",
+  "See Details": "التفاصيل",
   "See order and shipping status": "متابعة الطلب وحالة الشحن",
   "See our Shipping Policy": "الاطلاع على \"سياسة الشحن\"",
   "See price before order confirmation.": "انظر السعر قبل تأكيد الطلب.",
@@ -354,6 +366,8 @@
   "To:": "إلى:",
   "Total": "إجمالي",
   "Cart Total":"إجمالي العربة",
+  "CART SUBTOTALl":"مجموع العربة",
+  "ORDER TOTAL":"الطلب الكلي",
   "Track order history": "الاطلاع على طلباتك السابقة",
   "Update": "تحديث",
   "Use Default Value": "استخدام قيمة افتراضية",

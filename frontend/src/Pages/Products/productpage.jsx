@@ -1,23 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./productpage.css";
 import { useTranslation } from "react-i18next";
-import productsaxios from "./../../axiosConfig/axiosInstance";
+import productsaxios from "../../axiosConfig/axiosInstance";
 
 const Productpage = () => {
-  console.log("ok");
-  const [Products, setProducts] = useState([]);
-  useEffect(() => {
-    productsaxios
-      .get("/Products")
-      .then((res) => {
-        console.log(res.data);
-        setProducts(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [setProducts]);
-  
+
+
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
   return (
@@ -61,10 +49,8 @@ const Productpage = () => {
         </div>
       </div>
       <div>
-        {/* Products :  {Products.map((prd) => (
-          <div className="key">{prd.ItemNameEn}</div>
-        ))}    */}
-           </div>
+
+      </div>
 
       {/* <a href="www" ></a> */}
     </div>

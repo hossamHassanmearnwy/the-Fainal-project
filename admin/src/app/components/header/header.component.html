@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark px-2">
+    <div class="side-nav-button p-2 me-3 text-light" (click)="SideNavToggled()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <a class="navbar-brand px-4 fs-4" href="#" >My <span class="text-warning">Fire</span></a>
+
+    <div class="navbar-collapse">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item dropdown">
+                <a href="" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                    Menu 1
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a href="" class="dropdown-item">Child 1</a></li>
+                    <li><a href="" class="dropdown-item">Child 2</a></li>
+                    <li><a href="" class="dropdown-item">Child 3</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a href="" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                    Menu 1
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a href="" class="dropdown-item">Child 1</a></li>
+                    <li><a href="" class="dropdown-item">Child 2</a></li>
+                    <li><a href="" class="dropdown-item">Child 3</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a href="" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                    Menu 1
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a href="" class="dropdown-item">Child 1</a></li>
+                    <li><a href="" class="dropdown-item">Child 2</a></li>
+                    <li><a href="" class="dropdown-item">Child 3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <form class="d-flex me-5">
+        <input class="form-control me-2" type="search" placeholder="search">
+        <button class="btn btn-outline-warning" type="submit">Search</button>
+    </form>
+
+    <div class="profile-logo dropdown">
+        <button class="btn btn-outline-warning dropdown-toggle" data-bs-toggle="dropdown">
+            admin name
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            <li><button class="dropdown-item btn btn-outline-none border-0" routerLink="/Logout" (click)="userLogout()" [hidden]="!userLogged">Logout</button></li>
+        </ul>
+    </div>
+</nav>

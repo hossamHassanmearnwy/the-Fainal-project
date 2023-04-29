@@ -1,0 +1,32 @@
+<button class="btn btn-warning mb-4" [routerLink]="['/addCat']">Add Category</button>
+
+<nav class="navbar">
+    <input type="text" class="form-control" name="catName" id="catName" [(ngModel)]="searchTerm" (ngModelChange)="Search()" placeholder="enter category name">
+</nav>
+
+<table class="table">
+    <thead class="table-light">
+        <tr>
+            <th scope="col" (click)="sort('id')">ID &nbsp;<i class="fa fa-sort text-black-50"></i></th>
+            <th scope="col" (click)="sort('catNameEn')">Name &nbsp;<i class="fa fa-sort text-black-50"></i></th>
+            <th scope="col">Item</th>
+            <th scope="col">Visability</th>
+            <th scope="col">Action</th>
+          </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor =" let cat of ListOfCat | orderBy: key: reverse | paginate: {itemsPerPage:3, currentPage:p}; let i = index">
+        <tr>
+            <th scope="row">{{cat._id}}</th>
+            <td>{{cat.catName}}</td>
+            <td>items No</td>
+            <td><span class="px-2 py-1 bg-success-subtle rounded-3">Avaliable</span></td>
+            <td><i class="fa-solid fa-pen-to-square me-4 fs-4 text-success" (click)="update(cat.id)" role="button"></i> <i class="fa-solid fa-trash fs-4 text-danger" (click)="delete(cat.id)" role="button"></i></td>
+        
+          </tr>
+        </ng-container>
+    </tbody>
+    <tfoot>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </tfoot>
+  </table>

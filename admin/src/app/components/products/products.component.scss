@@ -1,0 +1,65 @@
+table tr:nth-child(even) {
+    background-color: #e4e3e3
+}
+
+.deleteBtn,.editBtn {
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(74, 73, 73);
+    color: #e4e3e3;
+    margin-left: 5px;
+
+}
+
+.deleteBtn:hover {
+    background-color: red;
+    transition-duration: 1s;
+    color: white;
+
+}
+.editBtn:hover {
+    background-color: rgb(38, 174, 38);
+    transition-duration: 1s;
+    color: white;
+
+}
+
+.head {
+    width: 350px;
+    height: 50px;
+    text-align: center;
+    padding-top: 13px;
+    border-radius: 10px;
+    background-color: #ffc107;
+    color: #333;
+
+}
+
+
+
+.header_wrap {
+    padding: 30px 0;
+}
+
+.num_rows {
+    width: 20%;
+    float: left;
+}
+
+.tb_search {
+    width: 20%;
+    float: right;
+}
+
+// .pagination-container {
+//     width: 70%;
+//     float: left;
+// }
+
+.rows_count {
+    width: 20%;
+    float: right;
+    text-align: right;
+    color: #999;
+}
+

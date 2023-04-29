@@ -59,7 +59,7 @@ export default function MyAccount() {
             </Card.Text>
           </Card.Body>
           <Card.Footer >
-            <Link className={'edit-link'} to='/useraccount/mywishlist'>{t('Edit')} </Link>
+            <Link className={'edit-link'} to='/useraccount/fav'>{t('Edit')} </Link>
 
           </Card.Footer>
         </Card>
@@ -97,7 +97,7 @@ export default function MyAccount() {
             {/* <Card.Title>Default Shipping Address</Card.Title> */}
             <Card.Text className={(Fname === '') ? '' : "emptyShippingDetails"} >
               <div class="alert alert-warning alert-dismissible fade show" role="alert">
-               {t('You have not set any Shipping Address')} </div>
+                {t('You have not set any Shipping Address')} </div>
             </Card.Text>
             <Card.Text className={(Fname === '') ? "emptyShippingDetails" : ''}>
               {/* You have not set a default shipping address . */}

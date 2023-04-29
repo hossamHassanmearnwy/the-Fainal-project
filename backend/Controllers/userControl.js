@@ -1,12 +1,13 @@
 const userModel = require("../Models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { promisify } = require("util");
+// const { promisify } = require("util");
 
 // create new user (register)
 async function createUser(req, res, next) {
   try {
     var newUser = await userModel.create(req.body);
+    console.log(req.body);
     res.status(200).json(newUser);
     if (newUser.password) {
       var salt = await bcrypt.genSalt(10);
