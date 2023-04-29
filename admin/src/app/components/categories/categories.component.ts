@@ -42,11 +42,13 @@ export class CategoriesComponent implements OnInit{
     }
   }
 
-  update(id:number){
+  update(id:string){
     this.router.navigate(['/updateCat',id])
     }
 
-
+    // update(id:number){
+    //   this.router.navigate(['/updateOrder',id])
+    //   }
 
    Search() {
     this.ListOfCat = this.ListOfCat.filter(row => {

@@ -19,37 +19,22 @@ export class OrderServiceService {
 
   constructor(private httpClient: HttpClient, private userService:UserAuthService) {   
 this.httpOptions={
-  // headers:new HttpHeaders(
-  //   {
-  //     'Content-Type':'application/json'
-  //   }
-  // )
+  headers:new HttpHeaders(
+    {
+      'Content-Type':'application/json',
+      Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjp0cnVlLCJhZG1pbklkIjoiNjQ0YWYwYjU0ZTFmYTMwZTdmZDNmOGVhIiwiaWF0IjoxNjgyODAzNDQ4LCJleHAiOjE2ODI4ODk4NDh9.snYtoyTYnARUWlt0sIeCC16PQHA08mBlCG8NvmzrVHM'
+    }
+  )
 };
 
 }
 
 getAllOrders():Observable<IOrder[]>{
-  const token = localStorage.getItem('currentUser');
-  console.log(token);
-  const headers =  new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-
-
   // return this.httpClient.get<IOrder[]>(`${this.baseUri}`);
-  return this.httpClient.get<IOrder[]>(`http://localhost:3001/orders`, { headers }).pipe(catchError(this.handleError));
+  return this.httpClient.get<IOrder[]>(`http://localhost:3001/orders`, this.httpOptions);
   }
 
-  private handleError(error: HttpErrorResponse) {
-    if (error.status === 401) {
-      // Handle unauthorized error
-      console.error('Unauthorized request', error);
-    } else {
-      // Handle other errors
-      console.error('An error occurred', error);
-    }
-
-    return throwError('Something went wrong; please try again later.');
-  };
+ 
 
   //return this.httpClient.get<IOrder[]>(`http://localhost:3001/orders`, { headers: this.headers, responseType: 'json' });
 
@@ -67,7 +52,7 @@ getAllOrders():Observable<IOrder[]>{
 
 
 getOrderByID(oid:number):Observable<IOrder>{
-  return this.httpClient.get<IOrder>(`http://localhost:3001/orders/${oid}`);
+  return this.httpClient.get<IOrder>(`http://localhost:3001/orders/${oid}`,this.httpOptions);
   }
 
   addNewOrder(order:IOrder):Observable<IOrder>{
@@ -79,12 +64,12 @@ getOrderByID(oid:number):Observable<IOrder>{
     return this.httpClient.delete<IOrder>(`http://localhost:3001/orders/${oid}`,this.httpOptions)
   }
 
-  getUpdateOrder(oid:number):Observable<IOrder>{
+  getUpdateOrder(oid:string):Observable<IOrder>{
     return this.httpClient.get<IOrder>(`http://localhost:3001/orders/${oid}`,this.httpOptions)
   }
 
   updateOrder(order:IOrder):Observable<IOrder>{
-    return this.httpClient.put<IOrder>(`http://localhost:3001/orders/${order._id}`, order,this.httpOptions).pipe(
+    return this.httpClient.patch<IOrder>(`http://localhost:3001/orders/update/${order._id}`,order ,this.httpOptions).pipe(
       map(()=>order)
     )
   }
