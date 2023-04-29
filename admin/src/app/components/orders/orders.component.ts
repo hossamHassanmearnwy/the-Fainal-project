@@ -21,13 +21,13 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit(): void {
   this.orderAPI.getAllOrders().subscribe(response =>{
-    this.ListOfOrder=(response as any).data;
+    this.ListOfOrder=response
     console.log(this.ListOfOrder);
     
   })
-  this.orderAPI.getOrderByID(3).subscribe(data =>{
-  console.log(data)
-  })
+  // this.orderAPI.getOrderByID(3).subscribe(data =>{
+  // console.log(data)
+ // })
   }
 
   delete(val: number){
