@@ -10,6 +10,9 @@ router.post("/register", userController.createUser);
 
 //put
 router.patch("/update/:id", userController.updateUser);
+//
+//put
+router.patch("/forgotpassword", userController.updateUserPass);
 
 //login
 router.post("/login", userController.login);
