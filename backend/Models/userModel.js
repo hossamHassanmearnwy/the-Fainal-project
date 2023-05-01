@@ -44,13 +44,21 @@ const userSchema=mongoose.Schema({
         type:String,
         length:11
     },
+    isDeleted:{
+        type:Boolean,
+        default: false,
+     },
     Date:{
         type:Date,
+        required: false,
+
         default:Date.now
     },
     Gender:{
         type:String,
-        // enum:['Male','Female'],
+        required: false,
+
+        enum:['Male','Female'],
     }
 
     },{timestamps:true}

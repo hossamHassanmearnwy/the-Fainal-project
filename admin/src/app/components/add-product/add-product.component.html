@@ -1,0 +1,65 @@
+<div class="container">
+    <form action="/action_page.php">
+        <div class="row">
+            <div class="col-25">
+                <label for="proId">Product ID</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="proId" name="productId" placeholder="PRODUCT ID">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="proName">Product Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="proName" name="productName" placeholder="PRODUCT NAME">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="proCat">Product Category</label>
+            </div>
+            <div class="col-75">
+                <select id="proCat" name="proCategory">
+                    <option value="australia">Mobile</option>
+                    <option value="canada">laptop</option>
+                    <option value="usa">mouses</option>
+                </select>
+            </div>
+        </div>
+        <!-- Main image -->
+        <div class="row">
+            <div class="col-25">
+                <label for="proImg">Product Main Image</label>
+            </div>
+            <div class="col-75">
+
+                <input type="file" id="proImg" style="width: 1000px;" name="productImage" accept="image/*">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="proImg"> Gallery Images</label>
+            </div>
+            <div class="col-75">
+
+                <input type="file" id="files" name="files" multiple accept="image/*">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="proDesc">Product Description</label>
+            </div>
+            <div class="col-75">
+                <textarea id="proDesc" name="proDescription" placeholder="PRODUCT DESCRIPTION"
+                    style="height:200px"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</div>

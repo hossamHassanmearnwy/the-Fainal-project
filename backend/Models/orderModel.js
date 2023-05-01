@@ -58,7 +58,12 @@ const orderSchema = mongoose.Schema({
     cartId:{
         type: mongoose.SchemaTypes.ObjectId,
         ref:'Cart'
-    }  
+    }  ,
+
+    isDeleted:{
+        type:Boolean,
+        default: false
+    }
 
 }, { timestamps: true })
 

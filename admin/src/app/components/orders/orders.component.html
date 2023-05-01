@@ -20,14 +20,14 @@
     <tbody>
         <ng-container *ngFor =" let order of ListOfOrder | orderBy: key: reverse | paginate: {itemsPerPage:5, currentPage:p}; let i = index">
         <tr>
-            <th scope="row">{{order.id}}</th>
-            <td>{{order.date}}</td>
-            <td>{{order.user}}</td>
-            <td><span class="px-2 py-1 bg-success-subtle rounded-3">{{order.paid}}</span></td>
-            <td><span class="px-2 py-1 bg-danger-subtle rounded-3">{{order.status}}</span></td>
-            <td>{{order.item}}</td>
-            <td>$ {{order.total}}</td>
-            <td><i class="fa-solid fa-pen-to-square me-3 fs-4 text-success" (click)="update(order.id)" role="button"></i> <i class="fa-solid fa-trash fs-4 text-danger" (click)="delete(order.id)" role="button"></i></td>
+            <th scope="row">{{order._id}}</th>
+            <td>{{order.shippingAddressEn}}</td>
+            <td>{{order.userId}}</td>
+            <td><span class="px-2 py-1 bg-success-subtle rounded-3">order.paid</span></td>
+            <td><span class="px-2 py-1 bg-danger-subtle rounded-3">{{order.statusEn}}</span></td>
+            <td>{{order.quantity}}</td>
+            <td>$ {{order.totalPrice}}</td>
+            <td><i class="fa-solid fa-pen-to-square me-3 fs-4 text-success" (click)="update(order._id)" role="button"></i> <i class="fa-solid fa-trash fs-4 text-danger" (click)="delete(order._id)" role="button"></i></td>
         
           </tr>
         </ng-container>

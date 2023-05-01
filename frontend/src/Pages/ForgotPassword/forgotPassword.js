@@ -1,67 +1,172 @@
-import React, { Fragment, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+
+import React, { useState } from "react";
+import { Col, Container, InputGroup, Row } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
-import {  useNavigate } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import './forgotPasswordStyle.css'
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import "./forgotPasswordStyle.css";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import Register from "../Register/register";
+// import ForgotPassword from "../ForgotPassword/forgotPassword";
 import { useTranslation } from "react-i18next";
+import useraxios from "../../axiosConfig/axiosInstance";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 export default function ForgotPassword() {
-    const {t, i18n} = useTranslation();
+
+  const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
+  const [showPassword, setShowPassword] = useState(false);
 
-    const [user, setUser] = useState({
-        userEmail: "",
-    })
-    const [error, setError] = useState({
-        errEmail: "",
-    })
-    const handelinput = (e) => {
-        var reqEmail = /^[a-zA-Z]{3,30}(@)(gmail|yahoo|outlook)(.com)$/
-        switch (e.target.name) {
-            case "userEmail":
-                setUser({ ...user, userEmail: e.target.value })
-                setError({
-                    ...error, errEmail: (e.target.value === 0) ?
-                        "Email is Required" : (!reqEmail.test(e.target.value)) ? "Enter Vaild Email" : ""
-                })
-                break;
-            default:
-                break;
-        }
-    }
-    const navigate = useNavigate();
-    const navigateToLogin =()=>{
-        navigate("/login")
-    }
-    return <Fragment>
-        <Container fluid>
-            <Row>
-                <Col><Form className="w-100" >
-                    <h1 >{t('forgot pass')}</h1>
-                    <Form.Group className="mb-3 " controlId="formBasicEmail">
-                        <Form.Label style={{ fontWeight: "bold" }}>{t('Please enter your email address')}</Form.Label>
-                        <div className="d-flex flex-column align-items-center m-3 ">
-                            <Form.Control className="forget-input border-warning" name="userEmail" type="email"
-                             placeholder={t('Email Address')} value={user.userEmail}
-                                onChange={(event) => { handelinput(event) }} />
-                            <p className="text-danger ">{error.errEmail}</p>
-                            <Button variant="warning" type="submit" size="lg" className="forget-input text-white" >
-                                {t('Recover Password')}
-                            </Button>
-                        </div>
-                    </Form.Group>     
-                </Form>
-                </Col>
-            </Row>
 
-            <row>
-                <p> {t('Remember your password ')}
-                    <a  className="text-warning text-decoration-none "  onClick={()=> navigateToLogin()} > {t('Login')} </a>
-                </p>
-            </row>
-        </Container>
-    </Fragment>
+
+  const navigate = useNavigate();
+  const navigateForgotPassword = () => {
+    navigate("/forgotpassword");
+  };
+  const navigateRegister = () => {
+    navigate("/register");
+  };
+  const [user, setUser] = useState({
+    userEmail: "",
+    userPass: "",
+  });
+  const [error, setError] = useState({
+    errEmail: "",
+    errPass: "",
+    err: "",
+  });
+  const handelinput = (e) => {
+    var reqEmail = /^[a-zA-Z]{3,30}(@)(gmail|yahoo|outlook)(.com)$/;
+    switch (e.target.name) {
+      case "userEmail":
+        setUser({ ...user, userEmail: e.target.value });
+        setError({
+          ...error,
+          errEmail:
+            e.target.value === 0 ? `${t('Email is Required')}`
+              : !reqEmail.test(e.target.value)
+                ? `${t('Enter Vaild Email')}`
+                : "",
+        });
+        break;
+      case "userPass":
+        setUser({ ...user, userPass: e.target.value });
+        setError({
+          ...error,
+          errPass: e.target.value === 0 ? `${t("Passwrod is Required")}`
+            : e.target.value.length < 8 ? `${t("Enter Vaild Password")}` : "",
+        });
+        break;
+      default:
+        break;
+    }
+  };
+
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await useraxios.patch("/users/forgotpassword", {
+        email: user.userEmail,
+        password: user.userPass,
+      });
+      console.log(response.data); // token
+
+
+      console.log("updated successful");
+      navigate("/login");
+
+    } catch (error) {
+      console.error("Error updating in:", error);
+
+      setError({
+        ...error,
+        err: t('Invilad Email Or Password')
+      }); // set error state to display error message
+
+
+    }
+  };
+  return (
+    <>
+      <Container className="my-auto">
+        <Row>
+          <Col>
+            {" "}
+            <Form className="d-flex justify-content-center flex-column align-items-center w-100" onSubmit={handleSubmit}>
+              <h1>{t('Registered Customers')}</h1>
+              <p>{t('If you have an account')}</p>
+              <Form.Group className="mb-3 " controlId="formBasicEmail">
+                <Form.Label className=" font-weight-bold">
+                  {t('Email Address')}
+                </Form.Label>
+
+                <Form.Control
+                  className="login-input border-warning  "
+                  name="userEmail"
+                  type="email"
+                  // className="me-0 warning w-90 search-form"
+                  placeholder={t('Email Address')}
+
+                  value={user.userEmail}
+                  onChange={(event) => {
+                    handelinput(event);
+                  }}
+                />
+                <p className="text-danger ">{error.errEmail}</p>
+                {/* <Paragraph text="Invilad Email Or Password" /> */}
+                <p className="text-danger ">{error.err}</p>
+
+              </Form.Group>
+              {/* <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label className=" font-weight-bold">{t('Password')}</Form.Label>
+                <Form.Control
+                  className="login-input border-warning"
+                  name="userPass"
+                  type="password"
+                  placeholder={t('Password')}
+                  value={user.userPass}
+                  onChange={(event) => {
+                    handelinput(event);
+                  }}
+                />
+                <p className="text-danger">{error.errPass}</p>
+              </Form.Group> */}
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label className="font-weight-bold">{t('New Password')}</Form.Label>
+                <InputGroup>
+                  <Form.Control
+                    className="login-input border-warning"
+                    name="userPass"
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder={t('Password')}
+                    value={user.userPass}
+                    onChange={(event) => {
+                      handelinput(event);
+                    }}
+                  />
+                     <Button variant="outline-secondary" onClick={() => setShowPassword(!showPassword)}>
+                      {showPassword ? <FaEyeSlash/> : <FaEye/>}
+                    </Button>
+                </InputGroup>
+                <p className="text-danger">{error.errPass}</p>
+              </Form.Group>
+              <Button variant="warning" type="submit" className="login-input text-white">
+                {t('Reset Password')}
+              </Button>
+
+              {/* <p className="mt-3">
+                {t('Forget Password')}
+                <a className="text-warning text-decoration-none " onClick={() => navigateForgotPassword()}> {t('Reset Password')} </a>
+              </p> */}
+            </Form>
+          </Col>
+       
+        </Row>   
+      </Container>
+    </>
+  );
 }

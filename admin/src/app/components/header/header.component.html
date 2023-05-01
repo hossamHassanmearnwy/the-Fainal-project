@@ -55,7 +55,7 @@
             admin name
         </button>
         <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a href="#" class="dropdown-item">Logout</a></li>
+            <li><button class="dropdown-item btn btn-outline-none border-0" routerLink="/Logout" (click)="userLogout()" [hidden]="!userLogged">Logout</button></li>
         </ul>
     </div>
 </nav>

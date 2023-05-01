@@ -20,12 +20,14 @@ export class OrdersComponent implements OnInit {
 
 
   ngOnInit(): void {
-  this.orderAPI.getAllOrders().subscribe(data =>{
-    this.ListOfOrder=data;
+  this.orderAPI.getAllOrders().subscribe(response =>{
+    this.ListOfOrder=response
+    console.log(this.ListOfOrder);
+    
   })
-  this.orderAPI.getOrderByID(3).subscribe(data =>{
-  console.log(data)
-  })
+  // this.orderAPI.getOrderByID(3).subscribe(data =>{
+  // console.log(data)
+ // })
   }
 
   delete(val: number){

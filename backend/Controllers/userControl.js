@@ -42,12 +42,41 @@ async function updateUser(req, res, next) {
     res.status(500).json(err.message);
   }
 }
+//reset password
+async function updateUserPass(req, res, next) {
+  try {
+    const email = req.body.email;
+    const newData = req.body;
+    console.log(newData.password);
+
+    if (newData.password) {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPass = bcrypt.hashSync(newData.password, salt);
+      newData.password = hashedPass;
+    }
+
+    // console.log(email);
+    const user = await userModel.findOneAndUpdate({ email }, { $set: newData }, { new: true });
+    res.status(200).json({ status: "success", user });
+
+    next();
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+}
 
 //get all users
 async function getAllUsers(req, res, next) {
   try {
     const allUsers = await userModel.find();
-    res.status(200).json(allUsers);
+    var users = allUsers.filter((user)=>{
+      return (!user.isDeleted)
+    })
+    if (users.length > 0){
+    res.status(200).json(users);
+  } else {
+    res.json({msg : "No users found"})
+  }
   } catch (err) {
     res.status(500).json(err.message);
   }
@@ -57,9 +86,12 @@ async function getAllUsers(req, res, next) {
 async function getUserById(req, res, next) {
   try {
     var id = req.params.id;
-    const getUser = await userModel.findById(id);
-    console.log(getUser);
-    res.status(200).json(getUser);
+    const receivedUser = await userModel.findById(id);
+    if(!receivedUser.isDeleted){
+    res.status(200).json(receivedUser);
+  }else{
+    res.json({msg : `no user found for this id :  ${id}`});
+  }
   } catch (err) {
     res.status(422).json({ status: "failed", message: `${err.message}` });
   }
@@ -67,13 +99,25 @@ async function getUserById(req, res, next) {
 
 //delete by id
 async function deleteUser(req, res) {
+  var id = req.params.id;
+  var deletedBody = req.body
   try {
-    var id = req.params.id;
-    var deletedUser = await userModel.findByIdAndDelete(id);
-    if (deletedUser.isAdmin === true) {
-      res.status(204).json("you can't delete admin user");
-    } else {
-      res.status(200).json(" email deleted successfully");
+    
+    var deletedUser = await userModel.findByIdAndUpdate(id, deletedBody);
+    // console.log(deletedUser);
+    // console.log("deletedUser");
+    if(!deletedUser || deletedUser.isDeleted){
+      res.status(404 ).json({msg: `no user for this id ${id}`})
+    }
+    else {
+      if (deletedUser.isAdmin === true) {
+        // console.log('heere');
+        res.json({msg:"you can't delete admin user"});
+      } else{
+        deletedBody.isDeleted = true;
+        deletedUser = await userModel.findByIdAndUpdate(id, deletedBody);
+        res.status(200).json({msg:" user deleted successfully"});
+      }
     }
   } catch (err) {
     res.status(422).json({ status: "failed", message: `${err.message}` });
@@ -187,5 +231,6 @@ module.exports = {
   Logout,
   getAllUsers,
   updateUser,
+  updateUserPass,
   //   protect,
 };

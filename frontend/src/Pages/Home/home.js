@@ -13,6 +13,7 @@ import SummaryProd from "../../Components/summary/summaryProd";
 import productsaxios from "./../../axiosConfig/axiosInstance";
 
 export default function Home({ handleClick }) {
+ 
   //  const [warning, setWarning] = useState(false);
 
   const [Products, setProducts] = useState([]);
