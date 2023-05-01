@@ -36,9 +36,6 @@ function ProjectNav() {
             <Link className="text-dark" to="/register">
               {t("Register")} |{" "}
             </Link>
-            <Link className="text-dark" to="/product">
-              {t("Products")}
-            </Link>
           </Nav>
         </Navbar.Collapse>
         {i18n.language === "ar" && (

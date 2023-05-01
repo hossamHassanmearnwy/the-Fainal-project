@@ -1,11 +1,11 @@
 import React from "react";
-import list from "../../data";
+// import list from "../../data";
 import "../Amazon/amazon.css";
 import Cards from "../Card/Cards";
 import Sec from "./../styleSec/style";
-import offersList from "../../offersData";
+// import offersList from "../../offersData";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";  
 
 const Amazon = ({ handleClick, Products }) => {
   const { t, i18n } = useTranslation();

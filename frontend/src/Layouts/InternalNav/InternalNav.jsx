@@ -10,7 +10,7 @@ import * as Icon from "react-bootstrap-icons";
 import { BsHouseDoor } from "react-icons/bs";
 import "./InternalNav.css";
 import { NavLink, Link } from "react-router-dom";
-import { Trans, useTranslation } from "react-i18next";
+import { t, useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from 'react-redux';
 
 import list from "../../data";
@@ -38,9 +38,6 @@ const InternalNav = ({ size, setShow }) => {
   function handleInputChange(event) {
     dispatch(updateSearchTerm(event.target.value));
   }
-
-
-
 
 
   return (
