@@ -10,8 +10,23 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-  // ClintName:string='Fatma'
-  productsListOfCatId: IProduct[]=[]
+////////////////////////////////////
+      // itemName	: string=""
+      // brand : string=""
+      // color: string=""
+      // images:[]=[]	
+      // price	: string=""
+      // onSale	: string=""
+      // priceOnSale 	: string=""
+      // Keyboard	: string=""
+      // memoryRAM	: string=""
+      // internalStorage	: string=""
+      // operatingSystem	: string=""
+      // Processor	: string=""
+      // Battery	: string=""
+      // realCamera	: string=""
+      // graphicsDisplay: string=""
+      ///////////////////////////////////////////////////
   allProductsArray: any[]=[]
     searchTerm: string = '';
     ///////////
@@ -47,7 +62,7 @@ export class ProductsComponent {
       this.getAllProducts()
     }else{
       this.allProductsArray = this.allProductsArray.filter(res =>{
-        return res.ItemName.toLocaleLowerCase().match(this.searchData.toLocaleLowerCase())
+        return res.ItemNameEn.toLocaleLowerCase().match(this.searchData.toLocaleLowerCase())
         
       })
     }

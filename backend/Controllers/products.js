@@ -8,12 +8,11 @@ function updateProductById(id, product) {
   return ProductsModel.updateOne({ _id: id }, product);
 }
 
-function getAll(limit = 50, skip = 0) {
+function getAll() {
   //    return ProductsModel.find().populate("userId")
   return ProductsModel.find()
     .populate(["offer", "review", "Categorie"])
-    .limit(limit)
-    .skip(skip);
+    
 }
 
 //get all limit
