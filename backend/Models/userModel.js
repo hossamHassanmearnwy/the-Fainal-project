@@ -58,7 +58,7 @@ const userSchema=mongoose.Schema({
         type:String,
         required: false,
 
-        enum:['Male','Female'],
+        // enum:['Male','Female'],
     }
 
     },{timestamps:true}

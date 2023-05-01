@@ -55,15 +55,25 @@ async function updateUserPass(req, res, next) {
       newData.password = hashedPass;
     }
 
-    // console.log(email);
+       // console.log(email);
     const user = await userModel.findOneAndUpdate({ email }, { $set: newData }, { new: true });
     res.status(200).json({ status: "success", user });
+    // res.end();
+
 
     next();
   } catch (err) {
     res.status(500).json(err.message);
   }
 }
+
+
+
+
+
+
+
+
 
 //get all users
 async function getAllUsers(req, res, next) {

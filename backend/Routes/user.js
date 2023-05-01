@@ -11,7 +11,7 @@ router.post("/register", userController.createUser);
 //put
 router.patch("/update/:id", userController.updateUser);
 //
-//put
+//put reset
 router.patch("/forgotpassword", userController.updateUserPass);
 
 //login
