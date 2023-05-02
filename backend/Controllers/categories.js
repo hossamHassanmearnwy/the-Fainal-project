@@ -90,15 +90,11 @@ exports.updateCategory = async(req , res) => {
 
 exports.deleteCategory = expressAsyncHandler(async(req , res) => {
         var {id} = req.params;
-        catBody = req.body
-        catBody.isDeleted= true;
-        const category = await catModel.findByIdAndUpdate(id,catBody);
-        // category.isDeleted= true;
-        if(!category || category.isDeleted){
+        const category = await catModel.findByIdAndDelete(id);
+        if(!category){
                 res.status(404 ).json({msg: `no category for this id ${id}`})
         }
         res.status(200).json({msg: "this category is deleted successfully"})
-        res.status(200).json(category)
 });
 // module.exports={createCategory};
 
