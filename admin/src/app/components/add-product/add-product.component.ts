@@ -40,6 +40,42 @@ export class AddProductComponent {
       connectorEn:string=""
       typeAr:string=""
       typeEn:string=""
+      compatibleDevicesAr:string=""
+      compatibleDevicesEn:string=""
+      specialFeatureEn:string=""
+      specialFeatureAr:string=""
+      connectivityTechnologyEn:string=""
+      connectivityTechnologyAr:string=""
+      compatiblePhoneModelsEn:string=""
+      compatiblePhoneModelsAr:string=""
+      inputVoltage:string=""
+      amperage:string=""
+      totalUspPorts:string=""
+      mountingType:string=""
+      itemHardness:string=""
+      finishTypeEn:string=""
+      finishTypeAr:string=""
+      unitCount:string=""
+      screenSize:string=""
+      itemWeight:string=""
+      weightLimit:string=""
+      maximumHeight:string=""
+      tripodHeadType:string=""
+      foldedSize:string=""
+      brandMaterialTypeEn:string=""
+      brandMaterialTypeAr:string=""
+      Network:string=""
+      processorEn:string=""
+      processorAr:string=""
+      numberOfBatteries:string=""
+      batteryAverageLifeStandby:string=""
+      areBatteriesIncluded:string=""
+      areBatteriesRequired:string=""
+      plugFormat:string=""
+      outputVoltage:string=""
+      totalPowerOutlets:string=""
+      includedComponents:string=""
+
       
 
 
@@ -53,7 +89,7 @@ export class AddProductComponent {
       onSale	: string=""
       priceOnSale 	: string=""
       Keyboard	: string=""
-      memoryRAM	: string=""
+      memoryRam	: string=""
       internalStorage	: string=""
       operatingSystem	: string=""
       processor	: string=""
@@ -106,6 +142,39 @@ export class AddProductComponent {
          "ConnectorEn":this.connectorAr,
          "TypeEn":this.typeEn,
          "TypeAr":this.typeAr,
+         "CompatibleDevicesAr":this.compatibleDevicesAr,
+         "CompatibleDevicesEn":this.compatibleDevicesEn,
+         "SpecialFeatureEn":this.specialFeatureEn,
+         "SpecialFeatureAr":this.specialFeatureAr,
+         "connectivityTechnologyEn":this.connectivityTechnologyEn,
+         "connectivityTechnologyAr":this.connectivityTechnologyAr,
+         "compatiblePhoneModelsEn":this.compatiblePhoneModelsEn,
+         "compatiblePhoneModelsAr":this.compatiblePhoneModelsAr,
+         "inputVoltage":this.inputVoltage,
+         "Amperage":this.amperage,
+         "totalUspPorts":this.totalUspPorts,
+         "mountingType":this.mountingType,
+         "itemHardness":this.itemHardness,
+         "finishTypeEn":this.finishTypeEn,
+         "finishTypeAr":this.finishTypeAr,
+         "unitCount":this.unitCount,
+         "screenSize":this.screenSize,
+         "itemWeight":this.itemWeight,
+         "weightLimit":this.weightLimit,
+         "maximumHeight":this.maximumHeight,
+         "tripodHeadType":this.tripodHeadType,
+         "foldedSize":this.foldedSize,
+         "brandMaterialTypeEn":this.brandMaterialTypeEn,
+         "brandMaterialTypeAr":this.brandMaterialTypeAr,
+         "Network":this.Network,
+         "numberOfBatteries":this.numberOfBatteries,
+         "batteryAverageLifeStandby":this.batteryAverageLifeStandby,
+         "areBatteriesIncluded":this.areBatteriesIncluded,
+         "areBatteriesRequired":this.areBatteriesRequired,
+         "plugFormat":this.plugFormat,
+         "outputVoltage":this.outputVoltage,
+         "totalPowerOutlets":this.totalPowerOutlets,
+         "includedComponents":this.includedComponents,
 
 
          "Images" : this.images,
@@ -113,10 +182,11 @@ export class AddProductComponent {
          "onSale" : this.onSale,
          "PriceOnSale" : this.priceOnSale,
          "Keyboard" : this.Keyboard,
-         "memoryRAM" : this.memoryRAM,
+         "memoryRam" : this.memoryRam,
          "internalStorage" : this.internalStorage,
          "operatingSystem" : this.operatingSystem,
-         "Processor" : this.processor,
+         "ProcessorEn" : this.processorEn,
+         "ProcessorAr" : this.processorAr,
          "Battery" : this.battery,
          "realCamera" : this.realCamera,
          "graphicsDisplay" : this.graphicsDisplay
@@ -136,7 +206,7 @@ export class AddProductComponent {
       this.onSale	 = '',
       this.priceOnSale 	 = '',
       this.Keyboard	 = '',
-      this.memoryRAM	 = '',
+      this.memoryRam	 = '',
       this.internalStorage	 = '',
       this.operatingSystem	 = '',
       this.processor	 = '',
