@@ -17,21 +17,16 @@ const categorieSchema = mongoose.Schema({
         maxLength:20,
     },
     // A and B => shopping.com/a-and-b
-    slugEn:{
-        type:String,
-        lowercase: true,
-    },
-    slugAr:{
-        type:String,
-        lowercase: true,
-    },
-    image:{
-        type:String,
-    },
-    isDeleted:{
-        type:Boolean,
-        default: false
-    }
+
+    // slugEn:{
+    //     type:String,
+    //     lowercase: true,
+    // },
+    // slugAr:{
+    //     type:String,
+    //     lowercase: true,
+    // }
+
 }, {timestamps: true});
 
 

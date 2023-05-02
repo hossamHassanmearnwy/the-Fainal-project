@@ -12,7 +12,6 @@ import { UpdateCategoryComponent } from './components/update-category/update-cat
 import { AddProductComponent } from './components/add-product/add-product.component';
 
 import { UpdateOrderComponent } from './components/update-order/update-order.component';
-import { AddOrderComponent } from './components/add-order/add-order.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { UserAuthheGuard } from './Guard/user-authh.guard';
 
@@ -37,7 +36,6 @@ const routes: Routes = [
   {path:'category',component:CategoriesComponent, canActivate:[UserAuthheGuard] },
   {path:'addCat',component:AddCategoryComponent, canActivate:[UserAuthheGuard] },
   {path:'updateCat/:id',component:UpdateCategoryComponent, canActivate:[UserAuthheGuard] },
-  {path:'addOrder',component:AddOrderComponent, canActivate:[UserAuthheGuard] },
   {path:'updateOrder/:id',component:UpdateOrderComponent, canActivate:[UserAuthheGuard] },
 
 

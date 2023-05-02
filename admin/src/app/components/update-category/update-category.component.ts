@@ -16,11 +16,11 @@ export class UpdateCategoryComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    this.catAPI.getAllCat().subscribe(response =>{
-      this.categories = (response as any).data;
+    // this.catAPI.getAllCat().subscribe(response =>{
+    //   this.categories = (response as any).data;
 
-      console.log(response);
-    })
+    //   console.log(response);
+    //})
     let sub = this.route.params.subscribe(params => {
       this.val = params['id'];
     });

@@ -15,11 +15,11 @@ export class AddCategoryComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.catAPI.getAllCat().subscribe(response =>{
-      this.ListOfCat = (response as any).data;
-      console.log(response);
+//     this.catAPI.getAllCat().subscribe(response =>{
+//       this.ListOfCat = (response as any).data;
+//       console.log(response);
       
-  })
+//  })
   }
 
   addCat(){
@@ -27,16 +27,20 @@ export class AddCategoryComponent implements OnInit {
   
   
     this.catAPI.addNewCat(this.cat).subscribe({
-      next:(newCat)=>{
-        console.log(newCat);
+      next:(Cat)=>{
+        console.log(Cat);
         alert("category added successfully")
         this.router.navigate(['/category']);
   
       },
       error:(err)=>{
         console.log(err);
-  
-      }
+ 
+      },
+      complete:() => {
+        console.log('Observable completed');
+      },
+      
     })
     }
 
