@@ -7,9 +7,47 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent {
-      itemName	: string=""
-      brand : string=""
-      color: string=""
+      itemNameEn	: string=""
+      itemNameAr	: string=""
+      brandEn : string=""
+      brandAr : string=""
+      colorEn : string=""
+      colorAr: string=""
+      detailsEn: string=""
+      detailsAr:string=""
+      descriptionEn: string=""
+      descriptionAr: string=""
+      capacity:string=""
+      interface:string=""
+      connector:string=""
+      compatibilityAr:string=""
+      compatibilityEn:string=""
+      workWithAr:string=""
+      workWithEn:string=""
+      laptopCompartmentAr:string=""
+      laptopCompartmentEn:string=""
+      materialAr:string=""
+      materialEn:string=""
+      powerSourceAr:string=""
+      powerSourceEn:string=""
+      seriesAr:string=""
+      seriesEn:string=""
+      weight:string=""
+      dimensions:string=""
+      wattage:string=""
+      outputWattage:string=""
+      connectorAr:string=""
+      connectorEn:string=""
+      typeAr:string=""
+      typeEn:string=""
+      
+
+
+      
+
+
+
+
       images:[]=[]	
       price	: string=""
       onSale	: string=""
@@ -22,27 +60,58 @@ export class AddProductComponent {
       battery	: string=""
       realCamera	: string=""
       graphicsDisplay: string=""
-      description: string=""
+      //////////////////////////////
+      selectedCategory:string=''
+
 
 
 
     constructor(private http: HttpClient){
 
+  
     }
-
 
       register(){
         let bodyData = {
-         "ItemNameEn" : this.itemName,
-         "ItemNameAr" : this.itemName,
-         "BrandAr" : this.brand,
-         "BrandEn" : this.brand,
-         "ColorEn" : this.color,
-         "ColorAr" : this.color,
+         "ItemNameEn" : this.itemNameEn,
+         "ItemNameAr" : this.itemNameAr,
+         "BrandAr" : this.brandAr,
+         "BrandEn" : this.brandEn,
+         "ColorEn" : this.colorEn,
+         "ColorAr" : this.colorAr,
+         "DetailsEn" : this.detailsEn,
+         "DetailsAr" : this.detailsAr,
+         "DescriptionAr" : this.descriptionAr,
+         "DescriptionEn" : this.descriptionEn,
+         "Capacity" : this.capacity,
+         "Interface" :this.interface,
+         "Connector" : this.connector,
+         "CompatibilityAr": this.compatibilityAr,
+         "CompatibilityEn": this.compatibilityEn,
+         "workWithEn":this.workWithEn,
+         "workWithAr":this.workWithAr,
+         "laptopCompartmentAr":this.laptopCompartmentAr,
+         "laptopCompartmentEn":this.laptopCompartmentEn,
+         "MaterialAr":this.materialAr,
+         "MaterialEn":this.materialEn,
+         "powerSourceAr":this.powerSourceAr,
+         "powerSourceEn":this.powerSourceEn,
+         "SeriesAr":this.seriesAr,
+         "SeriesEn":this.seriesEn,
+         "Weight":this.weight,
+         "Dimensions":this.dimensions,
+         "Wattage":this.wattage,
+         "outputWattage":this.outputWattage,
+         "ConnectorAr":this.connectorAr,
+         "ConnectorEn":this.connectorAr,
+         "TypeEn":this.typeEn,
+         "TypeAr":this.typeAr,
+
+
          "Images" : this.images,
          "Price" : this.price,
          "onSale" : this.onSale,
-         "priceOnSale" : this.priceOnSale,
+         "PriceOnSale" : this.priceOnSale,
          "Keyboard" : this.Keyboard,
          "memoryRAM" : this.memoryRAM,
          "internalStorage" : this.internalStorage,
@@ -50,17 +119,18 @@ export class AddProductComponent {
          "Processor" : this.processor,
          "Battery" : this.battery,
          "realCamera" : this.realCamera,
-         "graphicsDisplay" : this.graphicsDisplay,
-         "DescriptionAr" : this.description,
-         "DescriptionEn" : this.description
+         "graphicsDisplay" : this.graphicsDisplay
         };
 
         this.http.post("http://localhost:3001/Products",bodyData).subscribe((resultData: any)=>{
           console.log(resultData)
           alert("Product added Successfully")
-      this.itemName  = '',
-      this.brand  = '',
-      this.color = '',
+      this.itemNameEn  = '',
+      this.itemNameAr  = '',
+      this.brandEn  = '',
+      this.brandAr  = '',
+      this.colorAr = '',
+      this.colorEn = '',
       this.images = [],
       this.price	 = '',
       this.onSale	 = '',
@@ -73,12 +143,19 @@ export class AddProductComponent {
       this.battery	 = '',
       this.realCamera = '',
       this.graphicsDisplay = '',
-      this.description = ''
+      this.descriptionEn = '',
+      this.descriptionAr = '',
+      this.compatibilityAr='',
+      this.compatibilityEn='',
+      this.workWithAr='',
+      this.workWithEn='',
+      this.laptopCompartmentAr='',
+      this.laptopCompartmentEn=''
 
 
 
         })
+        
       }
-
 
 }
