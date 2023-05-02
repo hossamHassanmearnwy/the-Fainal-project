@@ -11,6 +11,7 @@ import { IOrder } from '../models/iorder';
 export class OrdersDetailsComponent implements OnInit {
   ListOfOrder:IOrder[]=[];
   val: any;
+  data:any;
   searchTerm: string = '';
   p: number =1;
   order:IOrder= {} as IOrder;
@@ -27,9 +28,9 @@ export class OrdersDetailsComponent implements OnInit {
   console.log("id: " + this.val);
 
 
-  this.orderAPI.getUpdateOrder(this.val).subscribe( data => {
-    this.order = data;
-    console.log(this.order);
+  this.orderAPI.getUpdateOrder(this.val).subscribe( order => {
+    this.order = order;
+    console.log(order);
     
   });
 
@@ -38,34 +39,6 @@ export class OrdersDetailsComponent implements OnInit {
 
 
 
-
-
-
-
-  // delete(val: number){
-  //   var delBtn = confirm(" Do you want to delete ?");
-  //   if ( delBtn == true ) {
-  //     this.orderAPI.deleteOrder(val).subscribe((data) => {
-  //     });
-  //     this.orderAPI.getAllOrders().subscribe((response) => {
-  //       this.ListOfOrder = response
-  //     });
-  //   }
-  // }
-
-  // update(id:number){
-  //   this.router.navigate(['/updateOrder',id])
-  //   }
-
-
-
-   Search() {
-    this.ListOfOrder = this.ListOfOrder.filter(row => {
-      return Object.values(row).some(val =>
-        val.toString().toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    });
-   }
  key: string ='id';
  reverse: boolean = false;
  sort(key: string){
