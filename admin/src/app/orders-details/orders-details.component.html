@@ -1,0 +1,39 @@
+<h1 class="text-warning fs-2 text-center">Order Details</h1>
+
+<nav class="navbar">
+    <input type="text" class="form-control" name="catName" id="catName" [(ngModel)]="searchTerm" (ngModelChange)="Search()" placeholder="Enter User Name">
+</nav>
+
+<table class="table">
+    <thead class="table-light">
+        <tr>
+            <th scope="col">Product detail</th>
+            <th scope="col">تفاصيل المنتج</th>
+            <th scope="col">User Shipping address</th>
+            <th scope="col">عنوان التوصيل</th>
+            <th scope="col">City</th>
+            <th scope="col">المدينة</th>
+            <th scope="col">Phone</th>
+
+          </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor =" let order of ListOfOrder | orderBy: key: reverse | paginate: {itemsPerPage:5, currentPage:p}; let i = index">
+        <tr>
+            <td scope="row"></td>
+            <td></td>
+            <td>{{order.shippingAddressEn}}</td>
+            <td>{{order.shippingAddressAr}}</td>
+            <td>{{order.cityEn}}</td>
+            <td>{{order.cityAr}}</td>
+            <td>{{order.phone}}</td>
+           
+          </tr>
+        </ng-container>
+    </tbody>
+    <tfoot>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </tfoot>
+  </table>
+
+

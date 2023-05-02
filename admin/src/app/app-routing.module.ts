@@ -14,6 +14,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { UpdateOrderComponent } from './components/update-order/update-order.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { UserAuthheGuard } from './Guard/user-authh.guard';
+import { OrdersDetailsComponent } from './orders-details/orders-details.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,7 @@ const routes: Routes = [
   {path:'addCat',component:AddCategoryComponent},
   {path:'addProduct',component:AddProductComponent},
   {path:'updateCat/:id',component:UpdateCategoryComponent},
-
+  {path:'orderDetail/:id',component:OrdersDetailsComponent},
   {path:'dashboard',component:DashboardComponent, canActivate:[UserAuthheGuard] },
   {path:'product',component:ProductsComponent, canActivate:[UserAuthheGuard] },
   {path:'order',component:OrdersComponent, canActivate:[UserAuthheGuard],},

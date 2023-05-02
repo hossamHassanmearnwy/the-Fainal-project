@@ -32,19 +32,38 @@ async function updateOrder(req, res) {
 
 
 // get by id
+// async function getByID(req, res) {
+//     try {
+//         const orderId = req.params.id;
+//         const found = await orderModel.findById(orderId);
+//         if (found.userId == req.userId) {
+//             res.status(200).json(found);
+//         } else {
+//             res.status(422).json("this order not belong to you");
+//         }
+//     } catch (err) {
+//         res.status(422).json(err);
+//     }
+// }
+
+
+
 async function getByID(req, res) {
     try {
-        const orderId = req.params.id;
-        const found = await orderModel.findById(orderId);
-        if (found.userId == req.userId) {
-            res.status(200).json(found);
-        } else {
-            res.status(422).json("this order not belong to you");
-        }
+        const order = await orderModel.findById(req.params.id);
+    if (!order) return res.status(404).send('Order not found');
+    res.send(order);
     } catch (err) {
         res.status(422).json(err);
     }
 }
+
+
+// app.get('/api/orders/:id', async (req, res) => {
+//     const order = await Order.findById(req.params.id).populate('products').populate('shippingAddress');
+//     if (!order) return res.status(404).send('Order not found');
+//     res.send(order);
+//   });
 
 
 
