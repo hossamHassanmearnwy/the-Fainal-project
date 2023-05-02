@@ -23,6 +23,7 @@ import { UserLoginComponent } from './components/user-login/user-login.component
 import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { UserAuthheGuard } from './Guard/user-authh.guard';
 import { UserAuthService } from './services/user-auth.service'
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import { UserAuthService } from './services/user-auth.service'
     NotfoundComponent,
     AddCategoryComponent,
     UpdateCategoryComponent,
-
+    AddProductComponent,
     UpdateOrderComponent,
     UserLoginComponent,
 
