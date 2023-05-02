@@ -11,50 +11,39 @@
             maxLength: 20,
             
         },
-        lastName:{
-            type:String,
-            required:true,
-            minLength:3,
-            maxLength:20, 
-        },
-        email:{
-            type:String,
-            unique:true,
-            validate: {
-                validator: function (v) {
-                    // return validator.isEmail(v);
-                    return /^[a-zA-Z0-9]{3,15}(@)(gmail|yahoo|outlook)(.com)$/.test(v);
-                },
-                message: props => `${props.value} Is Not a Valid Email !`
-            },
-            required: [true, 'User Email required'],
-        },
-        password:{
-            type:String,
-            required:true
-        },
-        isAdmin: {
-            type: Boolean,
-            default: false,
-        },
-        isActive: {
-            type: Boolean,
-            default: true,
-        },
-        phoneNumber:{
-            type:String,
-            length:11
-        },
-        isDeleted:{
-            type:Boolean,
-            default: false,
-        },
+        required: [true, 'User Email required'],
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false,
+    },
+    isActive: {
+        type: Boolean,
+        default: true,
+    },
+    phoneNumber:{
+        type:String,
+        length:11
+    },
+    isDeleted:{
+        type:Boolean,
+        default: false,
         Date:{
             type:Date,
-            required: false,
+            default:Date.now
+        }    
+    },
+    Gender:{
+        type:String,
+        enum:['Male','Female'],
+    }
 
             default:Date.now
-        },
+        ,
         Gender:{
             type:String,
             required: false,
@@ -62,7 +51,7 @@
             // enum:['Male','Female'],
         }
 
-        },{timestamps:true}
+        ,{timestamps:true}
     )
 
 

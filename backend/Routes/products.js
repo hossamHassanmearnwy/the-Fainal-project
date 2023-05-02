@@ -13,8 +13,9 @@ router.get("/", async (req, res, next) => {
         })
         if (listedProducts.length === 0 ){
             res.send("No Products")
-        }
+        }else{
         res.status(200).json(listedProducts)
+        }
     } catch (err) {
         res.json({ message: err.message })
     }
@@ -62,7 +63,6 @@ router.get("/Categories/:id", async (req, res, next) => {
     var { id } = req.params
     try {
         var Products = await gettAllByCat(id)
-        
         res.status(200).json(Products)
     } catch (err) {
         res.json({ message: err.message })
@@ -114,8 +114,9 @@ router.delete("/:id", async (req, res, next) => {
         // deleteProduct.isDeleted = true;
         if(!deleteProduct || deleteProduct.isDeleted){
             res.status(404 ).json({msg: `no product for this id ${id}`})
+        }else{
+            res.status(200).json(deleteProduct)
         }
-        res.status(200).json(deleteProduct)
     } catch (err) {
         res.json({ message: err.message })
     }
