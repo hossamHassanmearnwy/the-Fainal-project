@@ -59,9 +59,7 @@ async function updateUserPass(req, res, next) {
     const user = await userModel.findOneAndUpdate({ email }, { $set: newData }, { new: true });
     res.status(200).json({ status: "success", user });
     // res.end();
-
-
-    next();
+    // next();
   } catch (err) {
     res.status(500).json(err.message);
   }
