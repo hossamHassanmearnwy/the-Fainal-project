@@ -17,6 +17,7 @@ const categorieSchema = mongoose.Schema({
         maxLength:20,
     },
     // A and B => shopping.com/a-and-b
+
     // slugEn:{
     //     type:String,
     //     lowercase: true,
@@ -25,6 +26,7 @@ const categorieSchema = mongoose.Schema({
     //     type:String,
     //     lowercase: true,
     // }
+
 }, {timestamps: true});
 
 

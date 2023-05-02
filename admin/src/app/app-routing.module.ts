@@ -8,13 +8,27 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { UpdateCategoryComponent } from './components/update-category/update-category.component';
+
+import { AddProductComponent } from './components/add-product/add-product.component';
+
 import { UpdateOrderComponent } from './components/update-order/update-order.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { UserAuthheGuard } from './Guard/user-authh.guard';
 
+
 const routes: Routes = [
 
   {path:'', redirectTo: '/dashboard',pathMatch:'full'},
+
+  {path:'dashboard',component:DashboardComponent},
+  {path:'product',component:ProductsComponent},
+  {path:'order',component:OrdersComponent},
+  {path:'user',component:UsersComponent},
+  {path:'category',component:CategoriesComponent},
+  {path:'addCat',component:AddCategoryComponent},
+  {path:'addProduct',component:AddProductComponent},
+  {path:'updateCat/:id',component:UpdateCategoryComponent},
+
   {path:'dashboard',component:DashboardComponent, canActivate:[UserAuthheGuard] },
   {path:'product',component:ProductsComponent, canActivate:[UserAuthheGuard] },
   {path:'order',component:OrdersComponent, canActivate:[UserAuthheGuard],},
@@ -23,6 +37,7 @@ const routes: Routes = [
   {path:'addCat',component:AddCategoryComponent, canActivate:[UserAuthheGuard] },
   {path:'updateCat/:id',component:UpdateCategoryComponent, canActivate:[UserAuthheGuard] },
   {path:'updateOrder/:id',component:UpdateOrderComponent, canActivate:[UserAuthheGuard] },
+
 
   {path:'Login',component:UserLoginComponent,title:'Login page'},
   {path:'Logout',component:UserLoginComponent,title:'Logout page'},

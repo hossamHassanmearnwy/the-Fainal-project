@@ -1,0 +1,351 @@
+
+<h2>All Categories</h2>
+<div class="addProductStyle">
+    <div>
+        <div class="dropdown">
+            <a href="" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                Computers
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a href="" class="dropdown-item">Laptop</a></li>
+                <li><a href="" class="dropdown-item">Security Camera</a></li>
+                <li><a href="" class="dropdown-item">Keyboard</a></li>
+                <li><a href="" class="dropdown-item">Mouse</a></li>
+                <li><a href="" class="dropdown-item">NetWork Product</a></li>
+                <li><a href="" class="dropdown-item">Flash Drive</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- ////// -->
+    <div>
+        <div class="dropdown">
+            <a href="" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                Mobiles & Tablets
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a href="" class="dropdown-item">Smart Phones</a></li>
+                <li><a href="#xxx" class="dropdown-item">Tablets</a></li>
+                <!-- <li><a href="" class="dropdown-item">Child 3</a></li> -->
+            </ul>
+            
+        </div>
+    </div>
+    <!-- ////// -->
+    <div>
+        <div class="dropdown">
+            <a href="" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                Menu 1
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a href="" class="dropdown-item">Child 1</a></li>
+                <li><a href="" class="dropdown-item">Child 2</a></li>
+                <li><a href="" class="dropdown-item">Child 3</a></li>
+            </ul>
+            
+        </div>
+    </div>
+    <!-- ////// -->
+    <div>
+        <div class="dropdown">
+            <a href="" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                Menu 1
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a href="" class="dropdown-item">Child 1</a></li>
+                <li><a href="" class="dropdown-item">Child 2</a></li>
+                <li><a href="" class="dropdown-item">Child 3</a></li>
+            </ul>
+            
+        </div>
+    </div>
+    <!-- ////// -->
+    <div>
+        <div class="dropdown">
+            <a href="" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                Menu 1
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a href="" class="dropdown-item">Child 1</a></li>
+                <li><a href="" class="dropdown-item">Child 2</a></li>
+                <li><a href="" class="dropdown-item">Child 3</a></li>
+            </ul>
+            
+        </div>
+    </div>
+    <!-- ////// -->
+    <div>
+        <div class="dropdown">
+            <a href="" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                Menu 1
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a href="" class="dropdown-item">Child 1</a></li>
+                <li><a href="" class="dropdown-item">Child 2</a></li>
+                <li><a href="" class="dropdown-item">Child 3</a></li>
+            </ul>
+            
+        </div>
+    </div>
+    <!-- ////// -->
+
+</div>
+
+
+
+<br/>
+<h1 >Add Laptop</h1>
+<div class="container" id="laptop">
+    <form action="/action_page.php">
+        <!-- <div class="row">
+            <div class="col-25">
+                
+                <label for="proId">Product ID</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="proId" name="productId" placeholder="PRODUCT ID">
+            </div>
+        </div> -->
+        <!-- name -->
+        <div class="row">
+            <div class="col-25">
+                <label for="proName">Product Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" [(ngModel)]="itemName" id="proName" name="productName" placeholder="PRODUCT NAME">
+            </div>
+        </div>
+        <!-- category -->
+        <div class="row">
+            <div class="col-25">
+                <label for="proCat">Product Category</label>
+            </div>
+            <div class="col-75">
+                <select id="proCat"  name="proCategory">
+                    <option value="canada">laptop</option>
+                    <!-- <option value="australia">Mobile</option>
+                    <option value="usa">mouses</option> -->
+                </select>
+            </div>
+        </div>
+        <!-- brand -->
+        <div class="row">
+            <div class="col-25">
+                <label for="brand">Brand Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" [(ngModel)]="brand" id="brand" name="brandName" placeholder="BRAND NAME">
+            </div>
+        </div>
+        <!-- keyboard -->
+        <div class="row">
+            <div class="col-25">
+                <label for="keyboard">Keyboard</label>
+            </div>
+            <div class="col-75">
+                <input type="text" [(ngModel)]="Keyboard" id="keyboard" name="keyboard" placeholder="KEYBOARD DETAILS">
+            </div>
+        </div>
+        <!-- processor -->
+        <div class="row">
+            <div class="col-25">
+                <label for="processor">Processor</label>
+            </div>
+            <div class="col-75">
+                <input type="text" [(ngModel)]="processor" id="processor" name="processor" placeholder="PROCESSOR DETAILS">
+            </div>
+        </div>
+        <!-- battery -->
+        <div class="row">
+            <div class="col-25">
+                <label for="battery">Battery</label>
+            </div>
+            <div class="col-75">
+                <input type="text" [(ngModel)]="battery" id="battery" name="battery" placeholder="BATTERY DETAILS">
+            </div>
+        </div>
+        <!-- real camera -->
+        <div class="row">
+            <div class="col-25">
+                <label for="camera">Camera</label>
+            </div>
+            <div class="col-75">
+                <input type="text" [(ngModel)]="realCamera" id="camera" name="camera" placeholder="CAMERA DETAILS">
+            </div>
+        </div>
+        <!-- graphicsDisplay -->
+        <div class="row">
+            <div class="col-25">
+                <label for="graphics">graphics Display</label>
+            </div>
+            <div class="col-75">
+                <input type="text" [(ngModel)]="graphicsDisplay" id="graphics" name="graphics" placeholder="GRAPHICS DISPLAY">
+            </div>
+        </div>
+        <!-- internal storage -->
+        <div class="row">
+            <div class="col-25">
+                <label for="internalStorage">Internal Storage</label>
+            </div>
+            <div class="col-75">
+                <input type="text" [(ngModel)]="internalStorage" id="internalStorage" name="internalStorage" placeholder="INTERNAL STORAGE DETAILS">
+            </div>
+        </div>
+        <!-- memory ram -->
+        <div class="row">
+            <div class="col-25">
+                <label for="ram">Memory Ram</label>
+            </div>
+            <div class="col-75">
+                <input type="text" [(ngModel)]="memoryRAM" id="ram" name="ram" placeholder="MEMORY RAM DETAILS">
+            </div>
+        </div>
+
+        <!-- operating system -->
+        <div class="row">
+            <div class="col-25">
+                <label for="os">Operating System</label>
+            </div>
+            <div class="col-75">
+                <select id="os" [(ngModel)]="operatingSystem" name="proCategory">
+                    <option value="windows">Windows</option>
+                    <option value="linux">Linux</option>
+                    <option value="mac">Mac</option>
+                </select>
+            </div>
+        </div>
+        <!-- Main image -->
+        <!-- <div class="row">
+            <div class="col-25">
+                <label for="proImg">Product Main Image</label>
+            </div>
+            <div class="col-75">
+
+                <input type="file" id="proImg" style="width: 1000px;" name="productImage" accept="image/*">
+            </div>
+        </div> -->
+
+        <!-- all images -->
+        <div class="row">
+            <div class="col-25">
+                <label for="proImg"> Gallery Images</label>
+            </div>
+            <div class="col-75">
+
+                <input type="file" [(ngModel)]="images" id="files" name="files" multiple accept="image/*">
+            </div>
+        </div>
+            <!-- description -->
+        <div class="row">
+            <div class="col-25">
+                <label for="proDesc">Product Description</label>
+            </div>
+            <div class="col-75">
+                <textarea id="proDesc" [(ngModel)]="description" name="proDescription" placeholder="PRODUCT DESCRIPTION"
+                    style="height:200px"></textarea>
+            </div>
+        </div>
+        <!-- price  -->
+        <div class="row">
+            <div class="col-25">
+                <label for="price">Price</label>
+            </div>
+            <div class="col-75">
+                <input type="text" [(ngModel)]="price" id="price" name="price" placeholder="NORMAL PRICE">
+            </div>
+        </div>
+        <!-- on sale -->
+        <div class="row">
+            <div class="col-25">
+                <label for="sale">On Sale</label>
+            </div>
+            <div class="col-75">
+                <input type="text" [(ngModel)]="onSale" id="sale" name="sale" placeholder="SALE">
+            </div>
+        </div>
+        <!-- price on sale -->
+        <div class="row">
+            <div class="col-25">
+                <label for="priceOnsale">Price On Sale</label>
+            </div>
+            <div class="col-75">
+                <input type="text" [(ngModel)]="priceOnSale" id="priceOnsale" name="priceOnsale" placeholder="PRICE ON SALE ">
+            </div>
+        </div>
+        <div class="row">
+           <button type="submit" (click)="register()" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<section id="xxx">
+<div class="container">
+    <form action="/action_page.php">
+        <div class="row">
+            <div class="col-25">
+                <label for="proId">Product ID</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="proId" name="productId" placeholder="PRODUCT ID">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="proName">Product Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="proName" name="productName" placeholder="PRODUCT NAME">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="proCat">Product Category</label>
+            </div>
+            <div class="col-75">
+                <select id="proCat" name="proCategory">
+                    <option value="australia">Mobile</option>
+                    <option value="canada">laptop</option>
+                    <option value="usa">mouses</option>
+                </select>
+            </div>
+        </div>
+        <!-- Main image -->
+        <div class="row">
+            <div class="col-25">
+                <label for="proImg">Product Main Image</label>
+            </div>
+            <div class="col-75">
+
+                <input type="file" id="proImg" style="width: 1000px;" name="productImage" accept="image/*">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="proImg"> Gallery Images</label>
+            </div>
+            <div class="col-75">
+
+                <input type="file" id="files" name="files" multiple accept="image/*">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="proDesc">Product Description</label>
+            </div>
+            <div class="col-75">
+                <textarea id="proDesc" name="proDescription" placeholder="PRODUCT DESCRIPTION"
+                    style="height:200px"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+</section  >

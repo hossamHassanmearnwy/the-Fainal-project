@@ -16,8 +16,8 @@ function updateReview(id, review){
     return reviewsModel.updateOne({_id:id}, review);
 }
 
-function deleteReview(id){
-    return reviewsModel.deleteOne({_id:id})
-
+function deleteReview(id, review){
+    return reviewsModel.findByIdAndUpdate(id, review)
 };
+
 module.exports= {getAllReviews, getReviewById, createReview, updateReview , deleteReview}
