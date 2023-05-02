@@ -37,6 +37,7 @@ export class ProductsComponent {
   page: number = 1
   constructor(private http: HttpClient ){
       this.getAllProducts()
+  
 
   }
 
@@ -66,7 +67,15 @@ export class ProductsComponent {
         
       })
     }
+//  gettAllByCat() {
+//  this.allProductsArray.find({Categorie : id })
+//     .populate('categories', 'name');
+// }
 
+//  gettAllByCat(id) {
+//   this.allProductsArray.find({ Categorie: { _id: id } }) .populate('Categorie', 'catNameEn');
+//   
+// }
 
   }
 
@@ -82,3 +91,7 @@ onTableSizeChange(event:any): void{
   this.getAllProducts()
 }
 }
+function gettAllByCat() {
+  throw new Error('Function not implemented.');
+}
+
