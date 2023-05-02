@@ -46,10 +46,11 @@ const userSchema=mongoose.Schema({
     },
     isDeleted:{
         type:Boolean,
-        default: false
-    Date:{
-        type:Date,
-        default:Date.now
+        default: false,
+        Date:{
+            type:Date,
+            default:Date.now
+        }    
     },
     Gender:{
         type:String,

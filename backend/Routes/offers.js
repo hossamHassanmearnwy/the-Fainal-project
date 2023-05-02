@@ -69,8 +69,9 @@ router.delete('/:id',async (req,res,next)=>{
         var deletedOffer = await deleteOffer(id,offer);
         if(!deletedOffer || deletedOffer.isDeleted){
             res.status(404 ).json({msg: `no offer for this id ${id}`})
+        }else{
+            res.status(200).json("Offer Deleted");
         }
-        res.status(200).json("Offer Deleted");
     } catch (error) {
         res.status(421).send({message: error.message});
     }

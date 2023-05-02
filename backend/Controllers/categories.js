@@ -19,7 +19,7 @@ exports.getCategories = expressAsyncHandler(async(req , res) => {
                 return (!category.isDeleted)
         })
         if(receivedCategories.length >0){
-        res.status(200 ).json({results: receivedCategories.length,page, data: receivedCategories})
+                res.status(200 ).json({results: receivedCategories.length,page, data: receivedCategories})
         }else{
                 res.json({msg: "No categories found"})
         }
@@ -37,8 +37,9 @@ exports.getCategory = expressAsyncHandler(async(req , res) => {
         const category = await catModel.findById(id);
         if(category.isDeleted){
                 res.status(404 ).json({msg: `no category for this id ${id}`})
-        }
+        }else{
         res.status(200 ).json({data:category})
+}
 });
 
 
@@ -66,8 +67,9 @@ exports.updateCategory = async(req , res) => {
         const category = await catModel.findByIdAndUpdate(id,catBody);
         if(!category){
                 res.status(404 ).json({msg: `no category for this id ${id}`})
-        }
+        }else{
         res.status(200 ).json("category updated succefully")
+        }
 };
 
 
@@ -84,8 +86,9 @@ exports.deleteCategory = expressAsyncHandler(async(req , res) => {
         // category.isDeleted= true;
         if(!category || category.isDeleted){
                 res.status(404 ).json({msg: `no category for this id ${id}`})
+        }else{
+                res.status(200).json({msg: "this category is deleted successfully"})
         }
-        res.status(200).json({msg: "this category is deleted successfully"})
-        res.status(200).json(category)
+        // res.status(200).json(category)
 });
 // module.exports={createCategory};
