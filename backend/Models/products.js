@@ -44,7 +44,7 @@ const ProdutsSchema = mongoose.Schema({
     OnSale: {
         type: Boolean
     },
-    PriceonSale: {
+    PriceOnSale: {
         type: Number
     },
     Storage: {
