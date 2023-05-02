@@ -45,7 +45,9 @@ export class OrdersComponent implements OnInit {
     this.router.navigate(['/updateOrder',id])
     }
 
-
+    details(id:number){
+      this.router.navigate(['/orderDetail',id])
+      }
 
    Search() {
     this.ListOfOrder = this.ListOfOrder.filter(row => {
