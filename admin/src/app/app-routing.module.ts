@@ -9,7 +9,6 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { UpdateCategoryComponent } from './components/update-category/update-category.component';
 import { UpdateOrderComponent } from './components/update-order/update-order.component';
-import { AddOrderComponent } from './components/add-order/add-order.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { UserAuthheGuard } from './Guard/user-authh.guard';
 
@@ -23,7 +22,6 @@ const routes: Routes = [
   {path:'category',component:CategoriesComponent, canActivate:[UserAuthheGuard] },
   {path:'addCat',component:AddCategoryComponent, canActivate:[UserAuthheGuard] },
   {path:'updateCat/:id',component:UpdateCategoryComponent, canActivate:[UserAuthheGuard] },
-  {path:'addOrder',component:AddOrderComponent, canActivate:[UserAuthheGuard] },
   {path:'updateOrder/:id',component:UpdateOrderComponent, canActivate:[UserAuthheGuard] },
 
   {path:'Login',component:UserLoginComponent,title:'Login page'},

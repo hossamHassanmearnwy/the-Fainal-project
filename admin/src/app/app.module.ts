@@ -17,7 +17,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { AddOrderComponent } from './components/add-order/add-order.component';
 import { UpdateOrderComponent } from './components/update-order/update-order.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
@@ -37,7 +36,6 @@ import { UserAuthService } from './services/user-auth.service'
     NotfoundComponent,
     AddCategoryComponent,
     UpdateCategoryComponent,
-    AddOrderComponent,
     UpdateOrderComponent,
     UserLoginComponent,
 
