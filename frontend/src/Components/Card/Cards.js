@@ -14,7 +14,7 @@ const Cards = ({ item, handleClick }) => {
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
   // const { ItemNameEn, desc, PriceOnSale, Images, id ,Price} = item;
-  const { ItemNameEn, DescriptionEn, PriceOnSale, Images, id } = item;
+  const { ItemNameEn, DescriptionEn, PriceOnSale, Price, Images, id } = item;
 // >>>>>>> a5889dd7ce94564f2fb7936834238f5923cb7345
   const navigate = useNavigate();
 
