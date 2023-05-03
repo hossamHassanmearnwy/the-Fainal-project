@@ -18,16 +18,16 @@ export class OrderServiceService {
 
    
   constructor(private httpClient: HttpClient, private userService:UserAuthService) {  
-    const token = localStorage.getItem('currentUser');
+    //const token = localStorage.getItem('currentUser');
 this.httpOptions={
   headers:new HttpHeaders(
     {
       'Content-Type':'application/json',
-      authorization: `${token}`
+      authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDRhZjBiNTRlMWZhMzBlN2ZkM2Y4ZWEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODMxMjQxMjIsImV4cCI6MTY4MzEyNzcyMn0.0NLeeD-PLyp0Bb1UBx8kqjOsxkYxB_6d6M_te90-wh0'
     }
   )
 };
-console.log(token);
+//console.log(token);
 
 }
 
@@ -62,7 +62,7 @@ getOrderByID(oid:number):Observable<IOrder>{
   }
 
   updateOrder(order:IOrder):Observable<IOrder>{
-    return this.httpClient.patch<IOrder>(`http://localhost:3001/orders/update/${order._id}`,order ,this.httpOptions).pipe(
+    return this.httpClient.patch<IOrder>(`http://localhost:3001/orders/updateAdmin/${order._id}`,order ,this.httpOptions).pipe(
       map(()=>order)
     )
   }

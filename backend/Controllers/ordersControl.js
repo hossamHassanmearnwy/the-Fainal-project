@@ -97,6 +97,27 @@ async function getAllOrders(req, res) {
 
 
 
+// update order by id 
+async function updateOrderByAdmin(req, res) {
+    var {id} = req.params;
+
+    var {statusEn , statusAr} = req.body;
+   // const category = await catModel.findOneAndUpdate({_id:id},{catNameEn, catNameAr},{new:true});
+
+    try{
+        const updatedOrder = await orderModel.findOneAndUpdate({_id:id},{statusEn, statusAr},{new:true});
+        res.status(200).json( updatedOrder);
+
+    }catch(err){
+        res.status(500).json(err.message);
+    }
+}
+
+
+
+
+
+
 // delete by id
 async function deleteById(req, res,next) {
     console.log("/////////////////////////////////////")
@@ -124,4 +145,4 @@ async function deleteById(req, res,next) {
 
 
 
-module.exports = { addOrder, getByID, deleteById, getAllOrders, updateOrder }
+module.exports = { addOrder, getByID, deleteById, getAllOrders, updateOrder, updateOrderByAdmin }
