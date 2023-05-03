@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IProduct } from 'src/app/models/iproduct';
 import { ProductsService } from 'src/app/services/products.service';
+import { SweetAlertService } from 'src/app/services/sweet-alert.service';
 
 @Component({
   selector: 'app-products',
@@ -35,7 +36,7 @@ export class ProductsComponent {
   tableSizes:any = [5, 10, 15, 20, 25];
   count:number=0;
   page: number = 1
-  constructor(private http: HttpClient ){
+  constructor(private http: HttpClient, private sweetAlertService: SweetAlertService ){
       this.getAllProducts()
   
 
@@ -52,7 +53,8 @@ export class ProductsComponent {
     console.log(data)
     this.http.delete("http://localhost:3001/products"+"/"+ data._id).subscribe((resultData: any)=>{
       console.log(resultData);
-      alert("Product Deleted Successfully")
+      this.sweetAlertService.showSuccess('Product Deleted Successfully');
+      //alert("Product Deleted Successfully")
       // this.getAllProducts()
     })
 
