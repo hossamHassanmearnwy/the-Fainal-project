@@ -35,6 +35,7 @@ import Accessories from './Pages/accessories/accessories';
 import Supply from './Pages/supply/supply';
 import Computers from './Pages/computers/computers';
 import Protected from "./protectedRoutes";
+import Games from './Pages/games/games';
 
 
 function App() {
@@ -149,11 +150,12 @@ function App() {
           <Route path="product" element={<Productpage />} />
 
           <Route path="/details/:id" element={<ProductDetail handleClick={handleClick} />} />
-
           <Route path="Mobiles" element={<Mobiles />} />
+
           <Route path="computers" element={<Computers />} />
           <Route path="supply" element={<Supply />} />
           <Route path="accessories" element={<Accessories/>} />
+          <Route path="Games" element={<Games/>} />
 
 
           <Route path="/cat" element={<CategoryPage />} />
