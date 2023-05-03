@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { SweetAlertService } from 'src/app/services/sweet-alert.service';
 
 @Component({
   selector: 'app-add-product',
@@ -26,7 +27,7 @@ export class AddProductComponent {
 
 
 
-    constructor(private http: HttpClient){
+    constructor(private http: HttpClient, private sweetAlertService: SweetAlertService){
 
     }
 
@@ -57,7 +58,8 @@ export class AddProductComponent {
 
         this.http.post("http://localhost:3001/Products",bodyData).subscribe((resultData: any)=>{
           console.log(resultData)
-          alert("Product added Successfully")
+          this.sweetAlertService.showSuccess('Product added Successfully');
+          //alert("Product added Successfully")
       this.itemName  = '',
       this.brand  = '',
       this.color = '',

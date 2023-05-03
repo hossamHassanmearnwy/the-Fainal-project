@@ -21,14 +21,8 @@ const routes: Routes = [
 
   {path:'', redirectTo: '/dashboard',pathMatch:'full'},
 
-  {path:'dashboard',component:DashboardComponent},
-  {path:'product',component:ProductsComponent},
-  {path:'order',component:OrdersComponent},
-  {path:'user',component:UsersComponent},
-  {path:'category',component:CategoriesComponent},
-  {path:'addCat',component:AddCategoryComponent},
+  
   {path:'addProduct',component:AddProductComponent},
-  {path:'updateCat/:id',component:UpdateCategoryComponent},
   {path:'orderDetail/:id',component:OrdersDetailsComponent},
   {path:'dashboard',component:DashboardComponent, canActivate:[UserAuthheGuard] },
   {path:'product',component:ProductsComponent, canActivate:[UserAuthheGuard] },

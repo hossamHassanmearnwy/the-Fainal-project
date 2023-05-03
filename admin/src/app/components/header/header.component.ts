@@ -10,16 +10,9 @@ export class HeaderComponent implements OnInit{
   @Output() sideNavToggled = new EventEmitter<boolean>()
   menuStatus: boolean = false;
   user:boolean=false;
-  userLogged!:boolean;
+  // userLogged!:boolean;
   constructor(private userService:UserAuthService){}
   ngOnInit(): void {
-
-    this.userService.getUserStatus().subscribe(status=>{
-      this.userLogged=status;
-      console.log(this.userLogged);
-      
-
-    })
   }
   SideNavToggled(){
     this.menuStatus = !this.menuStatus;
@@ -29,6 +22,18 @@ export class HeaderComponent implements OnInit{
   userLogout(){
     this.userService.logout();
     this.user = this.userService.UserState;//false
+  }
+
+
+  isLoggedIn(): boolean {
+    const token = localStorage.getItem('currentUser');
+    
+    if(token){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
 }

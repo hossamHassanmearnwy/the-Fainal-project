@@ -16,16 +16,18 @@ export class OrderServiceService {
   
   private httpOptions={};
 
-
-  constructor(private httpClient: HttpClient, private userService:UserAuthService) {   
+   
+  constructor(private httpClient: HttpClient, private userService:UserAuthService) {  
+    const token = localStorage.getItem('currentUser');
 this.httpOptions={
   headers:new HttpHeaders(
     {
       'Content-Type':'application/json',
-      Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDRhZjBiNTRlMWZhMzBlN2ZkM2Y4ZWEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODMwNTY3MjUsImV4cCI6MTY4MzA2MDMyNX0.9-VafdtJaWZEZgrtx44cP2oz-FfFYSHHHNIW96VetDI'
+      authorization: `${token}`
     }
   )
 };
+console.log(token);
 
 }
 
@@ -37,15 +39,6 @@ getAllOrders():Observable<IOrder[]>{
  
 
   //return this.httpClient.get<IOrder[]>(`http://localhost:3001/orders`, { headers: this.headers, responseType: 'json' });
-
-
-
-
-  
-
-
-
-
 
 
 
