@@ -62,7 +62,7 @@ function App() {
     }
     setCart([...cart, item]);
   };
-products/bylimitbylimit?limit=**&skip=**
+
   const handleChange = (item, d) => {
     let ind = -1;
     cart.forEach((data, index) => {
