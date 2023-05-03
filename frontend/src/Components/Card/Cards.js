@@ -13,7 +13,7 @@ import favAdd from "../../Store/actions/add";
 const Cards = ({ item, handleClick }) => {
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
-  const { ItemNameEn, desc, PriceOnSale, Images, id } = item;
+  const { ItemNameEn, desc, PriceOnSale, Images, id ,Price} = item;
   const navigate = useNavigate();
 
   // console.log(item)
@@ -57,7 +57,7 @@ const Cards = ({ item, handleClick }) => {
         <h2 className="text-dark mt-3 fs-4 fw-bold">{ItemNameEn}</h2>
         <div className="row">
           <h5 className=" col-lg-6 col-sm-12 text-dark d-flex align-items-end">
-            {t("Price")} - {PriceOnSale}
+            {t("Price")} - {Price}
           </h5>
           <div className="col-lg-6 col-sm-12 mt-4">
             <Link to={`/details/${id}`}>

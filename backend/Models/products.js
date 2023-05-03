@@ -38,6 +38,18 @@ const ProdutsSchema = mongoose.Schema({
     ColorEn: {
         type: String
     },
+    Graphics:{
+        type: String
+    },
+    Display:{
+        type: String
+    },
+    OperatingSystem:{
+        type: String
+    },
+    Keyboard:{
+        type: String
+    },
     ColorAr: {
         type: String
     },
