@@ -63,7 +63,10 @@ login(email: string, password: string): Observable<boolean> {
   return this.http.post<any>('http://localhost:3001/users/admin/login', { email, password }).pipe(
     map(response => {
       if (response && response.accessToken) {
-        localStorage.setItem('currentUser', JSON.stringify({ token: response.accessToken }));
+        console.log(response);
+        
+        localStorage.setItem('currentUser', JSON.stringify(response.accessToken ));
+        console.log(response.accessToken);
         this.isUserLoggedSubject.next(true);
         console.log(this.isUserLoggedSubject);
         
@@ -83,6 +86,7 @@ isAdmin(): boolean {
   const currentUser = JSON.parse(localStorage.getItem('currentUser') as string);
   if (currentUser && currentUser.token) {
     const tokenPayload = JSON.parse(atob(currentUser.token.split('.')[1]));
+    
     return tokenPayload.isAdmin;
   }
   return false;
@@ -99,7 +103,12 @@ getUserStatus():Observable<boolean>{
 
 get UserState():boolean{
 
-  return (localStorage.getItem('token'))?true:false;
+  return (localStorage.getItem('currentUser'))?true:false;
+}
+
+get IsLogin(){
+  const token = localStorage.getItem('currentUser')
+  return token;
 }
 
 setTokenExpiration(expiration: Date) {
