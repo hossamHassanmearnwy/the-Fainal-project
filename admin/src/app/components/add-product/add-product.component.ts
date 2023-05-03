@@ -175,6 +175,7 @@ export class AddProductComponent {
          "outputVoltage":this.outputVoltage,
          "totalPowerOutlets":this.totalPowerOutlets,
          "includedComponents":this.includedComponents,
+         "Categorie":this.selectedCategory,
 
 
          "Images" : this.images,

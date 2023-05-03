@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { OrderServiceService } from 'src/app/services/order-service.service';
 
 
 
@@ -17,7 +18,7 @@ export class UsersComponent {
   tableSizes:any = [5, 10, 15, 20, 25];
   count:number=0;
   page: number = 1
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient, private orderService:OrderServiceService){
     this.getAllUsers();
 
   }
