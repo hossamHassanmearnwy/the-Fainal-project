@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "./Products.css";
 import { useTranslation } from "react-i18next";
-// import productsaxios from "./../../axiosConfig/axiosInstance";
+import productsaxios from "./../../axiosConfig/axiosInstance";
 
 
 const Product = () => { 
-  // const [Products, setProducts] = useState([]);
-  // useEffect(() => {
-  //   productsaxios
-  //     .get("/Products")
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       setProducts(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [setProducts]);
+  const [Products, setProducts] = useState([]);
+  useEffect(() => {
+    productsaxios
+      .get("/Products")
+      .then((res) => {
+        console.log(res.data);
+        setProducts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [setProducts]);
   const {t, i18n} = useTranslation();
   document.body.dir = i18n.dir();
   return (

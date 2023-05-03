@@ -17,18 +17,22 @@ export class OrderServiceService {
   baseUri: string = 'http://localhost:3001/orders';
   //headers = new HttpHeaders().set('Content-Type', 'application/json');
 
+
   private httpOptions = {};
 
 
-  constructor(private httpClient: HttpClient, private userService:UserAuthService) {   
+  constructor(private httpClient: HttpClient, private userService:UserAuthService) {  
+    //const token = localStorage.getItem('currentUser');   
+
 this.httpOptions={
   headers:new HttpHeaders(
     {
       'Content-Type':'application/json',
-      Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDRhZjBiNTRlMWZhMzBlN2ZkM2Y4ZWEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODMwNTI3OTgsImV4cCI6MTY4MzA1NjM5OH0.DFc8J61y9wIq_lrKGkxESVlWI6vNgvHGvTE-L1Q7DPk'
+      authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDRhZjBiNTRlMWZhMzBlN2ZkM2Y4ZWEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODMxMjQxMjIsImV4cCI6MTY4MzEyNzcyMn0.0NLeeD-PLyp0Bb1UBx8kqjOsxkYxB_6d6M_te90-wh0'
     }
   )
 };
+//console.log(token);
 
 }
 
@@ -41,15 +45,6 @@ this.httpOptions={
   }
 
   //return this.httpClient.get<IOrder[]>(`http://localhost:3001/orders`, { headers: this.headers, responseType: 'json' });
-
-
-
-
-  
-
-
-
-
 
 
 
@@ -81,14 +76,12 @@ getOrderByID(oid:number):Observable<IOrder>{
     );
   }
 
-  updateOrder(order: IOrder): Observable<IOrder> {
-    return this.httpClient
-      .patch<IOrder>(
-        `http://localhost:3001/orders/update/${order._id}`,
-        order,
-        this.httpOptions
-      )
-      .pipe(map(() => order));
+
+  updateOrder(order:IOrder):Observable<IOrder>{
+    return this.httpClient.patch<IOrder>(`http://localhost:3001/orders/updateAdmin/${order._id}`,order ,this.httpOptions).pipe(
+      map(()=>order)
+    )
+
   }
 
   // Error handling

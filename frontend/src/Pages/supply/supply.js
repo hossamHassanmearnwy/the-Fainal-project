@@ -11,7 +11,7 @@ export default function Mobiles(handleClick) {
  
   useEffect(() => {
     supplyCat
-      .get("/Categories/6450dfeccac8d03f6ebcc48a")
+      .get("/products/Categories/6450dfeccac8d03f6ebcc48a")
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);
