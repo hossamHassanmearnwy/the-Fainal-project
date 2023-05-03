@@ -98,7 +98,12 @@ export default function ProductDetail({ handleClick, handleChange }) {
             className="sec1 col-lg-6 col-sm-12 p-3"
             style={{ marginBottom: "-20%" }}
           >
-            <img src={product.img} alt="#" className="fluid" height="50%" />
+              <img
+                src={ProductDetail.Images[0]}
+                alt="#"
+                className="fluid"
+                height="50%"
+              />
           </div>
           <div
             className="sec2 col-lg-6 col-sm-12 p-3"

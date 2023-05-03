@@ -39,7 +39,7 @@ export default function BestSec({ handleClick }) {
       });
   }, []);
   useEffect(() => {
-    ProdmobTap.get("/products/bylimit?limit=12&skip=46")
+    ProdmobTap.get("/Products/Categories/6450df16cac8d03f6ebcc484")
       .then((res) => {
         setProductsMobTab(res.data);
         console.log(res.data);
@@ -49,9 +49,9 @@ export default function BestSec({ handleClick }) {
       });
   }, []);
   useEffect(() => {
-    Prodcomplabt.get("/products/bylimit?limit=12&skip=46")
+    Prodcomplabt.get("/Products/Categories/6450df51cac8d03f6ebcc486")
       .then((res) => {
-        setProductsMobTab(res.data);
+        setProductsCompLabt(res.data);
         console.log(res.data);
       })
       .catch((err) => {
@@ -59,9 +59,9 @@ export default function BestSec({ handleClick }) {
       });
   }, []);
   useEffect(() => {
-    ProdPS.get("/products/bylimit?limit=12&skip=46")
+    ProdPS.get("/Products/Categories/6450dfeccac8d03f6ebcc48a")
       .then((res) => {
-        setProductsMobTab(res.data);
+        setProductsPS(res.data);
         console.log(res.data);
       })
       .catch((err) => {
@@ -150,7 +150,7 @@ export default function BestSec({ handleClick }) {
           </Tab.Pane>
           <Tab.Pane eventKey="second">
             <div className="row">
-              {Productstop.map((best) => (
+              {ProductsMobTab.map((best) => (
                 <div className="col-lg-4 col-md-6 col-sm-12">
                   <Sum best={best} key={best.id} handleClick={handleClick} />
                 </div>
@@ -159,7 +159,7 @@ export default function BestSec({ handleClick }) {
           </Tab.Pane>
           <Tab.Pane eventKey="third">
             <div className="row">
-              {ProductsMobTab.map((best) => (
+              {ProductsCompLabt.map((best) => (
                 <div className="col-lg-4 col-md-6 col-sm-12">
                   <Sum best={best} key={best.id} handleClick={handleClick} />
                 </div>
@@ -168,7 +168,7 @@ export default function BestSec({ handleClick }) {
           </Tab.Pane>
           <Tab.Pane eventKey="fourth">
             <div className="row">
-              {ProductsCompLabt.map((best) => (
+              {ProductsPS.map((best) => (
                 <div className="col-lg-4 col-md-6 col-sm-12">
                   <Sum best={best} key={best.id} handleClick={handleClick} />
                 </div>

@@ -14,8 +14,18 @@ const Cards = ({ item, handleClick }) => {
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
   // const { ItemNameEn, desc, PriceOnSale, Images, id ,Price} = item;
-  const { ItemNameEn, DescriptionEn, PriceOnSale, Price, Images, id } = item;
-// >>>>>>> a5889dd7ce94564f2fb7936834238f5923cb7345
+  const {
+    ItemNameEn,
+    ColorAr,
+    ColorEn,
+    ItemNameAr,
+    DescriptionEn,
+    PriceOnSale,
+    Price,
+    Images,
+    id,
+  } = item;
+  // >>>>>>> a5889dd7ce94564f2fb7936834238f5923cb7345
   const navigate = useNavigate();
 
   // console.log(item)
@@ -49,17 +59,22 @@ const Cards = ({ item, handleClick }) => {
       dispatch(removeFav(Fav));
     }
   };
-
+  const currentLanguage = localStorage.getItem("i18nextLng");
   return (
     <div className="cardPro my-3 border border-warning">
       <div className="imgBox">
         <img className="mouse" src={Images[0]} alt="Image" />
       </div>
       <div className="contentBox">
-        <h2 className="text-dark mt-3 fs-4 fw-bold">{ItemNameEn}</h2>
+        <h2 className="text-dark mt-3 fs-4 fw-bold">
+          {currentLanguage === "en" ? ItemNameEn : ItemNameAr}
+        </h2>
         <div className="row">
           <h5 className=" col-lg-6 col-sm-12 text-dark d-flex align-items-end">
             {t("Price")} - {Price}
+          </h5>
+          <h5 className=" col-lg-6 col-sm-12 text-dark d-flex align-items-end">
+            {t("Price")} - {currentLanguage === "en" ? ColorEn : ColorAr}
           </h5>
           <div className="col-lg-6 col-sm-12 mt-4">
             <Link to={`/ProductDetail/${item._id}`}>
@@ -70,7 +85,6 @@ const Cards = ({ item, handleClick }) => {
           </div>
         </div>
         <div className="mt-4 d-flex">
-          {/* <span className='buy border-top px-5'><FaRegHeart className='me-2 fs-3 text-danger' role='button'></FaRegHeart></span> */}
           <span className="buy border-top px-5">
             <i
               className="bi bi-heart text-danger fs-3"
