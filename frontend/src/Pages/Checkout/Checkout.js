@@ -181,20 +181,20 @@ export default function Checkout(cart) {
                   <form onSubmit={(evt) => { handleSubmit(evt) }} >
                     {/* first name */}
                     <label htmlFor='fname' className='label'>{t("First Name")}</label><br />
-                    <input type="text" id="fname" name="newFname" placeholder={('Enter Your') + ("First Name")} value={newAddress.newFname} onChange={(event) => { handleForm(event) }} /><br />
+                    <input type="text" id="fname" name="newFname" placeholder={t('Enter Your') + t("First Name")} value={newAddress.newFname} onChange={(event) => { handleForm(event) }} /><br />
 
                     {/* last name */}
-                    <label htmlFor='lname' className='label'>{("Last Name")}</label><br />
-                    <input type="text" id="lname" name="newLname" placeholder={('Enter Your') + ("Last Name")} value={newAddress.newLname} onChange={(event) => { handleForm(event) }} /><br />
+                    <label htmlFor='lname' className='label'>{t("Last Name")}</label><br />
+                    <input type="text" id="lname" name="newLname" placeholder={t('Enter Your') + t("Last Name")} value={newAddress.newLname} onChange={(event) => { handleForm(event) }} /><br />
                     {/* phone number */}
-                    <label htmlFor='phone' className='label'>{("Mobile Number")}</label><br />
-                    <input type="number" id="phone" name="newPhone" placeholder={('Enter Your') + ("Mobile Number")} value={newAddress.newPhone} onChange={(event) => { handleForm(event) }} />
+                    <label htmlFor='phone' className='label'>{t("Mobile Number")}</label><br />
+                    <input type="number" id="phone" name="newPhone" placeholder={t('Enter Your') + t("Mobile Number")} value={newAddress.newPhone} onChange={(event) => { handleForm(event) }} />
 
                     <br />
                     <br />
 
 
-                    <h2>{('Address')}</h2>
+                    <h2>{t('Address')}</h2>
                     {/* Street */}
                     <label htmlFor='street' className='label'>{t('Street Address')}</label><br />
                     <input type="text" id="street" name="newStreet" placeholder={t('Enter Your') + t("Street Address")} value={newAddress.newStreet} onChange={(event) => { handleForm(event) }} /><br />
@@ -202,7 +202,7 @@ export default function Checkout(cart) {
                     <label htmlFor='city' className='label'>{t('City')}</label><br />
                     <input type="text" id="city" name="newCity" placeholder={t('Enter Your') + t("City")} autoComplete="address-level2" value={newAddress.newCity} onChange={(event) => { handleForm(event) }} /><br />
                     {/* Country */}
-                    <label htmlFor='country' className='label'>{('Country')}</label><br />
+                    <label htmlFor='country' className='label'>{t('Country')}</label><br />
                     <select id="country" name="newCountry" autoComplete='country' placeholder={t('Enter Your') + t("Country")} value={newAddress.newCountry} onChange={(event) => { handleForm(event) }} >
                       <option></option>
                       <option >{('Egypt')}</option>
@@ -219,7 +219,7 @@ export default function Checkout(cart) {
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
-                Close
+                {t('Close')}
               </Button>
             </Modal.Footer>
           </Modal>
