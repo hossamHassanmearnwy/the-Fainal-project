@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IProduct } from 'src/app/models/iproduct';
 import { ProductsService } from 'src/app/services/products.service';
+import { SweetAlertService } from 'src/app/services/sweet-alert.service';
 
 @Component({
   selector: 'app-products',
@@ -10,8 +11,23 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-  // ClintName:string='Fatma'
-  productsListOfCatId: IProduct[]=[]
+////////////////////////////////////
+      // itemName	: string=""
+      // brand : string=""
+      // color: string=""
+      // images:[]=[]	
+      // price	: string=""
+      // onSale	: string=""
+      // priceOnSale 	: string=""
+      // Keyboard	: string=""
+      // memoryRAM	: string=""
+      // internalStorage	: string=""
+      // operatingSystem	: string=""
+      // Processor	: string=""
+      // Battery	: string=""
+      // realCamera	: string=""
+      // graphicsDisplay: string=""
+      ///////////////////////////////////////////////////
   allProductsArray: any[]=[]
     searchTerm: string = '';
     ///////////
@@ -20,8 +36,9 @@ export class ProductsComponent {
   tableSizes:any = [5, 10, 15, 20, 25];
   count:number=0;
   page: number = 1
-  constructor(private http: HttpClient ){
+  constructor(private http: HttpClient, private sweetAlertService: SweetAlertService ){
       this.getAllProducts()
+  
 
   }
 
@@ -36,7 +53,8 @@ export class ProductsComponent {
     console.log(data)
     this.http.delete("http://localhost:3001/products"+"/"+ data._id).subscribe((resultData: any)=>{
       console.log(resultData);
-      alert("Product Deleted Successfully")
+      this.sweetAlertService.showSuccess('Product Deleted Successfully');
+      //alert("Product Deleted Successfully")
       // this.getAllProducts()
     })
 
@@ -47,11 +65,19 @@ export class ProductsComponent {
       this.getAllProducts()
     }else{
       this.allProductsArray = this.allProductsArray.filter(res =>{
-        return res.ItemName.toLocaleLowerCase().match(this.searchData.toLocaleLowerCase())
+        return res.ItemNameEn.toLocaleLowerCase().match(this.searchData.toLocaleLowerCase())
         
       })
     }
+//  gettAllByCat() {
+//  this.allProductsArray.find({Categorie : id })
+//     .populate('categories', 'name');
+// }
 
+//  gettAllByCat(id) {
+//   this.allProductsArray.find({ Categorie: { _id: id } }) .populate('Categorie', 'catNameEn');
+//   
+// }
 
   }
 
@@ -67,3 +93,7 @@ onTableSizeChange(event:any): void{
   this.getAllProducts()
 }
 }
+function gettAllByCat() {
+  throw new Error('Function not implemented.');
+}
+

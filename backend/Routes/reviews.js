@@ -14,8 +14,9 @@ router.get('/',async (req,res,next)=>{
         })
         if (listedReviews.length === 0 ){
             res.send("No Reviews")
+        }else{
+            res.status(200).json(listedReviews);
         }
-        res.status(200).json(listedReviews);
     } catch (error) {
         res.status(421).json({message: error.message});
     }
@@ -68,9 +69,11 @@ router.delete('/:id',async (req,res,next)=>{
         var deletedReview = await deleteReview(id, review);
         if(!deletedReview || deletedReview.isDeleted){
             res.status(404 ).json({msg: `no review for this id ${id}`})
+        }else{
+            review.isDeleted = true;
+            res.status(200).json({message : "review deleted successfully"});
         }
-        review.isDeleted = true;
-        res.status(200).json({message : "review deleted successfully"});
+        
     } catch (error) {
         res.status(421).json({message: error.message});
     }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICategory } from 'src/app/models/icategory';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { SweetAlertService } from 'src/app/services/sweet-alert.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -14,7 +16,7 @@ export class CategoriesComponent implements OnInit{
   searchTerm: string = '';
   p: number =1;
   cat:ICategory= {} as ICategory;
-  constructor(private catAPI: CategoriesService, private router:Router){
+  constructor(private catAPI: CategoriesService, private router:Router, private sweetAlertService: SweetAlertService){
 
   }
 
@@ -31,16 +33,45 @@ export class CategoriesComponent implements OnInit{
   //})
   }
 
-  delete(val: string){
-    var delBtn = confirm(" Do you want to delete ?");
-    if ( delBtn == true ) {
-      this.catAPI.deleteCat(val).subscribe((data) => {
-      });
-      this.catAPI.getAllCat().subscribe((response) => {
-        this.ListOfCat = response
-      });
-    }
+//   delete(val: string){
+//     //var delBtn = this.sweetAlertService.showError('You need to log in to access this page.') ;
+//     //var delBtn = confirm(`You need to log in to access this page.`);
+// this.sweetAlertService.showError(delBtn ? 'Confirmed' : 'Cancelled');
+//     if ( delBtn == Confirmed ) {
+//       this.catAPI.deleteCat(val).subscribe((data) => {
+//       });
+//       this.catAPI.getAllCat().subscribe((response) => {
+//         this.ListOfCat = response
+//       });
+//     }
+//   }
+
+
+
+
+delete(val: string) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will not be able to recover this category!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.catAPI.deleteCat(val).subscribe((data) => {
+                });
+                this.catAPI.getAllCat().subscribe((response) => {
+                  this.ListOfCat = response
+                });
+      }
+    });
   }
+
+
+
+
+
 
   update(id:string){
     this.router.navigate(['/updateCat',id])

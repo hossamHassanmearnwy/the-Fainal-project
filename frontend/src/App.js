@@ -144,7 +144,7 @@ function App() {
               </Protected >
             } />
 
-            <Route path="/fav" element={<Protected > <Favourites handleClick={handleClick} /> </Protected>} />
+              <Route path="/fav" element={<Protected > <Favourites handleClick={handleClick} /> </Protected>} />
 
 
           <Route path="product" element={<Productpage />} />

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { Router } from '@angular/router';
 import { ICategory } from 'src/app/models/icategory';
+import { SweetAlertService } from 'src/app/services/sweet-alert.service';
 
 @Component({
   selector: 'app-add-category',
@@ -11,15 +12,15 @@ import { ICategory } from 'src/app/models/icategory';
 export class AddCategoryComponent implements OnInit {
   cat:ICategory= {} as ICategory;
   ListOfCat:ICategory[]=[];
-  constructor(private catAPI : CategoriesService, private router:Router){
+  constructor(private catAPI : CategoriesService, private router:Router, private sweetAlertService: SweetAlertService){
 
   }
   ngOnInit(): void {
-    this.catAPI.getAllCat().subscribe(response =>{
-      this.ListOfCat = (response as any).data;
-      console.log(response);
+//     this.catAPI.getAllCat().subscribe(response =>{
+//       this.ListOfCat = (response as any).data;
+//       console.log(response);
       
-  })
+//  })
   }
 
   addCat(){
@@ -27,16 +28,21 @@ export class AddCategoryComponent implements OnInit {
   
   
     this.catAPI.addNewCat(this.cat).subscribe({
-      next:(newCat)=>{
-        console.log(newCat);
-        alert("category added successfully")
+      next:(Cat)=>{
+        console.log(Cat);
+        this.sweetAlertService.showSuccess('category added successfully');
+        //alert("category added successfully")
         this.router.navigate(['/category']);
   
       },
       error:(err)=>{
         console.log(err);
-  
-      }
+ 
+      },
+      complete:() => {
+        console.log('Observable completed');
+      },
+      
     })
     }
 

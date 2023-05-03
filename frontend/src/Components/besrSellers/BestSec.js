@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import list from "../../data";
 import Sec from "./../styleSec/style";
 import Sum from "./../styleSec/bestCard";
@@ -6,6 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 import { useTranslation } from "react-i18next";
+import ProductBestSec from "../../axiosConfig/axiosInstance";
 
 export default function BestSec({ handleClick }) {
   const { t, i18n } = useTranslation();
@@ -15,6 +16,17 @@ export default function BestSec({ handleClick }) {
   const handleTabClick = (eventKey) => {
     setActiveTab(eventKey);
   };
+  const [Products, setProducts] = useState([]);
+  useEffect(() => {
+    ProductBestSec.get("/products?limit=6&skip=19")
+      .then((res) => {
+        setProducts(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <Tab.Container id="left-tabs-example" defaultActiveKey="first">

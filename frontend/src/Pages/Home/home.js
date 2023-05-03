@@ -13,16 +13,15 @@ import SummaryProd from "../../Components/summary/summaryProd";
 import productsaxios from "./../../axiosConfig/axiosInstance";
 
 export default function Home({ handleClick }) {
- 
   //  const [warning, setWarning] = useState(false);
 
   const [Products, setProducts] = useState([]);
   useEffect(() => {
     productsaxios
-      .get("/Offers")
+      .get("/Products")
       .then((res) => {
+        // setProducts(res.data);
         console.log(res.data);
-        setProducts(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -69,9 +68,9 @@ export default function Home({ handleClick }) {
       </div>
 
       <div className="container">
-        <Amazon handleClick={handleClick} DatatoComponent={Products}/>
+        <Amazon handleClick={handleClick}  />
 
-        <BestSec handleClick={handleClick} DatatoComponent={Products} />
+        <BestSec handleClick={handleClick}  />
 
         <OffersSlider handleClick={handleClick} DatatoComponent={Products} />
 

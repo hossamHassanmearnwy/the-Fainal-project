@@ -1,36 +1,41 @@
-import React from "react";
-import list from "../../data";
+import React, { useState, useEffect } from "react";
+// import list from "../../data";
 import "../Amazon/amazon.css";
 import Cards from "../Card/Cards";
 import Sec from "./../styleSec/style";
-import offersList from "../../offersData";
+// import offersList from "../../offersData";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
-const Amazon = ({ handleClick, Products }) => {
+import ProductCarddata from "../../axiosConfig/axiosInstance";
+const Amazon = ({ handleClick }) => {
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
-
   const products = useSelector((state) => state.search.products);
   const searchTerm = useSelector((state) => state.search.searchTerm);
+  const [Products, setProducts] = useState([]);
+  useEffect(() => {
+    ProductCarddata.get("/products?limit=14&skip=5")
+      .then((res) => {
+        setProducts(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
-  const filteredProducts = products.filter((item) => {
-    return item.title.toLowerCase().includes(searchTerm.toLowerCase());
-  });
+  // const filteredProducts = Products.filter((item) => {
+  //   return item.title.toLowerCase().includes(searchTerm.toLowerCase());
+  // });
 
   return (
     <>
       <div className="container">
         <Sec header={t("Featured Product")} />
-        <section className="py-5 border-top">
+        <section className="py-5 border-top ">
           <div className="row">
-            {filteredProducts.map((item) => (
-              <Cards item={item} key={item.id} handleClick={handleClick} />
-            ))}
-          </div>
-
-          <div className="row">
-            {filteredProducts.map((item) => (
+            {Products.map((item) => (
               <Cards item={item} key={item.id} handleClick={handleClick} />
             ))}
           </div>

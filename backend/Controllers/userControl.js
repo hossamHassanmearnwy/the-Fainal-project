@@ -42,6 +42,36 @@ async function updateUser(req, res, next) {
     res.status(500).json(err.message);
   }
 }
+//reset password
+async function updateUserPass(req, res, next) {
+  try {
+    const email = req.body.email;
+    const newData = req.body;
+    console.log(newData.password);
+
+    if (newData.password) {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPass = bcrypt.hashSync(newData.password, salt);
+      newData.password = hashedPass;
+    }
+
+       // console.log(email);
+    const user = await userModel.findOneAndUpdate({ email }, { $set: newData }, { new: true });
+    res.status(200).json({ status: "success", user });
+    // res.end();
+    // next();
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+}
+
+
+
+
+
+
+
+
 
 //get all users
 async function getAllUsers(req, res, next) {
@@ -209,5 +239,6 @@ module.exports = {
   Logout,
   getAllUsers,
   updateUser,
+  updateUserPass,
   //   protect,
 };

@@ -5,6 +5,9 @@
 <div class="head">
     <h5>All available Products : <span>{{allProductsArray.length}}</span> Product</h5>
 </div>
+<br/>
+<button type="button" class="btn btn-warning" [routerLink]="['/addProduct']">Add New Product</button>
+<br/>
 <div class="container">
     <div class="header_wrap">
         <div class="num_rows">
@@ -17,8 +20,9 @@
             </div>
         </div>
         <div class="tb_search">
-            <input class="form-control" type="text" name="search" [(ngModel)]="searchData" (ngModelChange)="search()"
-                placeholder="Search With Email">
+            <input class="form-control" type="text" 
+            name="search" [(ngModel)]="searchData" (ngModelChange)="search()"
+                placeholder="Search With Name">
         </div>
     </div>
 
@@ -34,28 +38,40 @@
                 <th scope="col" >#</th>
                 <th scope="col" colspan="2" >Product</th>
                 <th scope="col">Category</th>
-                <th scope="col">Stock</th>
+                <!-- <th scope="col">Stock</th> -->
                 <th scope="col">Price</th>
                 <th scope="col"  colspan="2">Options</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let pro of allProductsArray; let i = index" >
+            <tr *ngFor="let pro of allProductsArray | paginate:{
+                itemsPerPage:tableSize,
+            currentPage:page,
+            totalItems: count,
+            } ; let i = index" >
                 
-                <!-- <td ><img src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"  -->
                     <td>{{i+1}}</td>
                     <td class="">
-                            <img class="" src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-                            height="100px" width="100px"/>
-                            
+                        
+                        <img class="" src={{pro.images}}
+                        height="100px" width="100px"/>
+                        <!-- <img class="" src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                        height="100px" width="100px"/> -->
                         </td>
                         <td>
-                    <p style="width: 200px;">{{pro.itemName}}</p>
+                    <p style="width: 200px;">{{pro.ItemNameEn}}</p>
 
                 </td>
                 
-                <td >{{pro.catId.id}}</td>
-                <td>Otto</td>
+                <td >{{pro.category}}</td>
+                <!-- <td>
+                    <ng-container [ngSwitch]="17">
+                        <ng-container *ngSwitchCase="0">Out Of Stock</ng-container>
+                        <ng-container *ngSwitchCase="1">Last item</ng-container>
+                        <ng-container *ngSwitchCase="2">Last 2 item</ng-container>
+                        <ng-container *ngSwitchDefault></ng-container>
+                    </ng-container>
+                </td> -->
                 <td>{{pro.Price}} EGP</td>
                 <td><button class="editBtn ">Edit</button></td>
                 <td><button class="deleteBtn " (click)="deleteProduct(pro)">Delete</button></td>
@@ -66,8 +82,10 @@
         </tbody>
     </table>
     <div class=" paginate">
-        <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+        <pagination-controls previousLabel="Prev"
+        nextLabel="Next" (pageChange)="onTableDataChange($event)">
     
         </pagination-controls>
     
     </div> 
+    

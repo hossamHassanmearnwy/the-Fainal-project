@@ -1,4 +1,4 @@
-<button class="btn btn-warning mb-4" [routerLink]="['/addOrder']">Add Order</button>
+
 
 <nav class="navbar">
     <input type="text" class="form-control" name="catName" id="catName" [(ngModel)]="searchTerm" (ngModelChange)="Search()" placeholder="Enter User Name">
@@ -8,11 +8,9 @@
     <thead class="table-light">
         <tr>
             <th scope="col" (click)="sort('id')">ID &nbsp;<i class="fa fa-sort text-black-50"></i></th>
-            <th scope="col" (click)="sort('catName')">Date &nbsp;<i class="fa fa-sort text-black-50"></i></th>
             <th scope="col">User</th>
-            <th scope="col">Paid</th>
             <th scope="col">Status</th>
-            <th scope="col">Item</th>
+            <th scope="col">Items</th>
             <th scope="col">Total</th>
             <th scope="col">Action</th>
           </tr>
@@ -21,13 +19,13 @@
         <ng-container *ngFor =" let order of ListOfOrder | orderBy: key: reverse | paginate: {itemsPerPage:5, currentPage:p}; let i = index">
         <tr>
             <th scope="row">{{order._id}}</th>
-            <td>{{order.shippingAddressEn}}</td>
             <td>{{order.userId}}</td>
-            <td><span class="px-2 py-1 bg-success-subtle rounded-3">order.paid</span></td>
             <td><span class="px-2 py-1 bg-danger-subtle rounded-3">{{order.statusEn}}</span></td>
-            <td>{{order.quantity}}</td>
+            <td>{{order.products.quantity}}</td>
             <td>$ {{order.totalPrice}}</td>
-            <td><i class="fa-solid fa-pen-to-square me-3 fs-4 text-success" (click)="update(order._id)" role="button"></i> <i class="fa-solid fa-trash fs-4 text-danger" (click)="delete(order._id)" role="button"></i></td>
+            <td><i class="fa-solid fa-eye me-3 fs-5 text-primary" (click)="details(order._id)" role="button"></i> 
+              <i class="fa-solid fa-pen-to-square me-3 fs-5 text-success" (click)="update(order._id)" role="button"></i>
+               <i class="fa-solid fa-trash fs-5 text-danger" (click)="delete(order._id)" role="button"></i></td>
         
           </tr>
         </ng-container>
