@@ -12,7 +12,9 @@ import favAdd from "../../Store/actions/add";
 const Cards = ({ item, handleClick }) => {
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
-  const { ItemNameEn, DescriptionEn, PriceOnSale, Images, id } = item;
+  const { ItemNameEn, desc, PriceOnSale, Images, id } = item;
+  const navigate = useNavigate();
+
   // console.log(item)
 
   var [Fav, setFav] = useState([]);
