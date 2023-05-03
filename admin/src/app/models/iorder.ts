@@ -8,6 +8,7 @@ export interface IOrder {
     userId:string;
     paid?:string;
     statusEn:string;
+    statusAr?:string;
     quantity: number;
     totalPrice: number;
     data?: any;

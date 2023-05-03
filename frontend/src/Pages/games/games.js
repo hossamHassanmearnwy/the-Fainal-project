@@ -2,16 +2,16 @@ import React from 'react'
 import MainSideBar from './../../Components/MainSideBar/MainSideBar';
 
 import { useEffect, useState } from "react";
-import supplyCat from "./../../axiosConfig/axiosInstance";
+import gamesCat from "./../../axiosConfig/axiosInstance";
 import Cards from './../../Components/Card/Cards';
 
-export default function Mobiles(handleClick) {
+export default function Games(handleClick) {
  
   const [Products, setProducts] = useState([]);
  
   useEffect(() => {
-    supplyCat
-      .get("/products/Categories/6450dfeccac8d03f6ebcc48a")
+    gamesCat
+      .get("/products/Categories/6450df8bcac8d03f6ebcc488")
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);
@@ -31,7 +31,7 @@ export default function Mobiles(handleClick) {
       {Products.map((item) => (
               <Cards item={item} key={item.id} handleClick={handleClick} />
             ))}
-power supply
+games
 
       </div>
     </div>

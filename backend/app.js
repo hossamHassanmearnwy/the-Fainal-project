@@ -59,7 +59,7 @@ app.use("/payment", paymentRoutes);
 app.get("/upload", (req, res) => {
   res.send("upload file");
 });
-app.post("/upload", (req, res) => {
+app.post("/public", (req, res) => {
   upload(req, res, (err) => {
     if (err) {
       console.log(err);
@@ -71,10 +71,6 @@ app.post("/upload", (req, res) => {
           contentType: "image/png",
         },
       });
-      newImage
-        .save()
-        .then(() => res.send("successfully uploaded"))
-        .catch((err) => console.log(err));
     }
   });
 });
