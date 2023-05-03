@@ -30,7 +30,7 @@ export default function MainSideBar() {
                     <ListGroup variant="flush" >
                     <NavLink className={'text-decoration-none'} to='/Mobiles'><ListGroup.Item className='mainNav'><FaMobileAlt /> {t('Mobiles & Tablets')}</ListGroup.Item></NavLink>
                     <NavLink className={'text-decoration-none'} to='/Accessories'><ListGroup.Item className='mainNav'><BiMobileAlt/> {t('Accessories')}</ListGroup.Item></NavLink>
-                    <NavLink className={'text-decoration-none'} to='/cat'><ListGroup.Item className='mainNav'> <CgGames/> {t('Gaming')}</ListGroup.Item></NavLink>
+                    <NavLink className={'text-decoration-none'} to='/Games'><ListGroup.Item className='mainNav'> <CgGames/> {t('Gaming')}</ListGroup.Item></NavLink>
                     <NavLink className={'text-decoration-none'} to='/Computers'><ListGroup.Item className='mainNav'><HiOutlineDesktopComputer /> {t('Computers')}</ListGroup.Item></NavLink>
                     <NavLink className={'text-decoration-none'} to='/Supply'><ListGroup.Item className='mainNav'>{t('Power Supply')}</ListGroup.Item></NavLink>
                     <NavLink className={'text-decoration-none'}  to='/Offers'><ListGroup.Item className='mainNav'>{t('Offers')}</ListGroup.Item></NavLink>
