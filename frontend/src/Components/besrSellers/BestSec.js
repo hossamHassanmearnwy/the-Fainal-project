@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import list from "../../data";
 import Sec from "./../styleSec/style";
 import Sum from "./../styleSec/bestCard";
@@ -6,6 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 import { useTranslation } from "react-i18next";
+import ProductBestSec from "../../axiosConfig/axiosInstance";
 
 export default function BestSec({ handleClick }) {
   const { t, i18n } = useTranslation();
@@ -15,13 +16,24 @@ export default function BestSec({ handleClick }) {
   const handleTabClick = (eventKey) => {
     setActiveTab(eventKey);
   };
+  const [Products, setProducts] = useState([]);
+  useEffect(() => {
+    ProductBestSec.get("/products?limit=6&skip=19")
+      .then((res) => {
+        setProducts(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
       <Sec header={t("Popular Product")} />
       <Row
         className="col-lg-7 mb-0"
-        style={{ position: "relative", left: "43%", top: "110px" }}
+        style={{ position: "", left: "10%", top: "110px" }}
       >
         <Nav
           variant="pills"
@@ -88,14 +100,7 @@ export default function BestSec({ handleClick }) {
         <Tab.Content>
           <Tab.Pane eventKey="first">
             <div className="row">
-              {list.map((best) => (
-                <div className="col-lg-4 col-md-6 col-sm-12">
-                  <Sum best={best} key={best.id} handleClick={handleClick} />
-                </div>
-              ))}
-            </div>
-            <div className="row">
-              {list.map((best) => (
+              {Products.map((best) => (
                 <div className="col-lg-4 col-md-6 col-sm-12">
                   <Sum best={best} key={best.id} handleClick={handleClick} />
                 </div>
@@ -103,13 +108,6 @@ export default function BestSec({ handleClick }) {
             </div>
           </Tab.Pane>
           <Tab.Pane eventKey="second">
-            <div className="row">
-              {list.map((best) => (
-                <div className="col-lg-4 col-md-6 col-sm-12">
-                  <Sum best={best} key={best.id} handleClick={handleClick} />
-                </div>
-              ))}
-            </div>
             <div className="row">
               {list.map((best) => (
                 <div className="col-lg-4 col-md-6 col-sm-12">
@@ -126,22 +124,8 @@ export default function BestSec({ handleClick }) {
                 </div>
               ))}
             </div>
-            <div className="row">
-              {list.map((best) => (
-                <div className="col-lg-4 col-md-6 col-sm-12">
-                  <Sum best={best} key={best.id} handleClick={handleClick} />
-                </div>
-              ))}
-            </div>
           </Tab.Pane>
           <Tab.Pane eventKey="fourth">
-            <div className="row">
-              {list.map((best) => (
-                <div className="col-lg-4 col-md-6 col-sm-12">
-                  <Sum best={best} key={best.id} handleClick={handleClick} />
-                </div>
-              ))}
-            </div>
             <div className="row">
               {list.map((best) => (
                 <div className="col-lg-4 col-md-6 col-sm-12">

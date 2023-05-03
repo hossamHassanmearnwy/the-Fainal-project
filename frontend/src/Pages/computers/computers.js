@@ -1,25 +1,40 @@
-import productsaxios from "./../../axiosConfig/axiosInstance";
-import React, { useEffect, useState } from "react";
+import React from 'react'
+import MainSideBar from './../../Components/MainSideBar/MainSideBar';
 
-export default function Computers() {
-    const [Products, setProducts] = useState([]);
-Products.filter(function(computer){
-    return computer
-})
-    useEffect(() => {
-        productsaxios
-          .get("/Products")
-          .then((res) => {
-            console.log(res.data);
-            setProducts(res.data);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }, []);
+import { useEffect, useState } from "react";
+import computersCat from "./../../axiosConfig/axiosInstance";
+import Cards from './../../Components/Card/Cards';
 
-
+export default function Computers(handleClick) {
+ 
+  const [Products, setProducts] = useState([]);
+ 
+  useEffect(() => {
+    computersCat
+      .get("/Categories/6450df51cac8d03f6ebcc486")
+      .then((res) => {
+        console.log(res.data);
+        setProducts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [setProducts]);
   return (
-    <div>computers</div>
-  )
-}
+    <div>   <div className="mx-5 my-5">
+    <div className="row ">
+      <div className="col-3 ">
+       
+        <MainSideBar />
+      </div>
+      <div className="col-9">
+      {Products.map((item) => (
+              <Cards item={item} key={item.id} handleClick={handleClick} />
+            ))}
+
+
+      </div>
+    </div>
+  </div></div>
+  );
+};

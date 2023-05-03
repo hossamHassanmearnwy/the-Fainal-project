@@ -1,28 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse, } from '@angular/common/http';
-import { map, Observable, throwError,  } from 'rxjs';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse,
+} from '@angular/common/http';
+import { map, Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { IOrder } from '../models/iorder';
 import { UserAuthService } from './user-auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrderServiceService {
-
   baseUri: string = 'http://localhost:3001/orders';
   //headers = new HttpHeaders().set('Content-Type', 'application/json');
-  
-  private httpOptions={};
 
-   
+
+  private httpOptions = {};
+
+
   constructor(private httpClient: HttpClient, private userService:UserAuthService) {  
-    //const token = localStorage.getItem('currentUser');
+    //const token = localStorage.getItem('currentUser');   
+
 this.httpOptions={
   headers:new HttpHeaders(
     {
-      'Content-Type':'application/json',
+      'Content-Type':'application/json'
       authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDRhZjBiNTRlMWZhMzBlN2ZkM2Y4ZWEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODMxMjQxMjIsImV4cCI6MTY4MzEyNzcyMn0.0NLeeD-PLyp0Bb1UBx8kqjOsxkYxB_6d6M_te90-wh0'
     }
   )
@@ -31,12 +36,13 @@ this.httpOptions={
 
 }
 
-getAllOrders():Observable<IOrder[]>{
-  // return this.httpClient.get<IOrder[]>(`${this.baseUri}`);
-  return this.httpClient.get<IOrder[]>(`http://localhost:3001/orders`, this.httpOptions);
+  getAllOrders(): Observable<IOrder[]> {
+    // return this.httpClient.get<IOrder[]>(`${this.baseUri}`);
+    return this.httpClient.get<IOrder[]>(
+      `http://localhost:3001/orders`,
+      this.httpOptions
+    );
   }
-
- 
 
   //return this.httpClient.get<IOrder[]>(`http://localhost:3001/orders`, { headers: this.headers, responseType: 'json' });
 
@@ -48,27 +54,35 @@ getOrderByID(oid:number):Observable<IOrder>{
   return this.httpClient.get<IOrder>(`http://localhost:3001/orders/${oid}`,this.httpOptions);
   }
 
-  addNewOrder(order:IOrder):Observable<IOrder>{
-    return this.httpClient.post<IOrder>(`http://localhost:3001/orders`,JSON.stringify(order),this.httpOptions)
-
+  addNewOrder(order: IOrder): Observable<IOrder> {
+    return this.httpClient.post<IOrder>(
+      `http://localhost:3001/orders`,
+      JSON.stringify(order),
+      this.httpOptions
+    );
   }
 
-  deleteOrder(oid:number):Observable<IOrder>{
-    return this.httpClient.delete<IOrder>(`http://localhost:3001/orders/${oid}`,this.httpOptions)
+  deleteOrder(oid: number): Observable<IOrder> {
+    return this.httpClient.delete<IOrder>(
+      `http://localhost:3001/orders/${oid}`,
+      this.httpOptions
+    );
   }
 
-  getUpdateOrder(oid:string):Observable<IOrder>{
-    return this.httpClient.get<IOrder>(`http://localhost:3001/orders/${oid}`,this.httpOptions)
+  getUpdateOrder(oid: string): Observable<IOrder> {
+    return this.httpClient.get<IOrder>(
+      `http://localhost:3001/orders/${oid}`,
+      this.httpOptions
+    );
   }
+
 
   updateOrder(order:IOrder):Observable<IOrder>{
     return this.httpClient.patch<IOrder>(`http://localhost:3001/orders/updateAdmin/${order._id}`,order ,this.httpOptions).pipe(
       map(()=>order)
     )
+
   }
-
-
-
 
   // Error handling
   errorMgmt(error: HttpErrorResponse) {
@@ -85,19 +99,4 @@ getOrderByID(oid:number):Observable<IOrder>{
       return errorMessage;
     });
   }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-  
-
-

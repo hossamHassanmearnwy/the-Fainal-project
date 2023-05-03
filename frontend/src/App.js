@@ -24,18 +24,18 @@ import NotFound from "./Pages/NotFound/NotFound";
 
 import Product from "./Components/product/product";
 import Productpage from "./Pages/Products/productpage";
-import Home from './Pages/Home/home';
+import Home from "./Pages/Home/home";
 
-import ProductDetail from './Pages/productDetail/ProductDetail';
-import Checkout from './Pages/Checkout/Checkout';
+import ProductDetail from "./Pages/productDetail/ProductDetail";
+import Checkout from "./Pages/Checkout/Checkout";
 import CategoryPage from "./Pages/categories/CategoryPage";
 import Favourites from "./Pages/favorite/fav";
 import Mobiles from "./Pages/mobiles/mobiles";
-import Accessories from './Pages/accessories/accessories';
-import Supply from './Pages/supply/supply';
-import Computers from './Pages/computers/computers';
+import Accessories from "./Pages/accessories/accessories";
+import Supply from "./Pages/supply/supply";
+import Computers from "./Pages/computers/computers";
 import Protected from "./protectedRoutes";
-
+import Games from "./Pages/games/games";
 
 function App() {
   const [show, setShow] = useState(true);
@@ -48,9 +48,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart)); // local storge to save cart in it
   }, [cart]);
-
-
-
 
   const handleClick = (item) => {
     let isPresent = false;
@@ -67,8 +64,6 @@ function App() {
     }
     setCart([...cart, item]);
   };
-
-
 
   const handleChange = (item, d) => {
     let ind = -1;
@@ -102,7 +97,6 @@ function App() {
         <ProjectNav />
         <InternalNav size={cart.length} setShow={setShow} />
 
-
         <Routes>
           {/* <Route path="/cart" element={<Cart/>}/> */}
           {/* // Home // */}
@@ -114,58 +108,73 @@ function App() {
             <Route path="myaccount" element={<MyAccount />} />
             <Route path="myorders" element={<MyOrders />} />
             <Route path="fav" element={<Favourites />} />
-            </Route>
+          </Route>
 
+          {/* <Route path="Fav" element={<Fav />} /> */}
+          <Route
+            path="/useraccount"
+            element={
+              <Protected>
+                <UserAccount />{" "}
+              </Protected>
+            }
+          >
+            <Route index element={<MyAccount />} />
+            <Route path="myaccount" element={<MyAccount />} />
+            <Route path="myorders" element={<MyOrders />} />
+            {/* <Protected></Protected> */}
+            <Route path="fav" element={<Favourites />} />
             {/* <Route path="Fav" element={<Fav />} /> */}
-            <Route path="/useraccount" element={ <Protected ><UserAccount /> </Protected> }> 
-              <Route index element={<MyAccount />} />
-              <Route path="myaccount" element={<MyAccount />} />
-              <Route path="myorders" element={<MyOrders />} />
-              {/* <Protected></Protected> */}
-              <Route path="fav" element={<Favourites />} />
-              {/* <Route path="Fav" element={<Fav />} /> */}
 
-              <Route path="addressbook" element={<AddressBook />} />
-              <Route path="accountinfo" element={<AccountInformation />} />
-              <Route path="*" element={<NotFound />} />
-            </Route>
+            <Route path="addressbook" element={<AddressBook />} />
+            <Route path="accountinfo" element={<AccountInformation />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
 
+          <Route
+            path="/cart"
+            element={
+              <Protected>
+                <Cart
+                  cart={cart}
+                  setCart={setCart}
+                  handleChange={handleChange}
+                  setShow={setShow}
+                  path="/cart"
+                />
+              </Protected>
+            }
+          />
 
-            <Route path="/cart" element={ <Protected >
-
-              <Cart
-                cart={cart}
-                setCart={setCart}
-                handleChange={handleChange}
-                setShow={setShow}
-                path='/cart'
-              /> 
-              </Protected >
-            } />
-
-              <Route path="/fav" element={<Protected > <Favourites handleClick={handleClick} /> </Protected>} />
-
+          <Route
+            path="/fav"
+            element={
+              <Protected>
+                {" "}
+                <Favourites handleClick={handleClick} />{" "}
+              </Protected>
+            }
+          />
 
           <Route path="product" element={<Productpage />} />
 
-          <Route path="/details/:id" element={<ProductDetail handleClick={handleClick} />} />
-
+          <Route
+            path="/details/:id"
+            element={<ProductDetail handleClick={handleClick} />}
+          />
           <Route path="Mobiles" element={<Mobiles />} />
+
           <Route path="computers" element={<Computers />} />
           <Route path="supply" element={<Supply />} />
-          <Route path="accessories" element={<Accessories/>} />
-
+          <Route path="accessories" element={<Accessories />} />
+          <Route path="Games" element={<Games />} />
 
           <Route path="/cat" element={<CategoryPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/checkout" element={
-            <Checkout />
-
-          } />
-
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
 
         <ProjFooter />
