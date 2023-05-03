@@ -44,7 +44,7 @@ const ProdutsSchema = mongoose.Schema({
     OnSale: {
         type: Boolean
     },
-    PriceonSale: {
+    PriceOnSale: {
         type: Number
     },
     Storage: {
@@ -234,7 +234,7 @@ const ProdutsSchema = mongoose.Schema({
     Battery: {
         type: String
     },
-    rearCamera: {
+    realCamera: {
         type: String
     },
     numberOfBatteries: {
