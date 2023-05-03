@@ -198,9 +198,9 @@ export class AddProductComponent {
 
           this.sweetAlertService.showSuccess('Product added Successfully');
           //alert("Product added Successfully")
-      this.itemName  = '',
-      this.brand  = '',
-      this.color = '',
+      // this.itemName  = '',
+      // this.brand  = '',
+      // this.color = '',
 
        
       this.itemNameEn  = '',
