@@ -171,7 +171,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout" element={<Protected> <Checkout /> </Protected>} />
         </Routes>
 
         <ProjFooter />

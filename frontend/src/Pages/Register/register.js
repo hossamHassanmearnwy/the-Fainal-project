@@ -42,7 +42,6 @@ export default function Register() {
   const Gender = watch("Gender");
   const Date = watch("Date");
 
-  // const [formData, setFormData] = useState({});
   const [error, setError] = useState()
 
   const navigate = useNavigate();
@@ -61,15 +60,12 @@ export default function Register() {
     }
   };
   useEffect(() => {
-    watch(); // trigger watch to update errors object
+    watch(); 
   }, [watch]);
 
-  // useEffect(() => {
-  //   console.log(watch("email")); // logs the value of the email field whenever it changes
-  //   console.log(errors.email); // logs the error object for the email field whenever it changes
-  // }, [watch, errors.email]);
+ 
   useEffect(() => {
-    console.log(errors); // log errors whenever the errors object changes
+    console.log(errors); 
   }, [errors]);
 
 
@@ -102,9 +98,7 @@ export default function Register() {
                     {/* {errors.firstName?.type === "required" && `${t('Name Is required')}`} */}
                     {!errors.firstName && !firstName && <span>{t('Name Is required')} *</span>}
 
-                    {/* {firstName && firstName.length ==` ` && (
-        <p className="text-danger">{t('Name Is required')} </p>
-      )} */}
+  
                   </errors>
                 </p>
               </div>
@@ -169,6 +163,7 @@ export default function Register() {
                       `${t('Please specify a valid mobile number')}`}
                     {errors.phoneNumber?.type === "pattern" && `${t('Please specify a valid mobile number')}`}
                     {!errors.phoneNumber && !phoneNumber && <span>{t('Mobile Number is required')} *</span>}
+                    {!errors.phoneNumber && phoneNumber && !phoneNumber.match(/^01[0125][0-9]{8}$/) && <span>{t('Please specify a valid mobile number')}</span>}
 
 
                   </errors>
