@@ -27,7 +27,7 @@ export class OrderServiceService {
 this.httpOptions={
   headers:new HttpHeaders(
     {
-      'Content-Type':'application/json'
+      'Content-Type':'application/json',
       authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDRhZjBiNTRlMWZhMzBlN2ZkM2Y4ZWEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODMxMjQxMjIsImV4cCI6MTY4MzEyNzcyMn0.0NLeeD-PLyp0Bb1UBx8kqjOsxkYxB_6d6M_te90-wh0'
     }
   )
