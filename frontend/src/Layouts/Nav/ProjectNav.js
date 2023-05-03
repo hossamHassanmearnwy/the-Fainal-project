@@ -76,6 +76,7 @@ function ProjectNav() {
                   className="text-dark"
                   onClick={() => {
                     localStorage.removeItem("token");
+                    window.location.reload(true)
                     setIsLoggedIn(false);
                   }}
                 >

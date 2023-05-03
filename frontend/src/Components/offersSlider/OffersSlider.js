@@ -100,14 +100,23 @@ export default function OffersSlider({ handleClick }) {
                   </ListGroup.Item>
                 </ListGroup>
                 <Card.Body>
-                  <Card.Link
+                  {/* <Card.Link
                     className="text-decoration-none addToCart"
                     onClick={() => handleClick(item)}
                   >
                     <BsCartCheckFill className="cartIcon" />
                     {t("Add to Cart")}
-                  </Card.Link>
-                </Card.Body>
+                  </Card.Link> */}
+                  {localStorage.getItem("token") && (
+                    <Card.Link
+                      className="text-decoration-none addToCart"
+                      onClick={() => handleClick(item)}
+                    >
+                      <BsCartCheckFill className="cartIcon" />
+                      {t("Add to Cart")}
+                    </Card.Link>
+                  )}
+                </Card.Body>  
               </Card>
             </div>
           ))}

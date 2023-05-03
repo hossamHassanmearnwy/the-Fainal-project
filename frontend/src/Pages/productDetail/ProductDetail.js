@@ -155,14 +155,14 @@ export default function ProductDetail({ handleClick, handleChange }) {
                 <option value="3">Three</option>
               </Form.Select>
 
-              <Button
+              {localStorage.getItem("token") && (  <Button
                 variant="warning"
                 className="col-lg-6 col-sm-12 text-white text-capitalize rounded-pill fw-bold mt-5 w-50"
                 onClick={() => handleClick(product)}
               >
                 <BsFillCartFill className="text-white fs-4 me-2"></BsFillCartFill>
                 {t("Add to Cart")}{" "}
-              </Button>
+              </Button> )}
             </div>
           </div>
         </div>

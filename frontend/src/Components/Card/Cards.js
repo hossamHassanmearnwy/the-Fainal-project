@@ -25,6 +25,7 @@ const Cards = ({ item, handleClick }) => {
     Images,
     id,
   } = item;
+  // const { ItemNameEn, DescriptionEn, PriceOnSale, Price, Images, id } = item;
   // >>>>>>> a5889dd7ce94564f2fb7936834238f5923cb7345
   const navigate = useNavigate();
 
@@ -37,6 +38,13 @@ const Cards = ({ item, handleClick }) => {
   const dispatch = useDispatch(); // useDispatch return function that calls my actions
 
   const addFav = (e, item) => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      // user not logged in, display popup message
+      navigate("/login");
+      return;
+    }
+
     if (e.target.className !== "bi bi-heart-fill text-danger fs-3") {
       // add to fav
 
@@ -94,7 +102,7 @@ const Cards = ({ item, handleClick }) => {
               role="button"
             ></i>
           </span>
-          <span className="buy border-top px-5">
+          {/* <span className="buy border-top px-5 hidden">
             <BsFillCartFill
               className="me-2 fs-3 text-warning"
               onClick={() => handleClick(item)}
@@ -102,7 +110,16 @@ const Cards = ({ item, handleClick }) => {
             >
               {" "}
             </BsFillCartFill>{" "}
-          </span>
+          </span> */}
+          {localStorage.getItem("token") && (
+            <span className="buy border-top px-5">
+              <BsFillCartFill
+                className="me-2 fs-3 text-warning"
+                onClick={() => handleClick(item)}
+                role="button"
+              />
+            </span>
+          )}
         </div>
       </div>
     </div>
