@@ -16,9 +16,9 @@ function getAll(limit = 3, skip = 0) {
 }
 
 //get all limit
-// function getAll(limit,skip){
-//        return ProductsModel.find().limit(limit).skip(skip)
-//     }
+function getAllbylimit(limit,skip){
+       return ProductsModel.find().limit(limit).skip(skip)
+    }
 
 function gettAllById(id) {
   return ProductsModel.findById(id).populate(["offer", "review", "Categorie"]);
@@ -46,4 +46,5 @@ module.exports = {
   gettAllByCat,
   gettAllByOffer,
   gettAllByReview,
+  getAllbylimit
 };

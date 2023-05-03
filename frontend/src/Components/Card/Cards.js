@@ -60,7 +60,7 @@ const Cards = ({ item, handleClick }) => {
             {t("Price")} - {PriceOnSale}
           </h5>
           <div className="col-lg-6 col-sm-12 mt-4">
-            <Link to={`/details/${id}`}>
+            <Link to={`/ProductDetail/${item._id}`}>
               <Button className="me-5 text-white" variant="warning">
                 {t("Details")}
               </Button>

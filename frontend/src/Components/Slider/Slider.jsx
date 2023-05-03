@@ -10,7 +10,7 @@ function Slider() {
 
   useEffect(() => {
     productsaxios
-      .get("/Products")
+      .get("/products/bylimit?limit=5&skip=0")
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);
