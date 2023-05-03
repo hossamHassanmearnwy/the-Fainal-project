@@ -11,7 +11,7 @@ export default function Computers(handleClick) {
  
   useEffect(() => {
     computersCat
-      .get("/Categories/6450df51cac8d03f6ebcc486")
+      .get("/products/Categories/6450df51cac8d03f6ebcc486")
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);
