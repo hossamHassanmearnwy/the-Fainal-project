@@ -19,18 +19,18 @@ export class OrderServiceService {
 
   private httpOptions = {};
 
-  constructor(
-    private httpClient: HttpClient,
-    private userService: UserAuthService
-  ) {
-    this.httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjp0cnVlLCJhZG1pbklkIjoiNjQ1MTc5N2JlNGY2Yjk1NDFiYTM0Y2JiIiwiaWF0IjoxNjgzMDYxMTM1LCJleHAiOjE2ODMxNDc1MzV9.GfzkVwcXrkcyo63vAh9VHokrQ2N3XxuuM-uDiwtYlUE',
-      }),
-    };
-  }
+
+  constructor(private httpClient: HttpClient, private userService:UserAuthService) {   
+this.httpOptions={
+  headers:new HttpHeaders(
+    {
+      'Content-Type':'application/json',
+      Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDRhZjBiNTRlMWZhMzBlN2ZkM2Y4ZWEiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2ODMwNTI3OTgsImV4cCI6MTY4MzA1NjM5OH0.DFc8J61y9wIq_lrKGkxESVlWI6vNgvHGvTE-L1Q7DPk'
+    }
+  )
+};
+
+}
 
   getAllOrders(): Observable<IOrder[]> {
     // return this.httpClient.get<IOrder[]>(`${this.baseUri}`);
@@ -42,11 +42,21 @@ export class OrderServiceService {
 
   //return this.httpClient.get<IOrder[]>(`http://localhost:3001/orders`, { headers: this.headers, responseType: 'json' });
 
-  getOrderByID(oid: number): Observable<IOrder> {
-    return this.httpClient.get<IOrder>(
-      `http://localhost:3001/orders/${oid}`,
-      this.httpOptions
-    );
+
+
+
+  
+
+
+
+
+
+
+
+
+
+getOrderByID(oid:number):Observable<IOrder>{
+  return this.httpClient.get<IOrder>(`http://localhost:3001/orders/${oid}`,this.httpOptions);
   }
 
   addNewOrder(order: IOrder): Observable<IOrder> {

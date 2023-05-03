@@ -67,10 +67,18 @@
             <!-- processor -->
             <div class="row">
                 <div class="col-25">
-                    <label for="processor">Processor</label>
+                    <label for="processor">Processor [ Ar ]</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" [(ngModel)]="processor" id="processor" name="processor" placeholder="PROCESSOR DETAILS">
+                    <input type="text" [(ngModel)]="processorAr" id="processor" name="processor" placeholder="PROCESSOR DETAILS">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="processorEn">Processor [ En ]</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" [(ngModel)]="processorEn" id="processorEn" name="processor" placeholder="PROCESSOR DETAILS">
                 </div>
             </div>
             <!-- battery -->
@@ -89,6 +97,51 @@
                 </div>
                 <div class="col-75">
                     <input type="text" [(ngModel)]="realCamera" id="camera" name="camera" placeholder="CAMERA DETAILS">
+                </div>
+            </div>
+            <!-- number Of Batteries -->
+            <div class="row">
+                <div class="col-25">
+                    <label for="camera">Number Of Batteries</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" [(ngModel)]="numberOfBatteries" id="camera" name="camera" placeholder="CAMERA DETAILS">
+                </div>
+            </div>
+            <!-- battery Average Life Standby -->
+            <div class="row">
+                <div class="col-25">
+                    <label for="camera">Battery Average Life Standby</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" [(ngModel)]="batteryAverageLifeStandby" id="camera" name="camera" placeholder="CAMERA DETAILS">
+                </div>
+            </div>
+            <!-- are Batteries Included -->
+            <div class="row">
+                <div class="col-25">
+                    <label for="camera">Are Batteries Included</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" [(ngModel)]="areBatteriesIncluded" id="camera" name="camera" placeholder="CAMERA DETAILS">
+                </div>
+            </div>
+            <!-- are Batterie sRequired -->
+            <div class="row">
+                <div class="col-25">
+                    <label for="camera">Are Batteries Required</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" [(ngModel)]="areBatteriesRequired" id="camera" name="camera" placeholder="CAMERA DETAILS">
+                </div>
+            </div>
+            <!-- plugFormat -->
+            <div class="row">
+                <div class="col-25">
+                    <label for="camera">Plug Format</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" [(ngModel)]="plugFormat" id="camera" name="camera" placeholder="CAMERA DETAILS">
                 </div>
             </div>
             <!-- graphicsDisplay -->
@@ -115,7 +168,7 @@
                     <label for="ram">Memory Ram</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" [(ngModel)]="memoryRAM" id="ram" name="ram" placeholder="MEMORY RAM DETAILS">
+                    <input type="text" [(ngModel)]="memoryRam" id="ram" name="ram" placeholder="MEMORY RAM DETAILS">
                 </div>
             </div>
             <!-- operating system -->
@@ -214,6 +267,218 @@
         <input type="text" [(ngModel)]="compatibilityEn" id="brand" name="brandName" placeholder="English Color">
     </div>
 </div>
+<!-- CompatibleDevices -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Compatible Devices [ Ar ]</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="compatibleDevicesAr" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Compatible Devices [ En ]</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="compatibleDevicesEn" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- special feature -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Special Feature [ Ar ]</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="specialFeatureAr" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Special Feature [ En ]</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="specialFeatureEn" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- connectivity Technology -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Connectivity Technology [ Ar ]</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="connectivityTechnologyAr" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Connectivity Technology [ En ]</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="connectivityTechnologyEn" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- compatible PhoneModels -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Compatible Phone Models [ Ar ]</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="compatiblePhoneModelsAr" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Compatible Phone Models [ En ]</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="compatiblePhoneModelsEn" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- input Voltage -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Input Voltage</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="inputVoltage" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- output Voltage -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Output Voltage</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="outputVoltage" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- total Power Outlets -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Total Power Outlets</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="totalPowerOutlets" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- included Components -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Included Components</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="includedComponents" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- Amperage -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Amperage</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="amperage" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- totalUspPorts -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Total UspPorts</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="totalUspPorts" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- mountingType -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">mounting Type</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="mountingType" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- unit Count -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Unit Count </label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="unitCount" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- Network -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Network </label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="Network" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- itemWeight -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Item Weight </label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="itemWeight" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- weightLimit -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Weight Limit </label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="weightLimit" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- maximumHeight -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Maximum Height </label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="maximumHeight" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- tripodHeadType -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">TripodHead Type </label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="tripodHeadType" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- foldedSize -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand"> Folded Size </label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="foldedSize" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- screen Size -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Screen Size </label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="screenSize" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- itemHardness -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Item Hardness</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="itemHardness" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
 <!-- work with -->
 <div class="row">
     <div class="col-25">
@@ -229,6 +494,40 @@
     </div>
     <div class="col-75">
         <input type="text" [(ngModel)]="workWithEn" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- brand Material Type -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Brand Material Type [ Ar ]</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="brandMaterialTypeAr" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Brand Material Type [ En ]</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="brandMaterialTypeEn" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<!-- finish Type -->
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Finish Type [ Ar ]</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="finishTypeAr" id="brand" name="brandName" placeholder="English Color">
+    </div>
+</div>
+<div class="row">
+    <div class="col-25">
+        <label for="brand">Finish Type [ En ]</label>
+    </div>
+    <div class="col-75">
+        <input type="text" [(ngModel)]="finishTypeEn" id="brand" name="brandName" placeholder="English Color">
     </div>
 </div>
 <!-- laptop compartment -->

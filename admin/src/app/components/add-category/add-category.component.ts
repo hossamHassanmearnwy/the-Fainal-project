@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { Router } from '@angular/router';
 import { ICategory } from 'src/app/models/icategory';
+import { SweetAlertService } from 'src/app/services/sweet-alert.service';
 
 @Component({
   selector: 'app-add-category',
@@ -11,7 +12,7 @@ import { ICategory } from 'src/app/models/icategory';
 export class AddCategoryComponent implements OnInit {
   cat:ICategory= {} as ICategory;
   ListOfCat:ICategory[]=[];
-  constructor(private catAPI : CategoriesService, private router:Router){
+  constructor(private catAPI : CategoriesService, private router:Router, private sweetAlertService: SweetAlertService){
 
   }
   ngOnInit(): void {
@@ -29,7 +30,8 @@ export class AddCategoryComponent implements OnInit {
     this.catAPI.addNewCat(this.cat).subscribe({
       next:(Cat)=>{
         console.log(Cat);
-        alert("category added successfully")
+        this.sweetAlertService.showSuccess('category added successfully');
+        //alert("category added successfully")
         this.router.navigate(['/category']);
   
       },

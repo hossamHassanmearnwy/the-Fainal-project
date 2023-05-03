@@ -234,7 +234,7 @@ const ProdutsSchema = mongoose.Schema({
     Battery: {
         type: String
     },
-    rearCamera: {
+    realCamera: {
         type: String
     },
     numberOfBatteries: {
