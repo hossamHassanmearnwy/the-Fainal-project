@@ -51,24 +51,46 @@ const routes: Routes = [
     component: UpdateOrderComponent,
     canActivate: [UserAuthheGuard],
   },
-  {path:'', redirectTo: '/dashboard',pathMatch:'full'},
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 
-  
-  {path:'addProduct',component:AddProductComponent},
-  {path:'orderDetail/:id',component:OrdersDetailsComponent},
-  {path:'dashboard',component:DashboardComponent, canActivate:[UserAuthheGuard] },
-  {path:'product',component:ProductsComponent, canActivate:[UserAuthheGuard] },
-  {path:'order',component:OrdersComponent, canActivate:[UserAuthheGuard],},
-  {path:'user',component:UsersComponent, canActivate:[UserAuthheGuard] },
-  {path:'category',component:CategoriesComponent, canActivate:[UserAuthheGuard] },
-  {path:'addCat',component:AddCategoryComponent, canActivate:[UserAuthheGuard] },
-  {path:'updateCat/:id',component:UpdateCategoryComponent, canActivate:[UserAuthheGuard] },
-  {path:'updateOrder/:id',component:UpdateOrderComponent, canActivate:[UserAuthheGuard] },
+  { path: 'addProduct', component: AddProductComponent },
+  { path: 'orderDetail/:id', component: OrdersDetailsComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [UserAuthheGuard],
+  },
+  {
+    path: 'product',
+    component: ProductsComponent,
+    canActivate: [UserAuthheGuard],
+  },
+  { path: 'order', component: OrdersComponent, canActivate: [UserAuthheGuard] },
+  { path: 'user', component: UsersComponent, canActivate: [UserAuthheGuard] },
+  {
+    path: 'category',
+    component: CategoriesComponent,
+    canActivate: [UserAuthheGuard],
+  },
+  {
+    path: 'addCat',
+    component: AddCategoryComponent,
+    canActivate: [UserAuthheGuard],
+  },
+  {
+    path: 'updateCat/:id',
+    component: UpdateCategoryComponent,
+    canActivate: [UserAuthheGuard],
+  },
+  {
+    path: 'updateOrder/:id',
+    component: UpdateOrderComponent,
+    canActivate: [UserAuthheGuard],
+  },
 
-
-  {path:'Login',component:UserLoginComponent,title:'Login page'},
-  {path:'Logout',component:UserLoginComponent,title:'Logout page'},
-  {path:'**',component:NotfoundComponent}//wildcard
+  { path: 'Login', component: UserLoginComponent, title: 'Login page' },
+  { path: 'Logout', component: UserLoginComponent, title: 'Logout page' },
+  { path: '**', component: NotfoundComponent }, //wildcard
 
   { path: 'Login', component: UserLoginComponent, title: 'Login page' },
   { path: 'Logout', component: UserLoginComponent, title: 'Logout page' },

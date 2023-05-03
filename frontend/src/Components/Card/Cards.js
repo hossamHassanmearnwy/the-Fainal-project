@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../Card/cards.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsFillCartFill } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import Button from "react-bootstrap/Button";
@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import removeFav from "../../Store/actions/remove";
 import favAdd from "../../Store/actions/add";
+// import navigate from "react-router-dom";
 
 const Cards = ({ item, handleClick }) => {
   const { t, i18n } = useTranslation();
