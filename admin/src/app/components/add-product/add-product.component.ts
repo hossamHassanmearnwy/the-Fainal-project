@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SweetAlertService } from 'src/app/services/sweet-alert.service';
 
 @Component({
@@ -8,6 +8,9 @@ import { SweetAlertService } from 'src/app/services/sweet-alert.service';
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent {
+  ////////////////////////
+
+  /////////////////////////////////////////////
       itemNameEn	: string=""
       itemNameAr	: string=""
       brandEn : string=""
@@ -85,7 +88,7 @@ export class AddProductComponent {
 
 
 
-      images:[]=[]	
+      images=[]	;
       price	: string=""
       onSale	: string=""
       priceOnSale 	: string=""
@@ -108,7 +111,38 @@ export class AddProductComponent {
   
     }
 
+    // selectImage(event){
+    //   if(event.files.target>0){
+    //     const file = event.target.files[0];
+    //     this.images = file
+    //   }
+
+    // }
+    selectImages(event:any){
+      if (event.target.files.length > 0) {
+      this.images = event.target.files;
+    }
+    }
+    
+ 
+ 
+
+
+
       register(){
+        const formData = new FormData();
+        for(let img of this.images){
+          formData.append('files',img)
+        }
+         this.http.post<any>('http://localhost:3001/upload', formData).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
+
+
+        
+
+        /////////////////////
         let bodyData = {
          "ItemNameEn" : this.itemNameEn,
          "ItemNameAr" : this.itemNameAr,
@@ -176,7 +210,7 @@ export class AddProductComponent {
          "outputVoltage":this.outputVoltage,
          "totalPowerOutlets":this.totalPowerOutlets,
          "includedComponents":this.includedComponents,
-         "Categorie":this.selectedCategory,
+         "Categorie.catNameEn":this.selectedCategory,
 
 
          "Images" : this.images,
@@ -203,7 +237,7 @@ export class AddProductComponent {
       // this.brand  = '',
       // this.color = '',
 
-       
+        
       this.itemNameEn  = '',
       this.itemNameAr  = '',
       this.brandEn  = '',
@@ -239,3 +273,4 @@ export class AddProductComponent {
       }
 
 }
+

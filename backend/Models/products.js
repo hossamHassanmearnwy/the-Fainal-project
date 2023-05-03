@@ -65,9 +65,7 @@ const ProdutsSchema = mongoose.Schema({
         type: String,
         required:true
     },
-    Images: [{
-        type: String
-    }],
+    Images: [],
     // Images : { type : Array , "default" : [] }
     Capacity: {
         type: String
