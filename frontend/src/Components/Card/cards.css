@@ -1,58 +1,11 @@
-/* section{
-    width: 80%;
-    margin: auto;
-    margin-top: 5%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-
-} */
-
-
-
-
-
-
-/* .cards{
-    width: 250px;
-    padding: 20px;
-}
-.cards:hover{
-    box-shadow: 0 10px 10px 10px rgba(0,0,0,0.1);
-    cursor: pointer;
-
-}
-.image_box img{
-    width: 150px;
-    height: 200px;
-}
-.details p:nth-child(1){
-    font-weight: bold;
-}
-.details p:nth-child(2){
-    color: grey;
-    font-size: 0.8rem;
-}
-.details p:nth-child(3){
-    font-weight: bold;
-    color: grey;
-} */
-
-
-
-
-
-
-
-
-
 @import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap");
 
 
 .cardPro {
+  height: auto !important;
   position: relative;
   width: 330px;
-  height: 450px;
+  height: 700px;
   background: white;
   border-radius: 20px;
   overflow: hidden;
@@ -62,7 +15,7 @@
   content: "";
   position: absolute;
   top: -50%;
-  left:0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: #ffce00;
@@ -152,7 +105,7 @@
 .mouse {
   height: 200px;
   width: auto;
-}   
+}
 
 
 

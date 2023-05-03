@@ -6,7 +6,7 @@ const { isAdmin,isUser,auth} = require("../Middleware/auth");
 
 
 //create new user (register)
-router.post("/register", userController.createUser);
+router.post("/register",userController.createUser);
 
 //put
 router.patch("/update/:id", userController.updateUser);

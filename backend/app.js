@@ -6,7 +6,7 @@ var cors = require("cors");
 
 app.use(express.json());
 app.use(cors());
-
+app.use(express.static(__dirname + "/public"));//http://localhost:3001/a/R.jpeg
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
@@ -37,9 +37,8 @@ app.use("/orders", ordersRoutes);
 app.use("/users", userRouters);
 app.use("/cart", cartRouts);
 app.use("/copouns", copounsRoutes);
-app.use("/wishlist", wishlistRoutes)
+app.use("/wishlist", wishlistRoutes);
 app.use("/payment", paymentRoutes);
-
 
 /**error exite  */
 app.use("*", (req, res) => {

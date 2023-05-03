@@ -16,38 +16,49 @@ import { UserLoginComponent } from './components/user-login/user-login.component
 import { UserAuthheGuard } from './Guard/user-authh.guard';
 import { OrdersDetailsComponent } from './orders-details/orders-details.component';
 
-
 const routes: Routes = [
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 
-  {path:'', redirectTo: '/dashboard',pathMatch:'full'},
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [UserAuthheGuard],
+  },
+  {
+    path: 'product',
+    component: ProductsComponent,
+    canActivate: [UserAuthheGuard],
+  },
+  { path: 'order', component: OrdersComponent, canActivate: [UserAuthheGuard] },
+  { path: 'user', component: UsersComponent, canActivate: [UserAuthheGuard] },
+  {
+    path: 'category',
+    component: CategoriesComponent,
+    canActivate: [UserAuthheGuard],
+  },
+  {
+    path: 'addCat',
+    component: AddCategoryComponent,
+    canActivate: [UserAuthheGuard],
+  },
+  {
+    path: 'updateCat/:id',
+    component: UpdateCategoryComponent,
+    canActivate: [UserAuthheGuard],
+  },
+  {
+    path: 'updateOrder/:id',
+    component: UpdateOrderComponent,
+    canActivate: [UserAuthheGuard],
+  },
 
-  {path:'dashboard',component:DashboardComponent},
-  {path:'product',component:ProductsComponent},
-  {path:'order',component:OrdersComponent},
-  {path:'user',component:UsersComponent},
-  {path:'category',component:CategoriesComponent},
-  {path:'addCat',component:AddCategoryComponent},
-  {path:'addProduct',component:AddProductComponent},
-  {path:'updateCat/:id',component:UpdateCategoryComponent},
-  {path:'orderDetail/:id',component:OrdersDetailsComponent},
-  {path:'dashboard',component:DashboardComponent, canActivate:[UserAuthheGuard] },
-  {path:'product',component:ProductsComponent, canActivate:[UserAuthheGuard] },
-  {path:'order',component:OrdersComponent, canActivate:[UserAuthheGuard],},
-  {path:'user',component:UsersComponent, canActivate:[UserAuthheGuard] },
-  {path:'category',component:CategoriesComponent, canActivate:[UserAuthheGuard] },
-  {path:'addCat',component:AddCategoryComponent, canActivate:[UserAuthheGuard] },
-  {path:'updateCat/:id',component:UpdateCategoryComponent, canActivate:[UserAuthheGuard] },
-  {path:'updateOrder/:id',component:UpdateOrderComponent, canActivate:[UserAuthheGuard] },
-
-
-  {path:'Login',component:UserLoginComponent,title:'Login page'},
-  {path:'Logout',component:UserLoginComponent,title:'Logout page'},
-  {path:'**',component:NotfoundComponent}//wildcard
-
+  { path: 'Login', component: UserLoginComponent, title: 'Login page' },
+  { path: 'Logout', component: UserLoginComponent, title: 'Logout page' },
+  { path: '**', component: NotfoundComponent }, //wildcard
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

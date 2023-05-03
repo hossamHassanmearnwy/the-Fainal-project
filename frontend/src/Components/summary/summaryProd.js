@@ -3,22 +3,22 @@ import list from '../../data';
 import Sec from './../styleSec/style';
 import Sum from './../styleSec/sumCard';
 import { useTranslation } from 'react-i18next';
-import productsaxios from "./../../axiosConfig/axiosInstance";
+// import productsaxios from "./../../axiosConfig/axiosInstance";
 
 
 export default function SummaryProd() {
-    const [Products, setProducts] = useState([]);
-    useEffect(() => {
-      productsaxios
-        .get("/Products")
-        .then((res) => {
-          console.log(res.data);
-          setProducts(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }, [setProducts]);
+    // const [Products, setProducts] = useState([]);
+    // useEffect(() => {
+    //   productsaxios
+    //     .get("/Products")
+    //     .then((res) => {
+    //       console.log(res.data);
+    //       setProducts(res.data);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // }, [setProducts]);
     const {t, i18n} = useTranslation();
     document.body.dir = i18n.dir();
     return (
