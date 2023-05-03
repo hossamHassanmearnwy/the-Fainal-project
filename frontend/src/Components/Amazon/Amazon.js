@@ -25,7 +25,10 @@ const Amazon = ({ handleClick, Products }) => {
         <section className="py-5 border-top">
           <div className="row">
             {filteredProducts.map((item) => (
-              <Cards item={item} key={item.id} handleClick={handleClick} />
+              <Cards item={item} key={item.id} handleClick={
+                
+                
+                handleClick} />
             ))}
           </div>
 

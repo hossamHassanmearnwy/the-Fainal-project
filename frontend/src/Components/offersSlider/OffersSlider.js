@@ -9,7 +9,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import offersList from "./../../offersData";
 import { BsCartCheckFill } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
-import productsaxios from "./../../axiosConfig/axiosInstance";
+import productsaxios from "./../../axiosConfig/axiosInstance" ;
 
 
 

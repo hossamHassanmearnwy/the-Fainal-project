@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import '../Card/cards.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BsFillCartFill } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import Button from 'react-bootstrap/Button';
@@ -18,6 +18,8 @@ const Cards = ({ item, handleClick }) => {
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
   const {title, desc, price, img, id} = item;
+  const navigate = useNavigate();
+
   // console.log(item)
 
 
@@ -30,10 +32,13 @@ const Cards = ({ item, handleClick }) => {
 
 
 
-
-
-
-    const addFav=(e,item)=>{
+    const addFav=(e,item)=>{ 
+      const token = localStorage.getItem('token');
+  if (!token) { // user not logged in, display popup message
+    navigate("/login")
+    return;
+  }
+ 
       if( e.target.className !== "bi bi-heart-fill text-danger fs-3"){  // add to fav
 
           e.target.className ="bi bi-heart-fill text-danger fs-3";
