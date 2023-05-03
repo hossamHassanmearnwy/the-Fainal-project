@@ -71,6 +71,7 @@ app.post("/public", (req, res) => {
           contentType: "image/png",
         },
       });
+    }
   });
 });
 //
