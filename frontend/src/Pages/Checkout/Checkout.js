@@ -16,6 +16,7 @@ import Modal from 'react-bootstrap/Modal';
 
 
 export default function Checkout(cart) {
+ 
   const [price, setPrice] = useState(0);
   useEffect(() => {
     handlePrice();
@@ -29,6 +30,8 @@ export default function Checkout(cart) {
       check?.map((item) => (pri += item.amount * item.price));
       setPrice(pri);
     };
+    const { t, i18n } = useTranslation();
+    document.body.dir = i18n.dir();
 
   useEffect(() => {
     localStorage.setItem("checkout", JSON.stringify(check)); // local storge to save cart in it
@@ -117,12 +120,12 @@ export default function Checkout(cart) {
         <input name="plan" className="radio" type="radio" />
         <span className="plan-details">
           <Card.Text className=''>
-            {('Name')} : {newFname} {newLname}<br />
-            {('Street')} : {newStreet}<br />
-            {('City')} : {newCity}<br />
-            {('Country')} : {newCountry}<br />
-            {('Mobile Number')} : {newPhone}<br />
-            {('Zip/Postal Code')} : {newZip}
+            {t('Name')} : {newFname} {newLname}<br />
+            {t('Street')} : {newStreet}<br />
+            {t('City')} : {newCity}<br />
+            {t('Country')} : {newCountry}<br />
+            {t('Mobile Number')} : {newPhone}<br />
+            {t('Zip/Postal Code')} : {newZip}
           </Card.Text>
         </span>
       </label>
@@ -133,7 +136,7 @@ export default function Checkout(cart) {
 
       <div className='row'>
         <div className=' checkoutCard'>
-          <div className='sectionTitle'>SHIPPING ADDRESS</div>
+          <div className='sectionTitle'>{t('Shipping Address')}</div>
           {/* <button className="" type='button' onClick={addNewAddress}>{('Save Address')}</button> */}
           
           <br />
@@ -142,13 +145,13 @@ export default function Checkout(cart) {
               <input name="plan" className="radio" type="radio" checked />
               <span className="plan-details">
                 <Card.Text className=''>
-                  {('Name')} : {Fname} {Lname}<br />
+                  {t('Name')} : {Fname} {Lname}<br />
 
-                  {('Street')} : {street}<br />
-                  {('City')} : {city}<br />
-                  {('Country')} : {country}<br />
-                  {('Mobile Number')} : {phone}<br />
-                  {('Zip/Postal Code')} : {zip}
+                  {t('Street')} : {street}<br />
+                  {t('City')} : {city}<br />
+                  {t('Country')} : {country}<br />
+                  {t('Mobile Number')} : {phone}<br />
+                  {t('Zip/Postal Code')} : {zip}
                 </Card.Text>
               </span>
             </label>
@@ -160,7 +163,7 @@ export default function Checkout(cart) {
 
 
 
-          <button className="newAddressBtn" type='submit' onClick={handleShow}>{('+ New Address')}</button>
+          <button className="newAddressBtn" type='submit' onClick={handleShow}>{t('New Address')}+</button>
 
           <br />
           <br />
@@ -169,7 +172,7 @@ export default function Checkout(cart) {
 
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>SHIPPING ADDRESS</Modal.Title>
+              <Modal.Title>{t('Shipping Address')}</Modal.Title>
 
             </Modal.Header>
             <Modal.Body>
@@ -177,46 +180,46 @@ export default function Checkout(cart) {
                 <div className="popupForm">
                   <form onSubmit={(evt) => { handleSubmit(evt) }} >
                     {/* first name */}
-                    <label htmlFor='fname' className='label'>{("First Name")}</label><br />
-                    <input type="text" id="fname" name="newFname" placeholder={('Enter Your') + ("First Name")} value={newAddress.newFname} onChange={(event) => { handleForm(event) }} /><br />
+                    <label htmlFor='fname' className='label'>{t("First Name")}</label><br />
+                    <input type="text" id="fname" name="newFname" placeholder={t('Enter Your') + t("First Name")} value={newAddress.newFname} onChange={(event) => { handleForm(event) }} /><br />
 
                     {/* last name */}
-                    <label htmlFor='lname' className='label'>{("Last Name")}</label><br />
-                    <input type="text" id="lname" name="newLname" placeholder={('Enter Your') + ("Last Name")} value={newAddress.newLname} onChange={(event) => { handleForm(event) }} /><br />
+                    <label htmlFor='lname' className='label'>{t("Last Name")}</label><br />
+                    <input type="text" id="lname" name="newLname" placeholder={t('Enter Your') + t("Last Name")} value={newAddress.newLname} onChange={(event) => { handleForm(event) }} /><br />
                     {/* phone number */}
-                    <label htmlFor='phone' className='label'>{("Mobile Number")}</label><br />
-                    <input type="number" id="phone" name="newPhone" placeholder={('Enter Your') + ("Mobile Number")} value={newAddress.newPhone} onChange={(event) => { handleForm(event) }} />
+                    <label htmlFor='phone' className='label'>{t("Mobile Number")}</label><br />
+                    <input type="number" id="phone" name="newPhone" placeholder={t('Enter Your') + t("Mobile Number")} value={newAddress.newPhone} onChange={(event) => { handleForm(event) }} />
 
                     <br />
                     <br />
 
 
-                    <h2>{('Address')}</h2>
+                    <h2>{t('Address')}</h2>
                     {/* Street */}
-                    <label htmlFor='street' className='label'>{('Street Address')}</label><br />
-                    <input type="text" id="street" name="newStreet" placeholder={('Enter Your') + ("Street Address")} value={newAddress.newStreet} onChange={(event) => { handleForm(event) }} /><br />
+                    <label htmlFor='street' className='label'>{t('Street Address')}</label><br />
+                    <input type="text" id="street" name="newStreet" placeholder={t('Enter Your') + t("Street Address")} value={newAddress.newStreet} onChange={(event) => { handleForm(event) }} /><br />
                     {/* City */}
-                    <label htmlFor='city' className='label'>{('City')}</label><br />
-                    <input type="text" id="city" name="newCity" placeholder={('Enter Your') + ("City")} autoComplete="address-level2" value={newAddress.newCity} onChange={(event) => { handleForm(event) }} /><br />
+                    <label htmlFor='city' className='label'>{t('City')}</label><br />
+                    <input type="text" id="city" name="newCity" placeholder={t('Enter Your') + t("City")} autoComplete="address-level2" value={newAddress.newCity} onChange={(event) => { handleForm(event) }} /><br />
                     {/* Country */}
-                    <label htmlFor='country' className='label'>{('Country')}</label><br />
-                    <select id="country" name="newCountry" autoComplete='country' placeholder={('Enter Your') + ("Country")} value={newAddress.newCountry} onChange={(event) => { handleForm(event) }} >
+                    <label htmlFor='country' className='label'>{t('Country')}</label><br />
+                    <select id="country" name="newCountry" autoComplete='country' placeholder={t('Enter Your') + t("Country")} value={newAddress.newCountry} onChange={(event) => { handleForm(event) }} >
                       <option></option>
                       <option >{('Egypt')}</option>
 
                     </select><br />
                     {/* ZIP */}
-                    <label htmlFor='zip' className='label'>{('Zip/Postal Code')} </label><br />
+                    <label htmlFor='zip' className='label'>{t('Zip/Postal Code')} </label><br />
                     <input type="text" id="zip" name="newZip" autoComplete="postal-code" value={newAddress.newZip} onChange={(event) => { handleForm(event) }} /><br />
                     <br />
-                    <button className="submit" type='submit' onClick={addNewAddress}>{('Save Address')}</button>
+                    <button className="submit" type='submit' onClick={addNewAddress}>{t('Save Address')}</button>
                   </form>
                 </div>
               </Form>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
-                Close
+                {t('Close')}
               </Button>
             </Modal.Footer>
           </Modal>
@@ -226,15 +229,15 @@ export default function Checkout(cart) {
           {/* ////////////////////////////////////////// */}
         </div>
         <div className=' checkoutCard'>
-          <div className='sectionTitle'>SHIPPING METHODS</div>
+          <div className='sectionTitle'>{t('Shipping Method')}</div>
 
           <Table >
             <thead>
               <tr style={{ color: "#aca7a7", fontWeight: "lighter" }}>
-                <th className="text-start">{("Select")}</th>
-                <th className="text-start">{("Method	Price")}</th>
-                <th>{("Method Title")}</th>
-                <th>{("	Carrier Title")}</th>
+                <th className="text-start">{t("Select")}</th>
+                <th className="text-start">{t("Price")}</th>
+                <th>{t("Method Title")}</th>
+                <th>{t("Carrier Title")}</th>
               </tr>
             </thead>
             <br />
@@ -255,7 +258,7 @@ export default function Checkout(cart) {
                 <td>
                   <label htmlFor="1" >
                     <td className="text-start my-4 ">
-                      <h5>	99 EGP</h5>
+                      <h5>	99 {t('EGP')}</h5>
                     </td>
                   </label>
 
@@ -270,26 +273,26 @@ export default function Checkout(cart) {
               {/* /////////////////////// */}
             </tbody>
           </Table>
-          <h5>Delivery Comment</h5>
-          <textarea rows="4" cols="50" placeholder="Enter Your Comment"></textarea>
+          <h5>{t('Delivery Comment')}</h5>
+          <textarea rows="4" cols="50" placeholder={t("Enter Your Comment")}></textarea>
         </div>
 
 
         {/* ////////////////////////////////////////// */}
         <div className=' checkoutCard'>
-          <div className='sectionTitle'>ORDER SUMMARY</div>
+          <div className='sectionTitle'>{t('Order Summary')}</div>
           <Accordion defaultActiveKey="0" flush>
             <Accordion.Item eventKey="0">
               {/* <Accordion.Header> ITEMS IN CART</Accordion.Header> */}
-              <Accordion.Header>( {check.length } )  ITEMS IN CART</Accordion.Header>
+              <Accordion.Header>( {check.length } )  {t('Items in Cart')}</Accordion.Header>
               <Accordion.Body >
                 <div className='orderSummary'>
                   <Table >
                     <thead>
                       <tr style={{ color: "#aca7a7", fontWeight: "lighter" }}>
-                        <th className="text-start">{("Product")}</th>
-                        <th>{("Title")}</th>
-                        <th>{("Price")}</th>
+                        <th className="text-start">{t("Product")}</th>
+                        <th>{t("Title")}</th>
+                        <th>{t("Price")}</th>
                       </tr>
                     </thead>
                     <br />
@@ -311,7 +314,7 @@ export default function Checkout(cart) {
                             <span >{item.title}</span>
                           </td>
                           <td className="tableData">
-                            <p className="my-4 checkoutPrice">{item.price} EGP</p>
+                            <p className="my-4 checkoutPrice">{item.price} {t('EGP')}</p>
                           </td>
                         </tr>
                       </tbody>
@@ -324,32 +327,32 @@ export default function Checkout(cart) {
             </Accordion.Item>
           </Accordion>
           <hr />
-          <h3>Cart Total</h3>
+          <h3>{t('Cart Total')}</h3>
           <Table>
             <tr>
               <td className="text-start tableData">
-                <h4>CART SUBTOTALl</h4>
+                <h4>{t('CART SUBTOTALl')}</h4>
               </td>
 
               <td className="tableData">
-                <p className="my-4">{price} EGP</p>
+                <p className="my-4">{price} {t('EGP')}</p>
               </td>
             </tr>
             <tr>
               <td className="text-start tableData">
-                <h4>SHIPPING</h4>
+                <h4>{t('Shipping')}</h4>
               </td>
 
               <td className="tableData">
-                <p className="my-4">0 EGP</p>
+                <p className="my-4">0 {t('EGP')}</p>
               </td>
             </tr>
             <tr>
               <td className="text-start tableData">
-                <h4> ORDER TOTAL</h4>
+                <h4> {t('ORDER TOTAL')}</h4>
               </td>
               <td className="tableData checkoutPrice">
-                <p className="my-4">{price} EGP</p>
+                <p className="my-4">{price} {t('EGP')}</p>
               </td>
             </tr>
           </Table>
@@ -357,13 +360,13 @@ export default function Checkout(cart) {
           <tr>
             <td>
               <div className="input-group mb-3">
-                <input type="text" className="form-control " placeholder="Enter Discount Code" />
+                <input type="text" className="form-control " placeholder={t('Enter discount code')} />
 
               </div>
             </td>
             <td>
               <div className="input-group-append">
-                <button className="btn btn-outline-secondary discInput" type="button">Apply Discount</button>
+                <button className="btn btn-outline-secondary discInput" type="button">{t('Apply Discount')}</button>
 
               </div>
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IOrder } from 'src/app/models/iorder';
 import { OrderServiceService } from 'src/app/services/order-service.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -30,22 +31,50 @@ export class OrdersComponent implements OnInit {
  // })
   }
 
-  delete(val: number){
-    var delBtn = confirm(" Do you want to delete ?");
-    if ( delBtn == true ) {
-      this.orderAPI.deleteOrder(val).subscribe((data) => {
-      });
-      this.orderAPI.getAllOrders().subscribe((response) => {
-        this.ListOfOrder = response
-      });
-    }
+  // delete(val: number){
+  //   var delBtn = confirm(" Do you want to delete ?");
+  //   if ( delBtn == true ) {
+  //     this.orderAPI.deleteOrder(val).subscribe((data) => {
+  //     });
+  //     this.orderAPI.getAllOrders().subscribe((response) => {
+  //       this.ListOfOrder = response
+  //     });
+  //   }
+  // }
+
+
+
+
+  delete(val: number) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will not be able to recover this Order!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.orderAPI.deleteOrder(val).subscribe((data) => {
+        });
+        this.orderAPI.getAllOrders().subscribe((response) => {
+          this.ListOfOrder = response
+        });
+      }
+    });
   }
+
+
+
+
 
   update(id:number){
     this.router.navigate(['/updateOrder',id])
     }
 
-
+    details(id:number){
+      this.router.navigate(['/orderDetail',id])
+      }
 
    Search() {
     this.ListOfOrder = this.ListOfOrder.filter(row => {

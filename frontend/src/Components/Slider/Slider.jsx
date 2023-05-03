@@ -29,7 +29,7 @@ function Slider() {
           <Carousel.Item>
             <div className="d-flex justify-content-around">
               <Carousel.Caption>
-                <h2 className="mb-4 text-start">{slide.itemName}</h2>
+                <h2 className="mb-4 text-start">{slide.ItemNameEn}</h2>
                 <p className="mb-4 text-start">{slide.Description}</p>
                 <p className="mb-0 pb-0 text-start">{t("From")}</p>
                 <h1 className="text-start mt-0 ms-0.1">${slide.Price}</h1>
@@ -43,11 +43,7 @@ function Slider() {
                   </Button>
                 </div>
               </Carousel.Caption>
-              <img
-                className="w-50"
-                src="https://drive.google.com/file/d/1vhZ_WSE1GtztwsyLZF0rz9mKEIE9bett/view"
-                alt="slidadatabase"
-              />
+              <img className="w-50" src={slide.Images[0]} alt="slidadatabase" />
             </div>
           </Carousel.Item>
         );

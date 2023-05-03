@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { OrderServiceService } from 'src/app/services/order-service.service';
+=======
+import { SweetAlertService } from 'src/app/services/sweet-alert.service';
+>>>>>>> dccf3a23488df3619e12f92eb47300afc214fed0
 
 
 
@@ -18,7 +22,11 @@ export class UsersComponent {
   tableSizes:any = [5, 10, 15, 20, 25];
   count:number=0;
   page: number = 1
+<<<<<<< HEAD
   constructor(private http: HttpClient, private orderService:OrderServiceService){
+=======
+  constructor(private http: HttpClient, private sweetAlertService: SweetAlertService){
+>>>>>>> dccf3a23488df3619e12f92eb47300afc214fed0
     this.getAllUsers();
 
   }
@@ -38,7 +46,8 @@ export class UsersComponent {
     console.log(data)
     this.http.delete("http://localhost:3001/users"+"/"+ data._id).subscribe((resultData: any)=>{
       console.log(resultData);
-      alert("User Deleted Successfully")
+      this.sweetAlertService.showError('User Deleted Successfully');
+      //alert("User Deleted Successfully")
       this.getAllUsers()
     })
   }
