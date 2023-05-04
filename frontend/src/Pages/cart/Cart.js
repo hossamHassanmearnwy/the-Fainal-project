@@ -8,22 +8,22 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useTranslation } from "react-i18next";
 import Nav from "react-bootstrap/Nav";
-import cartaxios from "./../../axiosConfig/axiosInstance";
+// import cartaxios from "./../../axiosConfig/axiosInstance";
 import { Link } from "react-router-dom";
 
 const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
   const [cartProducts, setcartProducts] = useState([]);
-  useEffect(() => {
-    cartaxios
-      .get("/cart")
-      .then((res) => {
-        console.log(res.data);
-        setcartProducts(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [setcartProducts]);
+  // useEffect(() => {
+  //   cartaxios
+  //     .get("/cart")
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       setcartProducts(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [setcartProducts]);
 
   const [price, setPrice] = useState(0);
   const { t, i18n } = useTranslation();
@@ -81,7 +81,7 @@ const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
                 <td>
                   <div className="border border-warning rounded-pill my-4 w-50">
                     <div className="text-center fs-5">
-                      <span className="amount me-lg-4">{item.amount}</span>
+                      <span className="amount me-lg-4">{0 + item.amount}</span>
                       <span
                         className="border-none"
                         onClick={() => handleChange(item, +1)}

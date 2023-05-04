@@ -1,8 +1,26 @@
-@media only screen and (max-width: 900px) {
+/* @media only screen and (max-width: 900px) {
     .sec2 {
       margin-top: -55%;
     }
     .sec2 {
         margin-bottom: 15%;
       }
+  } */
+
+
+#cont {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 900px) {
+  #cont {
+    display: block;
+
   }
+
+  /* #myIm{
+    height: 300;
+    width: 300;
+   } */
+}

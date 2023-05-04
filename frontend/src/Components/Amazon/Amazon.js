@@ -24,6 +24,7 @@ const Amazon = ({ handleClick }) => {
         console.log(err);
       });
   }, []);
+  
 
   // const filteredProducts = Products.filter((item) => {
   //   return item.title.toLowerCase().includes(searchTerm.toLowerCase());

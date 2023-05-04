@@ -16,7 +16,7 @@ export default function OffersSlider({ handleClick }) {
   document.body.dir = i18n.dir();
   const [Products, setProducts] = useState([]);
   useEffect(() => {
-    OffersSlideraxios.get("/")
+    OffersSlideraxios.get("/products/bylimit?limit=8&skip=0")
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);
@@ -75,7 +75,7 @@ export default function OffersSlider({ handleClick }) {
                 </div>
                 <Card.Img
                   variant="top"
-                  src={item.Images[0]}
+                  src={item.Images}
                   className="slide-img"
                 />
                 <Card.Body>

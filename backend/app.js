@@ -9,7 +9,7 @@ const ImageModel = require("./image.model");
 ///////
 app.use(express.json());
 app.use(cors());
-app.use(express.static(__dirname + "/uploads")); //http://localhost:3001/a/R.jpeg
+app.use(express.static(__dirname + "/uplouds")); //http://localhost:3001/a/R.jpeg
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
@@ -42,17 +42,16 @@ dbConnection();
 
 const storage = multer.diskStorage({
   destination: (req, file, callBack) => {
-    callBack(null,'uploads')
+    callBack(null, "uploads");
   },
   filename: (req, file, callBack) => {
-    callBack(null, `${file.originalname}`)
-  }
-})
-
+    callBack(null, `${file.originalname}`);
+  },
+});
 
 const upload = multer({
-  storage: storage
-})
+  storage: storage,
+});
 
 app.use("/Products", ProductsRoutes);
 app.use("/Offers", OffersRoutes);
@@ -86,16 +85,16 @@ app.get("/upload", (req, res) => {
 // });
 // })
 
-app.post('/upload', upload.array('files'), (req, res, next) => {
+app.post("/upload", upload.array("files"), (req, res, next) => {
   const files = req.files;
   console.log(files);
   if (!files) {
-    const error = new Error('No Image')
-    error.httpStatusCode = 400
-    return next(error)
+    const error = new Error("No Image");
+    error.httpStatusCode = 400;
+    return next(error);
   }
-  res.send('ok');
-})
+  res.send("ok");
+});
 
 //
 

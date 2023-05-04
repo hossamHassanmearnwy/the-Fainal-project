@@ -53,7 +53,7 @@ export default function ProductDetail({ handleClick, handleChange }) {
   }, [cart]);
 
   useEffect(() => {
-    const selectedProduct = list.find((product) => product.id === Number(id));
+    const selectedProduct = list.find((product) => product._id === Number(id));
     console.log(selectedProduct);
     console.log(id);
 
@@ -88,29 +88,31 @@ export default function ProductDetail({ handleClick, handleChange }) {
       dispatch(removeFav(Fav));
     }
   };
-
+  const currentLanguage = localStorage.getItem("i18nextLng");
   return (
     <>
-      (
       <div className="container py-3 my-5">
         <div className="row">
           <div
             className="sec1 col-lg-6 col-sm-12 p-3"
             style={{ marginBottom: "-20%" }}
           >
-              <img
-                src={ProductDetail.Images[0]}
-                alt="#"
-                className="fluid"
-                height="50%"
-              />
+            <img
+              src={ProductDetail.Images}
+              alt="#"
+              className="fluid"
+              height="50%"
+            />
           </div>
           <div
             className="sec2 col-lg-6 col-sm-12 p-3"
             style={{ color: "grey" }}
           >
-            <p className="mb-2 text-start">{t("category name")}</p>
-            <h2 className="textdark text-start">{product.title}</h2>
+            <h2 className="textdark text-start">
+              {currentLanguage === "en"
+                ? ProductDetail.ItemNameEn
+                : ProductDetail.ItemNameAr}
+            </h2>
             <StarRating />
             <p className="mb-2 text-start">
               {t("Availability")}:
@@ -129,14 +131,18 @@ export default function ProductDetail({ handleClick, handleChange }) {
               {t("add to wishlist")}{" "}
             </p>
 
-            <ul className="feat my-3 text-start">
+            {/* <ul className="feat my-3 text-start">
               <li>4.5 inch HD Touch Screen (1280 x 720)</li>
               <li>Android 4.4 KitKat OS</li>
               <li>1.4 GHz Quad Core™ Processor</li>
               <li>20 MP Electro and 28 megapixel CMOS rear camera</li>
-            </ul>
+            </ul> */}
 
-            <p className="mb-3 text-start">{product.desc}</p>
+            <p className="mb-3 text-start">
+              {currentLanguage === "en"
+                ? ProductDetail.DescriptionEn
+                : ProductDetail.DescriptionAr}
+            </p>
 
             <h2 className="text-dark me-2 mb-2 text-start">
               $1,999.00{" "}
@@ -155,19 +161,21 @@ export default function ProductDetail({ handleClick, handleChange }) {
                 <option value="3">Three</option>
               </Form.Select>
 
-              {localStorage.getItem("token") && (  <Button
-                variant="warning"
-                className="col-lg-6 col-sm-12 text-white text-capitalize rounded-pill fw-bold mt-5 w-50"
-                onClick={() => handleClick(product)}
-              >
-                <BsFillCartFill className="text-white fs-4 me-2"></BsFillCartFill>
-                {t("Add to Cart")}{" "}
-              </Button> )}
+              {localStorage.getItem("token") && (
+                <Button
+                  variant="warning"
+                  className="col-lg-6 col-sm-12 text-white text-capitalize rounded-pill fw-bold mt-5 w-50"
+                  onClick={() => handleClick(product)}
+                >
+                  <BsFillCartFill className="text-white fs-4 me-2"></BsFillCartFill>
+                  {t("Add to Cart")}{" "}
+                </Button>
+              )}
             </div>
           </div>
         </div>
       </div>
-      )
+            
     </>
   );
 }
