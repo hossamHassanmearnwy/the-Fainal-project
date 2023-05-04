@@ -5,6 +5,9 @@ import { OrderServiceService } from 'src/app/services/order-service.service';
 
 import { SweetAlertService } from 'src/app/services/sweet-alert.service';
 
+import Swal from 'sweetalert2';
+
+
 
 
 
@@ -39,16 +42,44 @@ export class UsersComponent {
     
   }
 
-  deleteUser(data : any){
-    // throw new Error ("Method not implemented")
-    console.log(data)
-    this.http.delete("http://localhost:3001/users"+"/"+ data._id).subscribe((resultData: any)=>{
+  // deleteUser(data : any){
+  //   // throw new Error ("Method not implemented")
+  //   console.log(data)
+  //   this.http.delete("http://localhost:3001/users"+"/"+ data._id).subscribe((resultData: any)=>{
+  //     console.log(resultData);
+  //     this.sweetAlertService.showSuccess('User Deleted Successfully');
+  //     //alert("User Deleted Successfully")
+  //     this.getAllUsers()
+  //   })
+  // }
+
+
+
+  deleteUser(data : any) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will not be able to recover this category!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.http.delete("http://localhost:3001/users"+"/"+ data._id).subscribe((resultData: any)=>{
       console.log(resultData);
-      this.sweetAlertService.showError('User Deleted Successfully');
+      this.sweetAlertService.showSuccess('User Deleted Successfully');
       //alert("User Deleted Successfully")
       this.getAllUsers()
     })
+      }
+    });
   }
+
+
+
+
+
+
 
   search(){
     if(this.searchData ==""){

@@ -11,20 +11,17 @@ const catModel=require("../Models/categories")
 // @access: puplic
 
 exports.getCategories = expressAsyncHandler(async(req , res) => {
-        const page =req.query.page * 1 || 1;
-        const limit = req.query.limit * 1 || 4;
-        const skip = (page - 1)* limit;
-        const categories = await catModel.find({}).skip(skip).limit(limit);
-        var receivedCategories = categories.filter((category)=>{
-                return (!category.isDeleted)
-        })
-        if(receivedCategories.length >0){
-                res.status(200 ).json({results: receivedCategories.length,page, data: receivedCategories})
-        }else{
-                res.json({msg: "No categories found"})
-        }
-        
+
+        // const page =req.query.page * 1 || 1;
+        // const limit = req.query.limit * 1 || 4;
+        // const skip = (page - 1)* limit;
+        //const categories = await catModel.find({}).skip(skip).limit(limit);
+        const categories = await catModel.find({});
+        res.status(200 ).json({results: categories.length, data: categories})
+        //res.status(200 ).json({results: categories.length,page, data: categories})
+
 });
+
 
 
 // @desc: GET specific category
@@ -64,7 +61,6 @@ exports.getCategory = expressAsyncHandler(async(req , res) => {
 exports.createCategory = (category) =>{
         return catModel.create(category);
       }
-
 
 
 

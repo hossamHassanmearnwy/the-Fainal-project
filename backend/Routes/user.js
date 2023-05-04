@@ -20,11 +20,15 @@ router.post("/login", userController.login);
 //get all users   ,isAdmin
 router.get("/", userController.getAllUsers);
 
+
+//get count users 
+router.get("/count", userController.getCountUsers);
+
 //get user by id
 router.get("/:id",auth, userController.getUserById);
 
 //delete by id
-router.delete("/:id", isAdmin, userController.deleteUser);
+router.delete("/:id", userController.deleteUser);
 
 //Admin Login
 router.post("/admin/login", userController.adminLogin);
