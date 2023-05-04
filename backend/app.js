@@ -9,7 +9,7 @@ const ImageModel = require("./image.model");
 ///////
 app.use(express.json());
 app.use(cors());
-app.use(express.static(__dirname + "/public")); //http://localhost:3001/a/R.jpeg
+app.use(express.static(__dirname + "/uploads")); //http://localhost:3001/a/R.jpeg
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
@@ -42,10 +42,10 @@ dbConnection();
 
 const storage = multer.diskStorage({
   destination: (req, file, callBack) => {
-    callBack(null, 'public')
+    callBack(null,'uploads')
   },
   filename: (req, file, callBack) => {
-    callBack(null, `FunOfHeuristic_${file.originalname}`)
+    callBack(null, `${file.originalname}`)
   }
 })
 
