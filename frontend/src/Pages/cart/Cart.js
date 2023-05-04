@@ -8,22 +8,22 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useTranslation } from "react-i18next";
 import Nav from "react-bootstrap/Nav";
-// import cartaxios from "./../../axiosConfig/axiosInstance";
+import cartaxios from "./../../axiosConfig/axiosInstance";
 import { Link } from "react-router-dom";
 
 const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
   const [cartProducts, setcartProducts] = useState([]);
-  // useEffect(() => {
-  //   cartaxios
-  //     .get("/cart")
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       setcartProducts(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [setcartProducts]);
+  useEffect(() => {
+    cartaxios
+      .get("/cart")
+      .then((res) => {
+        console.log(res.data);
+        setcartProducts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 
   const [price, setPrice] = useState(0);
   const { t, i18n } = useTranslation();

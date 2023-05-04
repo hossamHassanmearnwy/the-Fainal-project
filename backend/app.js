@@ -9,7 +9,7 @@ const ImageModel = require("./image.model");
 ///////
 app.use(express.json());
 app.use(cors());
-app.use(express.static(__dirname + "/uplouds")); //http://localhost:3001/a/R.jpeg
+app.use(express.static(__dirname + "/public")); //http://localhost:3001/a/R.jpeg
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();

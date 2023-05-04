@@ -29,7 +29,7 @@ export default function BestSec({ handleClick }) {
   //limit=12&skip=46
   //limit=12&skip=46
   useEffect(() => {
-    Prodstop.get("/products/bylimit?limit=12&skip=22")
+    Prodstop.get("Summaryaxios")
       .then((res) => {
         setProductstop(res.data);
         console.log(res.data);
