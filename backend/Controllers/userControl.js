@@ -90,6 +90,27 @@ async function getAllUsers(req, res, next) {
   }
 }
 
+
+
+
+//get count users
+async function getCountUsers(req, res, next) {
+  try {
+    const users = await userModel.find();
+    const count = users.length;
+    res.json({ count });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
+
+
+
+
+
+
+
 //get by id
 async function getUserById(req, res, next) {
   try {
@@ -238,6 +259,7 @@ module.exports = {
   getUserById,
   Logout,
   getAllUsers,
+  getCountUsers,
   updateUser,
   updateUserPass,
   //   protect,
