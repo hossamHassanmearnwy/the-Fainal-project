@@ -39,7 +39,7 @@ export default function BestSec({ handleClick }) {
       });
   }, []);
   useEffect(() => {
-    ProdmobTap.get("/Products/Categories/6450df16cac8d03f6ebcc484")
+    ProdmobTap.get("/Products/bylimit?limit=3&skip=12")
       .then((res) => {
         setProductsMobTab(res.data);
         console.log(res.data);

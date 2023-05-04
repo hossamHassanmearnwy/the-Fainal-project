@@ -43,45 +43,9 @@ export default function ProjFooter() {
           </a>
         </section>
 
-        <section className="d-block">
-          <form action="">
-            <Row className="d-flex justify-content-center">
-              <Col size="auto">
-                <p className="pt-2">
-                  <strong>{t("Sign up for our newsletter")}</strong>
-                </p>
-              </Col>
+        <section className="d-block"></section>
 
-              <Col md="5" start>
-                <Form.Control
-                  contrast
-                  type="email"
-                  label="Email address"
-                  className="mb-4 border-warning"
-                />
-              </Col>
-
-              <Col size="auto">
-                <Button
-                  outline
-                  type="submit"
-                  className="mb-4 btn-warning text-white"
-                >
-                  {t("Subscribe")}
-                </Button>
-              </Col>
-            </Row>
-          </form>
-        </section>
-
-        <section className="mb-4 d-block">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-            distinctio earum repellat quaerat voluptatibus placeat nam, commodi
-            optio pariatur est quia magnam eum harum corrupti dicta, aliquam
-            sequi voluptate quas.
-          </p>
-        </section>
+        <section className="mb-4 d-block"></section>
 
         <section className="d-block">
           <Row>
@@ -133,11 +97,11 @@ export default function ProjFooter() {
   );
 }
 /**
- * 
+ *
  * 1 0
- * 11 
- * 3 
- * 9 
+ * 11
+ * 3
+ * 9
  * 4
  * 1
  * 4
