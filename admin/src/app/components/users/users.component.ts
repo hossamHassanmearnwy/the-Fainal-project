@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-<<<<<<< HEAD
+
 import { OrderServiceService } from 'src/app/services/order-service.service';
-=======
+
 import { SweetAlertService } from 'src/app/services/sweet-alert.service';
->>>>>>> dccf3a23488df3619e12f92eb47300afc214fed0
+import Swal from 'sweetalert2';
+
 
 
 
@@ -22,11 +23,9 @@ export class UsersComponent {
   tableSizes:any = [5, 10, 15, 20, 25];
   count:number=0;
   page: number = 1
-<<<<<<< HEAD
-  constructor(private http: HttpClient, private orderService:OrderServiceService){
-=======
+
   constructor(private http: HttpClient, private sweetAlertService: SweetAlertService){
->>>>>>> dccf3a23488df3619e12f92eb47300afc214fed0
+
     this.getAllUsers();
 
   }
@@ -41,16 +40,44 @@ export class UsersComponent {
     
   }
 
-  deleteUser(data : any){
-    // throw new Error ("Method not implemented")
-    console.log(data)
-    this.http.delete("http://localhost:3001/users"+"/"+ data._id).subscribe((resultData: any)=>{
+  // deleteUser(data : any){
+  //   // throw new Error ("Method not implemented")
+  //   console.log(data)
+  //   this.http.delete("http://localhost:3001/users"+"/"+ data._id).subscribe((resultData: any)=>{
+  //     console.log(resultData);
+  //     this.sweetAlertService.showSuccess('User Deleted Successfully');
+  //     //alert("User Deleted Successfully")
+  //     this.getAllUsers()
+  //   })
+  // }
+
+
+
+  deleteUser(data : any) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will not be able to recover this category!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.http.delete("http://localhost:3001/users"+"/"+ data._id).subscribe((resultData: any)=>{
       console.log(resultData);
-      this.sweetAlertService.showError('User Deleted Successfully');
+      this.sweetAlertService.showSuccess('User Deleted Successfully');
       //alert("User Deleted Successfully")
       this.getAllUsers()
     })
+      }
+    });
   }
+
+
+
+
+
+
 
   search(){
     if(this.searchData ==""){

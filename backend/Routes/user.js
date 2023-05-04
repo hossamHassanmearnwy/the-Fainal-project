@@ -20,6 +20,10 @@ router.post("/login", userController.login);
 //get all users   ,isAdmin
 router.get("/", userController.getAllUsers);
 
+
+//get count users 
+router.get("/count", userController.getCountUsers);
+
 //get user by id
 router.get("/:id",auth, userController.getUserById);
 

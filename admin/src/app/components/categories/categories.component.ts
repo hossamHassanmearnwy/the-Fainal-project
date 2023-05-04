@@ -18,15 +18,16 @@ export class CategoriesComponent implements OnInit{
   cat:ICategory= {} as ICategory;
   constructor(private catAPI: CategoriesService, private router:Router, private sweetAlertService: SweetAlertService){
 
+
   }
 
 
   ngOnInit(): void {
-  this.catAPI.getAllCat().subscribe(response =>{
-    this.ListOfCat = (response as any).data;
-    console.log(response);
-    
-  })
+    this.catAPI.getAllCat().subscribe(response =>{
+      this.ListOfCat = (response as any).data;
+      console.log(response);
+      
+    })
 
   // this.catAPI.getCatByID(3).subscribe(data =>{
   // console.log(data)
@@ -49,7 +50,9 @@ export class CategoriesComponent implements OnInit{
 
 
 
-delete(val: string) {
+
+
+delete(val: any) {
     Swal.fire({
       title: 'Are you sure?',
       text: 'You will not be able to recover this category!',
@@ -59,11 +62,16 @@ delete(val: string) {
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.catAPI.deleteCat(val).subscribe((data) => {
+        this.catAPI.deleteCat(val).subscribe((data: any) => {
+          console.log(data);
+          
+          
+          this.catAPI.getAllCat().subscribe((response) => {
+            this.ListOfCat = response
+          });
+          this.sweetAlertService.showSuccess('category Deleted Successfully');
                 });
-                this.catAPI.getAllCat().subscribe((response) => {
-                  this.ListOfCat = response
-                });
+                
       }
     });
   }

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { IProduct } from 'src/app/models/iproduct';
 import { ProductsService } from 'src/app/services/products.service';
 import { SweetAlertService } from 'src/app/services/sweet-alert.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-products',
@@ -49,16 +50,41 @@ export class ProductsComponent {
 
     })
   }
-  deleteProduct(data :any){
-    console.log(data)
-    this.http.delete("http://localhost:3001/products"+"/"+ data._id).subscribe((resultData: any)=>{
-      console.log(resultData);
-      this.sweetAlertService.showSuccess('Product Deleted Successfully');
-      //alert("Product Deleted Successfully")
-      // this.getAllProducts()
-    })
+  // deleteProduct(data :any){
+  //   console.log(data)
+  //   this.http.delete("http://localhost:3001/products"+"/"+ data._id).subscribe((resultData: any)=>{
+  //     console.log(resultData);
+  //     this.sweetAlertService.showSuccess('Product Deleted Successfully');
+  //     //alert("Product Deleted Successfully")
+  //     // this.getAllProducts()
+  //   })
+  // }
 
+
+
+
+  deleteProduct(data :any){
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will not be able to recover this category!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.http.delete("http://localhost:3001/products"+"/"+ data._id).subscribe((resultData: any)=>{
+          console.log(resultData);
+          this.sweetAlertService.showSuccess('Product Deleted Successfully');
+          //alert("Product Deleted Successfully")
+          // this.getAllProducts()
+        })
+      }
+    });
   }
+
+
+
 
   search(){
     if(this.searchData ==""){

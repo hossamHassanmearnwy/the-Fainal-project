@@ -7,7 +7,7 @@ import { catchError, map, Observable, throwError } from 'rxjs';
 })
 export class CategoriesService {
 
-  baseUri: string = 'http://localhost:3001/Categories';
+  //baseUri: string = 'http://localhost:3001/Categories';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   private httpOptions={};

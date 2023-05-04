@@ -28,7 +28,7 @@ import { UserAuthheGuard } from './Guard/user-authh.guard';
 import { UserAuthService } from './services/user-auth.service'
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { OrdersDetailsComponent } from './orders-details/orders-details.component';
-//import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 
 @NgModule({
@@ -75,11 +75,11 @@ import { OrdersDetailsComponent } from './orders-details/orders-details.componen
     JwtHelperService,
     UserAuthheGuard,
     UserAuthService,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: AuthInterceptorService,
-    //   multi: true
-    //  },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+     },
   ],
   bootstrap: [AppComponent]
 })

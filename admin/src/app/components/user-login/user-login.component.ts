@@ -1,6 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SweetAlertService } from 'src/app/services/sweet-alert.service';
 import { UserAuthService } from 'src/app/services/user-auth.service';
 
 @Component({
@@ -10,7 +12,8 @@ import { UserAuthService } from 'src/app/services/user-auth.service';
 })
 export class UserLoginComponent implements OnInit{
   user:boolean=false;
-  constructor( private userService:UserAuthService, private router: Router){}
+ 
+  constructor( private userService:UserAuthService, private router: Router,private sweetAlertService: SweetAlertService){}
 
 
   
@@ -40,7 +43,7 @@ export class UserLoginComponent implements OnInit{
       const password = this.loginForm.get('password')?.value;
       console.log("inprogress");
       this.userService.login(email, password)
-        .subscribe(response => {
+        .subscribe((response) => {
           console.log(response);
           //if (response==true && response.isAdmin)
           if (response)
@@ -48,16 +51,15 @@ export class UserLoginComponent implements OnInit{
             this.router.navigate(['/dashboard']);
             console.log('Login successfully');
            // this.router.navigate(['/dashboard']);
-          } else {
-            
-            console.log('Login failed');
           }
-        });
-    }
+        },(error: HttpErrorResponse) => {
+          this.sweetAlertService.showError('Invalid Mail or Password');
+        })
   }
 
 
 
 
   
+  }
 }
