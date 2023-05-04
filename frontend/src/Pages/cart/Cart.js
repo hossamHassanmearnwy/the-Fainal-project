@@ -9,8 +9,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { useTranslation } from "react-i18next";
 import Nav from "react-bootstrap/Nav";
 import cartaxios from "./../../axiosConfig/axiosInstance";
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 
 const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
   const [cartProducts, setcartProducts] = useState([]);
@@ -31,7 +30,7 @@ const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
   document.body.dir = i18n.dir();
   const handlePrice = () => {
     let ans = 0;
-    cart.map((item) => (ans += item.amount * item.price));
+    cart.map((item) => (ans += item.amount * item.Price));
     setPrice(ans);
   };
 
@@ -72,12 +71,12 @@ const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
                 <td className="text-start">
                   <img
                     className="imgCart "
-                    src={item.img}
+                    src={item.Images[0]}
                     alt=""
                     width={90}
                     height={90}
                   />
-                  <span className="tit ms-4">{item.title}</span>
+                  <span className="tit ms-4">{item.ItemNameEn}</span>
                 </td>
                 <td>
                   <div className="border border-warning rounded-pill my-4 w-50">
@@ -103,7 +102,7 @@ const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
                   </div>
                 </td>
                 <td>
-                  <p className="my-4">{item.price}</p>
+                  <p className="my-4">{item.Price}</p>
                 </td>
               </tr>
             </tbody>
@@ -112,7 +111,7 @@ const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
 
         <div className="row my-5 pt-3 d-flex justify-content-center align-items-start">
           <div className="gBtn col-lg-6 col-md-12 d-flex align-items-center justify-content-center ">
-            <Nav className='row'>
+            <Nav className="row">
               <Nav.Link href="/home">
                 <Button
                   variant="dark rounded-pill py-2 px-3"
@@ -130,13 +129,11 @@ const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
                   onClick={setCheck}
                 >
                   {t("Proceed to Checkout")}
-
                 </Button>
               </Link>
             </Nav>
           </div>
           <div className="inp col-lg-6 col-md-12" dir="ltr">
-
             <Table className="thecart">
               <thead>
                 <tr>
@@ -144,7 +141,7 @@ const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
                     className="fs-2 border-bottom border-warning text-start"
                     colSpan={3}
                   >
-                    {("Cart Total")}
+                    {"Cart Total"}
                   </th>
                   {/* <th> </th>
         <th> </th> */}
@@ -154,21 +151,21 @@ const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
               <tbody>
                 <tr>
                   <td colSpan={3} className="py-3 text-start">
-                    {("Cart Subtotal")}
+                    {"Cart Subtotal"}
                   </td>
                   {/* <td colSpan={2}>Larry the Bird</td> */}
                   <td className="py-3">${price}</td>
                 </tr>
                 <tr>
                   <td className="py-3 text-start" colSpan={3}>
-                    {("Shipping")}
+                    {"Shipping"}
                   </td>
                   {/* <td colSpan={2}>Larry the Bird</td> */}
                   <td className="py-3">0</td>
                 </tr>
                 <tr>
                   <td className="py-3 text-start" colSpan={3}>
-                    {("Total")}
+                    {"Total"}
                   </td>
                   {/* <td>Larry the Bird</td> */}
                   <td className="py-3">${price}</td>
@@ -176,14 +173,8 @@ const Cart = ({ cart, setCart, handleChange, setShow, setCheck }) => {
               </tbody>
             </Table>
           </div>
-
-
-
         </div>
-
       </div>
-
-
     </div>
   );
 };

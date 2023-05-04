@@ -59,7 +59,7 @@ export default function OffersSlider({ handleClick }) {
   if (windowSize > 1100) {
     settings.slidesToShow = 5;
   }
-
+  const currentLanguage = localStorage.getItem("i18nextLng");
   return (
     <>
       <div className="container ">
@@ -79,12 +79,17 @@ export default function OffersSlider({ handleClick }) {
                   className="slide-img"
                 />
                 <Card.Body>
-                  <Card.Title>{item.ItemNameEn}</Card.Title>
+                  <Card.Title>
+                    {currentLanguage === "eng"
+                      ? item.ItemNameEn
+                      : item.ItemNameAr}
+                  </Card.Title>
                   <Card.Text>{item.desc}</Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                   <ListGroup.Item>
-                    {t("Brand")} : {item.brand}
+                    {t("Brand")} :{" "}
+                    {currentLanguage === "eng" ? item.BrandEn : item.BrandAr}
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <span className="price">
@@ -116,7 +121,7 @@ export default function OffersSlider({ handleClick }) {
                       {t("Add to Cart")}
                     </Card.Link>
                   )}
-                </Card.Body>  
+                </Card.Body>
               </Card>
             </div>
           ))}
