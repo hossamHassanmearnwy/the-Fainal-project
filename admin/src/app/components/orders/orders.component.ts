@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IOrder } from 'src/app/models/iorder';
 import { OrderServiceService } from 'src/app/services/order-service.service';
+import { SweetAlertService } from 'src/app/services/sweet-alert.service';
 import Swal from 'sweetalert2';
 
 
@@ -15,7 +16,7 @@ export class OrdersComponent implements OnInit {
   searchTerm: string = '';
   p: number =1;
   order:IOrder= {} as IOrder;
-  constructor(private orderAPI: OrderServiceService, private router:Router){
+  constructor(private orderAPI: OrderServiceService, private router:Router, private sweetAlertService: SweetAlertService){
 
   }
 
@@ -56,10 +57,11 @@ export class OrdersComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.orderAPI.deleteOrder(val).subscribe((data) => {
+          this.sweetAlertService.showSuccess('order Deleted Successfully');
+
+          this.ListOfOrder = this.ListOfOrder.filter((order) => order._id !== val);
         });
-        this.orderAPI.getAllOrders().subscribe((response) => {
-          this.ListOfOrder = response
-        });
+        
       }
     });
   }
