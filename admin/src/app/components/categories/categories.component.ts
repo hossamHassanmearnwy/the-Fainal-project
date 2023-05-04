@@ -53,28 +53,26 @@ export class CategoriesComponent implements OnInit{
 
 
 delete(val: any) {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'You will not be able to recover this category!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'Cancel'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.catAPI.deleteCat(val).subscribe((data: any) => {
-          console.log(data);
-          
-          
-          this.catAPI.getAllCat().subscribe((response) => {
-            this.ListOfCat = response
-          });
-          this.sweetAlertService.showSuccess('category Deleted Successfully');
-                });
-                
-      }
-    });
-  }
+  Swal.fire({
+    title: 'Are you sure?',
+    text: 'You will not be able to recover this category!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'Cancel'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.catAPI.deleteCat(val).subscribe((data: any) => {
+        console.log(data);
+        this.sweetAlertService.showSuccess('category Deleted Successfully');
+
+        // Remove the deleted category from the list of categories
+        this.ListOfCat = this.ListOfCat.filter((cat) => cat._id !== val);
+
+      }); 
+    }
+  });
+}
 
 
 
