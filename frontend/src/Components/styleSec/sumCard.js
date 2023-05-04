@@ -1,7 +1,7 @@
 import React from "react";
 import "../Card/cards.css";
 import "./style.css";
-
+const currentLanguage = localStorage.getItem("i18nextLng");
 const Sum = ({ props }) => {
   const { ItemNameEn, Price, ItemNameAr, DetailsEn, DetailsAr, Images } = props;
   // console.log(item)
@@ -20,7 +20,10 @@ const Sum = ({ props }) => {
             />
           </div>
           <div className="col-lg-8 ms-4 text-start">
-            <p className="mb-3 fw-bold text-primary">{ItemNameEn}</p>
+            <p className="mb-3 fw-bold text-primary">
+              {" "}
+              {currentLanguage === "en" ? ItemNameEn : ItemNameAr}
+            </p>
             <p className="text-dark">{Price}</p>
           </div>
         </div>
