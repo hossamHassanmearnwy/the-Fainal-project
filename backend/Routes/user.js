@@ -28,7 +28,7 @@ router.get("/count", userController.getCountUsers);
 router.get("/:id",auth, userController.getUserById);
 
 //delete by id
-router.delete("/:id", isAdmin, userController.deleteUser);
+router.delete("/:id", userController.deleteUser);
 
 //Admin Login
 router.post("/admin/login", userController.adminLogin);

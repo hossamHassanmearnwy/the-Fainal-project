@@ -18,7 +18,7 @@ const BestCard = ({ best, handleClick }) => {
           <p className="mb-3 fw-bold text-primary text-start">{ItemNameEn}</p>
 
           <p className=" text-dark text-start ">${Price}</p>
-          <span
+          {localStorage.getItem("token") && (   <span
             className="p-2 circle bg-warning"
             style={{ borderRadius: "50%" }}
             onClick={() => handleClick(best)}
@@ -28,7 +28,7 @@ const BestCard = ({ best, handleClick }) => {
               className="text-white text-end fs-5"
               role="button"
             ></BsFillCartFill>
-          </span>
+          </span> )}
         </div>
       </div>
     </div>

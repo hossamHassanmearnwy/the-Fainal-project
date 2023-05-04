@@ -11,7 +11,7 @@ export default function Accessories(handleClick) {
  
   useEffect(() => {
     accessorirsCat
-      .get("/Categories/6450e03ecac8d03f6ebcc48c")
+      .get("/products/Categories/6450e03ecac8d03f6ebcc48c")
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);

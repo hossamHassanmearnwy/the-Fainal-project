@@ -11,7 +11,7 @@ export default function Games(handleClick) {
  
   useEffect(() => {
     gamesCat
-      .get("/Categories/6450df8bcac8d03f6ebcc488")
+      .get("/products/Categories/6450df8bcac8d03f6ebcc488")
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);

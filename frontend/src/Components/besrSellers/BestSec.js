@@ -6,7 +6,10 @@ import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 import { useTranslation } from "react-i18next";
-import ProductBestSec from "../../axiosConfig/axiosInstance";
+import Prodstop from "../../axiosConfig/axiosInstance";
+import ProdmobTap from "../../axiosConfig/axiosInstance";
+import Prodcomplabt from "../../axiosConfig/axiosInstance";
+import ProdPS from "../../axiosConfig/axiosInstance";
 
 export default function BestSec({ handleClick }) {
   const { t, i18n } = useTranslation();
@@ -16,11 +19,49 @@ export default function BestSec({ handleClick }) {
   const handleTabClick = (eventKey) => {
     setActiveTab(eventKey);
   };
-  const [Products, setProducts] = useState([]);
+
+  const [Productstop, setProductstop] = useState([]);
+  const [ProductsMobTab, setProductsMobTab] = useState([]);
+  const [ProductsCompLabt, setProductsCompLabt] = useState([]);
+  const [ProductsPS, setProductsPS] = useState([]);
+  //limit=12&skip=22
+  //limit=12&skip=34
+  //limit=12&skip=46
+  //limit=12&skip=46
   useEffect(() => {
-    ProductBestSec.get("/products?limit=6&skip=19")
+    Prodstop.get("/products/bylimit?limit=12&skip=22")
       .then((res) => {
-        setProducts(res.data);
+        setProductstop(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  useEffect(() => {
+    ProdmobTap.get("/Products/Categories/6450df16cac8d03f6ebcc484")
+      .then((res) => {
+        setProductsMobTab(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  useEffect(() => {
+    Prodcomplabt.get("/Products/Categories/6450df51cac8d03f6ebcc486")
+      .then((res) => {
+        setProductsCompLabt(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  useEffect(() => {
+    ProdPS.get("/Products/Categories/6450dfeccac8d03f6ebcc48a")
+      .then((res) => {
+        setProductsPS(res.data);
         console.log(res.data);
       })
       .catch((err) => {
@@ -100,7 +141,7 @@ export default function BestSec({ handleClick }) {
         <Tab.Content>
           <Tab.Pane eventKey="first">
             <div className="row">
-              {Products.map((best) => (
+              {Productstop.map((best) => (
                 <div className="col-lg-4 col-md-6 col-sm-12">
                   <Sum best={best} key={best.id} handleClick={handleClick} />
                 </div>
@@ -109,7 +150,7 @@ export default function BestSec({ handleClick }) {
           </Tab.Pane>
           <Tab.Pane eventKey="second">
             <div className="row">
-              {list.map((best) => (
+              {ProductsMobTab.map((best) => (
                 <div className="col-lg-4 col-md-6 col-sm-12">
                   <Sum best={best} key={best.id} handleClick={handleClick} />
                 </div>
@@ -118,7 +159,7 @@ export default function BestSec({ handleClick }) {
           </Tab.Pane>
           <Tab.Pane eventKey="third">
             <div className="row">
-              {list.map((best) => (
+              {ProductsCompLabt.map((best) => (
                 <div className="col-lg-4 col-md-6 col-sm-12">
                   <Sum best={best} key={best.id} handleClick={handleClick} />
                 </div>
@@ -127,7 +168,7 @@ export default function BestSec({ handleClick }) {
           </Tab.Pane>
           <Tab.Pane eventKey="fourth">
             <div className="row">
-              {list.map((best) => (
+              {ProductsPS.map((best) => (
                 <div className="col-lg-4 col-md-6 col-sm-12">
                   <Sum best={best} key={best.id} handleClick={handleClick} />
                 </div>

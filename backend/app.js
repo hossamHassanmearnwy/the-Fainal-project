@@ -9,7 +9,7 @@ const ImageModel = require("./image.model");
 ///////
 app.use(express.json());
 app.use(cors());
-app.use(express.static(__dirname + "/public")); //http://localhost:3001/a/R.jpeg
+app.use(express.static(__dirname + "/uploads")); //http://localhost:3001/a/R.jpeg
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
@@ -33,16 +33,26 @@ const dbConnection = require("./DB/connection");
 dbConnection();
 
 // storage
-const Storage = multer.diskStorage({
-  destination: "uploads",
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
+// const Storage = multer.diskStorage({
+//   destination: "uploads",
+//   filename: (req, file, cb) => {
+//     cb(null, file.originalname);
+//   },
+// });
+
+const storage = multer.diskStorage({
+  destination: (req, file, callBack) => {
+    callBack(null,'uploads')
   },
-});
+  filename: (req, file, callBack) => {
+    callBack(null, `${file.originalname}`)
+  }
+})
+
 
 const upload = multer({
-  storage: Storage,
-}).single("testImage");
+  storage: storage
+})
 
 app.use("/Products", ProductsRoutes);
 app.use("/Offers", OffersRoutes);
@@ -59,21 +69,34 @@ app.use("/payment", paymentRoutes);
 app.get("/upload", (req, res) => {
   res.send("upload file");
 });
-app.post("/public", (req, res) => {
-  upload(req, res, (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      const newImage = new ImageModel({
-        name: req.body.name,
-        image: {
-          data: req.file.filename,
-          contentType: "image/png",
-        },
-      });
-    }
-  });
-});
+// app.post("/public", (req, res) => {
+//   upload(req, res, (err) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       const newImage = new ImageModel({
+//         name: req.body.name,
+//         image: {
+//           data: req.file.filename,
+//           contentType: "image/png",
+//         },
+//       });
+//     }
+//   });
+// });
+// })
+
+app.post('/upload', upload.array('files'), (req, res, next) => {
+  const files = req.files;
+  console.log(files);
+  if (!files) {
+    const error = new Error('No Image')
+    error.httpStatusCode = 400
+    return next(error)
+  }
+  res.send('ok');
+})
+
 //
 
 /**error exite  */

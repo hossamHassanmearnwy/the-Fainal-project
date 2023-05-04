@@ -15,7 +15,7 @@ const Amazon = ({ handleClick }) => {
   const searchTerm = useSelector((state) => state.search.searchTerm);
   const [Products, setProducts] = useState([]);
   useEffect(() => {
-    ProductCarddata.get("/products?limit=14&skip=5")
+    ProductCarddata.get("/products/bylimit?limit=20&skip=5")
       .then((res) => {
         setProducts(res.data);
         console.log(res.data);

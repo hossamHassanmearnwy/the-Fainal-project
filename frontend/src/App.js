@@ -22,8 +22,6 @@ import ForgotPassword from "./Pages/ForgotPassword/forgotPassword";
 import Fav from "./Pages/Favs/favs";
 import NotFound from "./Pages/NotFound/NotFound";
 
-import Product from "./Components/product/product";
-import Productpage from "./Pages/Products/productpage";
 import Home from "./Pages/Home/home";
 
 import ProductDetail from "./Pages/productDetail/ProductDetail";
@@ -156,13 +154,12 @@ function App() {
             }
           />
 
-          <Route path="product" element={<Productpage />} />
-
           <Route
-            path="/details/:id"
+            path="/ProductDetail/:id"
             element={<ProductDetail handleClick={handleClick} />}
           />
           <Route path="Mobiles" element={<Mobiles />} />
+          {/* <Route path="ProductDetail" element={<ProductDetail />} /> */}
 
           <Route path="computers" element={<Computers />} />
           <Route path="supply" element={<Supply />} />
@@ -174,7 +171,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout" element={<Protected> <Checkout /> </Protected>} />
         </Routes>
 
         <ProjFooter />
